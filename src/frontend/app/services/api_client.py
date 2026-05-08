@@ -1,0 +1,148 @@
+from __future__ import annotations
+
+from typing import Any
+
+import requests
+
+
+class ApiClient:
+    def __init__(self, base_url: str, token: str | None = None) -> None:
+        self.base_url = base_url.rstrip("/")
+        self.token = token
+
+    def _request(
+        self,
+        method: str,
+        path: str,
+        payload: dict[str, Any] | None = None,
+        timeout: int = 60,
+    ) -> Any:
+        headers: dict[str, str] = {}
+        if self.token:
+            headers["Authorization"] = f"Bearer {self.token}"
+        url = f"{self.base_url}{path}"
+        response = requests.request(method=method, url=url, headers=headers, json=payload, timeout=timeout)
+        if response.status_code >= 400:
+            try:
+                detail = response.json().get("detail", response.text)
+            except ValueError:
+                detail = response.text
+            raise RuntimeError(f"{response.status_code}: {detail}")
+        if not response.text:
+            return {}
+        try:
+            return response.json()
+        except ValueError:
+            return {}
+
+    def health(self) -> dict[str, Any]:
+        return self._request("GET", "/health")
+
+    def login(self, username: str, password: str) -> dict[str, Any]:
+        return self._request("POST", "/auth/login", payload={"username": username, "password": password})
+
+    def register(self, username: str, email: str, password: str) -> dict[str, Any]:
+        return self._request(
+            "POST", "/auth/register",
+            payload={"username": username, "email": email, "password": password},
+        )
+
+    def forgot_password(self, username: str, email: str) -> dict[str, Any]:
+        return self._request(
+            "POST", "/auth/forgot-password",
+            payload={"username": username, "email": email},
+        )
+
+    def reset_password(self, username: str, otp: str, new_password: str) -> dict[str, Any]:
+        return self._request(
+            "POST", "/auth/reset-password",
+            payload={"username": username, "otp": otp, "new_password": new_password},
+        )
+
+    def predict_drug_to_disease(self, name: str, top_k: int, threshold: float, dataset: str) -> dict[str, Any]:
+        return self._request(
+            "POST",
+            "/predict/drug-to-disease",
+            payload={
+                "name": str(name),
+                "top_k": int(top_k),
+                "threshold": float(threshold),
+                "dataset": dataset,
+            },
+        )
+
+    def predict_disease_to_drug(self, name: str, top_k: int, threshold: float, dataset: str) -> dict[str, Any]:
+        return self._request(
+            "POST",
+            "/predict/disease-to-drug",
+            payload={
+                "name": str(name),
+                "top_k": int(top_k),
+                "threshold": float(threshold),
+                "dataset": dataset,
+            },
+        )
+
+    def history(self) -> list[dict[str, Any]]:
+        return self._request("GET", "/history")
+
+    def list_drugs(self, limit: int = 200, dataset: str | None = None) -> list[dict[str, Any]]:
+        url = f"/drugs?limit={int(limit)}"
+        if dataset:
+            url += f"&dataset={dataset}"
+        return self._request("GET", url)
+
+    def list_diseases(self, limit: int = 200, dataset: str | None = None) -> list[dict[str, Any]]:
+        url = f"/diseases?limit={int(limit)}"
+        if dataset:
+            url += f"&dataset={dataset}"
+        return self._request("GET", url)
+
+    def list_proteins(self, limit: int = 200) -> list[dict[str, Any]]:
+        return self._request("GET", f"/proteins?limit={int(limit)}")
+
+    def get_protein_links(self, protein_id: int) -> dict[str, Any]:
+        return self._request("GET", f"/proteins/{int(protein_id)}/links")
+
+    def list_links(self, limit: int = 300) -> list[dict[str, Any]]:
+        return self._request("GET", f"/links?limit={int(limit)}")
+
+    def stats(self) -> dict[str, Any]:
+        return self._request("GET", "/stats")
+
+    def model_metrics(self) -> dict[str, Any]:
+        return self._request("GET", "/model/metrics")
+
+    def model_compare(self, folder_path: str) -> dict[str, Any]:
+        return self._request("POST", "/model/compare", payload={"folder_path": folder_path})
+
+    def admin_recalculate_metrics(self, dataset: str) -> dict[str, Any]:
+        return self._request("POST", "/admin/model/recalculate", payload={"dataset": dataset})
+
+    def admin_seed_dataset(self, dataset: str) -> dict[str, Any]:
+        return self._request("POST", "/admin/dataset/seed", payload={"dataset": dataset})
+
+    def admin_dataset_preview(self, dataset: str) -> dict[str, Any]:
+        return self._request("GET", f"/admin/dataset/{dataset}/preview")
+
+    def admin_stats(self) -> dict[str, Any]:
+        return self._request("GET", "/admin/stats")
+
+    def admin_prediction_direction_stats(self) -> list[dict[str, Any]]:
+        return self._request("GET", "/admin/stats/predictions-by-direction")
+
+    def admin_predictions(self, limit: int = 300) -> list[dict[str, Any]]:
+        return self._request("GET", f"/admin/predictions?limit={int(limit)}")
+
+    def admin_save_drug(self, drug_id: int, name: str, external_id: str | None, smiles: str | None) -> dict[str, Any]:
+        return self._request(
+            "POST",
+            "/admin/drugs",
+            payload={"id": int(drug_id), "name": str(name), "external_id": external_id, "smiles": smiles},
+        )
+
+    def admin_save_disease(self, disease_id: int, name: str) -> dict[str, Any]:
+        return self._request("POST", "/admin/diseases", payload={"id": int(disease_id), "name": str(name)})
+
+    def admin_save_link(self, drug_id: int, disease_id: int) -> dict[str, Any]:
+        return self._request("POST", "/admin/links", payload={"drug_id": int(drug_id), "disease_id": int(disease_id)})

@@ -1,0 +1,4544 @@
+[
+  {
+    "id": 0,
+    "name": "Clobazam",
+    "external_id": "DB00349",
+    "smiles": "CN1C2=C(C=C(Cl)C=C2)N(C2=CC=CC=C2)C(=O)CC1=O"
+  },
+  {
+    "id": 1,
+    "name": "Vinorelbine",
+    "external_id": "DB00361",
+    "smiles": "[H][C@@]12N(C)C3=CC(OC)=C(C=C3[C@@]11CCN3CC=C[C@](CC)([C@@]13[H])[C@@]([H])(OC(C)=O)[C@]2(O)C(=O)OC)[C@]1(C[C@@]2([H])CN(CC(CC)=C2)CC2=C1NC1=CC=CC=C21)C(=O)OC"
+  },
+  {
+    "id": 2,
+    "name": "Carvedilol",
+    "external_id": "DB01136",
+    "smiles": "COC1=CC=CC=C1OCCNCC(O)COC1=CC=CC2=C1C1=CC=CC=C1N2"
+  },
+  {
+    "id": 3,
+    "name": "Benazepril",
+    "external_id": "DB00542",
+    "smiles": "[H][C@@]1(CCC2=CC=CC=C2N(CC(O)=O)C1=O)N[C@@H](CCC1=CC=CC=C1)C(=O)OCC"
+  },
+  {
+    "id": 4,
+    "name": "Leflunomide",
+    "external_id": "DB01097",
+    "smiles": "CC1=C(C=NO1)C(=O)NC1=CC=C(C=C1)C(F)(F)F"
+  },
+  {
+    "id": 5,
+    "name": "Lamotrigine",
+    "external_id": "DB00555",
+    "smiles": "NC1=NC(N)=C(N=N1)C1=C(Cl)C(Cl)=CC=C1"
+  },
+  {
+    "id": 6,
+    "name": "Nefazodone",
+    "external_id": "DB01149",
+    "smiles": "CCC1=NN(CCCN2CCN(CC2)C2=CC(Cl)=CC=C2)C(=O)N1CCOC1=CC=CC=C1"
+  },
+  {
+    "id": 7,
+    "name": "Trandolapril",
+    "external_id": "DB00519",
+    "smiles": "[H][C@@]12C[C@H](N(C(=O)[C@H](C)N[C@@H](CCC3=CC=CC=C3)C(=O)OCC)[C@@]1([H])CCCC2)C(O)=O"
+  },
+  {
+    "id": 8,
+    "name": "Clopidogrel",
+    "external_id": "DB00758",
+    "smiles": "[H][C@@](N1CCC2=C(C1)C=CS2)(C(=O)OC)C1=CC=CC=C1Cl"
+  },
+  {
+    "id": 9,
+    "name": "Gemcitabine",
+    "external_id": "DB00441",
+    "smiles": "NC1=NC(=O)N(C=C1)[C@@H]1O[C@H](CO)[C@@H](O)C1(F)F"
+  },
+  {
+    "id": 10,
+    "name": "Troglitazone",
+    "external_id": "DB00197",
+    "smiles": "CC1=C(C)C2=C(CCC(C)(COC3=CC=C(CC4SC(=O)NC4=O)C=C3)O2)C(C)=C1O"
+  },
+  {
+    "id": 11,
+    "name": "Pioglitazone",
+    "external_id": "DB01132",
+    "smiles": "CCC1=CN=C(CCOC2=CC=C(CC3SC(=O)NC3=O)C=C2)C=C1"
+  },
+  {
+    "id": 12,
+    "name": "Zafirlukast",
+    "external_id": "DB00549",
+    "smiles": "COC1=CC(=CC=C1CC1=CN(C)C2=C1C=C(NC(=O)OC1CCCC1)C=C2)C(=O)NS(=O)(=O)C1=CC=CC=C1C"
+  },
+  {
+    "id": 13,
+    "name": "Mycophenolate mofetil",
+    "external_id": "DB00688",
+    "smiles": "COC1=C(C\\C=C(/C)CCC(=O)OCCN2CCOCC2)C(O)=C2C(=O)OCC2=C1C"
+  },
+  {
+    "id": 14,
+    "name": "Fluvastatin",
+    "external_id": "DB01095",
+    "smiles": "CC(C)N1C(\\C=C\\C(O)CC(O)CC(O)=O)=C(C2=CC=CC=C12)C1=CC=C(F)C=C1"
+  },
+  {
+    "id": 15,
+    "name": "Meloxicam",
+    "external_id": "DB00814",
+    "smiles": "CN1C(C(=O)NC2=NC=C(C)S2)=C(O)C2=C(C=CC=C2)S1(=O)=O"
+  },
+  {
+    "id": 16,
+    "name": "Docetaxel",
+    "external_id": "DB01248",
+    "smiles": "[H][C@@]1(C[C@@]2(O)[C@@H](OC(=O)C3=CC=CC=C3)[C@]3([H])[C@@]4(CO[C@@H]4C[C@H](O)[C@@]3(C)C(=O)[C@H](O)C(=C1C)C2(C)C)OC(C)=O)OC(=O)[C@H](O)[C@@H](NC(=O)OC(C)(C)C)C1=CC=CC=C1"
+  },
+  {
+    "id": 17,
+    "name": "Olanzapine",
+    "external_id": "DB00334",
+    "smiles": "CN1CCN(CC1)C1=NC2=CC=CC=C2NC2=C1C=C(C)S2"
+  },
+  {
+    "id": 18,
+    "name": "Candesartan",
+    "external_id": "DB13919",
+    "smiles": "CCOC1=NC2=CC=CC(C(O)=O)=C2N1CC1=CC=C(C=C1)C1=CC=CC=C1C1=NN=NN1"
+  },
+  {
+    "id": 19,
+    "name": "Telmisartan",
+    "external_id": "DB00966",
+    "smiles": "CCCC1=NC2=C(C=C(C=C2C)C2=NC3=CC=CC=C3N2C)N1CC1=CC=C(C=C1)C1=CC=CC=C1C(O)=O"
+  },
+  {
+    "id": 20,
+    "name": "Bosentan",
+    "external_id": "DB00559",
+    "smiles": "COC1=CC=CC=C1OC1=C(NS(=O)(=O)C2=CC=C(C=C2)C(C)(C)C)N=C(N=C1OCCO)C1=NC=CC=N1"
+  },
+  {
+    "id": 21,
+    "name": "Cerivastatin",
+    "external_id": "DB00439",
+    "smiles": "COCC1=C(C2=CC=C(F)C=C2)C(\\C=C\\[C@@H](O)C[C@@H](O)CC(O)=O)=C(C(C)C)N=C1C(C)C"
+  },
+  {
+    "id": 22,
+    "name": "Rosiglitazone",
+    "external_id": "DB00412",
+    "smiles": "CN(CCOC1=CC=C(CC2SC(=O)NC2=O)C=C1)C1=CC=CC=N1"
+  },
+  {
+    "id": 23,
+    "name": "Fexofenadine",
+    "external_id": "DB00950",
+    "smiles": "CC(C)(C(O)=O)C1=CC=C(C=C1)C(O)CCCN1CCC(CC1)C(O)(C1=CC=CC=C1)C1=CC=CC=C1"
+  },
+  {
+    "id": 24,
+    "name": "Montelukast",
+    "external_id": "DB00471",
+    "smiles": "OC(=O)CC1(CC1)CS[C@H](CCC1=CC=CC=C1C(O)(C)C)C1=CC=CC(\\C=C\\C2=NC3=C(C=CC(Cl)=C3)C=C2)=C1"
+  },
+  {
+    "id": 25,
+    "name": "Alitretinoin",
+    "external_id": "DB00523",
+    "smiles": "C\\C(\\C=C\\C1=C(C)CCCC1(C)C)=C\\C=C\\C(\\C)=C\\C(O)=O"
+  },
+  {
+    "id": 26,
+    "name": "Rofecoxib",
+    "external_id": "DB00533",
+    "smiles": "CS(=O)(=O)C1=CC=C(C=C1)C1=C(C(=O)OC1)C1=CC=CC=C1"
+  },
+  {
+    "id": 27,
+    "name": "Desloratadine",
+    "external_id": "DB00967",
+    "smiles": "ClC1=CC2=C(C=C1)C(=C1CCNCC1)C1=C(CC2)C=CC=N1"
+  },
+  {
+    "id": 28,
+    "name": "Gefitinib",
+    "external_id": "DB00317",
+    "smiles": "COC1=C(OCCCN2CCOCC2)C=C2C(NC3=CC(Cl)=C(F)C=C3)=NC=NC2=C1"
+  },
+  {
+    "id": 29,
+    "name": "Sorafenib",
+    "external_id": "DB00398",
+    "smiles": "CNC(=O)C1=NC=CC(OC2=CC=C(NC(=O)NC3=CC(=C(Cl)C=C3)C(F)(F)F)C=C2)=C1"
+  },
+  {
+    "id": 30,
+    "name": "Sunitinib",
+    "external_id": "DB01268",
+    "smiles": "CCN(CC)CCNC(=O)C1=C(C)NC(\\C=C2/C(=O)NC3=C2C=C(F)C=C3)=C1C"
+  },
+  {
+    "id": 31,
+    "name": "Celecoxib",
+    "external_id": "DB00482",
+    "smiles": "CC1=CC=C(C=C1)C1=CC(=NN1C1=CC=C(C=C1)S(N)(=O)=O)C(F)(F)F"
+  },
+  {
+    "id": 32,
+    "name": "Sildenafil citrate",
+    "external_id": "DB00203",
+    "smiles": "CCCC1=NN(C)C2=C1N=C(NC2=O)C1=CC(=CC=C1OCC)S(=O)(=O)N1CCN(C)CC1"
+  },
+  {
+    "id": 33,
+    "name": "Rosuvastatin calcium",
+    "external_id": "DB01098",
+    "smiles": "CC(C)C1=NC(=NC(C2=CC=C(F)C=C2)=C1\\C=C\\[C@@H](O)C[C@@H](O)CC(=O)O)N(C)S(C)(=O)=O"
+  },
+  {
+    "id": 34,
+    "name": "Valsartan",
+    "external_id": "DB00177",
+    "smiles": "CCCCC(=O)N(CC1=CC=C(C=C1)C1=CC=CC=C1C1=NNN=N1)[C@@H](C(C)C)C(O)=O"
+  },
+  {
+    "id": 35,
+    "name": "Imatinib mesylate",
+    "external_id": "DB00619",
+    "smiles": "CN1CCN(CC2=CC=C(C=C2)C(=O)NC2=CC(NC3=NC=CC(=N3)C3=CN=CC=C3)=C(C)C=C2)CC1"
+  },
+  {
+    "id": 36,
+    "name": "Sitagliptin phosphate",
+    "external_id": "DB01261",
+    "smiles": "N[C@@H](CC(=O)N1CCN2C(C1)=NN=C2C(F)(F)F)CC1=CC(F)=C(F)C=C1F"
+  },
+  {
+    "id": 37,
+    "name": "Atorvastatin calcium",
+    "external_id": "DB01076",
+    "smiles": "CC(C)C1=C(C(=O)NC2=CC=CC=C2)C(=C(N1CC[C@@H](O)C[C@@H](O)CC(O)=O)C1=CC=C(F)C=C1)C1=CC=CC=C1"
+  },
+  {
+    "id": 38,
+    "name": "Erlotinib hydrochloride",
+    "external_id": "DB00530",
+    "smiles": "COCCOC1=CC2=C(C=C1OCCOC)C(NC1=CC(=CC=C1)C#C)=NC=N2"
+  },
+  {
+    "id": 39,
+    "name": "Quetiapine fumarate",
+    "external_id": "DB01224",
+    "smiles": "OCCOCCN1CCN(CC1)C1=NC2=CC=CC=C2SC2=CC=CC=C12"
+  },
+  {
+    "id": 40,
+    "name": "Ezetimibe",
+    "external_id": "DB00973",
+    "smiles": "[H][C@]1(CC[C@H](O)C2=CC=C(F)C=C2)C(=O)N(C2=CC=C(F)C=C2)[C@]1([H])C1=CC=C(O)C=C1"
+  },
+  {
+    "id": 41,
+    "name": "Dasatinib",
+    "external_id": "DB01254",
+    "smiles": "CC1=NC(NC2=NC=C(S2)C(=O)NC2=C(C)C=CC=C2Cl)=CC(=N1)N1CCN(CCO)CC1"
+  },
+  {
+    "id": 42,
+    "name": "Venlafaxine hydrochloride",
+    "external_id": "DB00285",
+    "smiles": "COC1=CC=C(C=C1)C(CN(C)C)C1(O)CCCCC1"
+  },
+  {
+    "id": 43,
+    "name": "Acebutolol",
+    "external_id": "DB01193",
+    "smiles": "CCCC(=O)NC1=CC=C(OCC(O)CNC(C)C)C(=C1)C(C)=O"
+  },
+  {
+    "id": 44,
+    "name": "Acetaminophen",
+    "external_id": "DB00316",
+    "smiles": "CC(=O)NC1=CC=C(O)C=C1"
+  },
+  {
+    "id": 45,
+    "name": "Acetazolamide",
+    "external_id": "DB00819",
+    "smiles": "CC(=O)NC1=NN=C(S1)S(N)(=O)=O"
+  },
+  {
+    "id": 46,
+    "name": "Acetylcholine",
+    "external_id": "DB03128",
+    "smiles": "CC(=O)OCC[N+](C)(C)C"
+  },
+  {
+    "id": 47,
+    "name": "Adenosine",
+    "external_id": "DB00640",
+    "smiles": "NC1=C2N=CN([C@@H]3O[C@H](CO)[C@@H](O)[C@H]3O)C2=NC=N1"
+  },
+  {
+    "id": 48,
+    "name": "Allopurinol",
+    "external_id": "DB00437",
+    "smiles": "OC1=NC=NC2=C1C=NN2"
+  },
+  {
+    "id": 49,
+    "name": "Amantadine",
+    "external_id": "DB00915",
+    "smiles": "NC12CC3CC(CC(C3)C1)C2"
+  },
+  {
+    "id": 50,
+    "name": "Amiloride",
+    "external_id": "DB00594",
+    "smiles": "NC(=N)NC(=O)C1=NC(Cl)=C(N)N=C1N"
+  },
+  {
+    "id": 51,
+    "name": "Amiodarone",
+    "external_id": "DB01118",
+    "smiles": "CCCCC1=C(C(=O)C2=CC(I)=C(OCCN(CC)CC)C(I)=C2)C2=C(O1)C=CC=C2"
+  },
+  {
+    "id": 52,
+    "name": "Amitriptyline",
+    "external_id": "DB00321",
+    "smiles": "CN(C)CCC=C1C2=CC=CC=C2CCC2=CC=CC=C12"
+  },
+  {
+    "id": 53,
+    "name": "Amphetamine",
+    "external_id": "DB00182",
+    "smiles": "CC(N)CC1=CC=CC=C1"
+  },
+  {
+    "id": 54,
+    "name": "Amsacrine",
+    "external_id": "DB00276",
+    "smiles": "COC1=C(NC2=C3C=CC=CC3=NC3=CC=CC=C23)C=CC(NS(C)(=O)=O)=C1"
+  },
+  {
+    "id": 55,
+    "name": "Antipyrine",
+    "external_id": "DB01435",
+    "smiles": "CN1N(C(=O)C=C1C)C1=CC=CC=C1"
+  },
+  {
+    "id": 56,
+    "name": "Aspirin",
+    "external_id": "DB00945",
+    "smiles": "CC(=O)OC1=CC=CC=C1C(O)=O"
+  },
+  {
+    "id": 57,
+    "name": "Betamethasone",
+    "external_id": "DB00443",
+    "smiles": "[H][C@@]12C[C@H](C)[C@](O)(C(=O)CO)[C@@]1(C)C[C@H](O)[C@@]1(F)[C@@]2([H])CCC2=CC(=O)C=C[C@]12C"
+  },
+  {
+    "id": 58,
+    "name": "Bezafibrate",
+    "external_id": "DB01393",
+    "smiles": "CC(C)(OC1=CC=C(CCNC(=O)C2=CC=C(Cl)C=C2)C=C1)C(O)=O"
+  },
+  {
+    "id": 59,
+    "name": "Biperiden",
+    "external_id": "DB00810",
+    "smiles": "OC(CCN1CCCCC1)(C1CC2CC1C=C2)C1=CC=CC=C1"
+  },
+  {
+    "id": 60,
+    "name": "Bromocriptine",
+    "external_id": "DB01200",
+    "smiles": "[H][C@@]12CCCN1C(=O)[C@H](CC(C)C)N1C(=O)[C@](NC(=O)[C@H]3CN(C)[C@]4([H])CC5=C(Br)NC6=CC=CC(=C56)C4=C3)(O[C@@]21O)C(C)C"
+  },
+  {
+    "id": 61,
+    "name": "Bumetanide",
+    "external_id": "DB00887",
+    "smiles": "CCCCNC1=C(OC2=CC=CC=C2)C(=CC(=C1)C(O)=O)S(N)(=O)=O"
+  },
+  {
+    "id": 62,
+    "name": "Buprenorphine",
+    "external_id": "DB00921",
+    "smiles": "CO[C@]12CC[C@@]3(C[C@@H]1[C@](C)(O)C(C)(C)C)[C@H]1CC4=C5C(O[C@@H]2[C@@]35CCN1CC1CC1)=C(O)C=C4"
+  },
+  {
+    "id": 63,
+    "name": "Buspirone",
+    "external_id": "DB00490",
+    "smiles": "O=C1CC2(CCCC2)CC(=O)N1CCCCN1CCN(CC1)C1=NC=CC=N1"
+  },
+  {
+    "id": 64,
+    "name": "Caffeine",
+    "external_id": "DB00201",
+    "smiles": "CN1C=NC2=C1C(=O)N(C)C(=O)N2C"
+  },
+  {
+    "id": 65,
+    "name": "Carbamazepine",
+    "external_id": "DB00564",
+    "smiles": "NC(=O)N1C2=CC=CC=C2C=CC2=CC=CC=C12"
+  },
+  {
+    "id": 66,
+    "name": "Cefazolin",
+    "external_id": "DB01327",
+    "smiles": "[H][C@]12SCC(CSC3=NN=C(C)S3)=C(N1C(=O)[C@H]2NC(=O)CN1C=NN=N1)C(O)=O"
+  },
+  {
+    "id": 67,
+    "name": "Ceftriaxone",
+    "external_id": "DB01212",
+    "smiles": "[H][C@]12SCC(CSC3=NC(=O)C(=O)NN3C)=C(N1C(=O)[C@H]2NC(=O)C(=N/OC)\\C1=CSC(N)=N1)C(O)=O"
+  },
+  {
+    "id": 68,
+    "name": "Chloramphenicol",
+    "external_id": "DB00446",
+    "smiles": "OC[C@@H](NC(=O)C(Cl)Cl)[C@H](O)C1=CC=C(C=C1)[N+]([O-])=O"
+  },
+  {
+    "id": 69,
+    "name": "Chloroquine",
+    "external_id": "DB00608",
+    "smiles": "CCN(CC)CCCC(C)NC1=CC=NC2=CC(Cl)=CC=C12"
+  },
+  {
+    "id": 70,
+    "name": "Chlorpheniramine",
+    "external_id": "DB01114",
+    "smiles": "CN(C)CCC(C1=CC=C(Cl)C=C1)C1=CC=CC=N1"
+  },
+  {
+    "id": 71,
+    "name": "Chlorpromazine",
+    "external_id": "DB00477",
+    "smiles": "CN(C)CCCN1C2=CC=CC=C2SC2=C1C=C(Cl)C=C2"
+  },
+  {
+    "id": 72,
+    "name": "Chlorpropamide",
+    "external_id": "DB00672",
+    "smiles": "CCCNC(=O)NS(=O)(=O)C1=CC=C(Cl)C=C1"
+  },
+  {
+    "id": 73,
+    "name": "Choline",
+    "external_id": "DB00122",
+    "smiles": "C[N+](C)(C)CCO"
+  },
+  {
+    "id": 74,
+    "name": "Cimetidine",
+    "external_id": "DB00501",
+    "smiles": "CN\\C(NCCSCC1=C(C)NC=N1)=N\\C#N"
+  },
+  {
+    "id": 75,
+    "name": "Ciprofloxacin",
+    "external_id": "DB00537",
+    "smiles": "OC(=O)C1=CN(C2CC2)C2=CC(N3CCNCC3)=C(F)C=C2C1=O"
+  },
+  {
+    "id": 76,
+    "name": "Clofazimine",
+    "external_id": "DB00845",
+    "smiles": "CC(C)N=C1C=C2N(C3=CC=C(Cl)C=C3)C3=C(C=CC=C3)N=C2C=C1NC1=CC=C(Cl)C=C1"
+  },
+  {
+    "id": 77,
+    "name": "Clomiphene",
+    "external_id": "DB00882",
+    "smiles": "CCN(CC)CCOC1=CC=C(C=C1)C(=C(Cl)C1=CC=CC=C1)C1=CC=CC=C1"
+  },
+  {
+    "id": 78,
+    "name": "Clomipramine",
+    "external_id": "DB01242",
+    "smiles": "CN(C)CCCN1C2=CC=CC=C2CCC2=C1C=C(Cl)C=C2"
+  },
+  {
+    "id": 79,
+    "name": "Clonidine",
+    "external_id": "DB00575",
+    "smiles": "ClC1=CC=CC(Cl)=C1NC1=NCCN1"
+  },
+  {
+    "id": 80,
+    "name": "Clotrimazole",
+    "external_id": "DB00257",
+    "smiles": "ClC1=CC=CC=C1C(N1C=CN=C1)(C1=CC=CC=C1)C1=CC=CC=C1"
+  },
+  {
+    "id": 81,
+    "name": "Clozapine",
+    "external_id": "DB00363",
+    "smiles": "CN1CCN(CC1)C1=NC2=CC(Cl)=CC=C2NC2=CC=CC=C12"
+  },
+  {
+    "id": 82,
+    "name": "Cocaine",
+    "external_id": "DB00907",
+    "smiles": "[H][C@]12CC[C@]([H])([C@H]([C@H](C1)OC(=O)C1=CC=CC=C1)C(=O)OC)N2C"
+  },
+  {
+    "id": 83,
+    "name": "Colchicine",
+    "external_id": "DB01394",
+    "smiles": "COC1=CC2=C(C(OC)=C1OC)C1=CC=C(OC)C(=O)C=C1[C@H](CC2)NC(C)=O"
+  },
+  {
+    "id": 84,
+    "name": "Cytarabine",
+    "external_id": "DB00987",
+    "smiles": "NC1=NC(=O)N(C=C1)[C@@H]1O[C@H](CO)[C@@H](O)[C@@H]1O"
+  },
+  {
+    "id": 85,
+    "name": "Daunorubicin",
+    "external_id": "DB00694",
+    "smiles": "COC1=CC=CC2=C1C(=O)C1=C(O)C3=C(C[C@](O)(C[C@@H]3O[C@H]3C[C@H](N)[C@H](O)[C@H](C)O3)C(C)=O)C(O)=C1C2=O"
+  },
+  {
+    "id": 86,
+    "name": "Desipramine",
+    "external_id": "DB01151",
+    "smiles": "CNCCCN1C2=CC=CC=C2CCC2=CC=CC=C12"
+  },
+  {
+    "id": 87,
+    "name": "Dexamethasone",
+    "external_id": "DB01234",
+    "smiles": "[H][C@@]12C[C@@H](C)[C@](O)(C(=O)CO)[C@@]1(C)C[C@H](O)[C@@]1(F)[C@@]2([H])CCC2=CC(=O)C=C[C@]12C"
+  },
+  {
+    "id": 88,
+    "name": "Dextromethorphan",
+    "external_id": "DB00514",
+    "smiles": "[H][C@]12CCCC[C@]11CCN(C)[C@H]2CC2=C1C=C(OC)C=C2"
+  },
+  {
+    "id": 89,
+    "name": "Diazepam",
+    "external_id": "DB00829",
+    "smiles": "CN1C2=C(C=C(Cl)C=C2)C(=NCC1=O)C1=CC=CC=C1"
+  },
+  {
+    "id": 90,
+    "name": "Diclofenac",
+    "external_id": "DB00586",
+    "smiles": "OC(=O)CC1=CC=CC=C1NC1=C(Cl)C=CC=C1Cl"
+  },
+  {
+    "id": 91,
+    "name": "Diethylstilbestrol",
+    "external_id": "DB00255",
+    "smiles": "CC\\C(=C(\\CC)C1=CC=C(O)C=C1)C1=CC=C(O)C=C1"
+  },
+  {
+    "id": 92,
+    "name": "Diflunisal",
+    "external_id": "DB00861",
+    "smiles": "OC(=O)C1=C(O)C=CC(=C1)C1=C(F)C=C(F)C=C1"
+  },
+  {
+    "id": 93,
+    "name": "Digitoxin",
+    "external_id": "DB01396",
+    "smiles": "[H][C@@]1(CC[C@]2(O)[C@]3([H])CC[C@]4([H])C[C@H](CC[C@]4(C)[C@@]3([H])CC[C@]12C)O[C@H]1C[C@H](O)[C@H](O[C@H]2C[C@H](O)[C@H](O[C@H]3C[C@H](O)[C@H](O)[C@@H](C)O3)[C@@H](C)O2)[C@@H](C)O1)C1=CC(=O)OC1"
+  },
+  {
+    "id": 94,
+    "name": "Digoxin",
+    "external_id": "DB00390",
+    "smiles": "[H][C@]12CC[C@]3([H])[C@]([H])(C[C@@H](O)[C@]4(C)[C@H](CC[C@]34O)C3=CC(=O)OC3)[C@@]1(C)CC[C@@H](C2)O[C@H]1C[C@H](O)[C@H](O[C@H]2C[C@H](O)[C@H](O[C@H]3C[C@H](O)[C@H](O)[C@@H](C)O3)[C@@H](C)O2)[C@@H](C)O1"
+  },
+  {
+    "id": 95,
+    "name": "Dihydroergotamine",
+    "external_id": "DB00320",
+    "smiles": "[H][C@@]12CCCN1C(=O)[C@H](CC1=CC=CC=C1)N1C(=O)[C@](C)(NC(=O)[C@H]3CN(C)[C@]4([H])CC5=CNC6=CC=CC(=C56)[C@@]4([H])C3)O[C@@]21O"
+  },
+  {
+    "id": 96,
+    "name": "Diltiazem",
+    "external_id": "DB00343",
+    "smiles": "COC1=CC=C(C=C1)[C@@H]1SC2=C(C=CC=C2)N(CCN(C)C)C(=O)[C@@H]1OC(C)=O"
+  },
+  {
+    "id": 97,
+    "name": "Diphenhydramine",
+    "external_id": "DB01075",
+    "smiles": "CN(C)CCOC(C1=CC=CC=C1)C1=CC=CC=C1"
+  },
+  {
+    "id": 98,
+    "name": "Disopyramide",
+    "external_id": "DB00280",
+    "smiles": "CC(C)N(CCC(C(N)=O)(C1=CC=CC=C1)C1=NC=CC=C1)C(C)C"
+  },
+  {
+    "id": 99,
+    "name": "Domperidone",
+    "external_id": "DB01184",
+    "smiles": "ClC1=CC2=C(C=C1)N(C1CCN(CCCN3C(=O)NC4=CC=CC=C34)CC1)C(=O)N2"
+  },
+  {
+    "id": 100,
+    "name": "Dopamine",
+    "external_id": "DB00988",
+    "smiles": "NCCC1=CC(O)=C(O)C=C1"
+  },
+  {
+    "id": 101,
+    "name": "Doxepin",
+    "external_id": "DB01142",
+    "smiles": "[H]C(CCN(C)C)=C1C2=CC=CC=C2COC2=CC=CC=C12"
+  },
+  {
+    "id": 102,
+    "name": "Doxorubicin",
+    "external_id": "DB00997",
+    "smiles": "COC1=CC=CC2=C1C(=O)C1=C(O)C3=C(C[C@](O)(C[C@@H]3O[C@H]3C[C@H](N)[C@H](O)[C@H](C)O3)C(=O)CO)C(O)=C1C2=O"
+  },
+  {
+    "id": 103,
+    "name": "Doxycycline",
+    "external_id": "DB00254",
+    "smiles": "[H][C@@]12[C@@H](C)C3=CC=CC(O)=C3C(=O)C1=C(O)[C@]1(O)C(=O)C(C(N)=O)=C(O)[C@@H](N(C)C)[C@]1([H])[C@H]2O"
+  },
+  {
+    "id": 104,
+    "name": "Enalapril",
+    "external_id": "DB00584",
+    "smiles": "CCOC(=O)[C@H](CCC1=CC=CC=C1)N[C@@H](C)C(=O)N1CCC[C@H]1C(O)=O"
+  },
+  {
+    "id": 105,
+    "name": "Epinephrine",
+    "external_id": "DB00668",
+    "smiles": "CNC[C@H](O)C1=CC(O)=C(O)C=C1"
+  },
+  {
+    "id": 106,
+    "name": "Ergotamine",
+    "external_id": "DB00696",
+    "smiles": "[H][C@@]12CCCN1C(=O)[C@H](CC1=CC=CC=C1)N1C(=O)[C@](C)(NC(=O)[C@H]3CN(C)[C@]4([H])CC5=CNC6=CC=CC(=C56)C4=C3)O[C@@]21O"
+  },
+  {
+    "id": 107,
+    "name": "Erythromycin",
+    "external_id": "DB00199",
+    "smiles": "CC[C@H]1OC(=O)[C@H](C)[C@@H](O[C@H]2C[C@@](C)(OC)[C@@H](O)[C@H](C)O2)[C@H](C)[C@@H](O[C@@H]2O[C@H](C)C[C@@H]([C@H]2O)N(C)C)[C@](C)(O)C[C@@H](C)C(=O)[C@H](C)[C@@H](O)[C@]1(C)O"
+  },
+  {
+    "id": 108,
+    "name": "Estradiol",
+    "external_id": "DB00783",
+    "smiles": "[H][C@@]12CC[C@H](O)[C@@]1(C)CC[C@]1([H])C3=C(CC[C@@]21[H])C=C(O)C=C3"
+  },
+  {
+    "id": 109,
+    "name": "Estramustine",
+    "external_id": "DB01196",
+    "smiles": "[H][C@@]12CC[C@H](O)[C@@]1(C)CC[C@]1([H])C3=CC=C(OC(=O)N(CCCl)CCCl)C=C3CC[C@@]21[H]"
+  },
+  {
+    "id": 110,
+    "name": "Estrogens, conjugated (usp)",
+    "external_id": "DB00286",
+    "smiles": "C[C@]12CC[C@@H]3c4ccc(OS(=O)(=O)[O-])cc4CC[C@H]3[C@@H]1CCC2=O.[Na+]"
+  },
+  {
+    "id": 111,
+    "name": "Estrone",
+    "external_id": "DB00655",
+    "smiles": "[H][C@@]12CCC(=O)[C@@]1(C)CC[C@]1([H])C3=C(CC[C@@]21[H])C=C(O)C=C3"
+  },
+  {
+    "id": 112,
+    "name": "Ethacrynic acid",
+    "external_id": "DB00903",
+    "smiles": "CCC(=C)C(=O)C1=C(Cl)C(Cl)=C(OCC(O)=O)C=C1"
+  },
+  {
+    "id": 113,
+    "name": "Ethinyl estradiol",
+    "external_id": "DB00977",
+    "smiles": "[H][C@@]12CC[C@@](O)(C#C)[C@@]1(C)CC[C@]1([H])C3=C(CC[C@@]21[H])C=C(O)C=C3"
+  },
+  {
+    "id": 114,
+    "name": "Etoposide",
+    "external_id": "DB00773",
+    "smiles": "[H][C@]12COC(=O)[C@]1([H])[C@H](C1=CC(OC)=C(O)C(OC)=C1)C1=CC3=C(OCO3)C=C1[C@H]2O[C@@H]1O[C@]2([H])CO[C@@H](C)O[C@@]2([H])[C@H](O)[C@H]1O"
+  },
+  {
+    "id": 115,
+    "name": "Fentanyl",
+    "external_id": "DB00813",
+    "smiles": "CCC(=O)N(C1CCN(CCC2=CC=CC=C2)CC1)C1=CC=CC=C1"
+  },
+  {
+    "id": 116,
+    "name": "Fluorouracil",
+    "external_id": "DB00544",
+    "smiles": "FC1=CNC(=O)NC1=O"
+  },
+  {
+    "id": 117,
+    "name": "Fluoxetine",
+    "external_id": "DB00472",
+    "smiles": "CNCCC(OC1=CC=C(C=C1)C(F)(F)F)C1=CC=CC=C1"
+  },
+  {
+    "id": 118,
+    "name": "Flupenthixol",
+    "external_id": "DB00875",
+    "smiles": "[H]\\C(CCN1CCN(CCO)CC1)=C1/C2=CC=CC=C2SC2=C1C=C(C=C2)C(F)(F)F"
+  },
+  {
+    "id": 119,
+    "name": "Fluphenazine",
+    "external_id": "DB00623",
+    "smiles": "OCCN1CCN(CCCN2C3=CC=CC=C3SC3=C2C=C(C=C3)C(F)(F)F)CC1"
+  },
+  {
+    "id": 120,
+    "name": "Flurazepam",
+    "external_id": "DB00690",
+    "smiles": "CCN(CC)CCN1C2=C(C=C(Cl)C=C2)C(=NCC1=O)C1=CC=CC=C1F"
+  },
+  {
+    "id": 121,
+    "name": "Flurbiprofen",
+    "external_id": "DB00712",
+    "smiles": "CC(C(O)=O)C1=CC(F)=C(C=C1)C1=CC=CC=C1"
+  },
+  {
+    "id": 122,
+    "name": "Folic acid",
+    "external_id": "DB00158",
+    "smiles": "NC1=NC(=O)C2=NC(CNC3=CC=C(C=C3)C(=O)N[C@@H](CCC(O)=O)C(O)=O)=CN=C2N1"
+  },
+  {
+    "id": 123,
+    "name": "Furosemide",
+    "external_id": "DB00695",
+    "smiles": "NS(=O)(=O)C1=C(Cl)C=C(NCC2=CC=CO2)C(=C1)C(O)=O"
+  },
+  {
+    "id": 124,
+    "name": "Glyburide",
+    "external_id": "DB01016",
+    "smiles": "COC1=C(C=C(Cl)C=C1)C(=O)NCCC1=CC=C(C=C1)S(=O)(=O)NC(=O)NC1CCCCC1"
+  },
+  {
+    "id": 125,
+    "name": "Glycerol",
+    "external_id": "DB09462",
+    "smiles": "OCC(O)CO"
+  },
+  {
+    "id": 126,
+    "name": "Haloperidol",
+    "external_id": "DB00502",
+    "smiles": "OC1(CCN(CCCC(=O)C2=CC=C(F)C=C2)CC1)C1=CC=C(Cl)C=C1"
+  },
+  {
+    "id": 127,
+    "name": "Hydrocortisone",
+    "external_id": "DB00741",
+    "smiles": "[H][C@@]12CC[C@](O)(C(=O)CO)[C@@]1(C)C[C@H](O)[C@@]1([H])[C@@]2([H])CCC2=CC(=O)CC[C@]12C"
+  },
+  {
+    "id": 128,
+    "name": "Ibuprofen",
+    "external_id": "DB01050",
+    "smiles": "CC(C)CC1=CC=C(C=C1)C(C)C(O)=O"
+  },
+  {
+    "id": 129,
+    "name": "Imipramine",
+    "external_id": "DB00458",
+    "smiles": "CN(C)CCCN1C2=CC=CC=C2CCC2=CC=CC=C12"
+  },
+  {
+    "id": 130,
+    "name": "Indomethacin",
+    "external_id": "DB00328",
+    "smiles": "COC1=CC2=C(C=C1)N(C(=O)C1=CC=C(Cl)C=C1)C(C)=C2CC(O)=O"
+  },
+  {
+    "id": 131,
+    "name": "Ivermectin",
+    "external_id": "DB00602",
+    "smiles": "[H][C@@]12OC\\C3=C/C=C/[C@H](C)[C@H](O[C@H]4C[C@H](OC)[C@@H](O[C@H]5C[C@H](OC)[C@@H](O)[C@H](C)O5)[C@H](C)O4)\\C(C)=C\\C[C@]4([H])C[C@@]([H])(C[C@]5(CC[C@H](C)[C@]([H])(O5)C(C)C)O4)OC(=O)[C@]([H])(C=C(C)[C@H]1O)[C@@]23O.[H][C@@]12OC\\C3=C/C=C/[C@H](C)[C@H](O[C@H]4C[C@H](OC)[C@@H](O[C@H]5C[C@H](OC)[C@@H](O)[C@H](C)O5)[C@H](C)O4)\\C(C)=C\\C[C@]4([H])C[C@@]([H])(C[C@]5(CC[C@H](C)[C@]([H])(O5)[C@@H](C)CC)O4)OC(=O)[C@]([H])(C=C(C)[C@H]1O)[C@@]23O"
+  },
+  {
+    "id": 132,
+    "name": "Ketamine",
+    "external_id": "DB01221",
+    "smiles": "CNC1(CCCCC1=O)C1=CC=CC=C1Cl"
+  },
+  {
+    "id": 133,
+    "name": "Ketoconazole",
+    "external_id": "DB01026",
+    "smiles": "CC(=O)N1CCN(CC1)C1=CC=C(OCC2COC(CN3C=CN=C3)(O2)C2=CC=C(Cl)C=C2Cl)C=C1"
+  },
+  {
+    "id": 134,
+    "name": "Ketoprofen",
+    "external_id": "DB01009",
+    "smiles": "CC(C(O)=O)C1=CC(=CC=C1)C(=O)C1=CC=CC=C1"
+  },
+  {
+    "id": 135,
+    "name": "Levodopa",
+    "external_id": "DB01235",
+    "smiles": "N[C@@H](CC1=CC(O)=C(O)C=C1)C(O)=O"
+  },
+  {
+    "id": 136,
+    "name": "Lidocaine",
+    "external_id": "DB00281",
+    "smiles": "CCN(CC)CC(=O)NC1=C(C)C=CC=C1C"
+  },
+  {
+    "id": 137,
+    "name": "Loperamide",
+    "external_id": "DB00836",
+    "smiles": "CN(C)C(=O)C(CCN1CCC(O)(CC1)C1=CC=C(Cl)C=C1)(C1=CC=CC=C1)C1=CC=CC=C1"
+  },
+  {
+    "id": 138,
+    "name": "Lovastatin",
+    "external_id": "DB00227",
+    "smiles": "[H][C@]12[C@H](C[C@@H](C)C=C1C=C[C@H](C)[C@@H]2CC[C@@H]1C[C@@H](O)CC(=O)O1)OC(=O)[C@@H](C)CC"
+  },
+  {
+    "id": 139,
+    "name": "Maprotiline",
+    "external_id": "DB00934",
+    "smiles": "CNCCCC12CCC(C3=CC=CC=C13)C1=CC=CC=C21"
+  },
+  {
+    "id": 140,
+    "name": "Mebendazole",
+    "external_id": "DB00643",
+    "smiles": "COC(=O)NC1=NC2=C(N1)C=C(C=C2)C(=O)C1=CC=CC=C1"
+  },
+  {
+    "id": 141,
+    "name": "Melatonin",
+    "external_id": "DB01065",
+    "smiles": "COC1=CC2=C(NC=C2CCNC(C)=O)C=C1"
+  },
+  {
+    "id": 142,
+    "name": "Memantine",
+    "external_id": "DB01043",
+    "smiles": "CC12CC3CC(C)(C1)CC(N)(C3)C2"
+  },
+  {
+    "id": 143,
+    "name": "Meprobamate",
+    "external_id": "DB00371",
+    "smiles": "CCCC(C)(COC(N)=O)COC(N)=O"
+  },
+  {
+    "id": 144,
+    "name": "Methadone",
+    "external_id": "DB00333",
+    "smiles": "CCC(=O)C(CC(C)N(C)C)(C1=CC=CC=C1)C1=CC=CC=C1"
+  },
+  {
+    "id": 145,
+    "name": "Methamphetamine",
+    "external_id": "DB01577",
+    "smiles": "CN[C@@H](C)CC1=CC=CC=C1"
+  },
+  {
+    "id": 146,
+    "name": "Methionine",
+    "external_id": "DB00134",
+    "smiles": "CSCC[C@H](N)C(O)=O"
+  },
+  {
+    "id": 147,
+    "name": "Methotrexate",
+    "external_id": "DB00563",
+    "smiles": "CN(CC1=CN=C2N=C(N)N=C(N)C2=N1)C1=CC=C(C=C1)C(=O)N[C@@H](CCC(O)=O)C(O)=O"
+  },
+  {
+    "id": 148,
+    "name": "Methyldopa",
+    "external_id": "DB00968",
+    "smiles": "C[C@](N)(CC1=CC=C(O)C(O)=C1)C(O)=O"
+  },
+  {
+    "id": 149,
+    "name": "Methylprednisolone",
+    "external_id": "DB00959",
+    "smiles": "[H][C@@]12CC[C@](O)(C(=O)CO)[C@@]1(C)C[C@H](O)[C@@]1([H])[C@@]2([H])C[C@H](C)C2=CC(=O)C=C[C@]12C"
+  },
+  {
+    "id": 150,
+    "name": "Metoprolol",
+    "external_id": "DB00264",
+    "smiles": "COCCC1=CC=C(OCC(O)CNC(C)C)C=C1"
+  },
+  {
+    "id": 151,
+    "name": "Metyrapone",
+    "external_id": "DB01011",
+    "smiles": "CC(C)(C(=O)C1=CN=CC=C1)C1=CC=CN=C1"
+  },
+  {
+    "id": 152,
+    "name": "Miconazole",
+    "external_id": "DB01110",
+    "smiles": "ClC1=CC(Cl)=C(COC(CN2C=CN=C2)C2=C(Cl)C=C(Cl)C=C2)C=C1"
+  },
+  {
+    "id": 153,
+    "name": "Midazolam",
+    "external_id": "DB00683",
+    "smiles": "CC1=NC=C2CN=C(C3=CC=CC=C3F)C3=C(C=CC(Cl)=C3)N12"
+  },
+  {
+    "id": 154,
+    "name": "Midodrine",
+    "external_id": "DB00211",
+    "smiles": "COC1=CC(C(O)CNC(=O)CN)=C(OC)C=C1"
+  },
+  {
+    "id": 155,
+    "name": "Mitoxantrone",
+    "external_id": "DB01204",
+    "smiles": "OCCNCCNC1=CC=C(NCCNCCO)C2=C1C(=O)C1=C(C(O)=CC=C1O)C2=O"
+  },
+  {
+    "id": 156,
+    "name": "Morphine",
+    "external_id": "DB00295",
+    "smiles": "[H][C@@]12OC3=C(O)C=CC4=C3[C@@]11CCN(C)[C@]([H])(C4)[C@]1([H])C=C[C@@H]2O"
+  },
+  {
+    "id": 157,
+    "name": "Ipratropium",
+    "external_id": "DB00332",
+    "smiles": "[H][C@]12CC[C@]([H])(C[C@@H](C1)OC(=O)C(CO)C1=CC=CC=C1)[N+]2(C)C(C)C"
+  },
+  {
+    "id": 158,
+    "name": "Naloxone",
+    "external_id": "DB01183",
+    "smiles": "OC1=CC=C2C[C@H]3N(CC=C)CC[C@@]45[C@@H](OC1=C24)C(=O)CC[C@@]35O"
+  },
+  {
+    "id": 159,
+    "name": "Naltrexone",
+    "external_id": "DB00704",
+    "smiles": "[H][C@@]12OC3=C(O)C=CC4=C3[C@@]11CCN(CC3CC3)[C@]([H])(C4)[C@]1(O)CCC2=O"
+  },
+  {
+    "id": 160,
+    "name": "Naproxen",
+    "external_id": "DB00788",
+    "smiles": "COC1=CC2=C(C=C1)C=C(C=C2)[C@H](C)C(O)=O"
+  },
+  {
+    "id": 161,
+    "name": "Neostigmine",
+    "external_id": "DB01400",
+    "smiles": "CN(C)C(=O)OC1=CC(=CC=C1)[N+](C)(C)C"
+  },
+  {
+    "id": 162,
+    "name": "Niacin",
+    "external_id": "DB00627",
+    "smiles": "OC(=O)C1=CN=CC=C1"
+  },
+  {
+    "id": 163,
+    "name": "Nicardipine",
+    "external_id": "DB00622",
+    "smiles": "COC(=O)C1=C(C)NC(C)=C(C1C1=CC(=CC=C1)[N+]([O-])=O)C(=O)OCCN(C)CC1=CC=CC=C1"
+  },
+  {
+    "id": 164,
+    "name": "Nicotine",
+    "external_id": "DB00184",
+    "smiles": "CN1CCC[C@H]1C1=CN=CC=C1"
+  },
+  {
+    "id": 165,
+    "name": "Nifedipine",
+    "external_id": "DB01115",
+    "smiles": "COC(=O)C1=C(C)NC(C)=C(C1C1=CC=CC=C1[N+]([O-])=O)C(=O)OC"
+  },
+  {
+    "id": 166,
+    "name": "Nitrazepam",
+    "external_id": "DB01595",
+    "smiles": "[O-][N+](=O)C1=CC2=C(NC(=O)CN=C2C2=CC=CC=C2)C=C1"
+  },
+  {
+    "id": 167,
+    "name": "Nitrendipine",
+    "external_id": "DB01054",
+    "smiles": "CCOC(=O)C1=C(C)NC(C)=C(C1C1=CC(=CC=C1)[N+]([O-])=O)C(=O)OC"
+  },
+  {
+    "id": 168,
+    "name": "Norepinephrine",
+    "external_id": "DB00368",
+    "smiles": "NC[C@H](O)C1=CC(O)=C(O)C=C1"
+  },
+  {
+    "id": 169,
+    "name": "Norfloxacin",
+    "external_id": "DB01059",
+    "smiles": "CCN1C=C(C(O)=O)C(=O)C2=CC(F)=C(C=C12)N1CCNCC1"
+  },
+  {
+    "id": 170,
+    "name": "Ouabain",
+    "external_id": "DB01092",
+    "smiles": "[H][C@@]12CC[C@]3(O)C[C@H](C[C@@H](O)[C@]3(CO)[C@@]1([H])[C@H](O)C[C@]1(C)[C@H](CC[C@]21O)C1=CC(=O)OC1)O[C@@H]1O[C@@H](C)[C@H](O)[C@@H](O)[C@H]1O"
+  },
+  {
+    "id": 171,
+    "name": "Oxprenolol",
+    "external_id": "DB01580",
+    "smiles": "CC(C)NCC(O)COC1=CC=CC=C1OCC=C"
+  },
+  {
+    "id": 172,
+    "name": "Pancuronium",
+    "external_id": "DB01337",
+    "smiles": "[H][C@@]12C[C@@H]([C@H](OC(C)=O)[C@@]1(C)CC[C@@]1([H])[C@@]2([H])CC[C@@]2([H])C[C@H](OC(C)=O)[C@H](C[C@]12C)[N+]1(C)CCCCC1)[N+]1(C)CCCCC1"
+  },
+  {
+    "id": 173,
+    "name": "Phenacetin",
+    "external_id": "DB03783",
+    "smiles": "CCOC1=CC=C(NC(C)=O)C=C1"
+  },
+  {
+    "id": 174,
+    "name": "Phenformin",
+    "external_id": "DB00914",
+    "smiles": "NC(=N)NC(=N)NCCC1=CC=CC=C1"
+  },
+  {
+    "id": 175,
+    "name": "Phenobarbital",
+    "external_id": "DB01174",
+    "smiles": "CCC1(C(=O)NC(=O)NC1=O)C1=CC=CC=C1"
+  },
+  {
+    "id": 176,
+    "name": "Phenoxybenzamine",
+    "external_id": "DB00925",
+    "smiles": "CC(COC1=CC=CC=C1)N(CCCl)CC1=CC=CC=C1"
+  },
+  {
+    "id": 177,
+    "name": "Phenylbutazone",
+    "external_id": "DB00812",
+    "smiles": "CCCCC1C(=O)N(N(C1=O)C1=CC=CC=C1)C1=CC=CC=C1"
+  },
+  {
+    "id": 178,
+    "name": "Phenytoin",
+    "external_id": "DB00252",
+    "smiles": "O=C1NC(=O)C(N1)(C1=CC=CC=C1)C1=CC=CC=C1"
+  },
+  {
+    "id": 179,
+    "name": "Pimozide",
+    "external_id": "DB01100",
+    "smiles": "FC1=CC=C(C=C1)C(CCCN1CCC(CC1)N1C(=O)NC2=CC=CC=C12)C1=CC=C(F)C=C1"
+  },
+  {
+    "id": 180,
+    "name": "Piroxicam",
+    "external_id": "DB00554",
+    "smiles": "CN1C(C(=O)NC2=NC=CC=C2)=C(O)C2=C(C=CC=C2)S1(=O)=O"
+  },
+  {
+    "id": 181,
+    "name": "Prazosin",
+    "external_id": "DB00457",
+    "smiles": "COC1=C(OC)C=C2C(N)=NC(=NC2=C1)N1CCN(CC1)C(=O)C1=CC=CO1"
+  },
+  {
+    "id": 182,
+    "name": "Prednisolone",
+    "external_id": "DB00860",
+    "smiles": "[H][C@@]12CC[C@](O)(C(=O)CO)[C@@]1(C)C[C@H](O)[C@@]1([H])[C@@]2([H])CCC2=CC(=O)C=C[C@]12C"
+  },
+  {
+    "id": 183,
+    "name": "Prednisone",
+    "external_id": "DB00635",
+    "smiles": "[H][C@@]12CC[C@](O)(C(=O)CO)[C@@]1(C)CC(=O)[C@@]1([H])[C@@]2([H])CCC2=CC(=O)C=C[C@]12C"
+  },
+  {
+    "id": 184,
+    "name": "Probenecid",
+    "external_id": "DB01032",
+    "smiles": "CCCN(CCC)S(=O)(=O)C1=CC=C(C=C1)C(O)=O"
+  },
+  {
+    "id": 185,
+    "name": "Procainamide",
+    "external_id": "DB01035",
+    "smiles": "CCN(CC)CCNC(=O)C1=CC=C(N)C=C1"
+  },
+  {
+    "id": 186,
+    "name": "Progesterone",
+    "external_id": "DB00396",
+    "smiles": "[H][C@@]12CC[C@H](C(C)=O)[C@@]1(C)CC[C@@]1([H])[C@@]2([H])CCC2=CC(=O)CC[C@]12C"
+  },
+  {
+    "id": 187,
+    "name": "Promethazine",
+    "external_id": "DB01069",
+    "smiles": "CC(CN1C2=CC=CC=C2SC2=CC=CC=C12)N(C)C"
+  },
+  {
+    "id": 188,
+    "name": "Propafenone",
+    "external_id": "DB01182",
+    "smiles": "CCCNCC(O)COC1=C(C=CC=C1)C(=O)CCC1=CC=CC=C1"
+  },
+  {
+    "id": 189,
+    "name": "Propranolol",
+    "external_id": "DB00571",
+    "smiles": "CC(C)NCC(O)COC1=CC=CC2=C1C=CC=C2"
+  },
+  {
+    "id": 190,
+    "name": "Protriptyline",
+    "external_id": "DB00344",
+    "smiles": "CNCCCC1C2=CC=CC=C2C=CC2=CC=CC=C12"
+  },
+  {
+    "id": 191,
+    "name": "Quercetin",
+    "external_id": "DB04216",
+    "smiles": "OC1=CC2=C(C(O)=C1)C(=O)C(O)=C(O2)C1=CC=C(O)C(O)=C1"
+  },
+  {
+    "id": 192,
+    "name": "Quinacrine",
+    "external_id": "DB01103",
+    "smiles": "CCN(CC)CCCC(C)NC1=C2C=C(OC)C=CC2=NC2=C1C=CC(Cl)=C2"
+  },
+  {
+    "id": 193,
+    "name": "Quinidine",
+    "external_id": "DB00908",
+    "smiles": "[H][C@@]12CCN(C[C@@H]1C=C)[C@]([H])(C2)[C@@H](O)C1=C2C=C(OC)C=CC2=NC=C1"
+  },
+  {
+    "id": 194,
+    "name": "Quinine",
+    "external_id": "DB00468",
+    "smiles": "[H][C@]1(C[C@@H]2CC[N@]1C[C@@H]2C=C)[C@H](O)C1=CC=NC2=CC=C(OC)C=C12"
+  },
+  {
+    "id": 195,
+    "name": "Ranitidine",
+    "external_id": "DB00863",
+    "smiles": "CNC(NCCSCC1=CC=C(CN(C)C)O1)=C[N+]([O-])=O"
+  },
+  {
+    "id": 196,
+    "name": "Reserpine",
+    "external_id": "DB00206",
+    "smiles": "[H][C@]12C[C@@H](OC(=O)C3=CC(OC)=C(OC)C(OC)=C3)[C@H](OC)[C@@H](C(=O)OC)[C@@]1([H])C[C@@]1([H])N(CCC3=C1NC1=C3C=CC(OC)=C1)C2"
+  },
+  {
+    "id": 197,
+    "name": "Ribavirin",
+    "external_id": "DB00811",
+    "smiles": "NC(=O)C1=NN(C=N1)[C@@H]1O[C@H](CO)[C@@H](O)[C@H]1O"
+  },
+  {
+    "id": 198,
+    "name": "Riboflavin",
+    "external_id": "DB00140",
+    "smiles": "CC1=C(C)C=C2N(C[C@H](O)[C@H](O)[C@H](O)CO)C3=NC(=O)NC(=O)C3=NC2=C1"
+  },
+  {
+    "id": 199,
+    "name": "Rifampin",
+    "external_id": "DB01045",
+    "smiles": "CO[C@H]1\\C=C\\O[C@@]2(C)OC3=C(C2=O)C2=C(O)C(\\C=N\\N4CCN(C)CC4)=C(NC(=O)\\C(C)=C/C=C/[C@H](C)[C@H](O)[C@@H](C)[C@@H](O)[C@@H](C)[C@H](OC(C)=O)[C@@H]1C)C(O)=C2C(O)=C3C"
+  },
+  {
+    "id": 200,
+    "name": "Sulfasalazine",
+    "external_id": "DB00795",
+    "smiles": "OC(=O)C1=CC(=CC=C1O)\\N=N\\C1=CC=C(C=C1)S(=O)(=O)NC1=NC=CC=C1"
+  },
+  {
+    "id": 201,
+    "name": "Selegiline",
+    "external_id": "DB01037",
+    "smiles": "C[C@H](CC1=CC=CC=C1)N(C)CC#C"
+  },
+  {
+    "id": 202,
+    "name": "Spironolactone",
+    "external_id": "DB00421",
+    "smiles": "[H][C@@]12CC[C@@]3(CCC(=O)O3)[C@@]1(C)CC[C@@]1([H])[C@@]2([H])[C@@]([H])(CC2=CC(=O)CC[C@]12C)SC(C)=O"
+  },
+  {
+    "id": 203,
+    "name": "Streptozocin",
+    "external_id": "DB00428",
+    "smiles": "CN(N=O)C(=O)N[C@H]1[C@@H](O)O[C@H](CO)[C@@H](O)[C@@H]1O"
+  },
+  {
+    "id": 204,
+    "name": "Sulfinpyrazone",
+    "external_id": "DB01138",
+    "smiles": "O=C1C(CCS(=O)C2=CC=CC=C2)C(=O)N(N1C1=CC=CC=C1)C1=CC=CC=C1"
+  },
+  {
+    "id": 205,
+    "name": "Sulindac",
+    "external_id": "DB00605",
+    "smiles": "CC1=C(CC(O)=O)C2=CC(F)=CC=C2\\C1=C/C1=CC=C(C=C1)S(C)=O"
+  },
+  {
+    "id": 206,
+    "name": "Tacrine",
+    "external_id": "DB00382",
+    "smiles": "NC1=C2CCCCC2=NC2=CC=CC=C12"
+  },
+  {
+    "id": 207,
+    "name": "Tamoxifen",
+    "external_id": "DB00675",
+    "smiles": "CC\\C(=C(/C1=CC=CC=C1)C1=CC=C(OCCN(C)C)C=C1)C1=CC=CC=C1"
+  },
+  {
+    "id": 208,
+    "name": "Testosterone",
+    "external_id": "DB00624",
+    "smiles": "[H][C@@]12CC[C@H](O)[C@@]1(C)CC[C@@]1([H])[C@@]2([H])CCC2=CC(=O)CC[C@]12C"
+  },
+  {
+    "id": 209,
+    "name": "Tetracycline",
+    "external_id": "DB00759",
+    "smiles": "[H][C@@]12C[C@@]3([H])C(=C(O)[C@]1(O)C(=O)C(C(N)=O)=C(O)[C@H]2N(C)C)C(=O)C1=C(O)C=CC=C1[C@@]3(C)O"
+  },
+  {
+    "id": 210,
+    "name": "Dronabinol",
+    "external_id": "DB00470",
+    "smiles": "[H][C@@]12C=C(C)CC[C@@]1([H])C(C)(C)OC1=C2C(O)=CC(CCCCC)=C1"
+  },
+  {
+    "id": 211,
+    "name": "Theophylline",
+    "external_id": "DB00277",
+    "smiles": "CN1C2=C(NC=N2)C(=O)N(C)C1=O"
+  },
+  {
+    "id": 212,
+    "name": "Thiothixene",
+    "external_id": "DB01623",
+    "smiles": "CN(C)S(=O)(=O)C1=CC2=C(SC3=CC=CC=C3\\C2=C\\CCN2CCN(C)CC2)C=C1"
+  },
+  {
+    "id": 213,
+    "name": "Thyroxine",
+    "external_id": "DB00451",
+    "smiles": "N[C@@H](CC1=CC(I)=C(OC2=CC(I)=C(O)C(I)=C2)C(I)=C1)C(O)=O"
+  },
+  {
+    "id": 214,
+    "name": "Timolol",
+    "external_id": "DB00373",
+    "smiles": "[H][C@](O)(CNC(C)(C)C)COC1=NSN=C1N1CCOCC1"
+  },
+  {
+    "id": 215,
+    "name": "Tolbutamide",
+    "external_id": "DB01124",
+    "smiles": "CCCCNC(=O)NS(=O)(=O)C1=CC=C(C)C=C1"
+  },
+  {
+    "id": 216,
+    "name": "Tolmetin",
+    "external_id": "DB00500",
+    "smiles": "CN1C(CC(O)=O)=CC=C1C(=O)C1=CC=C(C)C=C1"
+  },
+  {
+    "id": 217,
+    "name": "Trazodone",
+    "external_id": "DB00656",
+    "smiles": "ClC1=CC=CC(=C1)N1CCN(CCCN2N=C3C=CC=CN3C2=O)CC1"
+  },
+  {
+    "id": 218,
+    "name": "Tretinoin",
+    "external_id": "DB00755",
+    "smiles": "C\\C(\\C=C\\C1=C(C)CCCC1(C)C)=C/C=C/C(/C)=C/C(O)=O"
+  },
+  {
+    "id": 219,
+    "name": "Trifluoperazine",
+    "external_id": "DB00831",
+    "smiles": "CN1CCN(CCCN2C3=CC=CC=C3SC3=C2C=C(C=C3)C(F)(F)F)CC1"
+  },
+  {
+    "id": 220,
+    "name": "Trimethoprim",
+    "external_id": "DB00440",
+    "smiles": "COC1=CC(CC2=CN=C(N)N=C2N)=CC(OC)=C1OC"
+  },
+  {
+    "id": 221,
+    "name": "Trimipramine",
+    "external_id": "DB00726",
+    "smiles": "CC(CN(C)C)CN1C2=CC=CC=C2CCC2=CC=CC=C12"
+  },
+  {
+    "id": 222,
+    "name": "Ursodeoxycholic acid",
+    "external_id": "DB01586",
+    "smiles": "[H][C@@]1(CC[C@@]2([H])[C@]3([H])[C@@H](O)C[C@]4([H])C[C@H](O)CC[C@]4(C)[C@@]3([H])CC[C@]12C)[C@H](C)CCC(O)=O"
+  },
+  {
+    "id": 223,
+    "name": "Valproic acid",
+    "external_id": "DB00313",
+    "smiles": "CCCC(CCC)C(O)=O"
+  },
+  {
+    "id": 224,
+    "name": "Verapamil",
+    "external_id": "DB00661",
+    "smiles": "COC1=C(OC)C=C(CCN(C)CCCC(C#N)(C(C)C)C2=CC(OC)=C(OC)C=C2)C=C1"
+  },
+  {
+    "id": 225,
+    "name": "Vinblastine",
+    "external_id": "DB00570",
+    "smiles": "[H][C@@]12N(C)C3=CC(OC)=C(C=C3[C@@]11CCN3CC=C[C@@](CC)([C@@H](OC(C)=O)[C@]2(O)C(=O)OC)[C@@]13[H])[C@]1(C[C@@]2([H])CN(C[C@](O)(CC)C2)CCC2=C1NC1=C2C=CC=C1)C(=O)OC"
+  },
+  {
+    "id": 226,
+    "name": "Vincristine",
+    "external_id": "DB00541",
+    "smiles": "[H][C@@]12N3CC[C@@]11C4=C(C=C(OC)C(=C4)[C@]4(C[C@H]5C[N@](C[C@](O)(CC)C5)CCC5=C4NC4=CC=CC=C54)C(=O)OC)N(C=O)[C@@]1([H])[C@](O)([C@H](OC(C)=O)[C@]2(CC)C=CC3)C(=O)OC"
+  },
+  {
+    "id": 227,
+    "name": "Vitamin b 12",
+    "external_id": "DB02667",
+    "smiles": "COC1=CC=C2N(C=NC2=C1)[C@H]1O[C@H](CO)[C@@H](O[P@]([OH-])(=O)O[C@H](C)CNC(=O)CC[C@]2(C)[C@@H](CC(N)=O)C3=[N+]4C2=C(C)C2=[N+]5C(=CC6=[N+]7C(=C(C)C8=[N+]([C@]3(C)[C@@](C)(CC(N)=O)[C@@H]8CCC(N)=O)[Co@@]457)[C@@](C)(CC(N)=O)[C@@H]6CCC(N)=O)C(C)(C)[C@@H]2CCC(N)=O)[C@H]1O"
+  },
+  {
+    "id": 228,
+    "name": "Zidovudine",
+    "external_id": "DB00495",
+    "smiles": "CC1=CN([C@H]2C[C@H](N=[N+]=[N-])[C@@H](CO)O2)C(=O)NC1=O"
+  },
+  {
+    "id": 229,
+    "name": "Dinoprostone",
+    "external_id": "DB00917",
+    "smiles": "CCCCC[C@H](O)\\C=C\\[C@H]1[C@H](O)CC(=O)[C@@H]1C\\C=C/CCCC(O)=O"
+  },
+  {
+    "id": 230,
+    "name": "Ofloxacin",
+    "external_id": "DB01165",
+    "smiles": "CC1COC2=C3N1C=C(C(O)=O)C(=O)C3=CC(F)=C2N1CCN(C)CC1"
+  },
+  {
+    "id": 231,
+    "name": "Gemfibrozil",
+    "external_id": "DB01241",
+    "smiles": "CC1=CC(OCCCC(C)(C)C(O)=O)=C(C)C=C1"
+  },
+  {
+    "id": 232,
+    "name": "Epirubicin",
+    "external_id": "DB00445",
+    "smiles": "COC1=CC=CC2=C1C(=O)C1=C(O)C3=C(C[C@](O)(C[C@@H]3O[C@H]3C[C@H](N)[C@@H](O)[C@H](C)O3)C(=O)CO)C(O)=C1C2=O"
+  },
+  {
+    "id": 233,
+    "name": "Idarubicin",
+    "external_id": "DB01177",
+    "smiles": "C[C@@H]1O[C@H](C[C@H](N)[C@@H]1O)O[C@H]1C[C@@](O)(CC2=C1C(O)=C1C(=O)C3=CC=CC=C3C(=O)C1=C2O)C(C)=O"
+  },
+  {
+    "id": 234,
+    "name": "Citalopram",
+    "external_id": "DB00215",
+    "smiles": "CN(C)CCCC1(OCC2=C1C=CC(=C2)C#N)C1=CC=C(F)C=C1"
+  },
+  {
+    "id": 235,
+    "name": "Mifepristone",
+    "external_id": "DB00834",
+    "smiles": "[H][C@@]12CC[C@@](O)(C#CC)[C@@]1(C)C[C@H](C1=CC=C(C=C1)N(C)C)C1=C3CCC(=O)C=C3CC[C@@]21[H]"
+  },
+  {
+    "id": 236,
+    "name": "Felodipine",
+    "external_id": "DB01023",
+    "smiles": "CCOC(=O)C1=C(C)NC(C)=C(C1C1=C(Cl)C(Cl)=CC=C1)C(=O)OC"
+  },
+  {
+    "id": 237,
+    "name": "Nisoldipine",
+    "external_id": "DB00401",
+    "smiles": "COC(=O)C1=C(C)NC(C)=C(C1C1=CC=CC=C1[N+]([O-])=O)C(=O)OCC(C)C"
+  },
+  {
+    "id": 238,
+    "name": "Famotidine",
+    "external_id": "DB00927",
+    "smiles": "NC(N)=NC1=NC(CSCCC(N)=NS(N)(=O)=O)=CS1"
+  },
+  {
+    "id": 239,
+    "name": "Alfentanil",
+    "external_id": "DB00802",
+    "smiles": "CCN1N=NN(CCN2CCC(COC)(CC2)N(C(=O)CC)C2=CC=CC=C2)C1=O"
+  },
+  {
+    "id": 240,
+    "name": "Bepridil",
+    "external_id": "DB01244",
+    "smiles": "CC(C)COCC(CN(CC1=CC=CC=C1)C1=CC=CC=C1)N1CCCC1"
+  },
+  {
+    "id": 241,
+    "name": "Albendazole",
+    "external_id": "DB00518",
+    "smiles": "CCCSC1=CC2=C(C=C1)N=C(NC(=O)OC)N2"
+  },
+  {
+    "id": 242,
+    "name": "Mefloquine",
+    "external_id": "DB00358",
+    "smiles": "OC(C1CCCCN1)C1=CC(=NC2=C1C=CC=C2C(F)(F)F)C(F)(F)F"
+  },
+  {
+    "id": 243,
+    "name": "Astemizole",
+    "external_id": "DB00637",
+    "smiles": "COC1=CC=C(CCN2CCC(CC2)NC2=NC3=CC=CC=C3N2CC2=CC=C(F)C=C2)C=C1"
+  },
+  {
+    "id": 244,
+    "name": "Terfenadine",
+    "external_id": "DB00342",
+    "smiles": "CC(C)(C)C1=CC=C(C=C1)C(O)CCCN1CCC(CC1)C(O)(C1=CC=CC=C1)C1=CC=CC=C1"
+  },
+  {
+    "id": 245,
+    "name": "Fluvoxamine",
+    "external_id": "DB00176",
+    "smiles": "COCCCC\\C(=N/OCCN)C1=CC=C(C=C1)C(F)(F)F"
+  },
+  {
+    "id": 246,
+    "name": "Arachidonic acid",
+    "external_id": "DB04557",
+    "smiles": "CCCCC\\C=C/C\\C=C/C\\C=C/C\\C=C/CCCC(O)=O"
+  },
+  {
+    "id": 247,
+    "name": "Pravastatin",
+    "external_id": "DB00175",
+    "smiles": "[H][C@]12[C@H](C[C@H](O)C=C1C=C[C@H](C)[C@@H]2CC[C@@H](O)C[C@@H](O)CC(O)=O)OC(=O)[C@@H](C)CC"
+  },
+  {
+    "id": 248,
+    "name": "Paclitaxel",
+    "external_id": "DB01229",
+    "smiles": "[H][C@]12[C@H](OC(=O)C3=CC=CC=C3)[C@]3(O)C[C@H](OC(=O)[C@H](O)[C@@H](NC(=O)C4=CC=CC=C4)C4=CC=CC=C4)C(C)=C([C@@H](OC(C)=O)C(=O)[C@]1(C)[C@@H](O)C[C@H]1OC[C@@]21OC(C)=O)C3(C)C"
+  },
+  {
+    "id": 249,
+    "name": "Ramipril",
+    "external_id": "DB00178",
+    "smiles": "[H][C@@]12CCC[C@]1([H])N([C@@H](C2)C(O)=O)C(=O)[C@H](C)N[C@@H](CCC1=CC=CC=C1)C(=O)OCC"
+  },
+  {
+    "id": 250,
+    "name": "Clarithromycin",
+    "external_id": "DB01211",
+    "smiles": "[H][C@@]1(C[C@@](C)(OC)[C@@H](O)[C@H](C)O1)O[C@H]1[C@H](C)[C@@H](O[C@]2([H])O[C@H](C)C[C@@H]([C@H]2O)N(C)C)[C@@](C)(C[C@@H](C)C(=O)[C@H](C)[C@@H](O)[C@](C)(O)[C@@H](CC)OC(=O)[C@@H]1C)OC"
+  },
+  {
+    "id": 251,
+    "name": "Doxazosin",
+    "external_id": "DB00590",
+    "smiles": "COC1=C(OC)C=C2C(N)=NC(=NC2=C1)N1CCN(CC1)C(=O)C1COC2=CC=CC=C2O1"
+  },
+  {
+    "id": 252,
+    "name": "Etodolac",
+    "external_id": "DB00749",
+    "smiles": "CCC1=C2NC3=C(CCOC3(CC)CC(O)=O)C2=CC=C1"
+  },
+  {
+    "id": 253,
+    "name": "Toremifene",
+    "external_id": "DB00539",
+    "smiles": "CN(C)CCOC1=CC=C(C=C1)C(=C(\\CCCl)C1=CC=CC=C1)\\C1=CC=CC=C1"
+  },
+  {
+    "id": 254,
+    "name": "Loratadine",
+    "external_id": "DB00455",
+    "smiles": "CCOC(=O)N1CCC(CC1)=C1C2=C(CCC3=C1N=CC=C3)C=C(Cl)C=C2"
+  },
+  {
+    "id": 255,
+    "name": "Cladribine",
+    "external_id": "DB00242",
+    "smiles": "NC1=C2N=CN([C@H]3C[C@H](O)[C@@H](CO)O3)C2=NC(Cl)=N1"
+  },
+  {
+    "id": 256,
+    "name": "Paroxetine",
+    "external_id": "DB00715",
+    "smiles": "FC1=CC=C(C=C1)[C@@H]1CCNC[C@H]1COC1=CC2=C(OCO2)C=C1"
+  },
+  {
+    "id": 257,
+    "name": "Itraconazole",
+    "external_id": "DB01167",
+    "smiles": "CCC(C)N1N=CN(C1=O)C1=CC=C(C=C1)N1CCN(CC1)C1=CC=C(OC[C@H]2CO[C@@](CN3C=NC=N3)(O2)C2=C(Cl)C=C(Cl)C=C2)C=C1"
+  },
+  {
+    "id": 258,
+    "name": "Sumatriptan",
+    "external_id": "DB00669",
+    "smiles": "CNS(=O)(=O)CC1=CC=C2NC=C(CCN(C)C)C2=C1"
+  },
+  {
+    "id": 259,
+    "name": "Risperidone",
+    "external_id": "DB00734",
+    "smiles": "CC1=C(CCN2CCC(CC2)C2=NOC3=C2C=CC(F)=C3)C(=O)N2CCCCC2=N1"
+  },
+  {
+    "id": 260,
+    "name": "Riluzole",
+    "external_id": "DB00740",
+    "smiles": "NC1=NC2=C(S1)C=C(OC(F)(F)F)C=C2"
+  },
+  {
+    "id": 261,
+    "name": "Losartan",
+    "external_id": "DB00678",
+    "smiles": "CCCCC1=NC(Cl)=C(CO)N1CC1=CC=C(C=C1)C1=CC=CC=C1C1=NNN=N1"
+  },
+  {
+    "id": 262,
+    "name": "Simvastatin",
+    "external_id": "DB00641",
+    "smiles": "[H][C@]12[C@H](C[C@@H](C)C=C1C=C[C@H](C)[C@@H]2CC[C@@H]1C[C@@H](O)CC(=O)O1)OC(=O)C(C)(C)CC"
+  },
+  {
+    "id": 263,
+    "name": "Genistein",
+    "external_id": "DB01645",
+    "smiles": "OC1=CC=C(C=C1)C1=COC2=C(C(O)=CC(O)=C2)C1=O"
+  },
+  {
+    "id": 264,
+    "name": "Sirolimus",
+    "external_id": "DB00877",
+    "smiles": "[H][C@@]1(C[C@@H](C)[C@]2([H])CC(=O)[C@H](C)\\C=C(C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(C)\\[C@H](C[C@]3([H])CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N3CCCC[C@@]3([H])C(=O)O2)OC)CC[C@@H](O)[C@@H](C1)OC"
+  },
+  {
+    "id": 265,
+    "name": "Salicylic acid",
+    "external_id": "DB00936",
+    "smiles": "OC(=O)C1=CC=CC=C1O"
+  },
+  {
+    "id": 266,
+    "name": "Sertraline",
+    "external_id": "DB01104",
+    "smiles": "CN[C@H]1CC[C@@H](C2=CC(Cl)=C(Cl)C=C2)C2=CC=CC=C12"
+  },
+  {
+    "id": 267,
+    "name": "Mibefradil",
+    "external_id": "DB01388",
+    "smiles": "COCC(=O)O[C@]1(CCN(C)CCCC2=NC3=CC=CC=C3N2)CCC2=C(C=CC(F)=C2)[C@@H]1C(C)C"
+  },
+  {
+    "id": 268,
+    "name": "Perindopril",
+    "external_id": "DB00790",
+    "smiles": "[H][C@]12C[C@H](N(C(=O)[C@H](C)N[C@@H](CCC)C(=O)OCC)[C@@]1([H])CCCC2)C(O)=O"
+  },
+  {
+    "id": 269,
+    "name": "Goserelin",
+    "external_id": "DB00014",
+    "smiles": "CC(C)C[C@H](NC(=O)[C@@H](COC(C)(C)C)NC(=O)[C@H](CC1=CC=C(O)C=C1)NC(=O)[C@H](CO)NC(=O)[C@H](CC1=CNC2=CC=CC=C12)NC(=O)[C@H](CC1=CN=CN1)NC(=O)[C@@H]1CCC(=O)N1)C(=O)N[C@@H](CCCN=C(N)N)C(=O)N1CCC[C@H]1C(=O)NNC(N)=O"
+  },
+  {
+    "id": 270,
+    "name": "Desmopressin",
+    "external_id": "DB00035",
+    "smiles": "NC(=O)CC[C@@H]1NC(=O)[C@H](CC2=CC=CC=C2)NC(=O)[C@H](CC2=CC=C(O)C=C2)NC(=O)CCSSC[C@H](NC(=O)[C@H](CC(N)=O)NC1=O)C(=O)N1CCC[C@H]1C(=O)N[C@H](CCCNC(N)=N)C(=O)NCC(N)=O"
+  },
+  {
+    "id": 271,
+    "name": "Cyclosporine",
+    "external_id": "DB00091",
+    "smiles": "CC[C@@H]1NC(=O)[C@H]([C@H](O)[C@H](C)C\\C=C\\C)N(C)C(=O)[C@H](C(C)C)N(C)C(=O)[C@H](CC(C)C)N(C)C(=O)[C@H](CC(C)C)N(C)C(=O)[C@@H](C)NC(=O)[C@H](C)NC(=O)[C@H](CC(C)C)N(C)C(=O)[C@@H](NC(=O)[C@H](CC(C)C)N(C)C(=O)CN(C)C1=O)C(C)C"
+  },
+  {
+    "id": 272,
+    "name": "Octreotide",
+    "external_id": "DB00104",
+    "smiles": "C[C@@H](O)[C@@H]1NC(=O)[C@H](CCCCN)NC(=O)[C@@H](Cc2c[nH]c3ccccc23)NC(=O)[C@H](Cc2ccccc2)NC(=O)[C@@H](NC(=O)[C@H](N)Cc2ccccc2)CSSC[C@@H](C(=O)N[C@H](CO)[C@@H](C)O)NC1=O"
+  },
+  {
+    "id": 273,
+    "name": "Cyanocobalamin",
+    "external_id": "DB00115",
+    "smiles": "C[C@H](CNC(=O)CC[C@]1(C)[C@@H](CC(N)=O)[C@H]2N=C1\\C(C)=C1/N=C(/C=C3\\N=C(\\C(\\C)=C4\\[C@@H](CCC(N)=O)[C@](C)(CC(N)=O)[C@@]2(C)N4[Co+]C#N)[C@@](C)(CC(N)=O)[C@@H]3CCC(N)=O)C(C)(C)[C@@H]1CCC(N)=O)OP([O-])(=O)O[C@@H]1[C@@H](CO)O[C@@H]([C@@H]1O)N1C=NC2=C1C=C(C)C(C)=C2"
+  },
+  {
+    "id": 274,
+    "name": "Arginine",
+    "external_id": "DB00125",
+    "smiles": "N[C@@H](CCCNC(N)=N)C(O)=O"
+  },
+  {
+    "id": 275,
+    "name": "Ascorbic acid",
+    "external_id": "DB00126",
+    "smiles": "[H][C@@]1(OC(=O)C(O)=C1O)[C@@H](O)CO"
+  },
+  {
+    "id": 276,
+    "name": "Adenosine phosphate",
+    "external_id": "DB00131",
+    "smiles": "NC1=C2N=CN([C@@H]3O[C@H](COP(O)(O)=O)[C@@H](O)[C@H]3O)C2=NC=N1"
+  },
+  {
+    "id": 277,
+    "name": "Calcitriol",
+    "external_id": "DB00136",
+    "smiles": "C[C@H](CCCC(C)(C)O)[C@@]1([H])CC[C@@]2([H])\\C(CCC[C@]12C)=C\\C=C1\\C[C@@H](O)C[C@H](O)C1=C"
+  },
+  {
+    "id": 278,
+    "name": "N-Acetylglucosamine",
+    "external_id": "DB00141",
+    "smiles": "[H]C(=O)[C@H](NC(C)=O)[C@@H](O)[C@H](O)[C@H](O)CO"
+  },
+  {
+    "id": 279,
+    "name": "Calcifediol",
+    "external_id": "DB00146",
+    "smiles": "C[C@H](CCCC(C)(C)O)[C@@]1([H])CC[C@@]2([H])\\C(CCC[C@]12C)=C\\C=C1\\C[C@@H](O)CCC1=C"
+  },
+  {
+    "id": 280,
+    "name": "Thiamine",
+    "external_id": "DB00152",
+    "smiles": "CC1=C(CCO)SC=[N+]1CC1=CN=C(C)N=C1N"
+  },
+  {
+    "id": 281,
+    "name": "Ergocalciferol",
+    "external_id": "DB00153",
+    "smiles": "CC(C)[C@@H](C)\\C=C\\[C@@H](C)[C@@]1([H])CC[C@@]2([H])\\C(CCC[C@]12C)=C\\C=C1\\C[C@@H](O)CCC1=C"
+  },
+  {
+    "id": 282,
+    "name": "Icosapent",
+    "external_id": "DB00159",
+    "smiles": "CC\\C=C/C\\C=C/C\\C=C/C\\C=C/C\\C=C/CCCC(O)=O"
+  },
+  {
+    "id": 283,
+    "name": "Alanine",
+    "external_id": "DB00160",
+    "smiles": "C[C@H](N)C(O)=O"
+  },
+  {
+    "id": 284,
+    "name": "Vitamin A",
+    "external_id": "DB00162",
+    "smiles": "C\\C(=C/CO)\\C=C\\C=C(/C)\\C=C\\C1=C(C)CCCC1(C)C"
+  },
+  {
+    "id": 285,
+    "name": "Vitamin E",
+    "external_id": "DB00163",
+    "smiles": "CC(C)CCC[C@@H](C)CCC[C@@H](C)CCC[C@]1(C)CCC2=C(O1)C(C)=C(C)C(O)=C2C"
+  },
+  {
+    "id": 286,
+    "name": "Pyridoxine",
+    "external_id": "DB00165",
+    "smiles": "CC1=C(O)C(CO)=C(CO)C=N1"
+  },
+  {
+    "id": 287,
+    "name": "Isoleucine",
+    "external_id": "DB00167",
+    "smiles": "CC[C@H](C)[C@H](N)C(O)=O"
+  },
+  {
+    "id": 288,
+    "name": "Cholecalciferol",
+    "external_id": "DB00169",
+    "smiles": "CC(C)CCC[C@@H](C)[C@@]1([H])CC[C@@]2([H])\\C(CCC[C@]12C)=C\\C=C1\\C[C@@H](O)CCC1=C"
+  },
+  {
+    "id": 289,
+    "name": "Masoprocol",
+    "external_id": "DB00179",
+    "smiles": "C[C@@H](CC1=CC(O)=C(O)C=C1)[C@H](C)CC1=CC(O)=C(O)C=C1"
+  },
+  {
+    "id": 290,
+    "name": "Flunisolide",
+    "external_id": "DB00180",
+    "smiles": "[H][C@@]12C[C@@]3([H])[C@]4([H])C[C@H](F)C5=CC(=O)C=C[C@]5(C)[C@@]4([H])[C@@H](O)C[C@]3(C)[C@@]1(OC(C)(C)O2)C(=O)CO"
+  },
+  {
+    "id": 291,
+    "name": "Baclofen",
+    "external_id": "DB00181",
+    "smiles": "NCC(CC(O)=O)C1=CC=C(Cl)C=C1"
+  },
+  {
+    "id": 292,
+    "name": "Lorazepam",
+    "external_id": "DB00186",
+    "smiles": "OC1N=C(C2=CC=CC=C2Cl)C2=C(NC1=O)C=CC(Cl)=C2"
+  },
+  {
+    "id": 293,
+    "name": "Esmolol",
+    "external_id": "DB00187",
+    "smiles": "COC(=O)CCC1=CC=C(OCC(O)CNC(C)C)C=C1"
+  },
+  {
+    "id": 294,
+    "name": "Bortezomib",
+    "external_id": "DB00188",
+    "smiles": "CC(C)C[C@H](NC(=O)[C@H](CC1=CC=CC=C1)NC(=O)C1=CN=CC=N1)B(O)O"
+  },
+  {
+    "id": 295,
+    "name": "Carbidopa",
+    "external_id": "DB00190",
+    "smiles": "C[C@@](CC1=CC(O)=C(O)C=C1)(NN)C(O)=O"
+  },
+  {
+    "id": 296,
+    "name": "Phentermine",
+    "external_id": "DB00191",
+    "smiles": "CC(C)(N)CC1=CC=CC=C1"
+  },
+  {
+    "id": 297,
+    "name": "Tramadol",
+    "external_id": "DB00193",
+    "smiles": "COC1=CC=CC(=C1)C1(O)CCCCC1CN(C)C"
+  },
+  {
+    "id": 298,
+    "name": "Betaxolol",
+    "external_id": "DB00195",
+    "smiles": "CC(C)NCC(O)COC1=CC=C(CCOCC2CC2)C=C1"
+  },
+  {
+    "id": 299,
+    "name": "Hydroxocobalamin",
+    "external_id": "DB00200",
+    "smiles": "[N+]1=2[Co-3]345([N+]6=C7[C@H]([C@@](CC(=O)N)(C)[C@@]6([C@@]6(N3C(=C(C)C3=[N+]4C(C(C)(C)[C@@H]3CCC(=O)N)=CC3=[N+]5C(=C7C)[C@@](CC(=O)N)([C@@H]3CCC(=O)N)C)[C@@](C)([C@H]6CC(=O)N)CCC(NC[C@@H](C)OP(=O)(O[C@@H]3[C@H](O[C@H](N(C4=CC(=C(C=C14)C)C)C=2)[C@@H]3O)CO)[O-])=O)[H])C)CCC(=O)N)O[H]"
+  },
+  {
+    "id": 300,
+    "name": "Sildenafil",
+    "external_id": "DB00203",
+    "smiles": "CCCC1=NN(C)C2=C1N=C(NC2=O)C1=CC(=CC=C1OCC)S(=O)(=O)N1CCN(C)CC1"
+  },
+  {
+    "id": 301,
+    "name": "Dofetilide",
+    "external_id": "DB00204",
+    "smiles": "CN(CCOC1=CC=C(NS(C)(=O)=O)C=C1)CCC1=CC=C(NS(C)(=O)=O)C=C1"
+  },
+  {
+    "id": 302,
+    "name": "Ticlopidine",
+    "external_id": "DB00208",
+    "smiles": "ClC1=CC=CC=C1CN1CCC2=C(C1)C=CS2"
+  },
+  {
+    "id": 303,
+    "name": "Adapalene",
+    "external_id": "DB00210",
+    "smiles": "COC1=C(C=C(C=C1)C1=CC2=C(C=C1)C=C(C=C2)C(O)=O)C12CC3CC(CC(C3)C1)C2"
+  },
+  {
+    "id": 304,
+    "name": "Pantoprazole",
+    "external_id": "DB00213",
+    "smiles": "COC1=C(OC)C(CS(=O)C2=NC3=C(N2)C=C(OC(F)F)C=C3)=NC=C1"
+  },
+  {
+    "id": 305,
+    "name": "Torasemide",
+    "external_id": "DB00214",
+    "smiles": "CC(C)NC(=O)NS(=O)(=O)C1=C(NC2=CC=CC(C)=C2)C=CN=C1"
+  },
+  {
+    "id": 306,
+    "name": "Eletriptan",
+    "external_id": "DB00216",
+    "smiles": "CN1CCC[C@@H]1CC1=CNC2=C1C=C(CCS(=O)(=O)C1=CC=CC=C1)C=C2"
+  },
+  {
+    "id": 307,
+    "name": "Moxifloxacin",
+    "external_id": "DB00218",
+    "smiles": "[H][C@]12CN(C[C@@]1([H])NCCC2)C1=C(F)C=C2C(=O)C(=CN(C3CC3)C2=C1OC)C(O)=O"
+  },
+  {
+    "id": 308,
+    "name": "Isoetharine",
+    "external_id": "DB00221",
+    "smiles": "CCC(NC(C)C)C(O)C1=CC(O)=C(O)C=C1"
+  },
+  {
+    "id": 309,
+    "name": "Glimepiride",
+    "external_id": "DB00222",
+    "smiles": "CCC1=C(C)CN(C(=O)NCCC2=CC=C(C=C2)S(=O)(=O)NC(=O)N[C@H]2CC[C@H](C)CC2)C1=O"
+  },
+  {
+    "id": 310,
+    "name": "Guanadrel",
+    "external_id": "DB00226",
+    "smiles": "NC(N)=NCC1COC2(CCCCC2)O1"
+  },
+  {
+    "id": 311,
+    "name": "Pregabalin",
+    "external_id": "DB00230",
+    "smiles": "CC(C)C[C@H](CN)CC(O)=O"
+  },
+  {
+    "id": 312,
+    "name": "Methyclothiazide",
+    "external_id": "DB00232",
+    "smiles": "CN1C(CCl)NC2=CC(Cl)=C(C=C2S1(=O)=O)S(N)(=O)=O"
+  },
+  {
+    "id": 313,
+    "name": "Pipobroman",
+    "external_id": "DB00236",
+    "smiles": "BrCCC(=O)N1CCN(CC1)C(=O)CCBr"
+  },
+  {
+    "id": 314,
+    "name": "Alclometasone",
+    "external_id": "DB00240",
+    "smiles": "[H][C@@]12C[C@@H](C)[C@](O)(C(=O)CO)[C@@]1(C)C[C@H](O)[C@@]1([H])[C@@]2([H])[C@H](Cl)CC2=CC(=O)C=C[C@]12C"
+  },
+  {
+    "id": 315,
+    "name": "Butalbital",
+    "external_id": "DB00241",
+    "smiles": "CC(C)CC1(CC=C)C(=O)NC(=O)NC1=O"
+  },
+  {
+    "id": 316,
+    "name": "Mesalazine",
+    "external_id": "DB00244",
+    "smiles": "NC1=CC(C(O)=O)=C(O)C=C1"
+  },
+  {
+    "id": 317,
+    "name": "Benzatropine",
+    "external_id": "DB00245",
+    "smiles": "[H][C@]12CC[C@]([H])(C[C@@]([H])(C1)OC(C1=CC=CC=C1)C1=CC=CC=C1)N2C"
+  },
+  {
+    "id": 318,
+    "name": "Ziprasidone",
+    "external_id": "DB00246",
+    "smiles": "ClC1=C(CCN2CCN(CC2)C2=NSC3=CC=CC=C23)C=C2CC(=O)NC2=C1"
+  },
+  {
+    "id": 319,
+    "name": "Cabergoline",
+    "external_id": "DB00248",
+    "smiles": "[H][C@@]12CC3=CNC4=CC=CC(=C34)[C@@]1([H])C[C@H](CN2CC=C)C(=O)N(CCCN(C)C)C(=O)NCC"
+  },
+  {
+    "id": 320,
+    "name": "Medrysone",
+    "external_id": "DB00253",
+    "smiles": "[H][C@@]12CC[C@H](C(C)=O)[C@@]1(C)C[C@H](O)[C@@]1([H])[C@@]2([H])C[C@H](C)C2=CC(=O)CC[C@]12C"
+  },
+  {
+    "id": 321,
+    "name": "Carmustine",
+    "external_id": "DB00262",
+    "smiles": "ClCCNC(=O)N(CCCl)N=O"
+  },
+  {
+    "id": 322,
+    "name": "Ropinirole",
+    "external_id": "DB00268",
+    "smiles": "CCCN(CCC)CCC1=C2CC(=O)NC2=CC=C1"
+  },
+  {
+    "id": 323,
+    "name": "Isradipine",
+    "external_id": "DB00270",
+    "smiles": "COC(=O)C1=C(C)NC(C)=C(C1C1=CC=CC2=NON=C12)C(=O)OC(C)C"
+  },
+  {
+    "id": 324,
+    "name": "Diatrizoate",
+    "external_id": "DB00271",
+    "smiles": "CC(=O)NC1=C(I)C(C(O)=O)=C(I)C(NC(C)=O)=C1I"
+  },
+  {
+    "id": 325,
+    "name": "Topiramate",
+    "external_id": "DB00273",
+    "smiles": "[H][C@@]12CO[C@@]3(COS(N)(=O)=O)OC(C)(C)O[C@@]3([H])[C@]1([H])OC(C)(C)O2"
+  },
+  {
+    "id": 326,
+    "name": "Olmesartan",
+    "external_id": "DB00275",
+    "smiles": "CCCC1=NC(=C(N1CC1=CC=C(C=C1)C1=C(C=CC=C1)C1=NN=NN1)C(O)=O)C(C)(C)O"
+  },
+  {
+    "id": 327,
+    "name": "Argatroban",
+    "external_id": "DB00278",
+    "smiles": "C[C@@H]1CCN([C@H](C1)C(O)=O)C(=O)[C@H](CCCNC(N)=N)NS(=O)(=O)C1=CC=CC2=C1NCC(C)C2"
+  },
+  {
+    "id": 328,
+    "name": "Liothyronine",
+    "external_id": "DB00279",
+    "smiles": "N[C@@H](CC1=CC(I)=C(OC2=CC(I)=C(O)C=C2)C(I)=C1)C(O)=O"
+  },
+  {
+    "id": 329,
+    "name": "Pamidronic acid",
+    "external_id": "DB00282",
+    "smiles": "NCCC(O)(P(O)(O)=O)P(O)(O)=O"
+  },
+  {
+    "id": 330,
+    "name": "Clemastine",
+    "external_id": "DB00283",
+    "smiles": "CN1CCC[C@@H]1CCO[C@](C)(C1=CC=CC=C1)C1=CC=C(Cl)C=C1"
+  },
+  {
+    "id": 331,
+    "name": "Acarbose",
+    "external_id": "DB00284",
+    "smiles": "[H]C(=O)[C@H](O)[C@@H](O)[C@]([H])(O[C@@]1([H])O[C@H](CO)[C@@]([H])(O[C@H]2O[C@H](C)[C@@H](N[C@@]3([H])C=C(CO)[C@@H](O)[C@H](O)[C@H]3O)[C@H](O)[C@H]2O)[C@H](O)[C@H]1O)[C@H](O)CO"
+  },
+  {
+    "id": 332,
+    "name": "Venlafaxine",
+    "external_id": "DB00285",
+    "smiles": "COC1=CC=C(C=C1)C(CN(C)C)C1(O)CCCCC1"
+  },
+  {
+    "id": 333,
+    "name": "Conjugated estrogens",
+    "external_id": "DB00286",
+    "smiles": "C[C@]12CC[C@@H]3c4ccc(OS(=O)(=O)[O-])cc4CC[C@H]3[C@@H]1CCC2=O.[Na+]"
+  },
+  {
+    "id": 334,
+    "name": "Travoprost",
+    "external_id": "DB00287",
+    "smiles": "CC(C)OC(=O)CCC\\C=C/C[C@H]1[C@@H](O)C[C@@H](O)[C@@H]1\\C=C\\[C@@H](O)COC1=CC=CC(=C1)C(F)(F)F"
+  },
+  {
+    "id": 335,
+    "name": "Atomoxetine",
+    "external_id": "DB00289",
+    "smiles": "CNCC[C@@H](OC1=CC=CC=C1C)C1=CC=CC=C1"
+  },
+  {
+    "id": 336,
+    "name": "Bleomycin",
+    "external_id": "DB00290",
+    "smiles": "[H][C@](C)(NC(=O)[C@@]([H])(NC(=O)C1=NC(=NC(N)=C1C)[C@H](CC(N)=O)NC[C@H](N)C(N)=O)[C@@]([H])(OC1OC(CO)C(O)C(O)C1OC1OC(CO)C(O)C(OC(N)=O)C1O)C1=CNC=N1)[C@@H](O)[C@H](C)C(=O)N[C@]([H])(C(=O)NCCC1=NC(=CS1)C1=NC(=CS1)C(=O)NCCC[S+](C)C)[C@@]([H])(C)O"
+  },
+  {
+    "id": 337,
+    "name": "Bupivacaine",
+    "external_id": "DB00297",
+    "smiles": "CCCCN1CCCCC1C(=O)NC1=C(C)C=CC=C1C"
+  },
+  {
+    "id": 338,
+    "name": "Tranexamic acid",
+    "external_id": "DB00302",
+    "smiles": "NC[C@H]1CC[C@@H](CC1)C(O)=O"
+  },
+  {
+    "id": 339,
+    "name": "Desogestrel",
+    "external_id": "DB00304",
+    "smiles": "[H][C@@]12CC[C@@](O)(C#C)[C@@]1(CC)CC(=C)[C@]1([H])[C@@]3([H])CCCC=C3CC[C@@]21[H]"
+  },
+  {
+    "id": 340,
+    "name": "Mitomycin",
+    "external_id": "DB00305",
+    "smiles": "[H][C@]12CN3C4=C([C@@H](COC(N)=O)[C@@]3(OC)[C@@]1([H])N2)C(=O)C(N)=C(C)C4=O"
+  },
+  {
+    "id": 341,
+    "name": "Bexarotene",
+    "external_id": "DB00307",
+    "smiles": "CC1=CC2=C(C=C1C(=C)C1=CC=C(C=C1)C(O)=O)C(C)(C)CCC2(C)C"
+  },
+  {
+    "id": 342,
+    "name": "Ibutilide",
+    "external_id": "DB00308",
+    "smiles": "CCCCCCCN(CC)CCCC(O)C1=CC=C(NS(C)(=O)=O)C=C1"
+  },
+  {
+    "id": 343,
+    "name": "Chlorthalidone",
+    "external_id": "DB00310",
+    "smiles": "NS(=O)(=O)C1=C(Cl)C=CC(=C1)C1(O)NC(=O)C2=CC=CC=C12"
+  },
+  {
+    "id": 344,
+    "name": "Zolmitriptan",
+    "external_id": "DB00315",
+    "smiles": "CN(C)CCC1=CNC2=CC=C(C[C@H]3COC(=O)N3)C=C12"
+  },
+  {
+    "id": 345,
+    "name": "Codeine",
+    "external_id": "DB00318",
+    "smiles": "[H][C@]12C=C[C@H](O)[C@@H]3OC4=C5C(C[C@H]1N(C)CC[C@@]235)=CC=C4OC"
+  },
+  {
+    "id": 346,
+    "name": "Tolcapone",
+    "external_id": "DB00323",
+    "smiles": "CC1=CC=C(C=C1)C(=O)C1=CC(=C(O)C(O)=C1)[N+]([O-])=O"
+  },
+  {
+    "id": 347,
+    "name": "Fluorometholone",
+    "external_id": "DB00324",
+    "smiles": "[H][C@@]12CC[C@](O)(C(C)=O)[C@@]1(C)C[C@H](O)[C@@]1(F)[C@@]2([H])C[C@H](C)C2=CC(=O)C=C[C@]12C"
+  },
+  {
+    "id": 348,
+    "name": "Nitroprusside",
+    "external_id": "DB00325",
+    "smiles": "O=N[Fe--](C#N)(C#N)(C#N)(C#N)C#N"
+  },
+  {
+    "id": 349,
+    "name": "Hydromorphone",
+    "external_id": "DB00327",
+    "smiles": "[H][C@@]12OC3=C(O)C=CC4=C3[C@@]11CCN(C)[C@]([H])(C4)[C@]1([H])CCC2=O"
+  },
+  {
+    "id": 350,
+    "name": "Metformin",
+    "external_id": "DB00331",
+    "smiles": "CN(C)C(=N)NC(N)=N"
+  },
+  {
+    "id": 351,
+    "name": "Atenolol",
+    "external_id": "DB00335",
+    "smiles": "CC(C)NCC(O)COC1=CC=C(CC(N)=O)C=C1"
+  },
+  {
+    "id": 352,
+    "name": "Pimecrolimus",
+    "external_id": "DB00337",
+    "smiles": "[H][C@]1(CC[C@H](Cl)[C@@H](C1)OC)\\C=C(/C)[C@@]1([H])OC(=O)[C@]2([H])CCCCN2C(=O)C(=O)[C@]2(O)O[C@@]([H])([C@H](C[C@H]2C)OC)[C@H](C[C@@H](C)C\\C(C)=C\\[C@@H](CC)C(=O)C[C@H](O)[C@H]1C)OC"
+  },
+  {
+    "id": 353,
+    "name": "Omeprazole",
+    "external_id": "DB00338",
+    "smiles": "COC1=CC2=C(C=C1)N=C(N2)S(=O)CC1=NC=C(C)C(OC)=C1C"
+  },
+  {
+    "id": 354,
+    "name": "Cetirizine",
+    "external_id": "DB00341",
+    "smiles": "OC(=O)COCCN1CCN(CC1)C(C1=CC=CC=C1)C1=CC=C(Cl)C=C1"
+  },
+  {
+    "id": 355,
+    "name": "Alfuzosin",
+    "external_id": "DB00346",
+    "smiles": "COC1=CC2=C(C=C1OC)C(N)=NC(=N2)N(C)CCCNC(=O)C1CCCO1"
+  },
+  {
+    "id": 356,
+    "name": "Minoxidil",
+    "external_id": "DB00350",
+    "smiles": "NC1=CC(=NC(N)=[N+]1[O-])N1CCCCC1"
+  },
+  {
+    "id": 357,
+    "name": "Megestrol acetate",
+    "external_id": "DB00351",
+    "smiles": "[H][C@@]12CC[C@](OC(C)=O)(C(C)=O)[C@@]1(C)CC[C@@]1([H])[C@@]2([H])C=C(C)C2=CC(=O)CC[C@]12C"
+  },
+  {
+    "id": 358,
+    "name": "Tioguanine",
+    "external_id": "DB00352",
+    "smiles": "NC1=NC(=S)C2=C(N1)N=CN2"
+  },
+  {
+    "id": 359,
+    "name": "Methylergometrine",
+    "external_id": "DB00353",
+    "smiles": "[H][C@@]12CC3=CNC4=CC=CC(=C34)C1=C[C@H](CN2C)C(=O)N[C@@H](CC)CO"
+  },
+  {
+    "id": 360,
+    "name": "Buclizine",
+    "external_id": "DB00354",
+    "smiles": "CC(C)(C)C1=CC=C(CN2CCN(CC2)C(C2=CC=CC=C2)C2=CC=C(Cl)C=C2)C=C1"
+  },
+  {
+    "id": 361,
+    "name": "Chlorzoxazone",
+    "external_id": "DB00356",
+    "smiles": "ClC1=CC2=C(OC(=O)N2)C=C1"
+  },
+  {
+    "id": 362,
+    "name": "Aminoglutethimide",
+    "external_id": "DB00357",
+    "smiles": "CCC1(CCC(=O)NC1=O)C1=CC=C(N)C=C1"
+  },
+  {
+    "id": 363,
+    "name": "Sucralfate",
+    "external_id": "DB00364",
+    "smiles": "O.O[Al](O)O.O[Al](O)OS(=O)(=O)OC[C@H]1O[C@@](COS(=O)(=O)O[Al](O)O)(O[C@H]2O[C@H](COS(=O)(=O)O[Al](O)O)[C@@H](OS(=O)(=O)O[Al](O)O)[C@H](OS(=O)(=O)O[Al](O)O)[C@H]2OS(=O)(=O)O[Al](O)O)[C@@H](OS(=O)(=O)O[Al](O)O)[C@@H]1OS(=O)(=O)O[Al](O)O"
+  },
+  {
+    "id": 364,
+    "name": "Doxylamine",
+    "external_id": "DB00366",
+    "smiles": "CN(C)CCOC(C)(C1=CC=CC=C1)C1=CC=CC=N1"
+  },
+  {
+    "id": 365,
+    "name": "Levonorgestrel",
+    "external_id": "DB00367",
+    "smiles": "[H][C@@]12CC[C@@](O)(C#C)[C@@]1(CC)CC[C@]1([H])[C@@]3([H])CCC(=O)C=C3CC[C@@]21[H]"
+  },
+  {
+    "id": 366,
+    "name": "Treprostinil",
+    "external_id": "DB00374",
+    "smiles": "[H][C@]12C[C@@H](O)[C@H](CC[C@@H](O)CCCCC)[C@@]1([H])CC1=C(C2)C(OCC(O)=O)=CC=C1"
+  },
+  {
+    "id": 367,
+    "name": "Trihexyphenidyl",
+    "external_id": "DB00376",
+    "smiles": "OC(CCN1CCCCC1)(C1CCCCC1)C1=CC=CC=C1"
+  },
+  {
+    "id": 368,
+    "name": "Mexiletine",
+    "external_id": "DB00379",
+    "smiles": "CC(N)COC1=C(C)C=CC=C1C"
+  },
+  {
+    "id": 369,
+    "name": "Dexrazoxane",
+    "external_id": "DB00380",
+    "smiles": "C[C@@H](CN1CC(=O)NC(=O)C1)N1CC(=O)NC(=O)C1"
+  },
+  {
+    "id": 370,
+    "name": "Amlodipine",
+    "external_id": "DB00381",
+    "smiles": "CCOC(=O)C1=C(COCCN)NC(C)=C(C1C1=CC=CC=C1Cl)C(=O)OC"
+  },
+  {
+    "id": 371,
+    "name": "Triamterene",
+    "external_id": "DB00384",
+    "smiles": "NC1=NC(N)=C2N=C(C(N)=NC2=N1)C1=CC=CC=C1"
+  },
+  {
+    "id": 372,
+    "name": "Valrubicin",
+    "external_id": "DB00385",
+    "smiles": "[H][C@@]1(C[C@@](O)(CC2=C(O)C3=C(C(O)=C12)C(=O)C1=C(OC)C=CC=C1C3=O)C(=O)COC(=O)CCCC)O[C@H]1C[C@H](NC(=O)C(F)(F)F)[C@H](O)[C@H](C)O1"
+  },
+  {
+    "id": 373,
+    "name": "Procyclidine",
+    "external_id": "DB00387",
+    "smiles": "OC(CCN1CCCC1)(C1CCCCC1)C1=CC=CC=C1"
+  },
+  {
+    "id": 374,
+    "name": "Phenylephrine",
+    "external_id": "DB00388",
+    "smiles": "CNC[C@H](O)C1=CC(O)=CC=C1"
+  },
+  {
+    "id": 375,
+    "name": "Profenamine",
+    "external_id": "DB00392",
+    "smiles": "CCN(CC)C(C)CN1C2=CC=CC=C2SC2=CC=CC=C12"
+  },
+  {
+    "id": 376,
+    "name": "Nimodipine",
+    "external_id": "DB00393",
+    "smiles": "COCCOC(=O)C1=C(C)NC(C)=C(C1C1=CC(=CC=C1)[N+]([O-])=O)C(=O)OC(C)C"
+  },
+  {
+    "id": 377,
+    "name": "Beclomethasone dipropionate",
+    "external_id": "DB00394",
+    "smiles": "[H][C@@]12C[C@H](C)[C@](OC(=O)CC)(C(=O)COC(=O)CC)[C@@]1(C)C[C@H](O)[C@@]1(Cl)[C@@]2([H])CCC2=CC(=O)C=C[C@]12C"
+  },
+  {
+    "id": 378,
+    "name": "Phenylpropanolamine",
+    "external_id": "DB00397",
+    "smiles": "CC(N)C(O)C1=CC=CC=C1"
+  },
+  {
+    "id": 379,
+    "name": "Zoledronic acid",
+    "external_id": "DB00399",
+    "smiles": "OC(CN1C=CN=C1)(P(O)(O)=O)P(O)(O)=O"
+  },
+  {
+    "id": 380,
+    "name": "Alprazolam",
+    "external_id": "DB00404",
+    "smiles": "CC1=NN=C2CN=C(C3=CC=CC=C3)C3=C(C=CC(Cl)=C3)N12"
+  },
+  {
+    "id": 381,
+    "name": "Dexbrompheniramine",
+    "external_id": "DB00405",
+    "smiles": "CN(C)CC[C@@H](C1=CC=C(Br)C=C1)C1=CC=CC=N1"
+  },
+  {
+    "id": 382,
+    "name": "Ardeparin",
+    "external_id": "DB00407",
+    "smiles": "CC(=O)NC1C(C(C(OC1O)COS(=O)(=O)O)OC2C(C(C(C(O2)C(=O)O)OC3C(C(C(C(O3)CO)OC4C(C(C(C(O4)C(=O)O)O)O)OS(=O)(=O)O)OS(=O)(=O)O)NS(=O)(=O)O)O)OS(=O)(=O)O)O"
+  },
+  {
+    "id": 383,
+    "name": "Loxapine",
+    "external_id": "DB00408",
+    "smiles": "CN1CCN(CC1)C1=NC2=CC=CC=C2OC2=C1C=C(Cl)C=C2"
+  },
+  {
+    "id": 384,
+    "name": "Pramipexole",
+    "external_id": "DB00413",
+    "smiles": "CCCN[C@H]1CCC2=C(C1)SC(N)=N2"
+  },
+  {
+    "id": 385,
+    "name": "Acetohexamide",
+    "external_id": "DB00414",
+    "smiles": "CC(=O)C1=CC=C(C=C1)S(=O)(=O)NC(=O)NC1CCCCC1"
+  },
+  {
+    "id": 386,
+    "name": "Miglustat",
+    "external_id": "DB00419",
+    "smiles": "CCCCN1C[C@H](O)[C@@H](O)[C@H](O)[C@H]1CO"
+  },
+  {
+    "id": 387,
+    "name": "Methylphenidate",
+    "external_id": "DB00422",
+    "smiles": "COC(=O)C(C1CCCCN1)C1=CC=CC=C1"
+  },
+  {
+    "id": 388,
+    "name": "Hyoscyamine",
+    "external_id": "DB00424",
+    "smiles": "CN1[C@H]2CC[C@@H]1C[C@@H](C2)OC(=O)[C@H](CO)C1=CC=CC=C1"
+  },
+  {
+    "id": 389,
+    "name": "Triprolidine",
+    "external_id": "DB00427",
+    "smiles": "CC1=CC=C(C=C1)C(=C/CN1CCCC1)\\C1=CC=CC=N1"
+  },
+  {
+    "id": 390,
+    "name": "Prochlorperazine",
+    "external_id": "DB00433",
+    "smiles": "CN1CCN(CCCN2C3=CC=CC=C3SC3=C2C=C(Cl)C=C3)CC1"
+  },
+  {
+    "id": 391,
+    "name": "Cyproheptadine",
+    "external_id": "DB00434",
+    "smiles": "CN1CCC(CC1)=C1C2=CC=CC=C2C=CC2=CC=CC=C12"
+  },
+  {
+    "id": 392,
+    "name": "Bendroflumethiazide",
+    "external_id": "DB00436",
+    "smiles": "NS(=O)(=O)C1=CC2=C(NC(CC3=CC=CC=C3)NS2(=O)=O)C=C1C(F)(F)F"
+  },
+  {
+    "id": 393,
+    "name": "Teniposide",
+    "external_id": "DB00444",
+    "smiles": "[H][C@]12COC(=O)[C@]1([H])[C@H](C1=CC(OC)=C(O)C(OC)=C1)C1=C(C=C3OCOC3=C1)[C@H]2O[C@]1([H])O[C@]2([H])CO[C@H](O[C@@]2([H])[C@H](O)[C@H]1O)C1=CC=CS1"
+  },
+  {
+    "id": 394,
+    "name": "Lansoprazole",
+    "external_id": "DB00448",
+    "smiles": "CC1=C(OCC(F)(F)F)C=CN=C1CS(=O)C1=NC2=CC=CC=C2N1"
+  },
+  {
+    "id": 395,
+    "name": "Dipivefrin",
+    "external_id": "DB00449",
+    "smiles": "CNCC(O)C1=CC(OC(=O)C(C)(C)C)=C(OC(=O)C(C)(C)C)C=C1"
+  },
+  {
+    "id": 396,
+    "name": "Levothyroxine",
+    "external_id": "DB00451",
+    "smiles": "N[C@@H](CC1=CC(I)=C(OC2=CC(I)=C(O)C(I)=C2)C(I)=C1)C(O)=O"
+  },
+  {
+    "id": 397,
+    "name": "Meperidine",
+    "external_id": "DB00454",
+    "smiles": "CCOC(=O)C1(CCN(C)CC1)C1=CC=CC=C1"
+  },
+  {
+    "id": 398,
+    "name": "Verteporfin",
+    "external_id": "DB00460",
+    "smiles": "COC(=O)CCC1=C2NC(\\C=C3/N=C(/C=C4\\N\\C(=C/C5=N/C(=C\\2)/C(CCC(O)=O)=C5C)C(C=C)=C4C)C2=CC=C([C@@H](C(=O)OC)[C@@]32C)C(=O)OC)=C1C"
+  },
+  {
+    "id": 399,
+    "name": "Nabumetone",
+    "external_id": "DB00461",
+    "smiles": "COC1=CC2=C(C=C1)C=C(CCC(C)=O)C=C2"
+  },
+  {
+    "id": 400,
+    "name": "Sodium tetradecyl sulfate",
+    "external_id": "DB00464",
+    "smiles": "[Na+].CCCCC(CC)CCC(CC(C)C)OS([O-])(=O)=O"
+  },
+  {
+    "id": 401,
+    "name": "Ketorolac",
+    "external_id": "DB00465",
+    "smiles": "OC(=O)C1CCN2C1=CC=C2C(=O)C1=CC=CC=C1"
+  },
+  {
+    "id": 402,
+    "name": "Tenoxicam",
+    "external_id": "DB00469",
+    "smiles": "CN1C(C(=O)NC2=CC=CC=N2)=C(O)C2=C(C=CS2)S1(=O)=O"
+  },
+  {
+    "id": 403,
+    "name": "Chlordiazepoxide",
+    "external_id": "DB00475",
+    "smiles": "CNC1=NC2=C(C=C(Cl)C=C2)C(C2=CC=CC=C2)=[N+]([O-])C1"
+  },
+  {
+    "id": 404,
+    "name": "Duloxetine",
+    "external_id": "DB00476",
+    "smiles": "CNCC[C@H](OC1=CC=CC2=CC=CC=C12)C1=CC=CS1"
+  },
+  {
+    "id": 405,
+    "name": "Lenalidomide",
+    "external_id": "DB00480",
+    "smiles": "NC1=CC=CC2=C1CN(C1CCC(=O)NC1=O)C2=O"
+  },
+  {
+    "id": 406,
+    "name": "Raloxifene",
+    "external_id": "DB00481",
+    "smiles": "OC1=CC=C(C=C1)C1=C(C(=O)C2=CC=C(OCCN3CCCCC3)C=C2)C2=C(S1)C=C(O)C=C2"
+  },
+  {
+    "id": 407,
+    "name": "Brimonidine",
+    "external_id": "DB00484",
+    "smiles": "BrC1=C(NC2=NCCN2)C=CC2=NC=CN=C12"
+  },
+  {
+    "id": 408,
+    "name": "Sotalol",
+    "external_id": "DB00489",
+    "smiles": "CC(C)NCC(O)C1=CC=C(NS(C)(=O)=O)C=C1"
+  },
+  {
+    "id": 409,
+    "name": "Miglitol",
+    "external_id": "DB00491",
+    "smiles": "OCCN1C[C@H](O)[C@@H](O)[C@H](O)[C@H]1CO"
+  },
+  {
+    "id": 410,
+    "name": "Fosinopril",
+    "external_id": "DB00492",
+    "smiles": "CCC(=O)O[C@@H](OP(=O)(CCCCC1=CC=CC=C1)CC(=O)N1C[C@@H](C[C@H]1C(O)=O)C1CCCCC1)C(C)C"
+  },
+  {
+    "id": 411,
+    "name": "Entacapone",
+    "external_id": "DB00494",
+    "smiles": "CCN(CC)C(=O)C(=C\\C1=CC(=C(O)C(O)=C1)[N+]([O-])=O)\\C#N"
+  },
+  {
+    "id": 412,
+    "name": "Oxycodone",
+    "external_id": "DB00497",
+    "smiles": "COC1=C2O[C@H]3C(=O)CC[C@@]4(O)[C@H]5CC(C=C1)=C2[C@@]34CCN5C"
+  },
+  {
+    "id": 413,
+    "name": "Flutamide",
+    "external_id": "DB00499",
+    "smiles": "CC(C)C(=O)NC1=CC(=C(C=C1)[N+]([O-])=O)C(F)(F)F"
+  },
+  {
+    "id": 414,
+    "name": "Triflupromazine",
+    "external_id": "DB00508",
+    "smiles": "CN(C)CCCN1C2=CC=CC=C2SC2=C1C=C(C=C2)C(F)(F)F"
+  },
+  {
+    "id": 415,
+    "name": "Cisplatin",
+    "external_id": "DB00515",
+    "smiles": "[NH2-].[NH2-].Cl[Pt+2]Cl"
+  },
+  {
+    "id": 416,
+    "name": "Carteolol",
+    "external_id": "DB00521",
+    "smiles": "CC(C)(C)NCC(O)COC1=CC=CC2=C1CCC(=O)N2"
+  },
+  {
+    "id": 417,
+    "name": "Metolazone",
+    "external_id": "DB00524",
+    "smiles": "CC1NC2=CC(Cl)=C(C=C2C(=O)N1C1=CC=CC=C1C)S(N)(=O)=O"
+  },
+  {
+    "id": 418,
+    "name": "Cinchocaine",
+    "external_id": "DB00527",
+    "smiles": "CCCCOC1=NC2=CC=CC=C2C(=C1)C(=O)NCCN(CC)CC"
+  },
+  {
+    "id": 419,
+    "name": "Lercanidipine",
+    "external_id": "DB00528",
+    "smiles": "COC(=O)C1=C(C)NC(C)=C(C1C1=CC(=CC=C1)[N+]([O-])=O)C(=O)OC(C)(C)CN(C)CCC(C1=CC=CC=C1)C1=CC=CC=C1"
+  },
+  {
+    "id": 420,
+    "name": "Erlotinib",
+    "external_id": "DB00530",
+    "smiles": "COCCOC1=CC2=C(C=C1OCCOC)C(NC1=CC(=CC=C1)C#C)=NC=N2"
+  },
+  {
+    "id": 421,
+    "name": "Cyclophosphamide",
+    "external_id": "DB00531",
+    "smiles": "ClCCN(CCCl)P1(=O)NCCCO1"
+  },
+  {
+    "id": 422,
+    "name": "Mephenytoin",
+    "external_id": "DB00532",
+    "smiles": "CCC1(NC(=O)N(C)C1=O)C1=CC=CC=C1"
+  },
+  {
+    "id": 423,
+    "name": "Cefdinir",
+    "external_id": "DB00535",
+    "smiles": "[H][C@]12SCC(C=C)=C(N1C(=O)[C@H]2NC(=O)C(=N/O)\\C1=CSC(N)=N1)C(O)=O"
+  },
+  {
+    "id": 424,
+    "name": "Guanidine",
+    "external_id": "DB00536",
+    "smiles": "NC(N)=N"
+  },
+  {
+    "id": 425,
+    "name": "Nortriptyline",
+    "external_id": "DB00540",
+    "smiles": "CNCCC=C1C2=CC=CC=C2CCC2=CC=CC=C12"
+  },
+  {
+    "id": 426,
+    "name": "Pyridostigmine",
+    "external_id": "DB00545",
+    "smiles": "CN(C)C(=O)OC1=C[N+](C)=CC=C1"
+  },
+  {
+    "id": 427,
+    "name": "Desoximetasone",
+    "external_id": "DB00547",
+    "smiles": "[H][C@@]12C[C@@H](C)[C@H](C(=O)CO)[C@@]1(C)C[C@H](O)[C@@]1(F)[C@@]2([H])CCC2=CC(=O)C=C[C@]12C"
+  },
+  {
+    "id": 428,
+    "name": "Azelaic acid",
+    "external_id": "DB00548",
+    "smiles": "OC(=O)CCCCCCCC(O)=O"
+  },
+  {
+    "id": 429,
+    "name": "Propylthiouracil",
+    "external_id": "DB00550",
+    "smiles": "CCCC1=CC(=O)NC(=S)N1"
+  },
+  {
+    "id": 430,
+    "name": "Pentostatin",
+    "external_id": "DB00552",
+    "smiles": "OC[C@H]1O[C@H](C[C@@H]1O)N1C=NC2=C1N=CNC[C@H]2O"
+  },
+  {
+    "id": 431,
+    "name": "Methoxsalen",
+    "external_id": "DB00553",
+    "smiles": "COC1=C2OC(=O)C=CC2=CC2=C1OC=C2"
+  },
+  {
+    "id": 432,
+    "name": "Hydroxyzine",
+    "external_id": "DB00557",
+    "smiles": "OCCOCCN1CCN(CC1)C(C1=CC=CC=C1)C1=CC=C(Cl)C=C1"
+  },
+  {
+    "id": 433,
+    "name": "Fondaparinux",
+    "external_id": "DB00569",
+    "smiles": "CO[C@H]1O[C@H](COS(O)(=O)=O)[C@@H](O[C@@H]2O[C@H]([C@@H](O[C@H]3O[C@H](COS(O)(=O)=O)[C@@H](O[C@@H]4O[C@@H]([C@@H](O[C@H]5O[C@H](COS(O)(=O)=O)[C@@H](O)[C@H](O)[C@H]5NS(O)(=O)=O)[C@H](O)[C@H]4O)C(O)=O)[C@H](OS(O)(=O)=O)[C@H]3NS(O)(=O)=O)[C@H](O)[C@H]2OS(O)(=O)=O)C(O)=O)[C@H](O)[C@H]1NS(O)(=O)=O"
+  },
+  {
+    "id": 434,
+    "name": "Atropine",
+    "external_id": "DB00572",
+    "smiles": "CN1[C@H]2CC[C@@H]1C[C@@H](C2)OC(=O)C(CO)C1=CC=CC=C1"
+  },
+  {
+    "id": 435,
+    "name": "Fenoprofen",
+    "external_id": "DB00573",
+    "smiles": "CC(C(O)=O)C1=CC(OC2=CC=CC=C2)=CC=C1"
+  },
+  {
+    "id": 436,
+    "name": "Levocarnitine",
+    "external_id": "DB00583",
+    "smiles": "C[N+](C)(C)C[C@H](O)CC([O-])=O"
+  },
+  {
+    "id": 437,
+    "name": "Nizatidine",
+    "external_id": "DB00585",
+    "smiles": "CNC(NCCSCC1=CSC(CN(C)C)=N1)=C[N+]([O-])=O"
+  },
+  {
+    "id": 438,
+    "name": "Fluticasone propionate",
+    "external_id": "DB00588",
+    "smiles": "[H][C@@]12C[C@@H](C)[C@](OC(=O)CC)(C(=O)SCF)[C@@]1(C)C[C@H](O)[C@@]1(F)[C@@]2([H])C[C@H](F)C2=CC(=O)C=C[C@]12C"
+  },
+  {
+    "id": 439,
+    "name": "Lisuride",
+    "external_id": "DB00589",
+    "smiles": "[H][C@@]12CC3=CNC4=CC=CC(=C34)C1=C[C@@H](CN2C)NC(=O)N(CC)CC"
+  },
+  {
+    "id": 440,
+    "name": "Fluocinolone acetonide",
+    "external_id": "DB00591",
+    "smiles": "[H][C@@]12C[C@@]3([H])[C@]4([H])C[C@H](F)C5=CC(=O)C=C[C@]5(C)[C@@]4(F)[C@@H](O)C[C@]3(C)[C@@]1(OC(C)(C)O2)C(=O)CO"
+  },
+  {
+    "id": 441,
+    "name": "Ethosuximide",
+    "external_id": "DB00593",
+    "smiles": "CCC1(C)CC(=O)NC1=O"
+  },
+  {
+    "id": 442,
+    "name": "Ulobetasol",
+    "external_id": "DB00596",
+    "smiles": "[H][C@@]12C[C@H](C)[C@](O)(C(=O)CCl)[C@@]1(C)C[C@H](O)[C@@]1(F)[C@@]2([H])C[C@H](F)C2=CC(=O)C=C[C@]12C"
+  },
+  {
+    "id": 443,
+    "name": "Labetalol",
+    "external_id": "DB00598",
+    "smiles": "CC(CCC1=CC=CC=C1)NCC(O)C1=CC(C(N)=O)=C(O)C=C1"
+  },
+  {
+    "id": 444,
+    "name": "Medroxyprogesterone acetate",
+    "external_id": "DB00603",
+    "smiles": "[H][C@@]12CC[C@](OC(C)=O)(C(C)=O)[C@@]1(C)CC[C@@]1([H])[C@@]2([H])C[C@H](C)C2=CC(=O)CC[C@]12C"
+  },
+  {
+    "id": 445,
+    "name": "Cisapride",
+    "external_id": "DB00604",
+    "smiles": "CO[C@H]1CN(CCCOC2=CC=C(F)C=C2)CC[C@H]1NC(=O)C1=CC(Cl)=C(N)C=C1OC"
+  },
+  {
+    "id": 446,
+    "name": "Butorphanol",
+    "external_id": "DB00611",
+    "smiles": "[H][C@@]12CC3=C(C=C(O)C=C3)[C@]3(CCCC[C@@]13O)CCN2CC1CCC1"
+  },
+  {
+    "id": 447,
+    "name": "Bisoprolol",
+    "external_id": "DB00612",
+    "smiles": "CC(C)NCC(O)COC1=CC=C(COCCOC(C)C)C=C1"
+  },
+  {
+    "id": 448,
+    "name": "Imatinib",
+    "external_id": "DB00619",
+    "smiles": "CN1CCN(CC2=CC=C(C=C2)C(=O)NC2=CC(NC3=NC=CC(=N3)C3=CN=CC=C3)=C(C)C=C2)CC1"
+  },
+  {
+    "id": 449,
+    "name": "Triamcinolone",
+    "external_id": "DB00620",
+    "smiles": "[H][C@@]12C[C@@H](O)[C@](O)(C(=O)CO)[C@@]1(C)C[C@H](O)[C@@]1(F)[C@@]2([H])CCC2=CC(=O)C=C[C@]12C"
+  },
+  {
+    "id": 450,
+    "name": "Alendronic acid",
+    "external_id": "DB00630",
+    "smiles": "NCCCC(O)(P(O)(O)=O)P(O)(O)=O"
+  },
+  {
+    "id": 451,
+    "name": "Clofarabine",
+    "external_id": "DB00631",
+    "smiles": "[H][C@]1(F)[C@H](O)[C@@H](CO)O[C@H]1N1C=NC2=C(N)N=C(Cl)N=C12"
+  },
+  {
+    "id": 452,
+    "name": "Clofibrate",
+    "external_id": "DB00636",
+    "smiles": "CCOC(=O)C(C)(C)OC1=CC=C(Cl)C=C1"
+  },
+  {
+    "id": 453,
+    "name": "Inulin",
+    "external_id": "DB00638",
+    "smiles": "C([C@@H]1[C@H]([C@@H]([C@H]([C@H](O1)O[C@]2([C@H]([C@@H]([C@H](O2)CO)O)O)CO[C@]3([C@H]([C@@H]([C@H](O3)CO)O)O)CO[C@]4([C@H]([C@@H]([C@H](O4)CO)O)O)CO[C@]5([C@H]([C@@H]([C@H](O5)CO)O)O)CO[C@]6([C@H]([C@@H]([C@H](O6)CO)O)O)CO[C@]7([C@H]([C@@H]([C@H](O7)CO)O)O)CO[C@]8([C@H]([C@@H]([C@H](O8)CO)O)O)CO[C@]9([C@H]([C@@H]([C@H](O9)CO)O)O)CO[C@]1([C@H]([C@@H]([C@H](O1)CO)O)O)CO[C@]1([C@H]([C@@H]([C@H](O1)CO)O)O)CO[C@]1([C@H]([C@@H]([C@H](O1)CO)O)O)CO[C@]1([C@H]([C@@H]([C@H](O1)CO)O)O)CO[C@]1([C@H]([C@@H]([C@H](O1)CO)O)O)CO[C@]1([C@H]([C@@H]([C@H](O1)CO)O)O)CO[C@]1([C@H]([C@@H]([C@H](O1)CO)O)O)CO[C@]1([C@H]([C@@H]([C@H](O1)CO)O)O)CO[C@]1([C@H]([C@@H]([C@H](O1)CO)O)O)CO[C@]1([C@H]([C@@H]([C@H](O1)CO)O)O)CO[C@]1([C@H]([C@@H]([C@H](O1)CO)O)O)CO[C@]1([C@H]([C@@H]([C@H](O1)CO)O)O)CO[C@]1([C@H]([C@@H]([C@H](O1)CO)O)O)CO[C@]1([C@H]([C@@H]([C@H](O1)CO)O)O)CO[C@]1([C@H]([C@@H]([C@H](O1)CO)O)O)CO[C@]1([C@H]([C@@H]([C@H](O1)CO)O)O)CO[C@]1([C@H]([C@@H]([C@H](O1)CO)O)O)CO[C@]1([C@H]([C@@H]([C@H](O1)CO)O)O)CO[C@]1([C@H]([C@@H]([C@H](O1)CO)O)O)CO[C@]1([C@H]([C@@H]([C@H](O1)CO)O)O)CO[C@]1([C@H]([C@@H]([C@H](O1)CO)O)O)CO[C@]1([C@H]([C@@H]([C@H](O1)CO)O)O)CO[C@]1([C@H]([C@@H]([C@H](O1)CO)O)O)CO[C@]1([C@H]([C@@H]([C@H](O1)CO)O)O)CO[C@]1([C@H]([C@@H]([C@H](O1)CO)O)O)CO[C@]1([C@H]([C@@H]([C@H](O1)CO)O)O)CO[C@]1([C@H]([C@@H]([C@H](O1)CO)O)O)CO[C@]1([C@H]([C@@H]([C@H](O1)CO)O)O)CO[C@]1([C@H]([C@@H]([C@H](O1)CO)O)O)CO)O)O)O)O"
+  },
+  {
+    "id": 454,
+    "name": "Pemetrexed",
+    "external_id": "DB00642",
+    "smiles": "NC1=NC(=O)C2=C(NC=C2CCC2=CC=C(C=C2)C(=O)N[C@@H](CCC(O)=O)C(O)=O)N1"
+  },
+  {
+    "id": 455,
+    "name": "Gonadorelin",
+    "external_id": "DB00644",
+    "smiles": "CC(C)CC(NC(=O)CNC(=O)C(CC1=CC=C(O)C=C1)NC(=O)C(CO)NC(=O)C(CC1=CNC2=CC=CC=C12)NC(=O)C(CC1=CN=CN1)NC(=O)C1CCC(=O)N1)C(=O)NC(CCCN=C(N)N)C(=O)N1CCCC1C(=O)NCC(N)=O"
+  },
+  {
+    "id": 456,
+    "name": "Dextropropoxyphene",
+    "external_id": "DB00647",
+    "smiles": "CCC(=O)O[C@@](CC1=CC=CC=C1)([C@H](C)CN(C)C)C1=CC=CC=C1"
+  },
+  {
+    "id": 457,
+    "name": "Leucovorin",
+    "external_id": "DB00650",
+    "smiles": "[H]C(=O)N1C(CNC2=CC=C(C=C2)C(=O)N[C@@H](CCC(O)=O)C(O)=O)CNC2=C1C(=O)NC(N)=N2"
+  },
+  {
+    "id": 458,
+    "name": "Dyphylline",
+    "external_id": "DB00651",
+    "smiles": "CN1C2=C(N(CC(O)CO)C=N2)C(=O)N(C)C1=O"
+  },
+  {
+    "id": 459,
+    "name": "Pentazocine",
+    "external_id": "DB00652",
+    "smiles": "CC1C2CC3=C(C=C(O)C=C3)C1(C)CCN2CC=C(C)C"
+  },
+  {
+    "id": 460,
+    "name": "Magnesium sulfate",
+    "external_id": "DB00653",
+    "smiles": "[Mg++].[O-]S([O-])(=O)=O"
+  },
+  {
+    "id": 461,
+    "name": "Latanoprost",
+    "external_id": "DB00654",
+    "smiles": "CC(C)OC(=O)CCC\\C=C/C[C@H]1[C@@H](O)C[C@@H](O)[C@@H]1CC[C@@H](O)CCC1=CC=CC=C1"
+  },
+  {
+    "id": 462,
+    "name": "Mecamylamine",
+    "external_id": "DB00657",
+    "smiles": "CNC1(C)C2CCC(C2)C1(C)C"
+  },
+  {
+    "id": 463,
+    "name": "Acamprosate",
+    "external_id": "DB00659",
+    "smiles": "CC(=O)NCCCS(O)(=O)=O"
+  },
+  {
+    "id": 464,
+    "name": "Flumethasone",
+    "external_id": "DB00663",
+    "smiles": "[H][C@@]12C[C@@H](C)[C@](O)(C(=O)CO)[C@@]1(C)C[C@H](O)[C@@]1(F)[C@@]2([H])C[C@H](F)C2=CC(=O)C=C[C@]12C"
+  },
+  {
+    "id": 465,
+    "name": "Galantamine",
+    "external_id": "DB00674",
+    "smiles": "[H][C@]12C[C@@H](O)C=C[C@]11CCN(C)CC3=C1C(O2)=C(OC)C=C3"
+  },
+  {
+    "id": 466,
+    "name": "Thioridazine",
+    "external_id": "DB00679",
+    "smiles": "CSC1=CC2=C(SC3=CC=CC=C3N2CCC2CCCCN2C)C=C1"
+  },
+  {
+    "id": 467,
+    "name": "Warfarin",
+    "external_id": "DB00682",
+    "smiles": "CC(=O)CC(C1=CC=CC=C1)C1=C(O)C2=C(OC1=O)C=CC=C2"
+  },
+  {
+    "id": 468,
+    "name": "Pentosan polysulfate",
+    "external_id": "DB00686",
+    "smiles": "O[C@@H]1CO[C@@H](O[C@@H]2CO[C@@H](O)[C@H](OS(O)(=O)=O)[C@H]2OS(O)(=O)=O)[C@H](OS(O)(=O)=O)[C@H]1OS(O)(=O)=O"
+  },
+  {
+    "id": 469,
+    "name": "Fludrocortisone",
+    "external_id": "DB00687",
+    "smiles": "[H][C@@]12CC[C@](O)(C(=O)CO)[C@@]1(C)C[C@H](O)[C@@]1(F)[C@@]2([H])CCC2=CC(=O)CC[C@]12C"
+  },
+  {
+    "id": 470,
+    "name": "Moexipril",
+    "external_id": "DB00691",
+    "smiles": "CCOC(=O)[C@H](CCC1=CC=CC=C1)N[C@@H](C)C(=O)N1CC2=CC(OC)=C(OC)C=C2C[C@H]1C(O)=O"
+  },
+  {
+    "id": 471,
+    "name": "Phentolamine",
+    "external_id": "DB00692",
+    "smiles": "CC1=CC=C(C=C1)N(CC1=NCCN1)C1=CC(O)=CC=C1"
+  },
+  {
+    "id": 472,
+    "name": "Tizanidine",
+    "external_id": "DB00697",
+    "smiles": "ClC1=C(NC2=NCCN2)C2=NSN=C2C=C1"
+  },
+  {
+    "id": 473,
+    "name": "Nicergoline",
+    "external_id": "DB00699",
+    "smiles": "[H][C@@]12CC3=CN(C)C4=CC=CC(=C34)[C@]1(C[C@@H](COC(=O)C1=CN=CC(Br)=C1)CN2C)OC"
+  },
+  {
+    "id": 474,
+    "name": "Tamsulosin",
+    "external_id": "DB00706",
+    "smiles": "CCOC1=CC=CC=C1OCCN[C@H](C)CC1=CC(=C(OC)C=C1)S(N)(=O)=O"
+  },
+  {
+    "id": 475,
+    "name": "Ibandronate",
+    "external_id": "DB00710",
+    "smiles": "CCCCCN(C)CCC(O)(P(O)(O)=O)P(O)(O)=O"
+  },
+  {
+    "id": 476,
+    "name": "Apomorphine",
+    "external_id": "DB00714",
+    "smiles": "[H][C@]12CC3=C(C(O)=C(O)C=C3)C3=CC=CC(CCN1C)=C23"
+  },
+  {
+    "id": 477,
+    "name": "Nedocromil",
+    "external_id": "DB00716",
+    "smiles": "CCCC1=C2N(CC)C(=CC(=O)C2=CC2=C1OC(=CC2=O)C(O)=O)C(O)=O"
+  },
+  {
+    "id": 478,
+    "name": "Norethisterone",
+    "external_id": "DB00717",
+    "smiles": "[H][C@@]12CC[C@@](O)(C#C)[C@@]1(C)CC[C@]1([H])[C@@]3([H])CCC(=O)C=C3CC[C@@]21[H]"
+  },
+  {
+    "id": 479,
+    "name": "Azatadine",
+    "external_id": "DB00719",
+    "smiles": "CN1CCC(CC1)=C1C2=CC=CC=C2CCC2=C1N=CC=C2"
+  },
+  {
+    "id": 480,
+    "name": "Procaine",
+    "external_id": "DB00721",
+    "smiles": "CCN(CC)CCOC(=O)C1=CC=C(N)C=C1"
+  },
+  {
+    "id": 481,
+    "name": "Lisinopril",
+    "external_id": "DB00722",
+    "smiles": "NCCCC[C@H](N[C@@H](CCC1=CC=CC=C1)C(O)=O)C(=O)N1CCC[C@H]1C(O)=O"
+  },
+  {
+    "id": 482,
+    "name": "Imiquimod",
+    "external_id": "DB00724",
+    "smiles": "CC(C)CN1C=NC2=C1C1=C(C=CC=C1)N=C2N"
+  },
+  {
+    "id": 483,
+    "name": "Nitroglycerin",
+    "external_id": "DB00727",
+    "smiles": "[O-][N+](=O)OCC(CO[N+]([O-])=O)O[N+]([O-])=O"
+  },
+  {
+    "id": 484,
+    "name": "Nateglinide",
+    "external_id": "DB00731",
+    "smiles": "CC(C)[C@H]1CC[C@@H](CC1)C(=O)N[C@H](CC1=CC=CC=C1)C(O)=O"
+  },
+  {
+    "id": 485,
+    "name": "Pralidoxime",
+    "external_id": "DB00733",
+    "smiles": "C[N+]1=C(\\C=N\\O)C=CC=C1"
+  },
+  {
+    "id": 486,
+    "name": "Esomeprazole",
+    "external_id": "DB00736",
+    "smiles": "COC1=CC2=C(NC(=N2)[S@@](=O)CC2=NC=C(C)C(OC)=C2C)C=C1"
+  },
+  {
+    "id": 487,
+    "name": "Zileuton",
+    "external_id": "DB00744",
+    "smiles": "CC(N(O)C(N)=O)C1=CC2=CC=CC=C2S1"
+  },
+  {
+    "id": 488,
+    "name": "Modafinil",
+    "external_id": "DB00745",
+    "smiles": "NC(=O)CS(=O)C(C1=CC=CC=C1)C1=CC=CC=C1"
+  },
+  {
+    "id": 489,
+    "name": "Scopolamine",
+    "external_id": "DB00747",
+    "smiles": "CN1[C@H]2C[C@@H](C[C@@H]1[C@H]1O[C@@H]21)OC(=O)[C@H](CO)C1=CC=CC=C1"
+  },
+  {
+    "id": 490,
+    "name": "Carbinoxamine",
+    "external_id": "DB00748",
+    "smiles": "CN(C)CCOC(C1=CC=C(Cl)C=C1)C1=CC=CC=N1"
+  },
+  {
+    "id": 491,
+    "name": "Prilocaine",
+    "external_id": "DB00750",
+    "smiles": "CCCNC(C)C(=O)NC1=CC=CC=C1C"
+  },
+  {
+    "id": 492,
+    "name": "Epinastine",
+    "external_id": "DB00751",
+    "smiles": "NC1=NCC2N1C1=CC=CC=C1CC1=CC=CC=C21"
+  },
+  {
+    "id": 493,
+    "name": "Ethotoin",
+    "external_id": "DB00754",
+    "smiles": "CCN1C(=O)NC(C1=O)C1=CC=CC=C1"
+  },
+  {
+    "id": 494,
+    "name": "Dolasetron",
+    "external_id": "DB00757",
+    "smiles": "[H][C@@]1(C[C@@]2([H])C[C@]3([H])C[C@@]([H])(C1)N2CC3=O)OC(=O)C1=CNC2=C1C=CC=C2"
+  },
+  {
+    "id": 495,
+    "name": "Irinotecan",
+    "external_id": "DB00762",
+    "smiles": "CCC1=C2CN3C(=CC4=C(COC(=O)[C@]4(O)CC)C3=O)C2=NC2=CC=C(OC(=O)N3CCC(CC3)N3CCCCC3)C=C12"
+  },
+  {
+    "id": 496,
+    "name": "Methimazole",
+    "external_id": "DB00763",
+    "smiles": "CN1C=CNC1=S"
+  },
+  {
+    "id": 497,
+    "name": "Mometasone",
+    "external_id": "DB00764",
+    "smiles": "[H][C@@]12C[C@@H](C)[C@](O)(C(=O)CCl)[C@@]1(C)C[C@H](O)[C@@]1(Cl)[C@@]2([H])CCC2=CC(=O)C=C[C@]12C"
+  },
+  {
+    "id": 498,
+    "name": "Metyrosine",
+    "external_id": "DB00765",
+    "smiles": "C[C@](N)(CC1=CC=C(O)C=C1)C(O)=O"
+  },
+  {
+    "id": 499,
+    "name": "Benzquinamide",
+    "external_id": "DB00767",
+    "smiles": "CCN(CC)C(=O)C1CN2CCC3=CC(OC)=C(OC)C=C3C2CC1OC(C)=O"
+  },
+  {
+    "id": 500,
+    "name": "Olopatadine",
+    "external_id": "DB00768",
+    "smiles": "CN(C)CC\\C=C1\\C2=CC=CC=C2COC2=C1C=C(CC(O)=O)C=C2"
+  },
+  {
+    "id": 501,
+    "name": "Alprostadil",
+    "external_id": "DB00770",
+    "smiles": "CCCCC[C@H](O)\\C=C\\[C@H]1[C@H](O)CC(=O)[C@@H]1CCCCCCC(O)=O"
+  },
+  {
+    "id": 502,
+    "name": "Clidinium",
+    "external_id": "DB00771",
+    "smiles": "C[N@@+]12CC[C@@H](CC1)C(C2)OC(=O)C(O)(C1=CC=CC=C1)C1=CC=CC=C1"
+  },
+  {
+    "id": 503,
+    "name": "Tirofiban",
+    "external_id": "DB00775",
+    "smiles": "CCCCS(=O)(=O)N[C@@H](CC1=CC=C(OCCCCC2CCNCC2)C=C1)C(O)=O"
+  },
+  {
+    "id": 504,
+    "name": "Oxcarbazepine",
+    "external_id": "DB00776",
+    "smiles": "NC(=O)N1C2=CC=CC=C2CC(=O)C2=C1C=CC=C2"
+  },
+  {
+    "id": 505,
+    "name": "Phenelzine",
+    "external_id": "DB00780",
+    "smiles": "NNCCC1=CC=CC=C1"
+  },
+  {
+    "id": 506,
+    "name": "Mefenamic acid",
+    "external_id": "DB00784",
+    "smiles": "CC1=C(C)C(NC2=CC=CC=C2C(O)=O)=CC=C1"
+  },
+  {
+    "id": 507,
+    "name": "Acyclovir",
+    "external_id": "DB00787",
+    "smiles": "NC1=NC(=O)C2=C(N1)N(COCCO)C=N2"
+  },
+  {
+    "id": 508,
+    "name": "Primidone",
+    "external_id": "DB00794",
+    "smiles": "CCC1(C(=O)NCNC1=O)C1=CC=CC=C1"
+  },
+  {
+    "id": 509,
+    "name": "Candesartan cilexetil",
+    "external_id": "DB00796",
+    "smiles": "CCOC1=NC2=C(N1CC1=CC=C(C=C1)C1=CC=CC=C1C1=NN=NN1)C(=CC=C2)C(=O)OC(C)OC(=O)OC1CCCCC1"
+  },
+  {
+    "id": 510,
+    "name": "Fenoldopam",
+    "external_id": "DB00800",
+    "smiles": "OC1=CC=C(C=C1)C1CNCCC2=C(Cl)C(O)=C(O)C=C12"
+  },
+  {
+    "id": 511,
+    "name": "Dicyclomine",
+    "external_id": "DB00804",
+    "smiles": "CCN(CC)CCOC(=O)C1(CCCCC1)C1CCCCC1"
+  },
+  {
+    "id": 512,
+    "name": "Pentoxifylline",
+    "external_id": "DB00806",
+    "smiles": "CN1C=NC2=C1C(=O)N(CCCCC(C)=O)C(=O)N2C"
+  },
+  {
+    "id": 513,
+    "name": "Indapamide",
+    "external_id": "DB00808",
+    "smiles": "CC1CC2=CC=CC=C2N1NC(=O)C1=CC(=C(Cl)C=C1)S(N)(=O)=O"
+  },
+  {
+    "id": 514,
+    "name": "Orciprenaline",
+    "external_id": "DB00816",
+    "smiles": "CC(C)NCC(O)C1=CC(O)=CC(O)=C1"
+  },
+  {
+    "id": 515,
+    "name": "Tadalafil",
+    "external_id": "DB00820",
+    "smiles": "[H][C@]12CC3=C(NC4=CC=CC=C34)[C@H](N1C(=O)CN(C)C2=O)C1=CC2=C(OCO2)C=C1"
+  },
+  {
+    "id": 516,
+    "name": "Disulfiram",
+    "external_id": "DB00822",
+    "smiles": "CCN(CC)C(=S)SSC(=S)N(CC)CC"
+  },
+  {
+    "id": 517,
+    "name": "Brompheniramine",
+    "external_id": "DB00835",
+    "smiles": "CN(C)CCC(C1=CC=C(Br)C=C1)C1=CC=CC=N1"
+  },
+  {
+    "id": 518,
+    "name": "Tolazamide",
+    "external_id": "DB00839",
+    "smiles": "CC1=CC=C(C=C1)S(=O)(=O)NC(=O)NN1CCCCCC1"
+  },
+  {
+    "id": 519,
+    "name": "Donepezil",
+    "external_id": "DB00843",
+    "smiles": "COC1=C(OC)C=C2C(=O)C(CC3CCN(CC4=CC=CC=C4)CC3)CC2=C1"
+  },
+  {
+    "id": 520,
+    "name": "Nalbuphine",
+    "external_id": "DB00844",
+    "smiles": "O[C@H]1CC[C@@]2(O)[C@H]3CC4=CC=C(O)C5=C4[C@@]2(CCN3CC2CCC2)[C@H]1O5"
+  },
+  {
+    "id": 521,
+    "name": "Flurandrenolide",
+    "external_id": "DB00846",
+    "smiles": "CC1(C)O[C@@H]2C[C@H]3[C@@H]4C[C@H](F)C5=CC(=O)CC[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@@]2(O1)C(=O)CO"
+  },
+  {
+    "id": 522,
+    "name": "Cysteamine",
+    "external_id": "DB00847",
+    "smiles": "NCCS"
+  },
+  {
+    "id": 523,
+    "name": "Levamisole",
+    "external_id": "DB00848",
+    "smiles": "C1CN2C[C@@H](N=C2S1)C1=CC=CC=C1"
+  },
+  {
+    "id": 524,
+    "name": "Dacarbazine",
+    "external_id": "DB00851",
+    "smiles": "CN(C)\\N=N\\C1=C(N=CN1)C(N)=O"
+  },
+  {
+    "id": 525,
+    "name": "Pseudoephedrine",
+    "external_id": "DB00852",
+    "smiles": "CN[C@@H](C)[C@@H](O)C1=CC=CC=C1"
+  },
+  {
+    "id": 526,
+    "name": "Temozolomide",
+    "external_id": "DB00853",
+    "smiles": "CN1N=NC2=C(N=CN2C1=O)C(N)=O"
+  },
+  {
+    "id": 527,
+    "name": "Chlorphenesin",
+    "external_id": "DB00856",
+    "smiles": "OCC(O)COC1=CC=C(Cl)C=C1"
+  },
+  {
+    "id": 528,
+    "name": "Penicillamine",
+    "external_id": "DB00859",
+    "smiles": "[H][C@](N)(C(O)=O)C(C)(C)S"
+  },
+  {
+    "id": 529,
+    "name": "Tacrolimus",
+    "external_id": "DB00864",
+    "smiles": "CO[C@@H]1C[C@@H](CC[C@H]1O)\\C=C(/C)[C@H]1OC(=O)[C@@H]2CCCCN2C(=O)C(=O)[C@]2(O)O[C@@H]([C@H](C[C@H]2C)OC)[C@H](C[C@@H](C)C\\C(C)=C\\[C@@H](CC=C)C(=O)C[C@H](O)[C@H]1C)OC"
+  },
+  {
+    "id": 530,
+    "name": "Benzphetamine",
+    "external_id": "DB00865",
+    "smiles": "C[C@@H](CC1=CC=CC=C1)N(C)CC1=CC=CC=C1"
+  },
+  {
+    "id": 531,
+    "name": "Benzonatate",
+    "external_id": "DB00868",
+    "smiles": "CCCCNC1=CC=C(C=C1)C(=O)OCCOCCOCCOCCOCCOCCOCCOCCOCCOC"
+  },
+  {
+    "id": 532,
+    "name": "Dorzolamide",
+    "external_id": "DB00869",
+    "smiles": "CCN[C@H]1C[C@H](C)S(=O)(=O)C2=C1C=C(S2)S(N)(=O)=O"
+  },
+  {
+    "id": 533,
+    "name": "Terbutaline",
+    "external_id": "DB00871",
+    "smiles": "CC(C)(C)NCC(O)C1=CC(O)=CC(O)=C1"
+  },
+  {
+    "id": 534,
+    "name": "Loteprednol",
+    "external_id": "DB00873",
+    "smiles": "[H][C@@]12CC[C@](O)(C(=O)OCCl)[C@@]1(C)C[C@H](O)[C@@]1([H])[C@@]2([H])CCC2=CC(=O)C=C[C@]12C"
+  },
+  {
+    "id": 535,
+    "name": "Eprosartan",
+    "external_id": "DB00876",
+    "smiles": "CCCCC1=NC=C(\\C=C(/CC2=CC=CS2)C(O)=O)N1CC1=CC=C(C=C1)C(O)=O"
+  },
+  {
+    "id": 536,
+    "name": "Chlorothiazide",
+    "external_id": "DB00880",
+    "smiles": "NS(=O)(=O)C1=C(Cl)C=C2NC=NS(=O)(=O)C2=C1"
+  },
+  {
+    "id": 537,
+    "name": "Quinapril",
+    "external_id": "DB00881",
+    "smiles": "CCOC(=O)[C@H](CCC1=CC=CC=C1)N[C@@H](C)C(=O)N1CC2=CC=CC=C2C[C@H]1C(O)=O"
+  },
+  {
+    "id": 538,
+    "name": "Clomifene",
+    "external_id": "DB00882",
+    "smiles": "CCN(CC)CCOC1=CC=C(C=C1)C(=C(Cl)C1=CC=CC=C1)C1=CC=CC=C1"
+  },
+  {
+    "id": 539,
+    "name": "Isosorbide dinitrate",
+    "external_id": "DB00883",
+    "smiles": "[H][C@]12OC[C@H](O[N+]([O-])=O)[C@@]1([H])OC[C@H]2O[N+]([O-])=O"
+  },
+  {
+    "id": 540,
+    "name": "Risedronic acid",
+    "external_id": "DB00884",
+    "smiles": "OC(CC1=CN=CC=C1)(P(O)(O)=O)P(O)(O)=O"
+  },
+  {
+    "id": 541,
+    "name": "Mechlorethamine",
+    "external_id": "DB00888",
+    "smiles": "CN(CCCl)CCCl"
+  },
+  {
+    "id": 542,
+    "name": "Granisetron",
+    "external_id": "DB00889",
+    "smiles": "CN1N=C(C(=O)N[C@@H]2C[C@@H]3CCC[C@H](C2)N3C)C2=C1C=CC=C2"
+  },
+  {
+    "id": 543,
+    "name": "Ethanol",
+    "external_id": "DB00898",
+    "smiles": "CCO"
+  },
+  {
+    "id": 544,
+    "name": "Remifentanil",
+    "external_id": "DB00899",
+    "smiles": "CCC(=O)N(C1=CC=CC=C1)C1(CCN(CCC(=O)OC)CC1)C(=O)OC"
+  },
+  {
+    "id": 545,
+    "name": "Etacrynic acid",
+    "external_id": "DB00903",
+    "smiles": "CCC(=C)C(=O)C1=C(Cl)C(Cl)=C(OCC(O)=O)C=C1"
+  },
+  {
+    "id": 546,
+    "name": "Ondansetron",
+    "external_id": "DB00904",
+    "smiles": "CN1C2=C(C3=CC=CC=C13)C(=O)C(CN1C=CN=C1C)CC2"
+  },
+  {
+    "id": 547,
+    "name": "Bimatoprost",
+    "external_id": "DB00905",
+    "smiles": "CCNC(=O)CCC\\C=C/C[C@H]1[C@@H](O)C[C@@H](O)[C@@H]1\\C=C\\[C@@H](O)CCC1=CC=CC=C1"
+  },
+  {
+    "id": 548,
+    "name": "Tiagabine",
+    "external_id": "DB00906",
+    "smiles": "CC1=C(SC=C1)C(=CCCN1CCC[C@H](C1)C(O)=O)C1=C(C)C=CS1"
+  },
+  {
+    "id": 549,
+    "name": "Zonisamide",
+    "external_id": "DB00909",
+    "smiles": "NS(=O)(=O)CC1=NOC2=CC=CC=C12"
+  },
+  {
+    "id": 550,
+    "name": "Repaglinide",
+    "external_id": "DB00912",
+    "smiles": "CCOC1=C(C=CC(CC(=O)N[C@@H](CC(C)C)C2=CC=CC=C2N2CCCCC2)=C1)C(O)=O"
+  },
+  {
+    "id": 551,
+    "name": "Almotriptan",
+    "external_id": "DB00918",
+    "smiles": "CN(C)CCC1=CNC2=C1C=C(CS(=O)(=O)N1CCCC1)C=C2"
+  },
+  {
+    "id": 552,
+    "name": "Ketotifen",
+    "external_id": "DB00920",
+    "smiles": "CN1CCC(CC1)=C1C2=C(SC=C2)C(=O)CC2=CC=CC=C12"
+  },
+  {
+    "id": 553,
+    "name": "Cyclobenzaprine",
+    "external_id": "DB00924",
+    "smiles": "CN(C)CCC=C1C2=CC=CC=C2C=CC2=CC=CC=C12"
+  },
+  {
+    "id": 554,
+    "name": "Azacitidine",
+    "external_id": "DB00928",
+    "smiles": "NC1=NC(=O)N(C=N1)[C@@H]1O[C@H](CO)[C@@H](O)[C@H]1O"
+  },
+  {
+    "id": 555,
+    "name": "Misoprostol",
+    "external_id": "DB00929",
+    "smiles": "CCCCC(C)(O)C\\C=C\\[C@H]1[C@H](O)CC(=O)[C@@H]1CCCCCCC(=O)OC"
+  },
+  {
+    "id": 556,
+    "name": "Mesoridazine",
+    "external_id": "DB00933",
+    "smiles": "CN1CCCCC1CCN1C2=C(SC3=C1C=C(C=C3)S(C)=O)C=CC=C2"
+  },
+  {
+    "id": 557,
+    "name": "Diethylpropion",
+    "external_id": "DB00937",
+    "smiles": "CCN(CC)C(C)C(=O)C1=CC=CC=C1"
+  },
+  {
+    "id": 558,
+    "name": "Salmeterol",
+    "external_id": "DB00938",
+    "smiles": "OCC1=C(O)C=CC(=C1)C(O)CNCCCCCCOCCCCC1=CC=CC=C1"
+  },
+  {
+    "id": 559,
+    "name": "Meclofenamic acid",
+    "external_id": "DB00939",
+    "smiles": "CC1=C(Cl)C(NC2=CC=CC=C2C(O)=O)=C(Cl)C=C1"
+  },
+  {
+    "id": 560,
+    "name": "Acetylsalicylic acid",
+    "external_id": "DB00945",
+    "smiles": "CC(=O)OC1=CC=CC=C1C(O)=O"
+  },
+  {
+    "id": 561,
+    "name": "Fulvestrant",
+    "external_id": "DB00947",
+    "smiles": "[H][C@@]12CC[C@H](O)[C@@]1(C)CC[C@]1([H])C3=CC=C(O)C=C3C[C@@H](CCCCCCCCCS(=O)CCCC(F)(F)C(F)(F)F)[C@@]21[H]"
+  },
+  {
+    "id": 562,
+    "name": "Felbamate",
+    "external_id": "DB00949",
+    "smiles": "NC(=O)OCC(COC(N)=O)C1=CC=CC=C1"
+  },
+  {
+    "id": 563,
+    "name": "Naratriptan",
+    "external_id": "DB00952",
+    "smiles": "CNS(=O)(=O)CCC1=CC2=C(NC=C2C2CCN(C)CC2)C=C1"
+  },
+  {
+    "id": 564,
+    "name": "Rizatriptan",
+    "external_id": "DB00953",
+    "smiles": "CN(C)CCC1=CNC2=C1C=C(CN1C=NC=N1)C=C2"
+  },
+  {
+    "id": 565,
+    "name": "Hydrocodone",
+    "external_id": "DB00956",
+    "smiles": "[H][C@@]12OC3=C(OC)C=CC4=C3[C@@]11CCN(C)[C@]([H])(C4)[C@]1([H])CCC2=O"
+  },
+  {
+    "id": 566,
+    "name": "Norgestimate",
+    "external_id": "DB00957",
+    "smiles": "[H][C@@]12CC[C@@](OC(C)=O)(C#C)[C@@]1(CC)CC[C@]1([H])[C@@]3([H])CC\\C(C=C3CC[C@@]21[H])=N/O"
+  },
+  {
+    "id": 567,
+    "name": "Carboplatin",
+    "external_id": "DB00958",
+    "smiles": "C1CC(C1)(C(=O)O)C(=O)O.N.N.[Pt]"
+  },
+  {
+    "id": 568,
+    "name": "Pindolol",
+    "external_id": "DB00960",
+    "smiles": "CC(C)NCC(O)COC1=CC=CC2=C1C=CN2"
+  },
+  {
+    "id": 569,
+    "name": "Bromfenac",
+    "external_id": "DB00963",
+    "smiles": "NC1=C(CC(O)=O)C=CC=C1C(=O)C1=CC=C(Br)C=C1"
+  },
+  {
+    "id": 570,
+    "name": "Alosetron",
+    "external_id": "DB00969",
+    "smiles": "CN1C2=C(C3=CC=CC=C13)C(=O)N(CC1=C(C)NC=N1)CC2"
+  },
+  {
+    "id": 571,
+    "name": "Azelastine",
+    "external_id": "DB00972",
+    "smiles": "CN1CCCC(CC1)N1N=C(CC2=CC=C(Cl)C=C2)C2=CC=CC=C2C1=O"
+  },
+  {
+    "id": 572,
+    "name": "Dipyridamole",
+    "external_id": "DB00975",
+    "smiles": "OCCN(CCO)C1=NC2=C(N=C(N=C2N2CCCCC2)N(CCO)CCO)C(=N1)N1CCCCC1"
+  },
+  {
+    "id": 573,
+    "name": "Ethinylestradiol",
+    "external_id": "DB00977",
+    "smiles": "[H][C@@]12CC[C@@](O)(C#C)[C@@]1(C)CC[C@]1([H])C3=C(CC[C@@]21[H])C=C(O)C=C3"
+  },
+  {
+    "id": 574,
+    "name": "Isotretinoin",
+    "external_id": "DB00982",
+    "smiles": "C\\C(\\C=C\\C1=C(C)CCCC1(C)C)=C/C=C/C(/C)=C\\C(O)=O"
+  },
+  {
+    "id": 575,
+    "name": "Formoterol",
+    "external_id": "DB00983",
+    "smiles": "COC1=CC=C(CC(C)NCC(O)C2=CC(NC=O)=C(O)C=C2)C=C1"
+  },
+  {
+    "id": 576,
+    "name": "Nandrolone phenpropionate",
+    "external_id": "DB00984",
+    "smiles": "[H][C@@]12CC[C@H](OC(=O)CCC3=CC=CC=C3)[C@@]1(C)CC[C@]1([H])[C@@]3([H])CCC(=O)C=C3CC[C@@]21[H]"
+  },
+  {
+    "id": 577,
+    "name": "Rivastigmine",
+    "external_id": "DB00989",
+    "smiles": "CCN(C)C(=O)OC1=CC=CC(=C1)[C@H](C)N(C)C"
+  },
+  {
+    "id": 578,
+    "name": "Exemestane",
+    "external_id": "DB00990",
+    "smiles": "[H][C@@]12CCC(=O)[C@@]1(C)CC[C@@]1([H])[C@@]2([H])CC(=C)C2=CC(=O)C=C[C@]12C"
+  },
+  {
+    "id": 579,
+    "name": "Oxaprozin",
+    "external_id": "DB00991",
+    "smiles": "OC(=O)CCC1=NC(=C(O1)C1=CC=CC=C1)C1=CC=CC=C1"
+  },
+  {
+    "id": 580,
+    "name": "Methyl aminolevulinate",
+    "external_id": "DB00992",
+    "smiles": "COC(=O)CCC(=O)CN"
+  },
+  {
+    "id": 581,
+    "name": "Azathioprine",
+    "external_id": "DB00993",
+    "smiles": "CN1C=NC(=C1SC1=NC=NC2=C1NC=N2)[N+]([O-])=O"
+  },
+  {
+    "id": 582,
+    "name": "Auranofin",
+    "external_id": "DB00995",
+    "smiles": "CCP(CC)(CC)=[Au]S[C@@H]1O[C@H](COC(C)=O)[C@@H](OC(C)=O)[C@H](OC(C)=O)[C@H]1OC(C)=O"
+  },
+  {
+    "id": 583,
+    "name": "Gabapentin",
+    "external_id": "DB00996",
+    "smiles": "NCC1(CC(O)=O)CCCCC1"
+  },
+  {
+    "id": 584,
+    "name": "Frovatriptan",
+    "external_id": "DB00998",
+    "smiles": "CN[C@@H]1CCC2=C(C1)C1=C(N2)C=CC(=C1)C(N)=O"
+  },
+  {
+    "id": 585,
+    "name": "Hydrochlorothiazide",
+    "external_id": "DB00999",
+    "smiles": "NS(=O)(=O)C1=C(Cl)C=C2NCNS(=O)(=O)C2=C1"
+  },
+  {
+    "id": 586,
+    "name": "Salbutamol",
+    "external_id": "DB01001",
+    "smiles": "CC(C)(C)NCC(O)C1=CC(CO)=C(O)C=C1"
+  },
+  {
+    "id": 587,
+    "name": "Levobupivacaine",
+    "external_id": "DB01002",
+    "smiles": "CCCCN1CCCC[C@H]1C(=O)NC1=C(C)C=CC=C1C"
+  },
+  {
+    "id": 588,
+    "name": "Cromoglicic acid",
+    "external_id": "DB01003",
+    "smiles": "OC(COC1=CC=CC2=C1C(=O)C=C(O2)C(O)=O)COC1=CC=CC2=C1C(=O)C=C(O2)C(O)=O"
+  },
+  {
+    "id": 589,
+    "name": "Hydroxyurea",
+    "external_id": "DB01005",
+    "smiles": "NC(=O)NO"
+  },
+  {
+    "id": 590,
+    "name": "Letrozole",
+    "external_id": "DB01006",
+    "smiles": "N#CC1=CC=C(C=C1)C(N1C=NC=N1)C1=CC=C(C=C1)C#N"
+  },
+  {
+    "id": 591,
+    "name": "Busulfan",
+    "external_id": "DB01008",
+    "smiles": "CS(=O)(=O)OCCCCOS(C)(=O)=O"
+  },
+  {
+    "id": 592,
+    "name": "Cinacalcet",
+    "external_id": "DB01012",
+    "smiles": "C[C@@H](NCCCC1=CC(=CC=C1)C(F)(F)F)C1=CC=CC2=CC=CC=C12"
+  },
+  {
+    "id": 593,
+    "name": "Clobetasol propionate",
+    "external_id": "DB01013",
+    "smiles": "[H][C@@]12C[C@H](C)[C@](OC(=O)CC)(C(=O)CCl)[C@@]1(C)C[C@H](O)[C@@]1(F)[C@@]2([H])CCC2=CC(=O)C=C[C@]12C"
+  },
+  {
+    "id": 594,
+    "name": "Balsalazide",
+    "external_id": "DB01014",
+    "smiles": "OC(=O)CCNC(=O)C1=CC=C(C=C1)\\N=N\\C1=CC=C(O)C(=C1)C(O)=O"
+  },
+  {
+    "id": 595,
+    "name": "Minocycline",
+    "external_id": "DB01017",
+    "smiles": "[H][C@@]12CC3=C(C(O)=CC=C3N(C)C)C(=O)C1=C(O)[C@]1(O)C(=O)C(C(N)=O)=C(O)[C@@H](N(C)C)[C@]1([H])C2"
+  },
+  {
+    "id": 596,
+    "name": "Guanfacine",
+    "external_id": "DB01018",
+    "smiles": "NC(=N)NC(=O)CC1=C(Cl)C=CC=C1Cl"
+  },
+  {
+    "id": 597,
+    "name": "Bethanechol",
+    "external_id": "DB01019",
+    "smiles": "CC(C[N+](C)(C)C)OC(N)=O"
+  },
+  {
+    "id": 598,
+    "name": "Isosorbide mononitrate",
+    "external_id": "DB01020",
+    "smiles": "[H][C@]12OC[C@@H](O[N+]([O-])=O)[C@@]1([H])OC[C@@H]2O"
+  },
+  {
+    "id": 599,
+    "name": "Irbesartan",
+    "external_id": "DB01029",
+    "smiles": "CCCCC1=NC2(CCCC2)C(=O)N1CC1=CC=C(C=C1)C1=CC=CC=C1C1=NNN=N1"
+  },
+  {
+    "id": 600,
+    "name": "Topotecan",
+    "external_id": "DB01030",
+    "smiles": "CC[C@@]1(O)C(=O)OCC2=C1C=C1N(CC3=CC4=C(C=CC(O)=C4CN(C)C)N=C13)C2=O"
+  },
+  {
+    "id": 601,
+    "name": "Mercaptopurine",
+    "external_id": "DB01033",
+    "smiles": "S=C1N=CNC2=C1NC=N2"
+  },
+  {
+    "id": 602,
+    "name": "Fenofibrate",
+    "external_id": "DB01039",
+    "smiles": "CC(C)OC(=O)C(C)(C)OC1=CC=C(C=C1)C(=O)C1=CC=C(Cl)C=C1"
+  },
+  {
+    "id": 603,
+    "name": "Thalidomide",
+    "external_id": "DB01041",
+    "smiles": "O=C1N(C2CCC(=O)NC2=O)C(=O)C2=CC=CC=C12"
+  },
+  {
+    "id": 604,
+    "name": "Melphalan",
+    "external_id": "DB01042",
+    "smiles": "N[C@@H](CC1=CC=C(C=C1)N(CCCl)CCCl)C(O)=O"
+  },
+  {
+    "id": 605,
+    "name": "Rifampicin",
+    "external_id": "DB01045",
+    "smiles": "CO[C@H]1\\C=C\\O[C@@]2(C)OC3=C(C2=O)C2=C(O)C(\\C=N\\N4CCN(C)CC4)=C(NC(=O)\\C(C)=C/C=C/[C@H](C)[C@H](O)[C@@H](C)[C@@H](O)[C@@H](C)[C@H](OC(C)=O)[C@@H]1C)C(O)=C2C(O)=C3C"
+  },
+  {
+    "id": 606,
+    "name": "Lubiprostone",
+    "external_id": "DB01046",
+    "smiles": "[H][C@@]12CC(=O)[C@H](CCCCCCC(O)=O)[C@@]1([H])CC[C@@](O)(O2)C(F)(F)CCCC"
+  },
+  {
+    "id": 607,
+    "name": "Praziquantel",
+    "external_id": "DB01058",
+    "smiles": "O=C(C1CCCCC1)N1CC2N(CCC3=CC=CC=C23)C(=O)C1"
+  },
+  {
+    "id": 608,
+    "name": "Oxybutynin",
+    "external_id": "DB01062",
+    "smiles": "CCN(CC)CC#CCOC(=O)C(O)(C1CCCCC1)C1=CC=CC=C1"
+  },
+  {
+    "id": 609,
+    "name": "Acetophenazine",
+    "external_id": "DB01063",
+    "smiles": "CC(=O)C1=CC=C2SC3=C(C=CC=C3)N(CCCN3CCN(CCO)CC3)C2=C1"
+  },
+  {
+    "id": 610,
+    "name": "Isoprenaline",
+    "external_id": "DB01064",
+    "smiles": "CC(C)NCC(O)C1=CC(O)=C(O)C=C1"
+  },
+  {
+    "id": 611,
+    "name": "Glipizide",
+    "external_id": "DB01067",
+    "smiles": "CC1=NC=C(N=C1)C(=O)NCCC1=CC=C(C=C1)S(=O)(=O)NC(=O)NC1CCCCC1"
+  },
+  {
+    "id": 612,
+    "name": "Clonazepam",
+    "external_id": "DB01068",
+    "smiles": "[O-][N+](=O)C1=CC2=C(NC(=O)CN=C2C2=CC=CC=C2Cl)C=C1"
+  },
+  {
+    "id": 613,
+    "name": "Dihydrotachysterol",
+    "external_id": "DB01070",
+    "smiles": "CC(C)[C@@H](C)\\C=C\\[C@@H](C)[C@@]1([H])CC[C@@]2([H])\\C(CCC[C@]12C)=C\\C=C1/C[C@@H](O)CC[C@@H]1C"
+  },
+  {
+    "id": 614,
+    "name": "Mequitazine",
+    "external_id": "DB01071",
+    "smiles": "C(C1CN2CCC1CC2)N1C2=CC=CC=C2SC2=CC=CC=C12"
+  },
+  {
+    "id": 615,
+    "name": "Atazanavir",
+    "external_id": "DB01072",
+    "smiles": "COC(=O)N[C@H](C(=O)N[C@@H](CC1=CC=CC=C1)[C@@H](O)CN(CC1=CC=C(C=C1)C1=CC=CC=N1)NC(=O)[C@@H](NC(=O)OC)C(C)(C)C)C(C)(C)C"
+  },
+  {
+    "id": 616,
+    "name": "Fludarabine",
+    "external_id": "DB01073",
+    "smiles": "NC1=NC(F)=NC2=C1N=CN2[C@@H]1O[C@H](CO)[C@@H](O)[C@@H]1O"
+  },
+  {
+    "id": 617,
+    "name": "Atorvastatin",
+    "external_id": "DB01076",
+    "smiles": "CC(C)C1=C(C(=O)NC2=CC=CC=C2)C(=C(N1CC[C@@H](O)C[C@@H](O)CC(O)=O)C1=CC=C(F)C=C1)C1=CC=CC=C1"
+  },
+  {
+    "id": 618,
+    "name": "Etidronic acid",
+    "external_id": "DB01077",
+    "smiles": "CC(O)(P(O)(O)=O)P(O)(O)=O"
+  },
+  {
+    "id": 619,
+    "name": "Vigabatrin",
+    "external_id": "DB01080",
+    "smiles": "NC(CCC(O)=O)C=C"
+  },
+  {
+    "id": 620,
+    "name": "Orlistat",
+    "external_id": "DB01083",
+    "smiles": "CCCCCCCCCCC[C@@H](C[C@@H]1OC(=O)[C@H]1CCCCCC)OC(=O)[C@H](CC(C)C)NC=O"
+  },
+  {
+    "id": 621,
+    "name": "Emedastine",
+    "external_id": "DB01084",
+    "smiles": "CCOCCN1C(=NC2=CC=CC=C12)N1CCCN(C)CC1"
+  },
+  {
+    "id": 622,
+    "name": "Pilocarpine",
+    "external_id": "DB01085",
+    "smiles": "CC[C@H]1[C@@H](CC2=CN=CN2C)COC1=O"
+  },
+  {
+    "id": 623,
+    "name": "Benzocaine",
+    "external_id": "DB01086",
+    "smiles": "CCOC(=O)C1=CC=C(N)C=C1"
+  },
+  {
+    "id": 624,
+    "name": "Iloprost",
+    "external_id": "DB01088",
+    "smiles": "[H][C@]12C[C@@H](O)[C@H](\\C=C\\[C@@H](O)C(C)CC#CC)[C@@]1([H])C\\C(C2)=C\\CCCC(O)=O"
+  },
+  {
+    "id": 625,
+    "name": "Rosuvastatin",
+    "external_id": "DB01098",
+    "smiles": "CC(C)C1=NC(=NC(C2=CC=C(F)C=C2)=C1\\C=C\\[C@@H](O)C[C@@H](O)CC(=O)O)N(C)S(C)(=O)=O"
+  },
+  {
+    "id": 626,
+    "name": "Flucytosine",
+    "external_id": "DB01099",
+    "smiles": "NC1=C(F)C=NC(=O)N1"
+  },
+  {
+    "id": 627,
+    "name": "Capecitabine",
+    "external_id": "DB01101",
+    "smiles": "CCCCCOC(=O)NC1=NC(=O)N(C=C1F)[C@@H]1O[C@H](C)[C@@H](O)[C@H]1O"
+  },
+  {
+    "id": 628,
+    "name": "Sibutramine",
+    "external_id": "DB01105",
+    "smiles": "CC(C)CC(N(C)C)C1(CCC1)C1=CC=C(Cl)C=C1"
+  },
+  {
+    "id": 629,
+    "name": "Levocabastine",
+    "external_id": "DB01106",
+    "smiles": "C[C@@H]1CN(CC[C@]1(C(O)=O)C1=CC=CC=C1)[C@H]1CC[C@](CC1)(C#N)C1=CC=C(F)C=C1"
+  },
+  {
+    "id": 630,
+    "name": "Papaverine",
+    "external_id": "DB01113",
+    "smiles": "COC1=C(OC)C=C(CC2=NC=CC3=CC(OC)=C(OC)C=C23)C=C1"
+  },
+  {
+    "id": 631,
+    "name": "Gliclazide",
+    "external_id": "DB01120",
+    "smiles": "[H][C@@]12CCC[C@]1([H])CN(C2)NC(=O)NS(=O)(=O)C1=CC=C(C)C=C1"
+  },
+  {
+    "id": 632,
+    "name": "Ambenonium",
+    "external_id": "DB01122",
+    "smiles": "CC[N+](CC)(CCNC(=O)C(=O)NCC[N+](CC)(CC)CC1=CC=CC=C1Cl)CC1=CC=CC=C1Cl"
+  },
+  {
+    "id": 633,
+    "name": "Anisindione",
+    "external_id": "DB01125",
+    "smiles": "COC1=CC=C(C=C1)C1C(=O)C2=CC=CC=C2C1=O"
+  },
+  {
+    "id": 634,
+    "name": "Bicalutamide",
+    "external_id": "DB01128",
+    "smiles": "CC(O)(CS(=O)(=O)C1=CC=C(F)C=C1)C(=O)NC1=CC(=C(C=C1)C#N)C(F)(F)F"
+  },
+  {
+    "id": 635,
+    "name": "Rabeprazole",
+    "external_id": "DB01129",
+    "smiles": "COCCCOC1=C(C)C(CS(=O)C2=NC3=CC=CC=C3N2)=NC=C1"
+  },
+  {
+    "id": 636,
+    "name": "Tiludronic acid",
+    "external_id": "DB01133",
+    "smiles": "OP(O)(=O)C(SC1=CC=C(Cl)C=C1)P(O)(O)=O"
+  },
+  {
+    "id": 637,
+    "name": "Levofloxacin",
+    "external_id": "DB01137",
+    "smiles": "C[C@H]1COC2=C3N1C=C(C(O)=O)C(=O)C3=CC(F)=C2N1CCN(C)CC1"
+  },
+  {
+    "id": 638,
+    "name": "Amifostine",
+    "external_id": "DB01143",
+    "smiles": "NCCCNCCSP(O)(O)=O"
+  },
+  {
+    "id": 639,
+    "name": "Diclofenamide",
+    "external_id": "DB01144",
+    "smiles": "NS(=O)(=O)C1=CC(=C(Cl)C(Cl)=C1)S(N)(=O)=O"
+  },
+  {
+    "id": 640,
+    "name": "Diphenylpyraline",
+    "external_id": "DB01146",
+    "smiles": "CN1CCC(CC1)OC(C1=CC=CC=C1)C1=CC=CC=C1"
+  },
+  {
+    "id": 641,
+    "name": "Flavoxate",
+    "external_id": "DB01148",
+    "smiles": "CC1=C(OC2=C(C=CC=C2C(=O)OCCN2CCCCC2)C1=O)C1=CC=CC=C1"
+  },
+  {
+    "id": 642,
+    "name": "Bupropion",
+    "external_id": "DB01156",
+    "smiles": "CC(NC(C)(C)C)C(=O)C1=CC(Cl)=CC=C1"
+  },
+  {
+    "id": 643,
+    "name": "Trimetrexate",
+    "external_id": "DB01157",
+    "smiles": "COC1=CC(NCC2=C(C)C3=C(C=C2)N=C(N)N=C3N)=CC(OC)=C1OC"
+  },
+  {
+    "id": 644,
+    "name": "Chloroprocaine",
+    "external_id": "DB01161",
+    "smiles": "CCN(CC)CCOC(=O)C1=C(Cl)C=C(N)C=C1"
+  },
+  {
+    "id": 645,
+    "name": "Terazosin",
+    "external_id": "DB01162",
+    "smiles": "COC1=C(OC)C=C2C(N)=NC(=NC2=C1)N1CCN(CC1)C(=O)C1CCCO1"
+  },
+  {
+    "id": 646,
+    "name": "Arsenic trioxide",
+    "external_id": "DB01169",
+    "smiles": "O=[As]O[As]=O"
+  },
+  {
+    "id": 647,
+    "name": "Guanethidine",
+    "external_id": "DB01170",
+    "smiles": "NC(N)=NCCN1CCCCCCC1"
+  },
+  {
+    "id": 648,
+    "name": "Orphenadrine",
+    "external_id": "DB01173",
+    "smiles": "CN(C)CCOC(C1=CC=CC=C1)C1=CC=CC=C1C"
+  },
+  {
+    "id": 649,
+    "name": "Escitalopram",
+    "external_id": "DB01175",
+    "smiles": "CN(C)CCC[C@]1(OCC2=C1C=CC(=C2)C#N)C1=CC=C(F)C=C1"
+  },
+  {
+    "id": 650,
+    "name": "Cyclizine",
+    "external_id": "DB01176",
+    "smiles": "CN1CCN(CC1)C(C1=CC=CC=C1)C1=CC=CC=C1"
+  },
+  {
+    "id": 651,
+    "name": "Ifosfamide",
+    "external_id": "DB01181",
+    "smiles": "ClCCNP1(=O)OCCCN1CCCl"
+  },
+  {
+    "id": 652,
+    "name": "Fluoxymesterone",
+    "external_id": "DB01185",
+    "smiles": "[H][C@@]12CC[C@](C)(O)[C@@]1(C)C[C@H](O)[C@@]1(F)[C@@]2([H])CCC2=CC(=O)CC[C@]12C"
+  },
+  {
+    "id": 653,
+    "name": "Pergolide",
+    "external_id": "DB01186",
+    "smiles": "[H][C@@]12CC3=CNC4=CC=CC(=C34)[C@@]1([H])C[C@@H](CSC)CN2CCC"
+  },
+  {
+    "id": 654,
+    "name": "Ciclopirox",
+    "external_id": "DB01188",
+    "smiles": "CC1=CC(=O)N(O)C(=C1)C1CCCCC1"
+  },
+  {
+    "id": 655,
+    "name": "Desflurane",
+    "external_id": "DB01189",
+    "smiles": "FC(F)OC(F)C(F)(F)F"
+  },
+  {
+    "id": 656,
+    "name": "Oxymorphone",
+    "external_id": "DB01192",
+    "smiles": "[H][C@@]12OC3=C(O)C=CC4=C3[C@@]11CCN(C)[C@]([H])(C4)[C@]1(O)CCC2=O"
+  },
+  {
+    "id": 657,
+    "name": "Brinzolamide",
+    "external_id": "DB01194",
+    "smiles": "CCN[C@H]1CN(CCCOC)S(=O)(=O)C2=C1C=C(S2)S(N)(=O)=O"
+  },
+  {
+    "id": 658,
+    "name": "Flecainide",
+    "external_id": "DB01195",
+    "smiles": "FC(F)(F)COC1=CC(C(=O)NCC2CCCCN2)=C(OCC(F)(F)F)C=C1"
+  },
+  {
+    "id": 659,
+    "name": "Captopril",
+    "external_id": "DB01197",
+    "smiles": "C[C@H](CS)C(=O)N1CCC[C@H]1C(O)=O"
+  },
+  {
+    "id": 660,
+    "name": "Levetiracetam",
+    "external_id": "DB01202",
+    "smiles": "CC[C@H](N1CCCC1=O)C(N)=O"
+  },
+  {
+    "id": 661,
+    "name": "Nadolol",
+    "external_id": "DB01203",
+    "smiles": "CC(C)(C)NCC(O)COC1=CC=CC2=C1C[C@H](O)[C@H](O)C2"
+  },
+  {
+    "id": 662,
+    "name": "Levobunolol",
+    "external_id": "DB01210",
+    "smiles": "CC(C)(C)NC[C@H](O)COC1=CC=CC2=C1CCCC2=O"
+  },
+  {
+    "id": 663,
+    "name": "Metipranolol",
+    "external_id": "DB01214",
+    "smiles": "CC(C)NCC(O)COC1=C(C)C(C)=C(OC(C)=O)C(C)=C1"
+  },
+  {
+    "id": 664,
+    "name": "Finasteride",
+    "external_id": "DB01216",
+    "smiles": "[H][C@@]12CC[C@H](C(=O)NC(C)(C)C)[C@@]1(C)CC[C@@]1([H])[C@@]2([H])CC[C@@]2([H])NC(=O)C=C[C@]12C"
+  },
+  {
+    "id": 665,
+    "name": "Anastrozole",
+    "external_id": "DB01217",
+    "smiles": "CC(C)(C#N)C1=CC(=CC(CN2C=NC=N2)=C1)C(C)(C)C#N"
+  },
+  {
+    "id": 666,
+    "name": "Dantrolene",
+    "external_id": "DB01219",
+    "smiles": "[O-][N+](=O)C1=CC=C(C=C1)C1=CC=C(O1)\\C=N\\N1CC(=O)NC1=O"
+  },
+  {
+    "id": 667,
+    "name": "Budesonide",
+    "external_id": "DB01222",
+    "smiles": "[H][C@@]12C[C@H]3OC(CCC)O[C@@]3(C(=O)CO)[C@@]1(C)C[C@H](O)[C@@]1([H])[C@@]2([H])CCC2=CC(=O)C=C[C@]12C"
+  },
+  {
+    "id": 668,
+    "name": "Aminophylline",
+    "external_id": "DB01223",
+    "smiles": "NCCN.CN1C2=C(NC=N2)C(=O)N(C)C1=O.CN1C2=C(NC=N2)C(=O)N(C)C1=O"
+  },
+  {
+    "id": 669,
+    "name": "Quetiapine",
+    "external_id": "DB01224",
+    "smiles": "OCCOCCN1CCN(CC1)C1=NC2=CC=CC=C2SC2=CC=CC=C12"
+  },
+  {
+    "id": 670,
+    "name": "Enoxaparin",
+    "external_id": "DB01225",
+    "smiles": "CC(=O)NC1C(C(C(OC1O)COS(=O)(=O)O)OC2C(C(C(C(O2)C(=O)O)OC3C(C(C(C(O3)CO)OC4C(C(C(C(O4)C(=O)O)O)O)OS(=O)(=O)O)OS(=O)(=O)O)NS(=O)(=O)O)O)OS(=O)(=O)O)O"
+  },
+  {
+    "id": 671,
+    "name": "Encainide",
+    "external_id": "DB01228",
+    "smiles": "COC1=CC=C(C=C1)C(=O)NC1=CC=CC=C1CCC1CCCCN1C"
+  },
+  {
+    "id": 672,
+    "name": "Diphenidol",
+    "external_id": "DB01231",
+    "smiles": "OC(CCCN1CCCCC1)(C1=CC=CC=C1)C1=CC=CC=C1"
+  },
+  {
+    "id": 673,
+    "name": "Saquinavir",
+    "external_id": "DB01232",
+    "smiles": "[H][C@@]12CCCC[C@]1([H])CN(C[C@@H](O)[C@H](CC1=CC=CC=C1)NC(=O)[C@H](CC(N)=O)NC(=O)C1=NC3=C(C=CC=C3)C=C1)[C@@H](C2)C(=O)NC(C)(C)C"
+  },
+  {
+    "id": 674,
+    "name": "Metoclopramide",
+    "external_id": "DB01233",
+    "smiles": "CCN(CC)CCNC(=O)C1=CC(Cl)=C(N)C=C1OC"
+  },
+  {
+    "id": 675,
+    "name": "Bromodiphenhydramine",
+    "external_id": "DB01237",
+    "smiles": "CN(C)CCOC(C1=CC=CC=C1)C1=CC=C(Br)C=C1"
+  },
+  {
+    "id": 676,
+    "name": "Aripiprazole",
+    "external_id": "DB01238",
+    "smiles": "ClC1=CC=CC(N2CCN(CCCCOC3=CC4=C(CCC(=O)N4)C=C3)CC2)=C1Cl"
+  },
+  {
+    "id": 677,
+    "name": "Epoprostenol",
+    "external_id": "DB01240",
+    "smiles": "[H][C@]12C[C@@H](O)[C@H](\\C=C\\[C@@H](O)CCCCC)[C@@]1([H])C\\C(O2)=C\\CCCC(O)=O"
+  },
+  {
+    "id": 678,
+    "name": "Alimemazine",
+    "external_id": "DB01246",
+    "smiles": "CC(CN(C)C)CN1C2=CC=CC=C2SC2=CC=CC=C12"
+  },
+  {
+    "id": 679,
+    "name": "Olsalazine",
+    "external_id": "DB01250",
+    "smiles": "OC(=O)C1=CC(=CC=C1O)\\N=N\\C1=CC=C(O)C(=C1)C(O)=O"
+  },
+  {
+    "id": 680,
+    "name": "Lisdexamfetamine",
+    "external_id": "DB01255",
+    "smiles": "C[C@@H](CC1=CC=CC=C1)NC(=O)[C@@H](N)CCCCN"
+  },
+  {
+    "id": 681,
+    "name": "Aliskiren",
+    "external_id": "DB01258",
+    "smiles": "COCCCOC1=C(OC)C=CC(C[C@@H](C[C@H](N)[C@@H](O)C[C@@H](C(C)C)C(=O)NCC(C)(C)C(N)=O)C(C)C)=C1"
+  },
+  {
+    "id": 682,
+    "name": "Lapatinib",
+    "external_id": "DB01259",
+    "smiles": "CS(=O)(=O)CCNCC1=CC=C(O1)C1=CC2=C(C=C1)N=CN=C2NC1=CC(Cl)=C(OCC2=CC(F)=CC=C2)C=C1"
+  },
+  {
+    "id": 683,
+    "name": "Desonide",
+    "external_id": "DB01260",
+    "smiles": "[H][C@@]12C[C@H]3OC(C)(C)O[C@@]3(C(=O)CO)[C@@]1(C)C[C@H](O)[C@@]1([H])[C@@]2([H])CCC2=CC(=O)C=C[C@]12C"
+  },
+  {
+    "id": 684,
+    "name": "Sitagliptin",
+    "external_id": "DB01261",
+    "smiles": "N[C@@H](CC(=O)N1CCN2C(C1)=NN=C2C(F)(F)F)CC1=CC(F)=C(F)C=C1F"
+  },
+  {
+    "id": 685,
+    "name": "Decitabine",
+    "external_id": "DB01262",
+    "smiles": "NC1=NC(=O)N(C=N1)[C@H]1C[C@H](O)[C@@H](CO)O1"
+  },
+  {
+    "id": 686,
+    "name": "Paliperidone",
+    "external_id": "DB01267",
+    "smiles": "CC1=C(CCN2CCC(CC2)C2=NOC3=C2C=CC(F)=C3)C(=O)N2CCCC(O)C2=N1"
+  },
+  {
+    "id": 687,
+    "name": "Hydralazine",
+    "external_id": "DB01275",
+    "smiles": "NNC1=NN=CC2=CC=CC=C12"
+  },
+  {
+    "id": 688,
+    "name": "Lumiracoxib",
+    "external_id": "DB01283",
+    "smiles": "CC1=CC=C(NC2=C(Cl)C=CC=C2F)C(CC(O)=O)=C1"
+  },
+  {
+    "id": 689,
+    "name": "Pirbuterol",
+    "external_id": "DB01291",
+    "smiles": "CC(C)(C)NCC(O)C1=NC(CO)=C(O)C=C1"
+  },
+  {
+    "id": 690,
+    "name": "Glucosamine",
+    "external_id": "DB01296",
+    "smiles": "N[C@H]1C(O)O[C@H](CO)[C@@H](O)[C@@H]1O"
+  },
+  {
+    "id": 691,
+    "name": "Fosphenytoin",
+    "external_id": "DB01320",
+    "smiles": "OP(O)(=O)OCN1C(=O)NC(C1=O)(C1=CC=CC=C1)C1=CC=CC=C1"
+  },
+  {
+    "id": 692,
+    "name": "Amobarbital",
+    "external_id": "DB01351",
+    "smiles": "CCC1(CCC(C)C)C(=O)NC(=O)NC1=O"
+  },
+  {
+    "id": 693,
+    "name": "Lithium cation",
+    "external_id": "DB01356",
+    "smiles": "[Li+]"
+  },
+  {
+    "id": 694,
+    "name": "Penbutolol",
+    "external_id": "DB01359",
+    "smiles": "CC(C)(C)NC[C@H](O)COC1=CC=CC=C1C1CCCC1"
+  },
+  {
+    "id": 695,
+    "name": "Ephedrine",
+    "external_id": "DB01364",
+    "smiles": "CN[C@@H](C)[C@H](O)C1=CC=CC=C1"
+  },
+  {
+    "id": 696,
+    "name": "Rasagiline",
+    "external_id": "DB01367",
+    "smiles": "C#CCN[C@@H]1CCC2=CC=CC=C12"
+  },
+  {
+    "id": 697,
+    "name": "Sodium bicarbonate",
+    "external_id": "DB01390",
+    "smiles": "[Na+].OC([O-])=O"
+  },
+  {
+    "id": 698,
+    "name": "Drospirenone",
+    "external_id": "DB01395",
+    "smiles": "[H][C@@]12C[C@]1([H])[C@@]1([H])[C@]3([H])[C@]4([H])C[C@]4([H])[C@@]4(CCC(=O)O4)[C@@]3(C)CC[C@]1([H])[C@@]1(C)CCC(=O)C=C21"
+  },
+  {
+    "id": 699,
+    "name": "Salsalate",
+    "external_id": "DB01399",
+    "smiles": "OC(=O)C1=CC=CC=C1OC(=O)C1=CC=CC=C1O"
+  },
+  {
+    "id": 700,
+    "name": "Methotrimeprazine",
+    "external_id": "DB01403",
+    "smiles": "COC1=CC2=C(SC3=C(C=CC=C3)N2C[C@H](C)CN(C)C)C=C1"
+  },
+  {
+    "id": 701,
+    "name": "Danazol",
+    "external_id": "DB01406",
+    "smiles": "[H][C@@]12CC[C@@](O)(C#C)[C@@]1(C)CC[C@@]1([H])[C@@]2([H])CCC2=CC3=C(C[C@]12C)C=NO3"
+  },
+  {
+    "id": 702,
+    "name": "Ciclesonide",
+    "external_id": "DB01410",
+    "smiles": "[H][C@@]12C[C@@]3([H])[C@]4([H])CCC5=CC(=O)C=C[C@]5(C)[C@@]4([H])[C@@H](O)C[C@]3(C)[C@@]1(O[C@@H](O2)C1CCCCC1)C(=O)COC(=O)C(C)C"
+  },
+  {
+    "id": 703,
+    "name": "Amrinone",
+    "external_id": "DB01427",
+    "smiles": "NC1=CC(=CNC1=O)C1=CC=NC=C1"
+  },
+  {
+    "id": 704,
+    "name": "gamma-Hydroxybutyric acid",
+    "external_id": "DB01440",
+    "smiles": "OCCCC(O)=O"
+  },
+  {
+    "id": 705,
+    "name": "Dihydrocodeine",
+    "external_id": "DB01551",
+    "smiles": "[H][C@@]12OC3=C4C(C[C@H]5N(C)CC[C@@]14[C@@]5([H])CC[C@@H]2O)=CC=C3OC"
+  },
+  {
+    "id": 706,
+    "name": "Dextroamphetamine",
+    "external_id": "DB01576",
+    "smiles": "C[C@H](N)CC1=CC=CC=C1"
+  },
+  {
+    "id": 707,
+    "name": "Metamfetamine",
+    "external_id": "DB01577",
+    "smiles": "CN[C@@H](C)CC1=CC=CC=C1"
+  },
+  {
+    "id": 708,
+    "name": "Phendimetrazine",
+    "external_id": "DB01579",
+    "smiles": "C[C@H]1[C@@H](OCCN1C)C1=CC=CC=C1"
+  },
+  {
+    "id": 709,
+    "name": "Everolimus",
+    "external_id": "DB01590",
+    "smiles": "[H][C@@]1(C[C@@H](C)[C@]2([H])CC(=O)[C@H](C)\\C=C(C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(C)\\[C@H](C[C@]3([H])CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N3CCCC[C@@]3([H])C(=O)O2)OC)CC[C@@H](OCCO)[C@@H](C1)OC"
+  },
+  {
+    "id": 710,
+    "name": "Hydroxychloroquine",
+    "external_id": "DB01611",
+    "smiles": "CCN(CCO)CCCC(C)NC1=C2C=CC(Cl)=CC2=NC=C1"
+  },
+  {
+    "id": 711,
+    "name": "Pheniramine",
+    "external_id": "DB01620",
+    "smiles": "CN(C)CCC(C1=CC=CC=C1)C1=CC=CC=N1"
+  },
+  {
+    "id": 712,
+    "name": "Etoricoxib",
+    "external_id": "DB01628",
+    "smiles": "CC1=NC=C(C=C1)C1=C(C=C(Cl)C=N1)C1=CC=C(C=C1)S(C)(=O)=O"
+  },
+  {
+    "id": 713,
+    "name": "Vorinostat",
+    "external_id": "DB02546",
+    "smiles": "ONC(=O)CCCCCCC(=O)NC1=CC=CC=C1"
+  },
+  {
+    "id": 714,
+    "name": "Trioxsalen",
+    "external_id": "DB04571",
+    "smiles": "CC1=CC2=CC3=C(OC(=O)C=C3C)C(C)=C2O1"
+  },
+  {
+    "id": 715,
+    "name": "Tetrabenazine",
+    "external_id": "DB04844",
+    "smiles": "COC1=C(OC)C=C2C3CC(=O)C(CC(C)C)CN3CCC2=C1"
+  },
+  {
+    "id": 716,
+    "name": "Nebivolol",
+    "external_id": "DB04861",
+    "smiles": "OC(CNCC(O)C1CCC2=C(O1)C=CC(F)=C2)C1CCC2=C(O1)C=CC(F)=C2"
+  },
+  {
+    "id": 717,
+    "name": "Omacetaxine mepesuccinate",
+    "external_id": "DB04865",
+    "smiles": "[H][C@@]1(OC(=O)[C@@](O)(CCCC(C)(C)O)CC(=O)OC)C(OC)=C[C@]23CCCN2CCC2=CC4=C(OCO4)C=C2[C@]13[H]"
+  },
+  {
+    "id": 718,
+    "name": "Nilotinib",
+    "external_id": "DB04868",
+    "smiles": "CC1=CN(C=N1)C1=CC(NC(=O)C2=CC=C(C)C(NC3=NC=CC(=N3)C3=CN=CC=C3)=C2)=CC(=C1)C(F)(F)F"
+  },
+  {
+    "id": 719,
+    "name": "Rotigotine",
+    "external_id": "DB05271",
+    "smiles": "CCCN(CCC1=CC=CS1)[C@H]1CCC2=C(O)C=CC=C2C1"
+  },
+  {
+    "id": 720,
+    "name": "Icatibant",
+    "external_id": "DB06196",
+    "smiles": "[H][C@]12C[C@]([H])(N(C(=O)[C@@]3([H])CC4=C(CN3C(=O)[C@H](CO)NC(=O)[C@H](CC3=CC=CS3)NC(=O)CNC(=O)[C@]3([H])C[C@@H](O)CN3C(=O)[C@@H]3CCCN3C(=O)[C@H](CCCNC(N)=N)NC(=O)[C@H](N)CCCNC(N)=N)C=CC=C4)[C@@]1([H])CCCC2)C(=O)N[C@@H](CCCNC(N)=N)C(O)=O"
+  },
+  {
+    "id": 721,
+    "name": "Rufinamide",
+    "external_id": "DB06201",
+    "smiles": "NC(=O)C1=CN(CC2=C(F)C=CC=C2F)N=N1"
+  },
+  {
+    "id": 722,
+    "name": "Sitaxentan",
+    "external_id": "DB06268",
+    "smiles": "CC1=NOC(NS(=O)(=O)C2=C(SC=C2)C(=O)CC2=CC3=C(OCO3)C=C2C)=C1Cl"
+  },
+  {
+    "id": 723,
+    "name": "Temsirolimus",
+    "external_id": "DB06287",
+    "smiles": "OCC(C)(CO)C(=O)O[C@@H]1CC[C@@H](C[C@@H](C)[C@]2([H])CC(=O)[C@H](C)\\C=C(C)\\[C@@H](O)[C@@H](OC)C(=O)[C@H](C)C[C@H](C)\\C=C\\C=C\\C=C(C)\\[C@@H](OC)C[C@]3([H])CC[C@@H](C)[C@@](O)(O3)C(=O)C(=O)N3CCCC[C@H]3C(=O)O2)C[C@H]1OC"
+  },
+  {
+    "id": 724,
+    "name": "Stanozolol",
+    "external_id": "DB06718",
+    "smiles": "[H][C@@]12CC[C@](C)(O)[C@@]1(C)CC[C@@]1([H])[C@@]2([H])CC[C@@]2([H])CC3=NNC=C3C[C@]12C"
+  },
+  {
+    "id": 725,
+    "name": "Niclosamide",
+    "external_id": "DB06803",
+    "smiles": "OC1=C(C=C(Cl)C=C1)C(=O)NC1=C(Cl)C=C(C=C1)[N+]([O-])=O"
+  },
+  {
+    "id": 726,
+    "name": "Antazoline",
+    "external_id": "DB08799",
+    "smiles": "C(N(CC1=CC=CC=C1)C1=CC=CC=C1)C1=NCCN1"
+  },
+  {
+    "id": 727,
+    "name": "Chloropyramine",
+    "external_id": "DB08800",
+    "smiles": "CN(C)CCN(CC1=CC=C(Cl)C=C1)C1=CC=CC=N1"
+  },
+  {
+    "id": 728,
+    "name": "Dimetindene",
+    "external_id": "DB08801",
+    "smiles": "CC(C1=C(CCN(C)C)CC2=CC=CC=C12)C1=CC=CC=N1"
+  },
+  {
+    "id": 729,
+    "name": "Isothipendyl",
+    "external_id": "DB08802",
+    "smiles": "CC(CN1C2=CC=CC=C2SC2=C1N=CC=C2)N(C)C"
+  },
+  {
+    "id": 730,
+    "name": "Tymazoline",
+    "external_id": "DB08803",
+    "smiles": "CC(C)C1=C(OCC2=NCCN2)C=C(C)C=C1"
+  },
+  {
+    "id": 731,
+    "name": "Nandrolone decanoate",
+    "external_id": "DB08804",
+    "smiles": "[H][C@@]12CC[C@H](OC(=O)CCCCCCCCC)[C@@]1(C)CC[C@]1([H])[C@@]3([H])CCC(=O)C=C3CC[C@@]21[H]"
+  },
+  {
+    "id": 732,
+    "name": "Ivacaftor",
+    "external_id": "DB08820",
+    "smiles": "CC(C)(C)C1=CC(=C(O)C=C1NC(=O)C1=CNC2=CC=CC=C2C1=O)C(C)(C)C"
+  },
+  {
+    "id": 733,
+    "name": "Ioflupane I-123",
+    "external_id": "DB08824",
+    "smiles": "[H][C@]12CC[C@]([H])([C@H]([C@H](C1)C1=CC=C([123I])C=C1)C(=O)OC)N2CCCF"
+  },
+  {
+    "id": 734,
+    "name": "Spaglumic acid",
+    "external_id": "DB08835",
+    "smiles": "CC(=O)N[C@@H](CC(=O)N[C@@H](CCC(O)=O)C(O)=O)C(O)=O"
+  },
+  {
+    "id": 735,
+    "name": "Regorafenib",
+    "external_id": "DB08896",
+    "smiles": "CNC(=O)C1=CC(OC2=CC(F)=C(NC(=O)NC3=CC=C(Cl)C(=C3)C(F)(F)F)C=C2)=CC=N1"
+  },
+  {
+    "id": 736,
+    "name": "Ponatinib",
+    "external_id": "DB08901",
+    "smiles": "CN1CCN(CC2=CC=C(NC(=O)C3=CC(C#CC4=CN=C5C=CC=NN45)=C(C)C=C3)C=C2C(F)(F)F)CC1"
+  },
+  {
+    "id": 737,
+    "name": "Fluticasone furoate",
+    "external_id": "DB08906",
+    "smiles": "[H][C@@]12C[C@@H](C)[C@](OC(=O)C3=CC=CO3)(C(=O)SCF)[C@@]1(C)C[C@H](O)[C@@]1(F)[C@@]2([H])C[C@H](F)C2=CC(=O)C=C[C@]12C"
+  },
+  {
+    "id": 738,
+    "name": "Canagliflozin",
+    "external_id": "DB08907",
+    "smiles": "[H][C@]1(O[C@H](CO)[C@@H](O)[C@H](O)[C@H]1O)C1=CC=C(C)C(CC2=CC=C(S2)C2=CC=C(F)C=C2)=C1"
+  },
+  {
+    "id": 739,
+    "name": "Leuprolide",
+    "external_id": "DB00007",
+    "smiles": "CCNC(=O)[C@@H]1CCCN1C(=O)[C@H](CCCNC(N)=N)NC(=O)[C@H](CC(C)C)NC(=O)[C@@H](CC(C)C)NC(=O)[C@H](CC1=CC=C(O)C=C1)NC(=O)[C@H](CO)NC(=O)[C@H](CC1=CNC2=C1C=CC=C2)NC(=O)[C@H](CC1=CNC=N1)NC(=O)[C@@H]1CCC(=O)N1"
+  },
+  {
+    "id": 740,
+    "name": "Sermorelin",
+    "external_id": "DB00010",
+    "smiles": "CCC(C)C(C(=O)NC(CC1=CC=CC=C1)C(=O)NC(C(C)O)C(=O)NC(CC(=O)N)C(=O)NC(CO)C(=O)NC(CC2=CC=C(C=C2)O)C(=O)NC(CCCNC(=N)N)C(=O)NC(CCCCN)C(=O)NC(C(C)C)C(=O)NC(CC(C)C)C(=O)NCC(=O)NC(CCC(=O)N)C(=O)NC(CC(C)C)C(=O)NC(CO)C(=O)NC(C)C(=O)NC(CCCNC(=N)N)C(=O)NC(CCCCN)C(=O)NC(CC(C)C)C(=O)NC(CC(C)C)C(=O)NC(CCC(=O)N)C(=O)NC(CC(=O)O)C(=O)NC(C(C)CC)C(=O)NC(CCSC)C(=O)NC(CO)C(=O)NC(CCCNC(=N)N)C(=O)N)NC(=O)C(C)NC(=O)C(CC(=O)O)NC(=O)C(C)NC(=O)C(CC3=CC=C(C=C3)O)N"
+  },
+  {
+    "id": 741,
+    "name": "Salmon calcitonin",
+    "external_id": "DB00017",
+    "smiles": "CC(C)CC1C(=O)NC(C(=O)NC(C(=O)NC(CSSCC(C(=O)NC(C(=O)NC(C(=O)N1)CC(=O)N)CO)N)C(=O)NC(C(C)C)C(=O)NC(CC(C)C)C(=O)NCC(=O)NC(CCCCN)C(=O)NC(CC(C)C)C(=O)NC(CO)C(=O)NC(CCC(=O)N)C(=O)NC(CCC(=O)O)C(=O)NC(CC(C)C)C(=O)NC(CC2=CN=CN2)C(=O)NC(CCCCN)C(=O)NC(CC(C)C)C(=O)NC(CCC(=O)N)C(=O)NC(C(C)O)C(=O)NC(CC3=CC=C(C=C3)O)C(=O)N4CCCC4C(=O)NC(CCCNC(=N)N)C(=O)NC(C(C)O)C(=O)NC(CC(=O)N)C(=O)NC(C(C)O)C(=O)NCC(=O)NC(CO)C(=O)NCC(=O)NC(C(C)O)C(=O)N5CCCC5C(=O)N)C(C)O)CO"
+  },
+  {
+    "id": 742,
+    "name": "Vasopressin",
+    "external_id": "DB00067",
+    "smiles": "NCCCCC(NC(=O)C1CCCN1C(=O)C1CSSCC(N)C(=O)NC(CC2=CC=C(O)C=C2)C(=O)NC(CC2=CC=CC=C2)C(=O)NC(CCC(N)=O)C(=O)NC(CC(N)=O)C(=O)N1)C(=O)NCC(N)=O.NC1CSSCC(NC(=O)C(CC(N)=O)NC(=O)C(CCC(N)=O)NC(=O)C(CC2=CC=CC=C2)NC(=O)C(CC2=CC=C(O)C=C2)NC1=O)C(=O)N1CCCC1C(=O)NC(CCCN=C(N)N)C(=O)NCC(N)=O"
+  },
+  {
+    "id": 743,
+    "name": "Pyridoxal phosphate",
+    "external_id": "DB00114",
+    "smiles": "CC1=NC=C(COP(O)(O)=O)C(C=O)=C1O"
+  },
+  {
+    "id": 744,
+    "name": "Valdecoxib",
+    "external_id": "DB00580",
+    "smiles": "CC1=C(C(=NO1)C1=CC=CC=C1)C1=CC=C(C=C1)S(N)(=O)=O"
+  },
+  {
+    "id": 745,
+    "name": "Porfimer sodium",
+    "external_id": "DB00707",
+    "smiles": "CC1=C(C2=CC3=NC(=CC4=NC(=CC5=C(C(=C(N5)C=C1N2)C(C)OC(C)C6=C(C7=CC8=C(C(=C(N8)C=C9C(=C(C(=N9)C=C1C(=C(C(=N1)C=C6N7)C)CCC(=O)O)CCC(=O)O)C)C)C(C)O)C)C)C(=C4CCC(=O)O)C)C(=C3C)CCC(=O)O)C(C)O"
+  },
+  {
+    "id": 746,
+    "name": "Bitolterol",
+    "external_id": "DB00901",
+    "smiles": "CC1=CC=C(C=C1)C(=O)OC1=C(OC(=O)C2=CC=C(C)C=C2)C=C(C=C1)C(O)CNC(C)(C)C"
+  },
+  {
+    "id": 747,
+    "name": "Heparin",
+    "external_id": "DB01109",
+    "smiles": "CC(=O)NC1C(C(C(OC1O)COS(=O)(=O)O)OC2C(C(C(C(O2)C(=O)O)OC3C(C(C(C(O3)CO)OC4C(C(C(C(O4)C(=O)O)O)O)OS(=O)(=O)O)OS(=O)(=O)O)NS(=O)(=O)O)O)OS(=O)(=O)O)O"
+  },
+  {
+    "id": 748,
+    "name": "Bismuth subsalicylate",
+    "external_id": "DB01294",
+    "smiles": "O[Bi]1OC(=O)C2=CC=CC=C2O1"
+  },
+  {
+    "id": 749,
+    "name": "Fumaric acid",
+    "external_id": "DB01677",
+    "smiles": "OC(=O)\\C=C\\C(O)=O"
+  },
+  {
+    "id": 750,
+    "name": "Palmitic Acid",
+    "external_id": "DB03796",
+    "smiles": "CCCCCCCCCCCCCCCC(O)=O"
+  },
+  {
+    "id": 751,
+    "name": "Urea",
+    "external_id": "DB03904",
+    "smiles": "NC(N)=O"
+  },
+  {
+    "id": 752,
+    "name": "Citric acid",
+    "external_id": "DB04272",
+    "smiles": "OC(=O)CC(O)(CC(O)=O)C(O)=O"
+  },
+  {
+    "id": 753,
+    "name": "Glatiramer",
+    "external_id": "DB05259",
+    "smiles": "C[C@@H](C(=O)O)N.CC(=O)O.C1=CC(=CC=C1C[C@@H](C(=O)O)N)O.C(CCN)C[C@@H](C(=O)O)N.C(CC(=O)O)[C@@H](C(=O)O)N"
+  },
+  {
+    "id": 754,
+    "name": "Teriparatide",
+    "external_id": "DB06285",
+    "smiles": "CC[C@H](C)[C@@H](C(=O)N[C@@H](CCC(=O)N)C(=O)N[C@@H](CC(C)C)C(=O)N[C@@H](CCSC)C(=O)N[C@@H](CC1=CNC=N1)C(=O)N[C@@H](CC(=O)N)C(=O)N[C@@H](CC(C)C)C(=O)NCC(=O)N[C@@H](CCCCN)C(=O)N[C@@H](CC2=CNC=N2)C(=O)N[C@@H](CC(C)C)C(=O)N[C@@H](CC(=O)N)C(=O)N[C@@H](CO)C(=O)N[C@@H](CCSC)C(=O)N[C@@H](CCC(=O)O)C(=O)N[C@@H](CCCNC(=N)N)C(=O)N[C@@H](C(C)C)C(=O)N[C@@H](CCC(=O)O)C(=O)N[C@@H](CC3=CNC4=CC=CC=C43)C(=O)N[C@@H](CC(C)C)C(=O)N[C@@H](CCCNC(=N)N)C(=O)N[C@@H](CCCCN)C(=O)N[C@@H](CCCCN)C(=O)N[C@@H](CC(C)C)C(=O)N[C@@H](CCC(=O)N)C(=O)N[C@@H](CC(=O)O)C(=O)N[C@@H](C(C)C)C(=O)N[C@@H](CC5=CNC=N5)C(=O)N[C@@H](CC(=O)N)C(=O)N[C@@H](CC6=CC=CC=C6)C(=O)O)NC(=O)[C@H](CCC(=O)O)NC(=O)[C@H](CO)NC(=O)[C@H](C(C)C)NC(=O)[C@H](CO)N"
+  },
+  {
+    "id": 755,
+    "name": "Clobetasol",
+    "external_id": "DB11750",
+    "smiles": "[H][C@@]12C[C@H](C)[C@](O)(C(=O)CCl)[C@@]1(C)C[C@H](O)[C@@]1(F)[C@@]2([H])CCC2=CC(=O)C=C[C@]12C"
+  },
+  {
+    "id": 756,
+    "name": "Magnesium",
+    "external_id": "DB14513",
+    "smiles": "[MgH2]"
+  }
+]

@@ -1,0 +1,27 @@
+# PyTorch và PyTorch Geometric
+torch>=2.0.0
+torch-geometric>=2.3.0
+
+# Data Processing
+pandas>=1.5.0
+numpy>=1.21.0
+scipy>=1.9.0
+
+# Machine Learning
+scikit-learn>=1.0.0
+
+# Web UI
+streamlit>=1.20.0
+
+# API
+fastapi>=0.110.0
+uvicorn>=0.29.0
+requests>=2.31.0
+
+# Database
+sqlalchemy>=2.0.0
+pyodbc>=4.0.0
+
+# Utilities
+python-dotenv>=0.20.0
+tqdm>=4.60.0
