@@ -461,24 +461,61 @@ Links    : 22.546
 
 ### 6.5 Chạy Ứng Dụng
 
-Mở **hai terminal song song**:
+Dự án dùng **một file launcher duy nhất** (`main.py`) để khởi động toàn bộ hệ thống:
 
-**Terminal 1 — Backend (FastAPI):**
 ```bash
-cd model_GNN
+cd model_GNN_new
 venv\Scripts\activate
-python backend/main.py
-# Server chạy tại: http://localhost:8000
-# Swagger docs:    http://localhost:8000/docs
 ```
 
-**Terminal 2 — Frontend (Streamlit):**
+#### Chế Độ Mặc Định (Backend + Modern UI)
 ```bash
-cd model_GNN
-venv\Scripts\activate
-streamlit run frontend/streamlit_app.py
-# Giao diện tại: http://localhost:8501
+python main.py
 ```
+- FastAPI backend chạy tại: `http://127.0.0.1:8000`
+- Streamlit UI chạy tại:    `http://localhost:8502`
+- Giao diện: `app_modern.py` (Dark neon, Glassmorphism)
+
+#### Chỉ Chạy UI Demo (Không Cần Database)
+```bash
+python main.py --modern-only
+# hoặc
+python main.py --ui-only
+```
+Dùng khi chưa có SQL Server hoặc muốn demo nhanh giao diện.
+
+#### Giao Diện Cũ (Classic UI)
+```bash
+python main.py --classic
+```
+Chạy `streamlit_app.py` (giao diện cũ) thay vì `app_modern.py`.
+
+#### Chỉ Chạy Backend API
+```bash
+python main.py --api-only
+```
+
+#### Đổi Cổng (Nếu Bị Xung Đột)
+```bash
+python main.py --api-port 8080 --ui-port 8503
+```
+Hoặc chỉnh thẳng trong `main.py`:
+```python
+DEFAULT_API_PORT = 8000   # ← đổi cổng FastAPI
+DEFAULT_UI_PORT  = 8502   # ← đổi cổng Streamlit
+```
+
+#### Tóm Tắt Tất Cả Lệnh
+| Lệnh | Mô tả |
+|------|-------|
+| `python main.py` | Backend + Modern UI *(mặc định)* |
+| `python main.py --modern-only` | Chỉ Modern UI, không backend |
+| `python main.py --ui-only` | Chỉ Modern UI, không backend |
+| `python main.py --classic` | Backend + giao diện cũ |
+| `python main.py --api-only` | Chỉ FastAPI backend |
+| `python main.py --api-port P1 --ui-port P2` | Đổi cổng tuỳ ý |
+
+> **Lưu ý:** Sau khi khởi động, backend sẽ tự động đồng bộ dữ liệu từ SQL Server ra file JSON trong `src/data/`. Nếu không có DB, UI vẫn chạy được với dữ liệu JSON đã có sẵn.
 
 ### 6.6 Huấn Luyện Lại Mô Hình (Tùy Chọn)
 
