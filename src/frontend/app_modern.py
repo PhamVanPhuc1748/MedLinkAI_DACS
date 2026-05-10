@@ -76,7 +76,12 @@ GLOBAL_CSS = """
 /* ── Ẩn hamburger menu và footer mặc định của Streamlit ── */
 #MainMenu { visibility: hidden !important; }
 footer    { visibility: hidden !important; }
+/* Ẩn header nhưng giữ lại các phần tử cần thiết */
 header    { visibility: hidden !important; }
+/* Ẩn nút toggle sidebar (cả expand lẫn collapse) — sidebar sẽ luôn cố định */
+[data-testid="collapsedControl"]         { display: none !important; }
+[data-testid="stSidebarCollapseButton"]  { display: none !important; }
+button[kind="header"]                    { display: none !important; }
 
 /* ── Biến màu Dark-neon ── */
 :root {
@@ -490,7 +495,7 @@ def _is_logged_in() -> bool:
 def render_landing_page() -> None:
     """Render trang chủ công khai với form đăng nhập và chọn demo role."""
 
-    # CSS riêng cho landing (ẩn sidebar)
+    # CSS landing: ẩn hoàn toàn sidebar (chỉ trang này)
     st.markdown("""
     <style>
     section[data-testid="stSidebar"] { display: none !important; }
@@ -777,6 +782,10 @@ def render_sidebar() -> str:
             menu_icons  += ["activity"]
         menu_items      += ["🌐 Lưới Sinh Học"]
         menu_icons      += ["diagram-3-fill"]
+
+        if _can("user"):     # User, Expert, Admin
+            menu_items  += ["📊 So Sánh Model"]
+            menu_icons  += ["bar-chart-line-fill"]
 
         if _can("expert"):   # Expert, Admin
             menu_items  += ["✅ Duyệt Liên Kết"]
@@ -2392,6 +2401,233 @@ def render_config_page() -> None:
 
 
 # =============================================================================
+# TRANG: SO SÁNH MODEL (User / Expert / Admin)
+# =============================================================================
+def _load_kfold_metrics() -> dict:
+    """Đọc kfold_metrics.json của cả 3 dataset. Trả về dict {label: data}."""
+    ROOT = Path(__file__).resolve().parents[2]
+    result = {}
+    for label in ["B-dataset", "C-dataset", "F-dataset"]:
+        fpath = ROOT / "weights" / label / "kfold_metrics.json"
+        if fpath.exists():
+            with open(fpath, "r", encoding="utf-8") as f:
+                result[label] = json.load(f)
+    return result
+
+
+def render_compare_page() -> None:
+    """Trang So Sánh Model — user/expert/admin đều xem được."""
+    if not _can("user"):
+        st.markdown("""
+        <div class="access-denied fade-in">
+          <div style="font-size:3rem;margin-bottom:0.8rem;">📊</div>
+          <div style="font-size:1.2rem;font-weight:800;margin-bottom:0.5rem;">
+            Yêu cầu đăng nhập</div>
+          <div style="font-size:0.88rem;color:rgba(247,37,133,0.7);">
+            Vui lòng đăng nhập để xem trang So Sánh Model.
+          </div>
+        </div>
+        """, unsafe_allow_html=True)
+        return
+
+    st.markdown('<div class="page-title fade-in">📊 So Sánh Model</div>', unsafe_allow_html=True)
+    st.markdown(
+        '<div class="page-subtitle">So sánh hiệu suất FuzzyGCN trên 3 bộ dataset — '
+        'dữ liệu thực từ 10-Fold Cross Validation</div>',
+        unsafe_allow_html=True,
+    )
+
+    all_metrics = _load_kfold_metrics()
+    if not all_metrics:
+        st.warning("⚠️ Không tìm thấy file kfold_metrics.json trong thư mục weights/.")
+        return
+
+    METRICS_SHOW = ["AUC", "AUPR", "Accuracy", "Precision", "Recall", "F1", "MCC"]
+    COLORS_DS = {"B-dataset": "#00f5d4", "C-dataset": "#a855f7", "F-dataset": "#fbbf24"}
+    LABEL_MAP = {"B-dataset": "🔵 B", "C-dataset": "🟣 C", "F-dataset": "🟡 F"}
+
+    # ── KPI cards: top metrics của từng dataset ─────────────────────────────
+    cols_ds = st.columns(len(all_metrics))
+    for i, (label, data) in enumerate(all_metrics.items()):
+        color = COLORS_DS.get(label, "#00f5d4")
+        mn = data.get("mean", {})
+        with cols_ds[i]:
+            st.markdown(f"""
+            <div class="glass-card" style="border-color:{color}33;text-align:center;">
+              <div style="font-size:1rem;font-weight:800;color:{color};
+                          margin-bottom:0.8rem;letter-spacing:0.05em;">{label}</div>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.4rem;">
+                <div style="background:rgba(255,255,255,0.04);border-radius:8px;padding:0.4rem;">
+                  <div style="font-size:1.35rem;font-weight:800;color:{color};
+                    text-shadow:0 0 15px {color}55;">{mn.get('AUC',0):.4f}</div>
+                  <div style="font-size:0.68rem;color:#64748b;font-weight:600;">AUC-ROC</div>
+                </div>
+                <div style="background:rgba(255,255,255,0.04);border-radius:8px;padding:0.4rem;">
+                  <div style="font-size:1.35rem;font-weight:800;color:{color};
+                    text-shadow:0 0 15px {color}55;">{mn.get('AUPR',0):.4f}</div>
+                  <div style="font-size:0.68rem;color:#64748b;font-weight:600;">AUC-PR</div>
+                </div>
+                <div style="background:rgba(255,255,255,0.04);border-radius:8px;padding:0.4rem;">
+                  <div style="font-size:1.1rem;font-weight:800;color:#e2e8f0;">{mn.get('F1',0):.4f}</div>
+                  <div style="font-size:0.68rem;color:#64748b;font-weight:600;">F1</div>
+                </div>
+                <div style="background:rgba(255,255,255,0.04);border-radius:8px;padding:0.4rem;">
+                  <div style="font-size:1.1rem;font-weight:800;color:#e2e8f0;">{mn.get('MCC',0):.4f}</div>
+                  <div style="font-size:0.68rem;color:#64748b;font-weight:600;">MCC</div>
+                </div>
+              </div>
+            </div>
+            """, unsafe_allow_html=True)
+
+    st.markdown("<div style='height:0.5rem'></div>", unsafe_allow_html=True)
+
+    # ── Bảng so sánh tổng hợp ──────────────────────────────────────────────
+    rows = []
+    for label, data in all_metrics.items():
+        mn = data.get("mean", {})
+        sd = data.get("std", {})
+        row = {"Dataset": label, "Folds": data.get("so_fold", 10)}
+        for m in METRICS_SHOW:
+            row[m] = f"{mn.get(m, 0):.4f} ± {sd.get(m, 0):.4f}"
+        rows.append(row)
+    df_summary = pd.DataFrame(rows)
+
+    st.markdown('<div class="glass-card">', unsafe_allow_html=True)
+    st.markdown("""<div style="font-size:0.95rem;font-weight:800;color:#00f5d4;
+                   margin-bottom:0.8rem;">📋 Bảng tổng hợp (Mean ± Std — 10-Fold CV)</div>""",
+                unsafe_allow_html=True)
+    st.dataframe(df_summary, use_container_width=True, hide_index=True)
+    st.markdown("</div>", unsafe_allow_html=True)
+
+    # ── Biểu đồ bar so sánh ────────────────────────────────────────────────
+    st.markdown("<div style='height:0.5rem'></div>", unsafe_allow_html=True)
+    col_bar1, col_bar2 = st.columns(2)
+
+    with col_bar1:
+        st.markdown('<div class="glass-card">', unsafe_allow_html=True)
+        st.markdown("""<div style="font-size:0.9rem;font-weight:700;color:#00f5d4;
+                       margin-bottom:0.6rem;">📊 AUC-ROC & AUC-PR</div>""",
+                    unsafe_allow_html=True)
+        bar_data_1 = {
+            "Dataset": [d for d in all_metrics],
+            "AUC":  [all_metrics[d]["mean"].get("AUC", 0)  for d in all_metrics],
+            "AUPR": [all_metrics[d]["mean"].get("AUPR", 0) for d in all_metrics],
+        }
+        df_bar1 = pd.DataFrame(bar_data_1).set_index("Dataset")
+        st.bar_chart(df_bar1, color=["#00f5d4", "#a78bfa"])
+        st.markdown("</div>", unsafe_allow_html=True)
+
+    with col_bar2:
+        st.markdown('<div class="glass-card">', unsafe_allow_html=True)
+        st.markdown("""<div style="font-size:0.9rem;font-weight:700;color:#fbbf24;
+                       margin-bottom:0.6rem;">📊 F1 & MCC</div>""",
+                    unsafe_allow_html=True)
+        bar_data_2 = {
+            "Dataset": [d for d in all_metrics],
+            "F1":  [all_metrics[d]["mean"].get("F1",  0) for d in all_metrics],
+            "MCC": [all_metrics[d]["mean"].get("MCC", 0) for d in all_metrics],
+        }
+        df_bar2 = pd.DataFrame(bar_data_2).set_index("Dataset")
+        st.bar_chart(df_bar2, color=["#fbbf24", "#f472b6"])
+        st.markdown("</div>", unsafe_allow_html=True)
+
+    # ── Admin only: per-fold breakdown ─────────────────────────────────────
+    if _can("admin"):
+        st.markdown("<div class='neon-hr'></div>", unsafe_allow_html=True)
+        st.markdown("""<div style="font-size:0.95rem;font-weight:800;color:#f72585;
+                       margin:0.5rem 0 0.8rem;">👑 Chi tiết từng Fold (Admin only)</div>""",
+                    unsafe_allow_html=True)
+
+        selected_ds_cmp = st.selectbox(
+            "Chọn dataset xem chi tiết",
+            list(all_metrics.keys()),
+            key="cmp_ds_sel",
+        )
+        sel_metric_cmp = st.selectbox(
+            "Chọn metric",
+            METRICS_SHOW,
+            key="cmp_metric_sel",
+        )
+
+        data_sel = all_metrics[selected_ds_cmp]
+        folds = data_sel.get("folds", [])
+        if folds:
+            fold_vals = {
+                f"Fold {i+1}": folds[i].get(sel_metric_cmp, 0)
+                for i in range(len(folds))
+            }
+            mean_v = data_sel["mean"].get(sel_metric_cmp, 0)
+            std_v  = data_sel["std"].get(sel_metric_cmp, 0)
+
+            df_fold = pd.DataFrame({
+                "Fold": list(fold_vals.keys()),
+                sel_metric_cmp: list(fold_vals.values()),
+                "Mean": [mean_v] * len(folds),
+            }).set_index("Fold")
+
+            col_fc, col_fi = st.columns([2, 1])
+            with col_fc:
+                st.markdown('<div class="glass-card">', unsafe_allow_html=True)
+                st.markdown(f"""<div style="font-size:0.88rem;font-weight:700;color:#a78bfa;
+                               margin-bottom:0.5rem;">📈 {sel_metric_cmp} theo Fold
+                               — {selected_ds_cmp}</div>""", unsafe_allow_html=True)
+                st.line_chart(df_fold, color=["#00f5d4", "#f72585"])
+                st.markdown("</div>", unsafe_allow_html=True)
+
+            with col_fi:
+                st.markdown('<div class="glass-card">', unsafe_allow_html=True)
+                st.markdown(f"""<div style="font-size:0.88rem;font-weight:700;color:#fbbf24;
+                               margin-bottom:0.8rem;">📐 Thống kê</div>""",
+                            unsafe_allow_html=True)
+                best_fold  = max(fold_vals, key=fold_vals.get)
+                worst_fold = min(fold_vals, key=fold_vals.get)
+                best_v  = fold_vals[best_fold]
+                worst_v = fold_vals[worst_fold]
+                st.markdown(f"""
+                <div style="display:flex;flex-direction:column;gap:0.6rem;">
+                  <div style="background:rgba(0,245,212,0.08);border-radius:8px;padding:0.6rem;">
+                    <div style="font-size:0.7rem;color:#64748b;font-weight:600;">MEAN</div>
+                    <div style="font-size:1.3rem;font-weight:800;color:#00f5d4;">{mean_v:.4f}</div>
+                  </div>
+                  <div style="background:rgba(255,255,255,0.04);border-radius:8px;padding:0.6rem;">
+                    <div style="font-size:0.7rem;color:#64748b;font-weight:600;">STD</div>
+                    <div style="font-size:1.1rem;font-weight:700;color:#94a3b8;">±{std_v:.4f}</div>
+                  </div>
+                  <div style="background:rgba(74,222,128,0.08);border-radius:8px;padding:0.6rem;">
+                    <div style="font-size:0.7rem;color:#64748b;font-weight:600;">TỐT NHẤT</div>
+                    <div style="font-size:0.85rem;font-weight:700;color:#4ade80;">
+                      {best_fold}: {best_v:.4f}</div>
+                  </div>
+                  <div style="background:rgba(251,113,133,0.08);border-radius:8px;padding:0.6rem;">
+                    <div style="font-size:0.7rem;color:#64748b;font-weight:600;">KÉM NHẤT</div>
+                    <div style="font-size:0.85rem;font-weight:700;color:#fb7185;">
+                      {worst_fold}: {worst_v:.4f}</div>
+                  </div>
+                </div>
+                """, unsafe_allow_html=True)
+                st.markdown("</div>", unsafe_allow_html=True)
+
+            # Bảng chi tiết từng fold
+            st.markdown('<div class="glass-card" style="margin-top:0.5rem;">', unsafe_allow_html=True)
+            st.markdown(f"""<div style="font-size:0.88rem;font-weight:700;color:#00b4d8;
+                           margin-bottom:0.5rem;">🔢 Bảng chi tiết tất cả metric — mỗi fold</div>""",
+                        unsafe_allow_html=True)
+            fold_rows = []
+            for i, f in enumerate(folds):
+                row = {"Fold": f"Fold {i+1}"}
+                for m in METRICS_SHOW:
+                    row[m] = round(f.get(m, 0), 4)
+                fold_rows.append(row)
+            df_fold_all = pd.DataFrame(fold_rows).set_index("Fold")
+            st.dataframe(
+                df_fold_all.style.highlight_max(axis=0, color="rgba(0,245,212,0.2)")
+                                 .highlight_min(axis=0, color="rgba(247,37,133,0.12)"),
+                use_container_width=True,
+            )
+            st.markdown("</div>", unsafe_allow_html=True)
+
+
+# =============================================================================
 # ENTRY POINT CHÍNH
 # =============================================================================
 def main() -> None:
@@ -2412,7 +2648,35 @@ def main() -> None:
         render_landing_page()
         return
 
-    # ── Đã đăng nhập (hoặc guest chọn "Vào nhanh") → Sidebar + nội dung ──────
+    # ── Đã đăng nhập → Sidebar CỐ ĐỊNH luôn hiển thị, không toggle được ──────
+    st.markdown("""
+    <style>
+    /* Force sidebar luôn mở, cố định chiều rộng */
+    section[data-testid="stSidebar"] {
+        display: flex !important;
+        min-width: 21rem !important;
+        max-width: 21rem !important;
+        width: 21rem !important;
+        transform: none !important;
+        position: relative !important;
+        flex-shrink: 0 !important;
+    }
+    section[data-testid="stSidebar"] > div:first-child {
+        display: flex !important;
+        min-width: 21rem !important;
+        width: 21rem !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        overflow-y: auto !important;
+    }
+    /* Ẩn TẤT CẢ nút toggle sidebar */
+    [data-testid="collapsedControl"]        { display: none !important; }
+    [data-testid="stSidebarCollapseButton"] { display: none !important; }
+    button[data-testid="baseButton-headerNoPadding"] { display: none !important; }
+    /* Điều chỉnh layout chính cho phù hợp sidebar cố định */
+    .main { margin-left: 0 !important; }
+    </style>
+    """, unsafe_allow_html=True)
     selected_menu = render_sidebar()
 
     # Routing theo menu được chọn
@@ -2427,6 +2691,9 @@ def main() -> None:
 
     elif "Lưới Sinh Học" in selected_menu:
         render_network_page()
+
+    elif "So Sánh Model" in selected_menu:
+        render_compare_page()
 
     elif "Duyệt Liên Kết" in selected_menu:
         render_review_page()

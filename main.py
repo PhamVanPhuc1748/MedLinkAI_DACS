@@ -13,6 +13,8 @@ Cổng mặc định có thể đổi tại đây:
 from __future__ import annotations
 
 import argparse
+import importlib.util
+import logging
 import socket
 import subprocess
 import sys
@@ -42,6 +44,14 @@ if str(BACKEND_DIR) not in sys.path:
     sys.path.insert(0, str(BACKEND_DIR))
 if str(ROOT / "src") not in sys.path:
     sys.path.insert(0, str(ROOT / "src"))
+
+# ── Logger chung ─────────────────────────────────────────────────────────────
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s  %(levelname)-8s  %(name)s  →  %(message)s",
+    datefmt="%H:%M:%S",
+)
+_log = logging.getLogger("medlink")
 
 
 # ── Kiểm tra & tìm cổng trống ────────────────────────────────────────────────
@@ -97,6 +107,60 @@ def _ensure_port_free(host: str, port: int, label: str) -> int:
     new_port = _find_free_port(host, port + 1)
     print(f"  ℹ️  Dùng cổng thay thế: {new_port} thay cho {port}")
     return new_port
+
+
+# ── Setup Database (chạy trong thread nền, không block UI) ─────────────────
+def _run_db_setup() -> None:
+    """Chạy setup_database.main() trong thread nền và pipe log ra console."""
+    setup_path = ROOT / "setup_database.py"
+    if not setup_path.exists():
+        _log.warning("[DB-SETUP] Không tìm thấy setup_database.py — bỏ qua.")
+        return
+
+    _log.info("[DB-SETUP] Bắt đầu kiểm tra / khởi tạo database...")
+    try:
+        spec = importlib.util.spec_from_file_location("setup_database", setup_path)
+        mod  = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+
+        # Redirect print() của setup_database thành log
+        import builtins, io, contextlib
+
+        buf = io.StringIO()
+        with contextlib.redirect_stdout(buf):
+            exit_code = mod.main()
+
+        for line in buf.getvalue().splitlines():
+            clean = line.strip()
+            if not clean:
+                continue
+            # Phân loại mức log theo ký hiệu
+            if any(x in clean for x in ("✔", "OK", "sẵn sàng")):
+                _log.info("[DB-SETUP] " + clean)
+            elif any(x in clean for x in ("✘", "Lỗi", "FAILED")):
+                _log.error("[DB-SETUP] " + clean)
+            elif any(x in clean for x in ("⚠", "Timeout", "bỏ qua")):
+                _log.warning("[DB-SETUP] " + clean)
+            elif clean.startswith(("═", "╔", "╚", "║", "│", "─", "═")):
+                continue  # bỏ đường viền ASCII
+            else:
+                _log.info("[DB-SETUP] " + clean)
+
+        if exit_code == 0:
+            _log.info("[DB-SETUP] ✔ Hoàn tất — database sẵn sàng.")
+        else:
+            _log.warning("[DB-SETUP] Kết thúc với lỗi (code=%s) — xem log bên trên.", exit_code)
+
+    except Exception as exc:
+        _log.exception("[DB-SETUP] Lỗi không mong đợi: %s", exc)
+
+
+def start_db_setup() -> threading.Thread:
+    """Khởi chạy setup_database trong thread daemon — không block luồng chính."""
+    t = threading.Thread(target=_run_db_setup, name="db-setup", daemon=True)
+    t.start()
+    _log.info("[DB-SETUP] Thread khởi động (chạy song song với API & UI).")
+    return t
 
 
 # ── Khởi động FastAPI (chạy trong thread nền) ────────────────────────────────
@@ -175,6 +239,10 @@ if __name__ == "__main__":
     use_classic = args.classic
     # --ui-only hoặc --modern-only: chỉ chạy UI, không backend
     ui_only = args.ui_only or args.modern_only
+
+    # ── Chạy DB setup song song (luôn luôn, trừ --ui-only / --modern-only) ──────
+    if not ui_only:
+        start_db_setup()
 
     if args.api_only:
         print(f"[API]  http://{args.api_host}:{args.api_port}")

@@ -10,5 +10,11 @@
     "username": "user",
     "email": null,
     "role": "user"
+  },
+  {
+    "id": 3,
+    "username": "expert",
+    "email": "expert@medlink.ai",
+    "role": "expert"
   }
 ]
