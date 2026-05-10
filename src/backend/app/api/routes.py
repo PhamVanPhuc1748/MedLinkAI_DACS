@@ -38,10 +38,17 @@ from ..schemas import (
     ResetPasswordRequest,
     SeedDatasetRequest,
     StatsResponse,
+    UserItem,
+    UserRoleUpdate,
 )
 from ..security import AuthUser, create_token, hash_password, verify_password
 router = APIRouter(prefix="/api", tags=["api"])
-TOKENS: dict[str, AuthUser] = {}
+
+# TOKENS: token -> (AuthUser, expiry_datetime)
+# Token hết hạn sau 24h kể từ lúc login
+_TOKEN_TTL_HOURS = 24
+TOKENS: dict[str, tuple[AuthUser, datetime]] = {}
+
 _OTP_STORE: dict[str, dict] = {}
 def _routes_project_root() -> Path:
     return Path(__file__).resolve().parents[4]
@@ -74,17 +81,32 @@ def _auth_from_header(authorization: str | None) -> AuthUser:
     if not authorization or not authorization.lower().startswith("bearer "):
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Thieu token")
     token = authorization.split(" ", 1)[1].strip()
-    user = TOKENS.get(token)
-    if not user:
+    entry = TOKENS.get(token)
+    if not entry:
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Token khong hop le")
+    user, expiry = entry
+    if datetime.utcnow() > expiry:
+        TOKENS.pop(token, None)
+        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Token da het han, vui long dang nhap lai")
     return user
+
 def get_current_user(
     authorization: Annotated[str | None, Header(alias="Authorization")] = None,
 ) -> AuthUser:
     return _auth_from_header(authorization)
+
 def require_admin(user: Annotated[AuthUser, Depends(get_current_user)]) -> AuthUser:
     if user.role != "admin":
         raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Chi admin duoc phep")
+    return user
+
+def require_researcher(user: Annotated[AuthUser, Depends(get_current_user)]) -> AuthUser:
+    """Cho phép researcher và admin; từ chối guest và user thường."""
+    if user.role not in ("researcher", "admin"):
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Can quyen Researcher hoac Admin",
+        )
     return user
 # ── Health ────────────────────────────────────────────────────────────────────
 @router.get("/health")
@@ -105,7 +127,8 @@ def login(payload: LoginRequest) -> LoginResponse:
     if not verify_password(payload.password, user["password_hash"]):
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Sai tai khoan / mat khau")
     token = create_token()
-    TOKENS[token] = AuthUser(id=user["id"], username=user["username"], role=user["role"])
+    expiry = datetime.utcnow() + timedelta(hours=_TOKEN_TTL_HOURS)
+    TOKENS[token] = (AuthUser(id=user["id"], username=user["username"], role=user["role"]), expiry)
     return LoginResponse(token=token, username=user["username"], role=user["role"])
 @router.post("/auth/register")
 def register(payload: RegisterRequest) -> dict:
@@ -280,11 +303,45 @@ def list_links(
 def user_stats(user: AuthUser = Depends(get_current_user)) -> dict:
     _ = user
     return repo.user_stats()
+
+# ── Admin: Quản lý người dùng ─────────────────────────────────────────────────
+@router.get("/admin/users", response_model=list[UserItem])
+def admin_list_users(
+    _: Annotated[AuthUser, Depends(require_admin)],
+    limit: int = 200,
+    offset: int = 0,
+) -> list[UserItem]:
+    """Lấy danh sách tất cả user (chỉ Admin)."""
+    rows = repo.list_users(limit=limit, offset=offset)
+    return [
+        UserItem(
+            id=r["id"],
+            username=r["username"],
+            email=r.get("email"),
+            role=r.get("role", "user"),
+        )
+        for r in rows
+    ]
+
+
+@router.patch("/admin/users/{user_id}/role")
+def admin_update_user_role(
+    user_id: int,
+    payload: UserRoleUpdate,
+    _: Annotated[AuthUser, Depends(require_admin)],
+) -> dict:
+    """Cập nhật role cho một user (chỉ Admin). Không thể gán role 'guest'."""
+    success = repo.update_user_role(user_id=user_id, new_role=payload.role)
+    if not success:
+        raise HTTPException(status_code=404, detail=f"Khong tim thay user id={user_id}")
+    return {"ok": True, "user_id": user_id, "new_role": payload.role}
+
 # ── Admin stats ───────────────────────────────────────────────────────────────
 @router.get("/admin/stats", response_model=StatsResponse)
 def admin_stats(_: Annotated[AuthUser, Depends(require_admin)]) -> StatsResponse:
     s = repo.admin_stats()
     return StatsResponse(**s)
+
 @router.get("/admin/stats/predictions-by-direction")
 def admin_prediction_direction_stats(
     _: Annotated[AuthUser, Depends(require_admin)],

@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 from datetime import datetime
+from typing import Literal
+
 from pydantic import BaseModel, Field
 
 
@@ -98,3 +100,25 @@ class AdminRecalcRequest(BaseModel):
 
 class SeedDatasetRequest(BaseModel):
     dataset: str = Field(min_length=1)
+
+
+# ── RBAC mới (Giai đoạn 1) ────────────────────────────────────────────────────
+
+# Các role được phép gán cho user (guest được quản lý qua luồng riêng, không lưu DB)
+AllowedRole = Literal["user", "researcher", "admin"]
+
+
+class UserRoleUpdate(BaseModel):
+    """Payload để Admin cập nhật role của một user."""
+    role: AllowedRole = Field(
+        ...,
+        description="Role mới: 'user' | 'researcher' | 'admin'. Không thể gán 'guest'.",
+    )
+
+
+class UserItem(BaseModel):
+    """Thông tin tóm tắt một user dùng trong trang Admin."""
+    id: int
+    username: str
+    email: str | None = None
+    role: str  # guest | user | researcher | admin

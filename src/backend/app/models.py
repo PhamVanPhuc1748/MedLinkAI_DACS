@@ -18,7 +18,17 @@ class User(Base):
     username: Mapped[str] = mapped_column(String(100), unique=True, index=True, nullable=False)
     email: Mapped[str | None] = mapped_column(String(255), unique=True, nullable=True)
     password_hash: Mapped[str] = mapped_column(String(255), nullable=False)
-    role: Mapped[str] = mapped_column(String(20), default="user", nullable=False)
+    role: Mapped[str] = mapped_column(
+        String(20),
+        default="user",
+        nullable=False,
+        # Các vai trò hợp lệ:
+        #   "guest"      — Khách vãng lai, không có tài khoản (quản lý qua session, không lưu DB)
+        #   "user"       — Người dùng thông thường (bác sĩ, dược sĩ): dự đoán, xem lịch sử
+        #   "researcher" — Nhà nghiên cứu: thêm quyền phân tích model, batch predict
+        #   "admin"      — Quản trị viên: toàn quyền hệ thống
+    )
+
 
     predictions: Mapped[List[PredictionHistory]] = relationship(
         "PredictionHistory",

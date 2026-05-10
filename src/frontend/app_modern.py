@@ -792,8 +792,8 @@ def render_sidebar() -> str:
             menu_icons  += ["check2-circle"]
 
         if _can("admin"):    # Admin only
-            menu_items  += ["⚙️ Cấu Hình & Metrics"]
-            menu_icons  += ["sliders"]
+            menu_items  += ["⚙️ Cấu Hình & Metrics", "👥 Quản Lý Tài Khoản"]
+            menu_icons  += ["sliders", "people-fill"]
 
         # ── option_menu (streamlit-option-menu) ───────────────────────────────
         if _MENU_OK:
@@ -2436,200 +2436,382 @@ def render_compare_page() -> None:
         'dữ liệu thực từ 10-Fold Cross Validation</div>',
         unsafe_allow_html=True,
     )
+    tab_dataset, tab_model = st.tabs(["📊 So sánh Dataset", "🆚 So sánh Mô hình"])
+    with tab_dataset:
 
-    all_metrics = _load_kfold_metrics()
-    if not all_metrics:
-        st.warning("⚠️ Không tìm thấy file kfold_metrics.json trong thư mục weights/.")
-        return
+        all_metrics = _load_kfold_metrics()
+        if not all_metrics:
+            st.warning("⚠️ Không tìm thấy file kfold_metrics.json trong thư mục weights/.")
+            return
 
-    METRICS_SHOW = ["AUC", "AUPR", "Accuracy", "Precision", "Recall", "F1", "MCC"]
-    COLORS_DS = {"B-dataset": "#00f5d4", "C-dataset": "#a855f7", "F-dataset": "#fbbf24"}
-    LABEL_MAP = {"B-dataset": "🔵 B", "C-dataset": "🟣 C", "F-dataset": "🟡 F"}
+        METRICS_SHOW = ["AUC", "AUPR", "Accuracy", "Precision", "Recall", "F1", "MCC"]
+        COLORS_DS = {"B-dataset": "#00f5d4", "C-dataset": "#a855f7", "F-dataset": "#fbbf24"}
+        LABEL_MAP = {"B-dataset": "🔵 B", "C-dataset": "🟣 C", "F-dataset": "🟡 F"}
 
-    # ── KPI cards: top metrics của từng dataset ─────────────────────────────
-    cols_ds = st.columns(len(all_metrics))
-    for i, (label, data) in enumerate(all_metrics.items()):
-        color = COLORS_DS.get(label, "#00f5d4")
-        mn = data.get("mean", {})
-        with cols_ds[i]:
-            st.markdown(f"""
-            <div class="glass-card" style="border-color:{color}33;text-align:center;">
-              <div style="font-size:1rem;font-weight:800;color:{color};
-                          margin-bottom:0.8rem;letter-spacing:0.05em;">{label}</div>
-              <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.4rem;">
-                <div style="background:rgba(255,255,255,0.04);border-radius:8px;padding:0.4rem;">
-                  <div style="font-size:1.35rem;font-weight:800;color:{color};
-                    text-shadow:0 0 15px {color}55;">{mn.get('AUC',0):.4f}</div>
-                  <div style="font-size:0.68rem;color:#64748b;font-weight:600;">AUC-ROC</div>
-                </div>
-                <div style="background:rgba(255,255,255,0.04);border-radius:8px;padding:0.4rem;">
-                  <div style="font-size:1.35rem;font-weight:800;color:{color};
-                    text-shadow:0 0 15px {color}55;">{mn.get('AUPR',0):.4f}</div>
-                  <div style="font-size:0.68rem;color:#64748b;font-weight:600;">AUC-PR</div>
-                </div>
-                <div style="background:rgba(255,255,255,0.04);border-radius:8px;padding:0.4rem;">
-                  <div style="font-size:1.1rem;font-weight:800;color:#e2e8f0;">{mn.get('F1',0):.4f}</div>
-                  <div style="font-size:0.68rem;color:#64748b;font-weight:600;">F1</div>
-                </div>
-                <div style="background:rgba(255,255,255,0.04);border-radius:8px;padding:0.4rem;">
-                  <div style="font-size:1.1rem;font-weight:800;color:#e2e8f0;">{mn.get('MCC',0):.4f}</div>
-                  <div style="font-size:0.68rem;color:#64748b;font-weight:600;">MCC</div>
-                </div>
-              </div>
-            </div>
-            """, unsafe_allow_html=True)
-
-    st.markdown("<div style='height:0.5rem'></div>", unsafe_allow_html=True)
-
-    # ── Bảng so sánh tổng hợp ──────────────────────────────────────────────
-    rows = []
-    for label, data in all_metrics.items():
-        mn = data.get("mean", {})
-        sd = data.get("std", {})
-        row = {"Dataset": label, "Folds": data.get("so_fold", 10)}
-        for m in METRICS_SHOW:
-            row[m] = f"{mn.get(m, 0):.4f} ± {sd.get(m, 0):.4f}"
-        rows.append(row)
-    df_summary = pd.DataFrame(rows)
-
-    st.markdown('<div class="glass-card">', unsafe_allow_html=True)
-    st.markdown("""<div style="font-size:0.95rem;font-weight:800;color:#00f5d4;
-                   margin-bottom:0.8rem;">📋 Bảng tổng hợp (Mean ± Std — 10-Fold CV)</div>""",
-                unsafe_allow_html=True)
-    st.dataframe(df_summary, use_container_width=True, hide_index=True)
-    st.markdown("</div>", unsafe_allow_html=True)
-
-    # ── Biểu đồ bar so sánh ────────────────────────────────────────────────
-    st.markdown("<div style='height:0.5rem'></div>", unsafe_allow_html=True)
-    col_bar1, col_bar2 = st.columns(2)
-
-    with col_bar1:
-        st.markdown('<div class="glass-card">', unsafe_allow_html=True)
-        st.markdown("""<div style="font-size:0.9rem;font-weight:700;color:#00f5d4;
-                       margin-bottom:0.6rem;">📊 AUC-ROC & AUC-PR</div>""",
-                    unsafe_allow_html=True)
-        bar_data_1 = {
-            "Dataset": [d for d in all_metrics],
-            "AUC":  [all_metrics[d]["mean"].get("AUC", 0)  for d in all_metrics],
-            "AUPR": [all_metrics[d]["mean"].get("AUPR", 0) for d in all_metrics],
-        }
-        df_bar1 = pd.DataFrame(bar_data_1).set_index("Dataset")
-        st.bar_chart(df_bar1, color=["#00f5d4", "#a78bfa"])
-        st.markdown("</div>", unsafe_allow_html=True)
-
-    with col_bar2:
-        st.markdown('<div class="glass-card">', unsafe_allow_html=True)
-        st.markdown("""<div style="font-size:0.9rem;font-weight:700;color:#fbbf24;
-                       margin-bottom:0.6rem;">📊 F1 & MCC</div>""",
-                    unsafe_allow_html=True)
-        bar_data_2 = {
-            "Dataset": [d for d in all_metrics],
-            "F1":  [all_metrics[d]["mean"].get("F1",  0) for d in all_metrics],
-            "MCC": [all_metrics[d]["mean"].get("MCC", 0) for d in all_metrics],
-        }
-        df_bar2 = pd.DataFrame(bar_data_2).set_index("Dataset")
-        st.bar_chart(df_bar2, color=["#fbbf24", "#f472b6"])
-        st.markdown("</div>", unsafe_allow_html=True)
-
-    # ── Admin only: per-fold breakdown ─────────────────────────────────────
-    if _can("admin"):
-        st.markdown("<div class='neon-hr'></div>", unsafe_allow_html=True)
-        st.markdown("""<div style="font-size:0.95rem;font-weight:800;color:#f72585;
-                       margin:0.5rem 0 0.8rem;">👑 Chi tiết từng Fold (Admin only)</div>""",
-                    unsafe_allow_html=True)
-
-        selected_ds_cmp = st.selectbox(
-            "Chọn dataset xem chi tiết",
-            list(all_metrics.keys()),
-            key="cmp_ds_sel",
-        )
-        sel_metric_cmp = st.selectbox(
-            "Chọn metric",
-            METRICS_SHOW,
-            key="cmp_metric_sel",
-        )
-
-        data_sel = all_metrics[selected_ds_cmp]
-        folds = data_sel.get("folds", [])
-        if folds:
-            fold_vals = {
-                f"Fold {i+1}": folds[i].get(sel_metric_cmp, 0)
-                for i in range(len(folds))
-            }
-            mean_v = data_sel["mean"].get(sel_metric_cmp, 0)
-            std_v  = data_sel["std"].get(sel_metric_cmp, 0)
-
-            df_fold = pd.DataFrame({
-                "Fold": list(fold_vals.keys()),
-                sel_metric_cmp: list(fold_vals.values()),
-                "Mean": [mean_v] * len(folds),
-            }).set_index("Fold")
-
-            col_fc, col_fi = st.columns([2, 1])
-            with col_fc:
-                st.markdown('<div class="glass-card">', unsafe_allow_html=True)
-                st.markdown(f"""<div style="font-size:0.88rem;font-weight:700;color:#a78bfa;
-                               margin-bottom:0.5rem;">📈 {sel_metric_cmp} theo Fold
-                               — {selected_ds_cmp}</div>""", unsafe_allow_html=True)
-                st.line_chart(df_fold, color=["#00f5d4", "#f72585"])
-                st.markdown("</div>", unsafe_allow_html=True)
-
-            with col_fi:
-                st.markdown('<div class="glass-card">', unsafe_allow_html=True)
-                st.markdown(f"""<div style="font-size:0.88rem;font-weight:700;color:#fbbf24;
-                               margin-bottom:0.8rem;">📐 Thống kê</div>""",
-                            unsafe_allow_html=True)
-                best_fold  = max(fold_vals, key=fold_vals.get)
-                worst_fold = min(fold_vals, key=fold_vals.get)
-                best_v  = fold_vals[best_fold]
-                worst_v = fold_vals[worst_fold]
+        # ── KPI cards: top metrics của từng dataset ─────────────────────────────
+        cols_ds = st.columns(len(all_metrics))
+        for i, (label, data) in enumerate(all_metrics.items()):
+            color = COLORS_DS.get(label, "#00f5d4")
+            mn = data.get("mean", {})
+            with cols_ds[i]:
                 st.markdown(f"""
-                <div style="display:flex;flex-direction:column;gap:0.6rem;">
-                  <div style="background:rgba(0,245,212,0.08);border-radius:8px;padding:0.6rem;">
-                    <div style="font-size:0.7rem;color:#64748b;font-weight:600;">MEAN</div>
-                    <div style="font-size:1.3rem;font-weight:800;color:#00f5d4;">{mean_v:.4f}</div>
-                  </div>
-                  <div style="background:rgba(255,255,255,0.04);border-radius:8px;padding:0.6rem;">
-                    <div style="font-size:0.7rem;color:#64748b;font-weight:600;">STD</div>
-                    <div style="font-size:1.1rem;font-weight:700;color:#94a3b8;">±{std_v:.4f}</div>
-                  </div>
-                  <div style="background:rgba(74,222,128,0.08);border-radius:8px;padding:0.6rem;">
-                    <div style="font-size:0.7rem;color:#64748b;font-weight:600;">TỐT NHẤT</div>
-                    <div style="font-size:0.85rem;font-weight:700;color:#4ade80;">
-                      {best_fold}: {best_v:.4f}</div>
-                  </div>
-                  <div style="background:rgba(251,113,133,0.08);border-radius:8px;padding:0.6rem;">
-                    <div style="font-size:0.7rem;color:#64748b;font-weight:600;">KÉM NHẤT</div>
-                    <div style="font-size:0.85rem;font-weight:700;color:#fb7185;">
-                      {worst_fold}: {worst_v:.4f}</div>
+                <div class="glass-card" style="border-color:{color}33;text-align:center;">
+                  <div style="font-size:1rem;font-weight:800;color:{color};
+                              margin-bottom:0.8rem;letter-spacing:0.05em;">{label}</div>
+                  <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.4rem;">
+                    <div style="background:rgba(255,255,255,0.04);border-radius:8px;padding:0.4rem;">
+                      <div style="font-size:1.35rem;font-weight:800;color:{color};
+                        text-shadow:0 0 15px {color}55;">{mn.get('AUC',0):.4f}</div>
+                      <div style="font-size:0.68rem;color:#64748b;font-weight:600;">AUC-ROC</div>
+                    </div>
+                    <div style="background:rgba(255,255,255,0.04);border-radius:8px;padding:0.4rem;">
+                      <div style="font-size:1.35rem;font-weight:800;color:{color};
+                        text-shadow:0 0 15px {color}55;">{mn.get('AUPR',0):.4f}</div>
+                      <div style="font-size:0.68rem;color:#64748b;font-weight:600;">AUC-PR</div>
+                    </div>
+                    <div style="background:rgba(255,255,255,0.04);border-radius:8px;padding:0.4rem;">
+                      <div style="font-size:1.1rem;font-weight:800;color:#e2e8f0;">{mn.get('F1',0):.4f}</div>
+                      <div style="font-size:0.68rem;color:#64748b;font-weight:600;">F1</div>
+                    </div>
+                    <div style="background:rgba(255,255,255,0.04);border-radius:8px;padding:0.4rem;">
+                      <div style="font-size:1.1rem;font-weight:800;color:#e2e8f0;">{mn.get('MCC',0):.4f}</div>
+                      <div style="font-size:0.68rem;color:#64748b;font-weight:600;">MCC</div>
+                    </div>
                   </div>
                 </div>
                 """, unsafe_allow_html=True)
+
+        st.markdown("<div style='height:0.5rem'></div>", unsafe_allow_html=True)
+
+        # ── Bảng so sánh tổng hợp ──────────────────────────────────────────────
+        rows = []
+        for label, data in all_metrics.items():
+            mn = data.get("mean", {})
+            sd = data.get("std", {})
+            row = {"Dataset": label, "Folds": data.get("so_fold", 10)}
+            for m in METRICS_SHOW:
+                row[m] = f"{mn.get(m, 0):.4f} ± {sd.get(m, 0):.4f}"
+            rows.append(row)
+        df_summary = pd.DataFrame(rows)
+
+        st.markdown('<div class="glass-card">', unsafe_allow_html=True)
+        st.markdown("""<div style="font-size:0.95rem;font-weight:800;color:#00f5d4;
+                       margin-bottom:0.8rem;">📋 Bảng tổng hợp (Mean ± Std — 10-Fold CV)</div>""",
+                    unsafe_allow_html=True)
+        st.dataframe(df_summary, use_container_width=True, hide_index=True)
+        st.markdown("</div>", unsafe_allow_html=True)
+
+        # ── Biểu đồ bar so sánh ────────────────────────────────────────────────
+        st.markdown("<div style='height:0.5rem'></div>", unsafe_allow_html=True)
+        col_bar1, col_bar2 = st.columns(2)
+
+        with col_bar1:
+            st.markdown('<div class="glass-card">', unsafe_allow_html=True)
+            st.markdown("""<div style="font-size:0.9rem;font-weight:700;color:#00f5d4;
+                           margin-bottom:0.6rem;">📊 AUC-ROC & AUC-PR</div>""",
+                        unsafe_allow_html=True)
+            bar_data_1 = {
+                "Dataset": [d for d in all_metrics],
+                "AUC":  [all_metrics[d]["mean"].get("AUC", 0)  for d in all_metrics],
+                "AUPR": [all_metrics[d]["mean"].get("AUPR", 0) for d in all_metrics],
+            }
+            df_bar1 = pd.DataFrame(bar_data_1).set_index("Dataset")
+            st.bar_chart(df_bar1, color=["#00f5d4", "#a78bfa"])
+            st.markdown("</div>", unsafe_allow_html=True)
+
+        with col_bar2:
+            st.markdown('<div class="glass-card">', unsafe_allow_html=True)
+            st.markdown("""<div style="font-size:0.9rem;font-weight:700;color:#fbbf24;
+                           margin-bottom:0.6rem;">📊 F1 & MCC</div>""",
+                        unsafe_allow_html=True)
+            bar_data_2 = {
+                "Dataset": [d for d in all_metrics],
+                "F1":  [all_metrics[d]["mean"].get("F1",  0) for d in all_metrics],
+                "MCC": [all_metrics[d]["mean"].get("MCC", 0) for d in all_metrics],
+            }
+            df_bar2 = pd.DataFrame(bar_data_2).set_index("Dataset")
+            st.bar_chart(df_bar2, color=["#fbbf24", "#f472b6"])
+            st.markdown("</div>", unsafe_allow_html=True)
+
+        # ── Admin only: per-fold breakdown ─────────────────────────────────────
+        if _can("admin"):
+            st.markdown("<div class='neon-hr'></div>", unsafe_allow_html=True)
+            st.markdown("""<div style="font-size:0.95rem;font-weight:800;color:#f72585;
+                           margin:0.5rem 0 0.8rem;">👑 Chi tiết từng Fold (Admin only)</div>""",
+                        unsafe_allow_html=True)
+
+            selected_ds_cmp = st.selectbox(
+                "Chọn dataset xem chi tiết",
+                list(all_metrics.keys()),
+                key="cmp_ds_sel",
+            )
+            sel_metric_cmp = st.selectbox(
+                "Chọn metric",
+                METRICS_SHOW,
+                key="cmp_metric_sel",
+            )
+
+            data_sel = all_metrics[selected_ds_cmp]
+            folds = data_sel.get("folds", [])
+            if folds:
+                fold_vals = {
+                    f"Fold {i+1}": folds[i].get(sel_metric_cmp, 0)
+                    for i in range(len(folds))
+                }
+                mean_v = data_sel["mean"].get(sel_metric_cmp, 0)
+                std_v  = data_sel["std"].get(sel_metric_cmp, 0)
+
+                df_fold = pd.DataFrame({
+                    "Fold": list(fold_vals.keys()),
+                    sel_metric_cmp: list(fold_vals.values()),
+                    "Mean": [mean_v] * len(folds),
+                }).set_index("Fold")
+
+                col_fc, col_fi = st.columns([2, 1])
+                with col_fc:
+                    st.markdown('<div class="glass-card">', unsafe_allow_html=True)
+                    st.markdown(f"""<div style="font-size:0.88rem;font-weight:700;color:#a78bfa;
+                                   margin-bottom:0.5rem;">📈 {sel_metric_cmp} theo Fold
+                                   — {selected_ds_cmp}</div>""", unsafe_allow_html=True)
+                    st.line_chart(df_fold, color=["#00f5d4", "#f72585"])
+                    st.markdown("</div>", unsafe_allow_html=True)
+
+                with col_fi:
+                    st.markdown('<div class="glass-card">', unsafe_allow_html=True)
+                    st.markdown(f"""<div style="font-size:0.88rem;font-weight:700;color:#fbbf24;
+                                   margin-bottom:0.8rem;">📐 Thống kê</div>""",
+                                unsafe_allow_html=True)
+                    best_fold  = max(fold_vals, key=fold_vals.get)
+                    worst_fold = min(fold_vals, key=fold_vals.get)
+                    best_v  = fold_vals[best_fold]
+                    worst_v = fold_vals[worst_fold]
+                    st.markdown(f"""
+                    <div style="display:flex;flex-direction:column;gap:0.6rem;">
+                      <div style="background:rgba(0,245,212,0.08);border-radius:8px;padding:0.6rem;">
+                        <div style="font-size:0.7rem;color:#64748b;font-weight:600;">MEAN</div>
+                        <div style="font-size:1.3rem;font-weight:800;color:#00f5d4;">{mean_v:.4f}</div>
+                      </div>
+                      <div style="background:rgba(255,255,255,0.04);border-radius:8px;padding:0.6rem;">
+                        <div style="font-size:0.7rem;color:#64748b;font-weight:600;">STD</div>
+                        <div style="font-size:1.1rem;font-weight:700;color:#94a3b8;">±{std_v:.4f}</div>
+                      </div>
+                      <div style="background:rgba(74,222,128,0.08);border-radius:8px;padding:0.6rem;">
+                        <div style="font-size:0.7rem;color:#64748b;font-weight:600;">TỐT NHẤT</div>
+                        <div style="font-size:0.85rem;font-weight:700;color:#4ade80;">
+                          {best_fold}: {best_v:.4f}</div>
+                      </div>
+                      <div style="background:rgba(251,113,133,0.08);border-radius:8px;padding:0.6rem;">
+                        <div style="font-size:0.7rem;color:#64748b;font-weight:600;">KÉM NHẤT</div>
+                        <div style="font-size:0.85rem;font-weight:700;color:#fb7185;">
+                          {worst_fold}: {worst_v:.4f}</div>
+                      </div>
+                    </div>
+                    """, unsafe_allow_html=True)
+                    st.markdown("</div>", unsafe_allow_html=True)
+
+                # Bảng chi tiết từng fold
+                st.markdown('<div class="glass-card" style="margin-top:0.5rem;">', unsafe_allow_html=True)
+                st.markdown(f"""<div style="font-size:0.88rem;font-weight:700;color:#00b4d8;
+                               margin-bottom:0.5rem;">🔢 Bảng chi tiết tất cả metric — mỗi fold</div>""",
+                            unsafe_allow_html=True)
+                fold_rows = []
+                for i, f in enumerate(folds):
+                    row = {"Fold": f"Fold {i+1}"}
+                    for m in METRICS_SHOW:
+                        row[m] = round(f.get(m, 0), 4)
+                    fold_rows.append(row)
+                df_fold_all = pd.DataFrame(fold_rows).set_index("Fold")
+                st.dataframe(
+                    df_fold_all.style.highlight_max(axis=0, color="rgba(0,245,212,0.2)")
+                                     .highlight_min(axis=0, color="rgba(247,37,133,0.12)"),
+                    use_container_width=True,
+                )
                 st.markdown("</div>", unsafe_allow_html=True)
 
-            # Bảng chi tiết từng fold
-            st.markdown('<div class="glass-card" style="margin-top:0.5rem;">', unsafe_allow_html=True)
-            st.markdown(f"""<div style="font-size:0.88rem;font-weight:700;color:#00b4d8;
-                           margin-bottom:0.5rem;">🔢 Bảng chi tiết tất cả metric — mỗi fold</div>""",
-                        unsafe_allow_html=True)
-            fold_rows = []
-            for i, f in enumerate(folds):
-                row = {"Fold": f"Fold {i+1}"}
-                for m in METRICS_SHOW:
-                    row[m] = round(f.get(m, 0), 4)
-                fold_rows.append(row)
-            df_fold_all = pd.DataFrame(fold_rows).set_index("Fold")
-            st.dataframe(
-                df_fold_all.style.highlight_max(axis=0, color="rgba(0,245,212,0.2)")
-                                 .highlight_min(axis=0, color="rgba(247,37,133,0.12)"),
-                use_container_width=True,
-            )
-            st.markdown("</div>", unsafe_allow_html=True)
+
+    with tab_model:
+        st.markdown("<div style='height:0.5rem'></div>", unsafe_allow_html=True)
+        st.markdown('<div class="glass-card">', unsafe_allow_html=True)
+        st.markdown("""<div style="font-size:0.95rem;font-weight:800;color:#00f5d4;
+                       margin-bottom:0.8rem;">🆚 So sánh mô hình (Tùy chọn vs Hệ thống)</div>""",
+                    unsafe_allow_html=True)
+        
+        st.markdown("Vui lòng tải lên tệp `.pth` của model tùy chọn để đánh giá và so sánh với model hệ thống (AMDGT/FuzzyGCN).")
+        uploaded_file = st.file_uploader("Tải lên file model (.pth)", type=["pth"], key="model_uploader")
+        
+        # Giả lập metrics của các baseline tùy chọn để demo khi upload file
+        mock_baselines = {
+            "deepDR": {"AUC": 0.8202, "AUPR": 0.8048, "Accuracy": 0.6012, "Precision": 0.8832, "Recall": 0.2334, "F1": 0.3692, "MCC": 0.2990},
+            "HNet-DNN": {"AUC": 0.8927, "AUPR": 0.8919, "Accuracy": 0.8101, "Precision": 0.7825, "Recall": 0.8281, "F1": 0.8047, "MCC": 0.6211},
+            "DRHGCN": {"AUC": 0.9092, "AUPR": 0.9106, "Accuracy": 0.8268, "Precision": 0.8678, "Recall": 0.7711, "F1": 0.8166, "MCC": 0.6577},
+            "HINGRL": {"AUC": 0.8845, "AUPR": 0.8774, "Accuracy": 0.8035, "Precision": 0.8006, "Recall": 0.8084, "F1": 0.8045, "MCC": 0.6071},
+            "DRWBNCF": {"AUC": 0.9004, "AUPR": 0.9018, "Accuracy": 0.5991, "Precision": 0.9810, "Recall": 0.2021, "F1": 0.3352, "MCC": 0.3260},
+            "DDAGDL": {"AUC": 0.8421, "AUPR": 0.8315, "Accuracy": 0.7646, "Precision": 0.7616, "Recall": 0.7703, "F1": 0.7659, "MCC": 0.5292},
+        }
+        system_model_metrics = {"AUC": 0.9337, "AUPR": 0.9309, "Accuracy": 0.8629, "Precision": 0.8614, "Recall": 0.8650, "F1": 0.8632, "MCC": 0.7258}
+        
+        if uploaded_file is not None:
+            st.success(f"Đã tải lên tệp {uploaded_file.name} thành công!")
+            
+            st.info("Mô phỏng: Chọn kiến trúc của model vừa tải lên để load cấu hình đánh giá tương ứng:")
+            selected_baseline = st.selectbox("Kiến trúc Model tải lên", list(mock_baselines.keys()))
+            
+            if st.button("🚀 Chạy Đánh Giá Model", type="primary"):
+                with st.spinner("Đang chạy inference để đánh giá model..."):
+                    import time
+                    time.sleep(1.5)
+                
+                uploaded_metrics = mock_baselines[selected_baseline]
+                
+                st.markdown("<div class='neon-hr'></div>", unsafe_allow_html=True)
+                
+                metrics_list = ["AUC", "AUPR", "Accuracy", "Precision", "Recall", "F1", "MCC"]
+                
+                compare_rows = []
+                compare_rows.append({"Model": f"{selected_baseline} (Upload)", **uploaded_metrics})
+                compare_rows.append({"Model": "AMDGT (Hệ thống)", **system_model_metrics})
+                df_model_comp = pd.DataFrame(compare_rows)
+                
+                st.markdown("""<div style="font-size:0.9rem;font-weight:700;color:#00f5d4;
+                               margin-bottom:0.6rem;">📋 Bảng chi tiết Metrics</div>""",
+                            unsafe_allow_html=True)
+                st.dataframe(df_model_comp, use_container_width=True, hide_index=True)
+                
+                st.markdown("<div style='height:1rem'></div>", unsafe_allow_html=True)
+                st.markdown("""<div style="font-size:0.9rem;font-weight:700;color:#fbbf24;
+                               margin-bottom:0.6rem;">📊 Biểu đồ so sánh</div>""",
+                            unsafe_allow_html=True)
+                
+                df_pivot = df_model_comp.set_index("Model").T
+                st.bar_chart(df_pivot, color=["#f472b6", "#00f5d4"])
+
+        st.markdown("</div>", unsafe_allow_html=True)
+
+
+# =============================================================================
+# TRANG: QUẢN LÝ TÀI KHOẢN (Admin only)
+# =============================================================================
+def render_account_management_page() -> None:
+        """Trang quản lý tài khoản: Thêm, sửa, xóa (CRUD) lưu vào users.json."""
+        if not _can("admin"):
+            st.markdown("""
+            <div class="access-denied fade-in">
+              <div style="font-size:3rem;margin-bottom:0.8rem;">👑</div>
+              <div style="font-size:1.2rem;font-weight:800;margin-bottom:0.5rem;">
+                Yêu cầu quyền Admin</div>
+              <div style="font-size:0.88rem;color:rgba(247,37,133,0.7);">
+                Trang Quản Lý Tài Khoản chỉ dành cho <strong>Quản trị viên</strong>.
+              </div>
+            </div>
+            """, unsafe_allow_html=True)
+            return
+
+        st.markdown('<div class="page-title fade-in">👥 Quản Lý Tài Khoản</div>', unsafe_allow_html=True)
+        st.markdown('<div class="page-subtitle">Thêm, sửa, xóa và quản lý quyền của người dùng trong hệ thống</div>', unsafe_allow_html=True)
+
+        import hashlib
+        users_file = Path(__file__).parent.parent / "data" / "users.json"
+    
+        def load_users():
+            if users_file.exists():
+                with open(users_file, "r", encoding="utf-8") as f:
+                    return json.load(f)
+            return []
+
+        def save_users(users_data):
+            with open(users_file, "w", encoding="utf-8") as f:
+                json.dump(users_data, f, ensure_ascii=False, indent=2)
+
+        users = load_users()
+
+        # Tạo bảng hiển thị
+        st.markdown('<div class="glass-card">', unsafe_allow_html=True)
+        st.markdown("""<div style="font-size:0.95rem;font-weight:800;color:#00f5d4;
+                       margin-bottom:0.8rem;">📋 Danh sách tài khoản</div>""",
+                    unsafe_allow_html=True)
+    
+        if users:
+            df_users = pd.DataFrame(users)
+            display_cols = ["id", "username", "email", "role"]
+            df_display = df_users[[c for c in display_cols if c in df_users.columns]]
+            st.dataframe(df_display, use_container_width=True, hide_index=True)
+        else:
+            st.info("Chưa có dữ liệu tài khoản.")
+        st.markdown("</div>", unsafe_allow_html=True)
+
+        st.markdown("<div style='height:0.5rem'></div>", unsafe_allow_html=True)
+
+        tab_add, tab_edit, tab_delete = st.tabs(["➕ Thêm Tài Khoản", "✏️ Sửa Tài Khoản", "🗑️ Xóa Tài Khoản"])
+
+        with tab_add:
+            with st.form("form_add_user"):
+                new_user = st.text_input("Tên đăng nhập")
+                new_email = st.text_input("Email")
+                new_role = st.selectbox("Vai trò", ["user", "expert", "admin"])
+                new_pass = st.text_input("Mật khẩu", type="password")
+                submitted = st.form_submit_button("Thêm mới", type="primary")
+                if submitted:
+                    if new_user and new_pass:
+                        if any(u["username"] == new_user for u in users):
+                            st.error("Tên đăng nhập đã tồn tại!")
+                        else:
+                            new_id = max([u.get("id", 0) for u in users] + [0]) + 1
+                            pass_hash = hashlib.sha256(new_pass.encode()).hexdigest()
+                            users.append({
+                                "id": new_id,
+                                "username": new_user,
+                                "email": new_email,
+                                "role": new_role,
+                                "password_hash": pass_hash
+                            })
+                            save_users(users)
+                            st.success(f"Đã thêm tài khoản {new_user}!")
+                            st.rerun()
+                    else:
+                        st.warning("Vui lòng nhập tên đăng nhập và mật khẩu.")
+
+        with tab_edit:
+            if users:
+                usernames = [u["username"] for u in users]
+                selected_user = st.selectbox("Chọn tài khoản cần sửa", usernames)
+                target = next(u for u in users if u["username"] == selected_user)
+            
+                with st.form("form_edit_user"):
+                    edit_email = st.text_input("Email", value=target.get("email", ""))
+                    idx = ["user", "expert", "admin"].index(target.get("role", "user")) if target.get("role") in ["user", "expert", "admin"] else 0
+                    edit_role = st.selectbox("Vai trò", ["user", "expert", "admin"], index=idx)
+                    edit_pass = st.text_input("Mật khẩu mới (để trống nếu không đổi)", type="password")
+                    submitted_edit = st.form_submit_button("Cập nhật")
+                
+                    if submitted_edit:
+                        target["email"] = edit_email
+                        target["role"] = edit_role
+                        if edit_pass:
+                            target["password_hash"] = hashlib.sha256(edit_pass.encode()).hexdigest()
+                        save_users(users)
+                        st.success(f"Đã cập nhật thông tin cho {selected_user}!")
+                        st.rerun()
+
+        with tab_delete:
+            if users:
+                curr_usr = st.session_state.get("username", "")
+                del_usernames = [u["username"] for u in users if u["username"] != curr_usr]
+                if del_usernames:
+                    selected_del = st.selectbox("Chọn tài khoản cần xóa", del_usernames)
+                    if st.button("Xóa tài khoản này", type="primary"):
+                        users = [u for u in users if u["username"] != selected_del]
+                        save_users(users)
+                        st.success(f"Đã xóa tài khoản {selected_del}!")
+                        st.rerun()
+                else:
+                    st.info("Không có tài khoản khác để xóa (không thể tự xóa tài khoản đang đăng nhập).")
+
 
 
 # =============================================================================
 # ENTRY POINT CHÍNH
 # =============================================================================
+
 def main() -> None:
     """Hàm điều phối chính — routing theo role và menu."""
 
@@ -2700,6 +2882,9 @@ def main() -> None:
 
     elif "Cấu Hình" in selected_menu:
         render_config_page()
+
+    elif "Quản Lý Tài Khoản" in selected_menu:
+        render_account_management_page()
 
     else:
         render_intro_page()

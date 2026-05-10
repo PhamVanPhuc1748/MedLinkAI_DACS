@@ -19,8 +19,10 @@ def clear_auth_state() -> None:
 
 
 def is_authenticated() -> bool:
-    """Trả về True nếu đã đăng nhập (token) hoặc đang ở chế độ khách."""
-    return bool(st.session_state.get("token")) or st.session_state.get("role") == "guest"
+    """Trả về True nếu đã đăng nhập (có token thật) hoặc đang ở chế độ khách (role=guest)."""
+    has_real_token = bool(st.session_state.get("token"))  # None hoặc "" → False
+    is_guest_mode  = st.session_state.get("role") == "guest"
+    return has_real_token or is_guest_mode
 
 
 def is_guest() -> bool:

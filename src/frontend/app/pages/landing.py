@@ -889,7 +889,7 @@ def _render_hero_split(stats: dict, api_base_url: str) -> None:
         ):
             st.session_state["role"] = "guest"
             st.session_state["username"] = "Khách"
-            st.session_state["token"] = "guest"
+            st.session_state["token"] = None  # Guest: không có token, không gửi Authorization header
             st.rerun()
 
         st.markdown('</div>', unsafe_allow_html=True)
@@ -1264,7 +1264,7 @@ def _auth_modal(api_base_url: str) -> None:
     if st.button("👤 Tiếp tục không cần đăng nhập (Khách)", use_container_width=True, key="mdl_guest_btn"):
         st.session_state["role"] = "guest"
         st.session_state["username"] = "Khách"
-        st.session_state["token"] = "guest"
+        st.session_state["token"] = None  # Guest: không có token, không gửi Authorization header
         st.rerun()
 
 
@@ -1362,8 +1362,9 @@ def render_landing(api_base_url: str) -> None:
         if st.button("👤 Dùng thử (Khách)", key="hero_cta_guest", use_container_width=True):
             st.session_state["role"] = "guest"
             st.session_state["username"] = "Khách"
-            st.session_state["token"] = "guest"
+            st.session_state["token"] = None  # Guest: không có token, không gửi Authorization header
             st.rerun()
+
     st.markdown('</div>', unsafe_allow_html=True)
 
     # Tính năng
