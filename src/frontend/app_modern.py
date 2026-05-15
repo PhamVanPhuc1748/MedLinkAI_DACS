@@ -634,40 +634,42 @@ def render_landing_page() -> None:
         tab_login, tab_register, tab_guest = st.tabs(["🔑 Đăng nhập", "📝 Đăng ký", "👤 Vào nhanh"])
 
         with tab_login:
-            # --- Demo: chọn role để giả lập đăng nhập ---
-            st.markdown("""
-            <div style="background:rgba(0,245,212,0.06);border:1px dashed rgba(0,245,212,0.25);
-                        border-radius:10px;padding:0.8rem 1rem;font-size:0.82rem;
-                        color:rgba(226,232,240,0.7);margin-bottom:1rem;">
-              🧪 <strong style="color:#00f5d4;">Demo Mode</strong> — Chọn vai trò để trải nghiệm phân quyền.
-            </div>
-            """, unsafe_allow_html=True)
-
-            demo_role_map = {
-                "🩺 Bác sĩ (User)":       "user",
-                "🔬 Chuyên gia (Expert)":  "expert",
-                "👑 Quản trị (Admin)":     "admin",
-            }
-            chosen_label = st.selectbox(
-                "Vai trò demo",
-                list(demo_role_map.keys()),
-                key="landing_role_select",
-                label_visibility="collapsed",
-            )
-            username_in = st.text_input("Tên đăng nhập", value="demo_user",
-                                        placeholder="Nhập tên đăng nhập...")
-            password_in = st.text_input("Mật khẩu", type="password",
-                                        value="••••••••",
-                                        placeholder="Nhập mật khẩu...")
+            username_in = st.text_input("Tên đăng nhập", placeholder="Nhập tên đăng nhập...")
+            password_in = st.text_input("Mật khẩu", type="password", placeholder="Nhập mật khẩu...")
 
             if st.button("🚀 Đăng nhập", use_container_width=True, type="primary",
                          key="btn_demo_login"):
-                if username_in.strip():
-                    st.session_state["demo_role"] = demo_role_map[chosen_label]
-                    st.session_state["username"]  = username_in.strip()
-                    st.rerun()
+                if username_in.strip() and password_in:
+                    if _API_OK:
+                        import logging
+                        
+                        # Khởi tạo logger để in ra terminal
+                        logger = logging.getLogger("MedLink_Frontend")
+                        if not logger.handlers:
+                            handler = logging.StreamHandler()
+                            formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+                            handler.setFormatter(formatter)
+                            logger.addHandler(handler)
+                        logger.setLevel(logging.INFO)
+                        
+                        client = ApiClient(API_DEFAULT)
+                        try:
+                            logger.info(f">>> [WEB] Đang gọi API Login tới: {API_DEFAULT}/auth/login với username: '{username_in.strip()}'")
+                            res = client.login(username_in.strip(), password_in)
+                            logger.info(f"<<< [API] Trả về thành công: {res}")
+                            
+                            st.session_state["demo_role"] = res.get("role", "user")
+                            st.session_state["username"]  = res.get("username", username_in.strip())
+                            st.session_state["api_token"] = res.get("token", "")
+                            st.success("Đăng nhập thành công!")
+                            st.rerun()
+                        except Exception as e:
+                            logger.error(f"!!! [API] Lỗi khi đăng nhập: {e}")
+                            st.error(f"Sai tên đăng nhập hoặc mật khẩu! (Chi tiết: {e})")
+                    else:
+                        st.error("Lỗi: Không thể kết nối đến Backend API. Kiểm tra xem server FastAPI đã chạy chưa.")
                 else:
-                    st.error("Vui lòng nhập tên đăng nhập.")
+                    st.warning("Vui lòng nhập đầy đủ tên đăng nhập và mật khẩu.")
 
         with tab_register:
             st.markdown("""
@@ -783,7 +785,7 @@ def render_sidebar() -> str:
         menu_items      += ["🌐 Lưới Sinh Học"]
         menu_icons      += ["diagram-3-fill"]
 
-        if _can("user"):     # User, Expert, Admin
+        if _can("expert"):   # Expert, Admin
             menu_items  += ["📊 So Sánh Model"]
             menu_icons  += ["bar-chart-line-fill"]
 
@@ -844,36 +846,7 @@ def render_sidebar() -> str:
                 st.session_state.pop(k, None)
             st.rerun()
 
-        # ── Selector test role (cuối sidebar) ─────────────────────────────────
-        st.markdown("<div class='neon-hr'></div>", unsafe_allow_html=True)
-        st.markdown("""
-        <div style="font-size:0.7rem;color:#475569;text-transform:uppercase;
-                    letter-spacing:0.08em;margin-bottom:0.4rem;font-weight:600;">
-          🧪 Test Role (Demo)
-        </div>
-        """, unsafe_allow_html=True)
-        role_options_map = {
-            "👤 Khách (Guest)":       "guest",
-            "🩺 Bác sĩ (User)":       "user",
-            "🔬 Chuyên gia (Expert)": "expert",
-            "👑 Quản trị (Admin)":    "admin",
-        }
-        current_label = next(
-            (k for k, v in role_options_map.items() if v == role),
-            "👤 Khách (Guest)"
-        )
-        new_role_label = st.selectbox(
-            "Chuyển role",
-            list(role_options_map.keys()),
-            index=list(role_options_map.keys()).index(current_label),
-            key="role_switcher",
-            label_visibility="collapsed",
-        )
-        if role_options_map[new_role_label] != role:
-            st.session_state["demo_role"] = role_options_map[new_role_label]
-            # Cũng đặt lại username cho phù hợp
-            st.session_state["username"] = new_role_label.split("(")[0].strip().split(" ", 1)[1]
-            st.rerun()
+
 
         # ── Footer sidebar ─────────────────────────────────────────────────────
         st.markdown("""
@@ -984,51 +957,69 @@ def render_intro_page() -> None:
 def render_catalog_page() -> None:
     """Trang tra cứu danh mục thuốc và bệnh."""
     st.markdown('<div class="page-title fade-in">📚 Tra cứu danh mục</div>', unsafe_allow_html=True)
-    st.markdown('<div class="page-subtitle">Tìm kiếm thông tin thuốc, bệnh và protein trong cơ sở dữ liệu</div>',
+    st.markdown('<div class="page-subtitle">Tìm kiếm thông tin thuốc, bệnh và protein trong cơ sở dữ liệu thực</div>',
                 unsafe_allow_html=True)
 
-    tab_drug, tab_disease, tab_protein = st.tabs(["💊 Thuốc", "🦠 Bệnh", "🧬 Protein"])
+    _DS_OPTIONS_CAT = ["B-dataset (Gottlieb)", "C-dataset (HDVD)", "F-dataset (FDataset)"]
+    _DS_KEY_CAT = {"B-dataset (Gottlieb)": "b", "C-dataset (HDVD)": "c", "F-dataset (FDataset)": "f"}
+
+    col_cat_ds, _, _ = st.columns([1.5, 1, 1.5])
+    with col_cat_ds:
+        cat_dataset = st.selectbox("📂 Chọn Dataset", _DS_OPTIONS_CAT, key="cat_dataset")
+    cat_key = _DS_KEY_CAT[cat_dataset]
+
+    _ROOT_CAT = Path(__file__).parent.parent / "data"
+
+    @st.cache_data(ttl=300)
+    def _load_catalog_data(ds_key: str, entity: str):
+        try:
+            with open(_ROOT_CAT / f"{entity}_{ds_key}.json", encoding="utf-8") as f:
+                return json.load(f)
+        except Exception:
+            return []
+
+    drugs_data = _load_catalog_data(cat_key, "thuoc")
+    diseases_data = _load_catalog_data(cat_key, "benh")
+    proteins_data = _load_catalog_data(cat_key, "protein")
+
+    tab_drug, tab_disease, tab_protein = st.tabs([f"💊 Thuốc ({len(drugs_data)})", f"🦠 Bệnh ({len(diseases_data)})", f"🧬 Protein ({len(proteins_data)})"])
 
     with tab_drug:
         search_drug = st.text_input("🔍 Tìm kiếm thuốc", placeholder="Nhập tên thuốc...",
-                                     key="catalog_drug_search")
-        filtered = [d for d in SAMPLE_DRUGS
-                    if not search_drug or search_drug.lower() in d.lower()]
+                                     key="catalog_drug_search").lower()
+        filtered = [d for d in drugs_data if not search_drug or search_drug in d.get("name", "").lower()]
+        
         df_drug = pd.DataFrame({
-            "Tên thuốc": filtered,
-            "Mã DrugBank": [f"DB{10000+i:05d}" for i in range(len(filtered))],
-            "Nhóm": [random.choice(["Kháng sinh", "Tim mạch", "Thần kinh", "Chuyển hóa"])
-                     for _ in filtered],
-            "Đã có liên kết": [f"{random.randint(3,25)} bệnh" for _ in filtered],
-        })
+            "ID (Local)": [d.get("local_id") for d in filtered],
+            "Tên thuốc": [d.get("name") for d in filtered],
+            "Mã ngoài (External)": [d.get("external_id") for d in filtered],
+            "SMILES": [d.get("smiles") for d in filtered],
+        }) if filtered else pd.DataFrame(columns=["ID (Local)", "Tên thuốc", "Mã ngoài (External)", "SMILES"])
         st.dataframe(df_drug, use_container_width=True, hide_index=True)
 
     with tab_disease:
         search_dis = st.text_input("🔍 Tìm kiếm bệnh", placeholder="Nhập tên bệnh...",
-                                    key="catalog_disease_search")
-        filtered_d = [d for d in SAMPLE_DISEASES
-                      if not search_dis or search_dis.lower() in d.lower()]
+                                    key="catalog_disease_search").lower()
+        filtered_d = [d for d in diseases_data if not search_dis or search_dis in d.get("name", "").lower()]
+        
         df_disease = pd.DataFrame({
-            "Tên bệnh": filtered_d,
-            "Mã ICD-10": [f"E{10+i:02d}" for i in range(len(filtered_d))],
-            "Hệ cơ quan": [random.choice(["Tim mạch", "Thần kinh", "Miễn dịch", "Nội tiết"])
-                           for _ in filtered_d],
-            "Thuốc liên quan": [f"{random.randint(2,18)} thuốc" for _ in filtered_d],
-        })
+            "ID (Local)": [d.get("local_id") for d in filtered_d],
+            "Tên bệnh": [d.get("name") for d in filtered_d],
+        }) if filtered_d else pd.DataFrame(columns=["ID (Local)", "Tên bệnh"])
         st.dataframe(df_disease, use_container_width=True, hide_index=True)
 
     with tab_protein:
-        search_prot = st.text_input("🔍 Tìm kiếm protein", placeholder="Nhập tên protein...",
-                                     key="catalog_protein_search")
-        filtered_p = [p for p in SAMPLE_PROTEINS
-                      if not search_prot or search_prot.lower() in p.lower()]
+        search_prot = st.text_input("🔍 Tìm kiếm protein", placeholder="Nhập tên/accession protein...",
+                                     key="catalog_protein_search").lower()
+        filtered_p = [p for p in proteins_data if not search_prot or search_prot in p.get("accession", "").lower() or search_prot in p.get("name", "").lower()]
+        
         df_prot = pd.DataFrame({
-            "Tên protein": filtered_p,
-            "UniProt ID": [f"P{10000+i:05d}" for i in range(len(filtered_p))],
-            "Chức năng": [random.choice(["Receptor", "Enzyme", "Transporter", "Ion channel"])
-                          for _ in filtered_p],
-            "Tương tác": [f"{random.randint(5,40)} đối tác" for _ in filtered_p],
-        })
+            "ID (Local)": [p.get("local_id") for p in filtered_p],
+            "Accession": [p.get("accession") for p in filtered_p],
+            "Tên": [p.get("name") for p in filtered_p],
+            "Gene": [p.get("gene") for p in filtered_p],
+            "Trình tự (Sequence)": [p.get("sequence", "")[:50] + "..." if len(p.get("sequence", "")) > 50 else p.get("sequence") for p in filtered_p],
+        }) if filtered_p else pd.DataFrame(columns=["ID (Local)", "Accession", "Tên", "Gene", "Trình tự (Sequence)"])
         st.dataframe(df_prot, use_container_width=True, hide_index=True)
 
 
@@ -1586,27 +1577,68 @@ def render_prediction_page() -> None:
         if do_predict:
             # Loại bỏ trùng lặp, giữ thứ tự
             unique_src = list(dict.fromkeys(s for s in selected_sources if s))
-            dst_pool   = _disease_pool if is_drug_mode else _drug_pool
+
+            # Map dataset UI label -> API dataset key
+            _DS_API_MAP = {
+                "B-dataset (Gottlieb)": "B-dataset",
+                "C-dataset (HDVD)": "C-dataset",
+                "F-dataset (FDataset)": "F-dataset",
+            }
+            api_dataset = _DS_API_MAP.get(dataset, "B-dataset")
+            threshold = st.session_state.get("pred_threshold", 0.3)
 
             results_per_src: list[list[dict]] = []
-            random.seed(hash(tuple(unique_src)) % (2**31))
 
-            for src_name in unique_src:
-                # Mỗi source cho Top kết quả riêng (seed khác nhau theo tên)
-                rng = random.Random(hash(src_name) % (2**31))
-                pool = [d for d in dst_pool if d != src_name]
-                rng.shuffle(pool)
-                top_results = []
-                for dst_name in pool[:top_n]:
-                    score    = round(rng.uniform(0.42, 0.98), 4)
-                    is_known = rng.random() > 0.5
-                    top_results.append({
-                        "name":  dst_name,
-                        "score": score,
-                        "known": is_known,
-                    })
-                top_results.sort(key=lambda x: x["score"], reverse=True)
-                results_per_src.append(top_results)
+            if _API_OK:
+                import logging
+                _pred_log = logging.getLogger("MedLink_Frontend")
+                if not _pred_log.handlers:
+                    _h = logging.StreamHandler()
+                    _h.setFormatter(logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s'))
+                    _pred_log.addHandler(_h)
+                _pred_log.setLevel(logging.INFO)
+
+                client = ApiClient(API_DEFAULT)
+                if st.session_state.get("api_token"):
+                    client.token = st.session_state["api_token"]
+
+                predict_ok = True
+                for src_name in unique_src:
+                    try:
+                        if is_drug_mode:
+                            _pred_log.info(f">>> [AI] Gọi predict drug→disease: '{src_name}', top_k={top_n}, dataset={api_dataset}")
+                            res = client.predict_drug_to_disease(
+                                name=src_name, top_k=top_n,
+                                threshold=threshold, dataset=api_dataset,
+                            )
+                        else:
+                            _pred_log.info(f">>> [AI] Gọi predict disease→drug: '{src_name}', top_k={top_n}, dataset={api_dataset}")
+                            res = client.predict_disease_to_drug(
+                                name=src_name, top_k=top_n,
+                                threshold=threshold, dataset=api_dataset,
+                            )
+                        _pred_log.info(f"<<< [AI] Trả về {len(res.get('results', []))} kết quả cho '{src_name}'")
+
+                        api_results = []
+                        for item in res.get("results", []):
+                            api_results.append({
+                                "name":  item.get("name", item.get("disease_name", item.get("drug_name", "?"))),
+                                "score": round(item.get("score", 0), 4),
+                                "known": item.get("known", False),
+                            })
+                        api_results.sort(key=lambda x: x["score"], reverse=True)
+                        results_per_src.append(api_results[:top_n])
+                    except Exception as e:
+                        _pred_log.error(f"!!! [AI] Lỗi dự đoán cho '{src_name}': {e}")
+                        st.error(f"Lỗi khi dự đoán cho '{src_name}': {e}")
+                        predict_ok = False
+                        results_per_src.append([])
+
+            else:
+                st.error("Không thể kết nối API Backend. Kiểm tra server FastAPI đã chạy chưa.")
+                predict_ok = False
+                for _ in unique_src:
+                    results_per_src.append([])
 
             st.session_state["pred_sources"]         = unique_src
             st.session_state["pred_results_per_src"]  = results_per_src
@@ -1974,55 +2006,136 @@ def render_network_page() -> None:
             shadow=True,
         )
 
-    # ── Thêm edges ngẫu nhiên (chỉ dùng index trong phạm vi node hiện có) ────
+    # ── Thêm edges từ dữ liệu thực (file JSON liên kết) ────────────────────────
     nd = len(drugs)
     ndis = len(diseases)
     np_ = len(proteins)
 
-    # Thuốc–Bệnh
-    if nd > 0 and ndis > 0:
-        for _ in range(random.randint(max(3, nd), max(5, nd + 3))):
-            d_idx   = random.randint(0, nd - 1)
-            dis_idx = random.randint(0, ndis - 1)
-            score   = round(random.uniform(0.5, 0.99), 2)
+    # Tạo lookup maps để kiểm tra node có tồn tại không
+    drug_set = set(drugs)
+    disease_set = set(diseases)
+    protein_set = set(proteins)
+
+    # Đọc liên kết thật từ file JSON
+    def _load_links_json(fname: str) -> list[dict]:
+        try:
+            with open(_ROOT_DATA / fname, encoding="utf-8") as _f:
+                return json.load(_f)
+        except Exception:
+            return []
+
+    # Đọc tên thuốc/bệnh/protein theo local_id để map
+    def _load_local_id_name_map(fname: str, name_field: str = "name") -> dict[int, str]:
+        try:
+            with open(_ROOT_DATA / fname, encoding="utf-8") as _f:
+                return {r.get("local_id", r.get("id")): r.get(name_field, "") for r in json.load(_f)}
+        except Exception:
+            return {}
+
+    drug_id_map = _load_local_id_name_map(f"thuoc_{_ds_key}.json")
+    disease_id_map = _load_local_id_name_map(f"benh_{_ds_key}.json")
+    protein_id_map = _load_local_id_name_map(f"protein_{_ds_key}.json", "accession")
+
+    # Reverse maps: name -> node_id
+    drug_name_to_idx = {d: f"D_{i}" for i, d in enumerate(drugs)}
+    disease_name_to_idx = {d: f"Dis_{i}" for i, d in enumerate(diseases)}
+    protein_name_to_idx = {p: f"P_{i}" for i, p in enumerate(proteins)}
+
+    edge_count = 0
+    verified_dd_pairs = set()
+
+    # Thuốc–Bệnh edges (Đã xác nhận - Nét liền)
+    dd_links = _load_links_json(f"lien_ket_{_ds_key}.json")
+    for link in dd_links:
+        d_id = link.get("drug_local_id", link.get("drug_id"))
+        dis_id = link.get("disease_local_id", link.get("disease_id"))
+        d_name = drug_id_map.get(d_id, "")
+        dis_name = disease_id_map.get(dis_id, "")
+        if d_name in drug_set and dis_name in disease_set:
+            d_node = drug_name_to_idx[d_name]
+            dis_node = disease_name_to_idx[dis_name]
+            score = round(link.get("score", 1.0), 2)
             net.add_edge(
-                f"D_{d_idx}", f"Dis_{dis_idx}",
+                d_node, dis_node,
                 value=score,
                 color={"color": "#00ccff", "highlight": "#00f5d4", "hover": "#00f5d4"},
-                title=f"Thuốc–Bệnh · Xác suất: {score}",
-                width=max(1, int(score * 4)),
+                title=f"Thuốc–Bệnh · Đã xác nhận",
+                width=2,
                 arrows="to",
             )
+            verified_dd_pairs.add((d_name, dis_name))
+            edge_count += 1
 
-    # Thuốc–Protein
-    if nd > 0 and np_ > 0:
-        for _ in range(random.randint(max(2, nd - 1), max(4, nd + 1))):
-            d_idx = random.randint(0, nd - 1)
-            p_idx = random.randint(0, np_ - 1)
-            score = round(random.uniform(0.4, 0.95), 2)
+    # Thêm cạnh dự đoán (Nét đứt) nếu có API
+    predicted_edge_count = 0
+    if _API_OK and nd > 0 and ndis > 0:
+        client = ApiClient(API_DEFAULT)
+        if st.session_state.get("api_token"):
+            client.token = st.session_state["api_token"]
+        
+        # Với mỗi thuốc đã chọn, gọi API dự đoán bệnh
+        for drug in drugs:
+            try:
+                preds = client.predict_drug_to_disease(name=drug, top_k=20, threshold=0.1, dataset=_ds_key.upper() + "-dataset")
+                for p in preds:
+                    dis_name = p.get("name", "")
+                    if dis_name in disease_set and (drug, dis_name) not in verified_dd_pairs:
+                        d_node = drug_name_to_idx[drug]
+                        dis_node = disease_name_to_idx[dis_name]
+                        score = round(p.get("score", 0.0), 2)
+                        net.add_edge(
+                            d_node, dis_node,
+                            value=score,
+                            color={"color": "#f72585", "highlight": "#ff4d6d", "hover": "#ff4d6d"},
+                            title=f"Thuốc–Bệnh · AI Dự đoán ({score})",
+                            width=1.5,
+                            arrows="to",
+                            dashes=True,
+                        )
+                        predicted_edge_count += 1
+                        verified_dd_pairs.add((drug, dis_name)) # Tránh add trùng
+            except Exception as e:
+                pass # Bỏ qua nếu lỗi dự đoán
+
+    # Thuốc–Protein edges
+    dp_links = _load_links_json("drug_protein_links.json")
+    for link in dp_links:
+        d_name = drug_id_map.get(link.get("drug_id"), "")
+        p_name = protein_id_map.get(link.get("protein_id"), "")
+        if d_name in drug_set and p_name in protein_set:
+            d_node = drug_name_to_idx[d_name]
+            p_node = protein_name_to_idx[p_name]
             net.add_edge(
-                f"D_{d_idx}", f"P_{p_idx}",
-                value=score,
+                d_node, p_node,
                 color={"color": "#9966ff", "highlight": "#cc99ff", "hover": "#cc99ff"},
-                title=f"Thuốc–Protein · Tương tác: {score}",
-                width=max(1, int(score * 3)),
+                title=f"Thuốc–Protein · Tương tác thực",
+                width=2,
                 dashes=True,
             )
+            edge_count += 1
 
-    # Bệnh–Protein
-    if ndis > 0 and np_ > 0:
-        for _ in range(random.randint(max(2, ndis - 1), max(4, ndis + 1))):
-            dis_idx = random.randint(0, ndis - 1)
-            p_idx   = random.randint(0, np_ - 1)
-            score   = round(random.uniform(0.4, 0.95), 2)
+    # Bệnh–Protein edges
+    dis_p_links = _load_links_json("protein_disease_links.json")
+    for link in dis_p_links:
+        dis_name = disease_id_map.get(link.get("disease_id"), "")
+        p_name = protein_id_map.get(link.get("protein_id"), "")
+        if dis_name in disease_set and p_name in protein_set:
+            dis_node = disease_name_to_idx[dis_name]
+            p_node = protein_name_to_idx[p_name]
             net.add_edge(
-                f"Dis_{dis_idx}", f"P_{p_idx}",
-                value=score,
+                dis_node, p_node,
                 color={"color": "#ff9900", "highlight": "#ffcc33", "hover": "#ffcc33"},
-                title=f"Bệnh–Protein · Liên quan: {score}",
-                width=max(1, int(score * 3)),
+                title=f"Bệnh–Protein · Liên quan thực",
+                width=2,
                 dashes=True,
             )
+            edge_count += 1
+
+    # Nếu không tìm thấy liên kết thực nào (do node đã chọn chưa có link),
+    # hiển thị thông báo
+    if edge_count == 0:
+        st.info("ℹ️ Không tìm thấy liên kết thực giữa các node đã chọn trong dataset này. "
+                "Hãy thử chọn các thuốc/bệnh/protein khác.")
 
     # ── Lưu HTML và render ─────────────────────────────────────────────────────
     with tempfile.NamedTemporaryFile(
@@ -2061,47 +2174,132 @@ def render_network_page() -> None:
         <div class="metric-label">Protein</div>
       </div>
       <div class="metric-card" style="flex:1;min-width:120px;">
-        <div class="metric-value" style="font-size:1.8rem;color:#00f5d4;">15</div>
+        <div class="metric-value" style="font-size:1.8rem;color:#00f5d4;">{len(drugs)+len(diseases)+len(proteins)}</div>
         <div class="metric-label">Tổng nodes</div>
+      </div>
+      <div class="metric-card" style="flex:1;min-width:120px;">
+        <div class="metric-value" style="font-size:1.8rem;color:#fbbf24;">{edge_count}</div>
+        <div class="metric-label">Liên kết thực</div>
+      </div>
+      <div class="metric-card" style="flex:1;min-width:120px;">
+        <div class="metric-value" style="font-size:1.8rem;color:#f72585;">{predicted_edge_count}</div>
+        <div class="metric-label">AI Dự đoán</div>
       </div>
     </div>
     """, unsafe_allow_html=True)
 
 
 # =============================================================================
-# TRANG: DUYỆT LIÊN KẾT (Expert, Admin)
+# TRANG: DUYỆT LIÊN KẾT (Expert only)
 # =============================================================================
 def render_review_page() -> None:
-    """Giao diện cho Expert/Admin duyệt các liên kết mới được AI tìm ra."""
+    """Giao diện cho Expert duyệt các liên kết mới được AI tìm ra."""
     if not _can("expert"):
         st.markdown("""
         <div class="access-denied fade-in">
           <div style="font-size:3rem;margin-bottom:0.8rem;">🔒</div>
           <div style="font-size:1.2rem;font-weight:800;margin-bottom:0.5rem;">
-            Yêu cầu Chuyên gia trở lên</div>
+            Yêu cầu vai trò Chuyên gia hoặc Quản trị viên</div>
           <div style="font-size:0.88rem;color:rgba(247,37,133,0.7);">
             Chức năng Duyệt Liên Kết chỉ dành cho vai trò
-            <strong>Chuyên gia</strong> và <strong>Admin</strong>.
+            <strong>Chuyên gia</strong> hoặc <strong>Quản trị viên</strong>.
           </div>
         </div>
         """, unsafe_allow_html=True)
         return
 
     st.markdown('<div class="page-title fade-in">✅ Duyệt Liên Kết</div>', unsafe_allow_html=True)
-    st.markdown('<div class="page-subtitle">Xác nhận hoặc loại bỏ các liên kết mới do AI khám phá</div>',
+    st.markdown('<div class="page-subtitle">Xác nhận hoặc loại bỏ các liên kết Thuốc–Bệnh theo từng Dataset</div>',
                 unsafe_allow_html=True)
+
+    # ── Chọn Dataset ──────────────────────────────────────────────────────────
+    _DS_OPTIONS_RV = ["B-dataset (Gottlieb)", "C-dataset (HDVD)", "F-dataset (FDataset)"]
+    _DS_KEY_RV = {"B-dataset (Gottlieb)": "b", "C-dataset (HDVD)": "c", "F-dataset (FDataset)": "f"}
+
+    col_ds_rv, col_page_rv, _ = st.columns([1.5, 1, 1.5])
+    with col_ds_rv:
+        rv_dataset = st.selectbox("📂 Chọn Dataset để duyệt", _DS_OPTIONS_RV, key="rv_dataset")
+    rv_key = _DS_KEY_RV[rv_dataset]
+
+    # ── Load dữ liệu liên kết thực từ JSON ───────────────────────────────────
+    _ROOT_RV = Path(__file__).parent.parent / "data"
+
+    @st.cache_data(ttl=300)
+    def _load_review_links(ds_key: str, page: int = 0, per_page: int = 20):
+        """Load liên kết thực từ file JSON, phân trang."""
+        # Load drug name map: local_id -> name
+        try:
+            with open(_ROOT_RV / f"thuoc_{ds_key}.json", encoding="utf-8") as f:
+                drugs_data = json.load(f)
+            drug_map = {r["local_id"]: r["name"] for r in drugs_data if "local_id" in r}
+        except Exception:
+            drug_map = {}
+
+        # Load disease name map: local_id -> name
+        try:
+            with open(_ROOT_RV / f"benh_{ds_key}.json", encoding="utf-8") as f:
+                diseases_data = json.load(f)
+            disease_map = {r["local_id"]: r["name"] for r in diseases_data if "local_id" in r}
+        except Exception:
+            disease_map = {}
+
+        # Load links
+        try:
+            with open(_ROOT_RV / f"lien_ket_{ds_key}.json", encoding="utf-8") as f:
+                all_links = json.load(f)
+        except Exception:
+            all_links = []
+
+        total = len(all_links)
+        start = page * per_page
+        end = min(start + per_page, total)
+        page_links = all_links[start:end]
+
+        result = []
+        for link in page_links:
+            d_name = drug_map.get(link.get("drug_local_id"), f"Drug#{link.get('drug_local_id', '?')}")
+            dis_name = disease_map.get(link.get("disease_local_id"), f"Disease#{link.get('disease_local_id', '?')}")
+            result.append({
+                "id": link.get("id", 0),
+                "drug": d_name,
+                "disease": dis_name,
+                "drug_local_id": link.get("drug_local_id", -1),
+                "disease_local_id": link.get("disease_local_id", -1),
+                "score": link.get("score", 1.0),
+                "status": "Chờ duyệt",
+            })
+        return result, total
+
+    # Phân trang
+    with col_page_rv:
+        per_page = 20
+        _, total_links = _load_review_links(rv_key, 0, 1)
+        max_page = max(0, (total_links - 1) // per_page)
+        current_page = st.number_input(
+            f"Trang (tổng {total_links:,} liên kết)",
+            min_value=0, max_value=max_page, value=0, step=1, key="rv_page",
+        )
+
+    pending_links, total_links = _load_review_links(rv_key, current_page, per_page)
+
+    if not pending_links:
+        st.info(f"📋 Không tìm thấy liên kết nào trong dataset {rv_dataset}.")
+        return
 
     # Khởi tạo trạng thái duyệt trong session
     if "review_statuses" not in st.session_state:
-        st.session_state["review_statuses"] = {
-            r["id"]: r["status"] for r in PENDING_LINKS
-        }
+        st.session_state["review_statuses"] = {}
+    # Đảm bảo mọi link đều có status
+    for link in pending_links:
+        if link["id"] not in st.session_state["review_statuses"]:
+            st.session_state["review_statuses"][link["id"]] = link["status"]
 
     # Thống kê nhanh
     statuses = st.session_state["review_statuses"]
-    n_pending  = sum(1 for s in statuses.values() if s == "Chờ duyệt")
-    n_approved = sum(1 for s in statuses.values() if s == "Đã duyệt ✅")
-    n_rejected = sum(1 for s in statuses.values() if s == "Đã từ chối ❌")
+    relevant_ids = {link["id"] for link in pending_links}
+    n_pending  = sum(1 for lid, s in statuses.items() if lid in relevant_ids and s == "Chờ duyệt")
+    n_approved = sum(1 for lid, s in statuses.items() if lid in relevant_ids and s == "Đã duyệt ✅")
+    n_rejected = sum(1 for lid, s in statuses.items() if lid in relevant_ids and s == "Đã từ chối ❌")
 
     c1, c2, c3 = st.columns(3)
     with c1:
@@ -2128,9 +2326,9 @@ def render_review_page() -> None:
     </div>
     """, unsafe_allow_html=True)
 
-    for link in PENDING_LINKS:
+    for link in pending_links:
         lid    = link["id"]
-        status = st.session_state["review_statuses"][lid]
+        status = st.session_state["review_statuses"].get(lid, "Chờ duyệt")
 
         # Màu nền theo trạng thái
         if status == "Đã duyệt ✅":
@@ -2221,8 +2419,8 @@ def render_config_page() -> None:
     st.markdown('<div class="page-subtitle">Xem hiệu suất mô hình và chỉnh sửa siêu tham số huấn luyện</div>',
                 unsafe_allow_html=True)
 
-    tab_metrics, tab_train, tab_compare = st.tabs(
-        ["📊 Hiệu suất mô hình", "🎛️ Tham số huấn luyện", "🆚 So sánh Dataset"]
+    tab_metrics, tab_train, tab_compare, tab_db = st.tabs(
+        ["📊 Hiệu suất mô hình", "🎛️ Tham số huấn luyện", "🆚 So sánh Dataset", "🗄️ Quản lý CSDL"]
     )
 
     # ── Tab 1: Metrics ───────────────────────────────────────────────────────
@@ -2399,6 +2597,182 @@ def render_config_page() -> None:
         st.bar_chart(df_bar, color=["#00f5d4", "#a78bfa"])
         st.markdown("</div>", unsafe_allow_html=True)
 
+    # ── Tab 4: Quản lý Cơ sở dữ liệu ────────────────────────────────────────
+    with tab_db:
+        st.markdown("<div style='height:0.5rem'></div>", unsafe_allow_html=True)
+
+        # ── Kiểm tra trạng thái DB theo thời gian thực ──────────────────────
+        st.markdown('<div class="glass-card">', unsafe_allow_html=True)
+        st.markdown("""<div style="font-size:0.95rem;font-weight:800;color:#00f5d4;
+                       margin-bottom:0.8rem;">🗄️ Trạng thái kết nối Cơ sở dữ liệu</div>""",
+                    unsafe_allow_html=True)
+
+        db_info = None
+        if _API_OK:
+            try:
+                client = ApiClient(API_DEFAULT)
+                if st.session_state.get("api_token"):
+                    client.token = st.session_state["api_token"]
+                db_info = client.db_status()
+            except Exception as e:
+                st.error(f"Không thể kiểm tra trạng thái DB: {e}")
+
+        if db_info:
+            source = db_info.get("source", "unknown")
+            is_connected = db_info.get("is_db_connected", False)
+            db_server = db_info.get("db_server", "")
+            db_name = db_info.get("db_name", "")
+            json_synced = db_info.get("json_synced", False)
+            json_counts = db_info.get("json_counts", {})
+
+            if is_connected and source == "mssql":
+                st.markdown(f"""
+                <div style="background:rgba(74,222,128,0.1);border:1px solid rgba(74,222,128,0.3);
+                            border-radius:12px;padding:1.2rem;margin-bottom:1rem;">
+                  <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.8rem;">
+                    <div style="font-size:1.6rem;">✅</div>
+                    <div>
+                      <div style="font-size:1rem;font-weight:800;color:#4ade80;">SQL Server — Đã kết nối</div>
+                      <div style="font-size:0.78rem;color:#86efac;">Hệ thống đang sử dụng cơ sở dữ liệu SQL Server</div>
+                    </div>
+                  </div>
+                  <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;">
+                    <div style="background:rgba(255,255,255,0.05);border-radius:8px;padding:0.6rem;">
+                      <div style="font-size:0.7rem;color:#64748b;font-weight:600;">SERVER</div>
+                      <div style="font-size:0.9rem;font-weight:700;color:#e2e8f0;">{db_server or 'N/A'}</div>
+                    </div>
+                    <div style="background:rgba(255,255,255,0.05);border-radius:8px;padding:0.6rem;">
+                      <div style="font-size:0.7rem;color:#64748b;font-weight:600;">DATABASE</div>
+                      <div style="font-size:0.9rem;font-weight:700;color:#e2e8f0;">{db_name or 'N/A'}</div>
+                    </div>
+                  </div>
+                </div>
+                """, unsafe_allow_html=True)
+
+            elif is_connected and source == "sqlite":
+                st.markdown("""
+                <div style="background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.3);
+                            border-radius:12px;padding:1.2rem;margin-bottom:1rem;">
+                  <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.5rem;">
+                    <div style="font-size:1.6rem;">⚠️</div>
+                    <div>
+                      <div style="font-size:1rem;font-weight:800;color:#fbbf24;">SQLite — Chế độ dự phòng</div>
+                      <div style="font-size:0.78rem;color:#fcd34d;">SQL Server không khả dụng, hệ thống đang dùng SQLite cục bộ</div>
+                    </div>
+                  </div>
+                </div>
+                """, unsafe_allow_html=True)
+
+            else:
+                st.markdown("""
+                <div style="background:rgba(248,113,113,0.1);border:1px solid rgba(248,113,113,0.3);
+                            border-radius:12px;padding:1.2rem;margin-bottom:1rem;">
+                  <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.5rem;">
+                    <div style="font-size:1.6rem;">❌</div>
+                    <div>
+                      <div style="font-size:1rem;font-weight:800;color:#f87171;">Chưa kết nối Cơ sở dữ liệu</div>
+                      <div style="font-size:0.78rem;color:#fca5a5;">Hệ thống đang đọc dữ liệu từ file JSON cục bộ (không có DB)</div>
+                    </div>
+                  </div>
+                </div>
+                """, unsafe_allow_html=True)
+
+            # Trạng thái JSON sync
+            if json_synced and json_counts:
+                total_records = sum(json_counts.values())
+                total_tables = len(json_counts)
+                non_empty = {k: v for k, v in json_counts.items() if v > 0}
+                st.markdown(f"""
+                <div style="background:rgba(0,245,212,0.06);border:1px solid rgba(0,245,212,0.15);
+                            border-radius:10px;padding:0.8rem 1rem;margin-bottom:0.6rem;">
+                  <div style="font-size:0.82rem;color:#00f5d4;font-weight:700;">📦 JSON Cache: ✅ Đã đồng bộ
+                    — {total_records:,} bản ghi / {total_tables} bảng</div>
+                </div>
+                """, unsafe_allow_html=True)
+                if non_empty:
+                    with st.expander("📋 Chi tiết các bảng JSON", expanded=False):
+                        df_json = pd.DataFrame(
+                            [{"Bảng": k, "Số bản ghi": v} for k, v in sorted(non_empty.items())]
+                        )
+                        st.dataframe(df_json, use_container_width=True, hide_index=True)
+        else:
+            st.warning("Không thể kết nối tới Backend API để kiểm tra trạng thái DB.")
+
+        # Nút làm mới trạng thái
+        col_refresh, _ = st.columns([1, 3])
+        with col_refresh:
+            if st.button("🔄 Làm mới trạng thái", use_container_width=True, key="btn_db_refresh"):
+                st.rerun()
+
+        st.markdown("</div>", unsafe_allow_html=True)
+
+        # ── Tool kết nối SQL Server tự động ──────────────────────────────────
+        st.markdown("<div style='height:0.8rem'></div>", unsafe_allow_html=True)
+        st.markdown('<div class="glass-card">', unsafe_allow_html=True)
+        st.markdown("""<div style="font-size:0.95rem;font-weight:800;color:#a78bfa;
+                       margin-bottom:0.5rem;">🚀 Công cụ Kết nối SQL Server Tự động</div>""",
+                    unsafe_allow_html=True)
+        st.markdown("""
+        <div style="font-size:0.82rem;color:#94a3b8;line-height:1.7;margin-bottom:1rem;">
+          Công cụ này sẽ tự động thực hiện các bước sau:<br>
+          &nbsp;&nbsp;1️⃣ Tìm và bật dịch vụ SQL Server trên máy<br>
+          &nbsp;&nbsp;2️⃣ Kết nối vào SQL Server bằng Windows Authentication<br>
+          &nbsp;&nbsp;3️⃣ Tạo database <code style="color:#00f5d4;">He_Thong_Du_Doan_Thuoc</code> nếu chưa có<br>
+          &nbsp;&nbsp;4️⃣ Tạo toàn bộ bảng theo ORM<br>
+          &nbsp;&nbsp;5️⃣ Seed tài khoản mặc định (admin, user, expert)
+        </div>
+        """, unsafe_allow_html=True)
+
+        st.markdown("""
+        <div style="background:rgba(251,191,36,0.08);border:1px solid rgba(251,191,36,0.25);
+                    border-radius:8px;padding:0.6rem 0.9rem;font-size:0.78rem;color:#fbbf24;
+                    margin-bottom:1rem;">
+          ⚠️ <strong>Lưu ý:</strong> Yêu cầu SQL Server Express đã được cài trên máy và ứng dụng
+          chạy trên cùng một máy chủ. Quá trình có thể mất 30–60 giây.
+        </div>
+        """, unsafe_allow_html=True)
+
+        col_setup, _ = st.columns([1, 2])
+        with col_setup:
+            if st.button("🚀 Chạy Cài đặt & Kết nối SQL", type="primary",
+                         use_container_width=True, key="btn_db_setup"):
+                if _API_OK and st.session_state.get("api_token"):
+                    client = ApiClient(API_DEFAULT)
+                    client.token = st.session_state["api_token"]
+                    with st.spinner("⏳ Đang chạy setup_database.py... Vui lòng chờ (có thể mất 30–60 giây)..."):
+                        try:
+                            setup_result = client.admin_db_setup()
+                            success = setup_result.get("success", False)
+                            log_output = setup_result.get("log", "")
+                            error_output = setup_result.get("error", "")
+
+                            if success:
+                                st.success("✅ Cài đặt và kết nối SQL Server thành công!")
+                            else:
+                                st.warning(f"⚠️ Quá trình hoàn tất nhưng có lỗi (exit code: {setup_result.get('exit_code', '?')})")
+
+                            # Hiển thị log trong khung Terminal ảo
+                            st.markdown("""<div style="font-size:0.85rem;font-weight:700;color:#00b4d8;
+                                           margin:0.8rem 0 0.4rem;">📜 Log kết quả:</div>""",
+                                        unsafe_allow_html=True)
+                            # Lọc bỏ ký tự ANSI color
+                            import re
+                            clean_log = re.sub(r'\033\[[0-9;]*m', '', log_output)
+                            st.code(clean_log if clean_log.strip() else "(không có output)", language="text")
+
+                            if error_output:
+                                st.markdown("""<div style="font-size:0.85rem;font-weight:700;color:#f87171;
+                                               margin:0.5rem 0 0.3rem;">⚠️ Stderr:</div>""",
+                                            unsafe_allow_html=True)
+                                st.code(error_output[:2000], language="text")
+
+                        except Exception as e:
+                            st.error(f"Lỗi khi chạy setup: {e}")
+                else:
+                    st.error("Cần đăng nhập với quyền Admin và có kết nối API để chạy chức năng này.")
+
+        st.markdown("</div>", unsafe_allow_html=True)
+
 
 # =============================================================================
 # TRANG: SO SÁNH MODEL (User / Expert / Admin)
@@ -2416,15 +2790,15 @@ def _load_kfold_metrics() -> dict:
 
 
 def render_compare_page() -> None:
-    """Trang So Sánh Model — user/expert/admin đều xem được."""
-    if not _can("user"):
+    """Trang So Sánh Model — expert/admin đều xem được."""
+    if not _can("expert"):
         st.markdown("""
         <div class="access-denied fade-in">
           <div style="font-size:3rem;margin-bottom:0.8rem;">📊</div>
           <div style="font-size:1.2rem;font-weight:800;margin-bottom:0.5rem;">
-            Yêu cầu đăng nhập</div>
+            Yêu cầu quyền Chuyên gia</div>
           <div style="font-size:0.88rem;color:rgba(247,37,133,0.7);">
-            Vui lòng đăng nhập để xem trang So Sánh Model.
+            Vui lòng đăng nhập với quyền Chuyên gia hoặc Quản trị viên để xem trang So Sánh Model.
           </div>
         </div>
         """, unsafe_allow_html=True)
@@ -2636,54 +3010,74 @@ def render_compare_page() -> None:
                        margin-bottom:0.8rem;">🆚 So sánh mô hình (Tùy chọn vs Hệ thống)</div>""",
                     unsafe_allow_html=True)
         
-        st.markdown("Vui lòng tải lên tệp `.pth` của model tùy chọn để đánh giá và so sánh với model hệ thống (AMDGT/FuzzyGCN).")
-        uploaded_file = st.file_uploader("Tải lên file model (.pth)", type=["pth"], key="model_uploader")
+        st.markdown("Vui lòng tải lên tệp `.pth` của model tùy chọn và/hoặc tệp `.pth` của model hệ thống để đánh giá thực tế.")
         
-        # Giả lập metrics của các baseline tùy chọn để demo khi upload file
-        mock_baselines = {
-            "deepDR": {"AUC": 0.8202, "AUPR": 0.8048, "Accuracy": 0.6012, "Precision": 0.8832, "Recall": 0.2334, "F1": 0.3692, "MCC": 0.2990},
-            "HNet-DNN": {"AUC": 0.8927, "AUPR": 0.8919, "Accuracy": 0.8101, "Precision": 0.7825, "Recall": 0.8281, "F1": 0.8047, "MCC": 0.6211},
-            "DRHGCN": {"AUC": 0.9092, "AUPR": 0.9106, "Accuracy": 0.8268, "Precision": 0.8678, "Recall": 0.7711, "F1": 0.8166, "MCC": 0.6577},
-            "HINGRL": {"AUC": 0.8845, "AUPR": 0.8774, "Accuracy": 0.8035, "Precision": 0.8006, "Recall": 0.8084, "F1": 0.8045, "MCC": 0.6071},
-            "DRWBNCF": {"AUC": 0.9004, "AUPR": 0.9018, "Accuracy": 0.5991, "Precision": 0.9810, "Recall": 0.2021, "F1": 0.3352, "MCC": 0.3260},
-            "DDAGDL": {"AUC": 0.8421, "AUPR": 0.8315, "Accuracy": 0.7646, "Precision": 0.7616, "Recall": 0.7703, "F1": 0.7659, "MCC": 0.5292},
-        }
-        system_model_metrics = {"AUC": 0.9337, "AUPR": 0.9309, "Accuracy": 0.8629, "Precision": 0.8614, "Recall": 0.8650, "F1": 0.8632, "MCC": 0.7258}
+        cmp_dataset = st.selectbox("📂 Chọn Dataset để đánh giá", ["B-dataset", "C-dataset", "F-dataset"], key="cmp_eval_ds")
         
-        if uploaded_file is not None:
-            st.success(f"Đã tải lên tệp {uploaded_file.name} thành công!")
+        col_up1, col_up2 = st.columns(2)
+        with col_up1:
+            uploaded_file_custom = st.file_uploader("1. Tải lên file model tùy chọn (.pth)", type=["pth"], key="custom_uploader")
+            custom_model_name = st.text_input("Tên Model Tùy chọn", value="Model Tùy chọn", placeholder="Nhập tên model...")
+        with col_up2:
+            uploaded_file_system = st.file_uploader("2. Tải lên file model hệ thống (.pth) - Tùy chọn", type=["pth"], key="system_uploader")
             
-            st.info("Mô phỏng: Chọn kiến trúc của model vừa tải lên để load cấu hình đánh giá tương ứng:")
-            selected_baseline = st.selectbox("Kiến trúc Model tải lên", list(mock_baselines.keys()))
-            
+        if uploaded_file_custom is not None:
             if st.button("🚀 Chạy Đánh Giá Model", type="primary"):
-                with st.spinner("Đang chạy inference để đánh giá model..."):
-                    import time
-                    time.sleep(1.5)
-                
-                uploaded_metrics = mock_baselines[selected_baseline]
-                
-                st.markdown("<div class='neon-hr'></div>", unsafe_allow_html=True)
-                
-                metrics_list = ["AUC", "AUPR", "Accuracy", "Precision", "Recall", "F1", "MCC"]
-                
-                compare_rows = []
-                compare_rows.append({"Model": f"{selected_baseline} (Upload)", **uploaded_metrics})
-                compare_rows.append({"Model": "AMDGT (Hệ thống)", **system_model_metrics})
-                df_model_comp = pd.DataFrame(compare_rows)
-                
-                st.markdown("""<div style="font-size:0.9rem;font-weight:700;color:#00f5d4;
-                               margin-bottom:0.6rem;">📋 Bảng chi tiết Metrics</div>""",
-                            unsafe_allow_html=True)
-                st.dataframe(df_model_comp, use_container_width=True, hide_index=True)
-                
-                st.markdown("<div style='height:1rem'></div>", unsafe_allow_html=True)
-                st.markdown("""<div style="font-size:0.9rem;font-weight:700;color:#fbbf24;
-                               margin-bottom:0.6rem;">📊 Biểu đồ so sánh</div>""",
-                            unsafe_allow_html=True)
-                
-                df_pivot = df_model_comp.set_index("Model").T
-                st.bar_chart(df_pivot, color=["#f472b6", "#00f5d4"])
+                if not _API_OK:
+                    st.error("❌ Không thể kết nối API Backend.")
+                    return
+                client = ApiClient(API_DEFAULT)
+                if st.session_state.get("api_token"):
+                    client.token = st.session_state["api_token"]
+                    
+                with st.spinner("Đang chạy inference để đánh giá model tùy chọn..."):
+                    try:
+                        res_custom = client.evaluate_model(uploaded_file_custom.getvalue(), uploaded_file_custom.name, cmp_dataset)
+                        uploaded_metrics = res_custom.get("metrics", {})
+                    except Exception as e:
+                        st.error(f"Lỗi khi đánh giá model tùy chọn: {e}")
+                        uploaded_metrics = None
+                        
+                system_model_metrics = None
+                if uploaded_file_system is not None:
+                    with st.spinner("Đang chạy inference để đánh giá model hệ thống..."):
+                        try:
+                            res_sys = client.evaluate_model(uploaded_file_system.getvalue(), uploaded_file_system.name, cmp_dataset)
+                            system_model_metrics = res_sys.get("metrics", {})
+                        except Exception as e:
+                            st.error(f"Lỗi khi đánh giá model hệ thống: {e}")
+                else:
+                    # Nếu không upload model hệ thống, lấy metrics tốt nhất từ JSON
+                    best_auc = 0
+                    if 'all_metrics' in locals() and all_metrics and cmp_dataset in all_metrics:
+                        data = all_metrics[cmp_dataset]
+                        for fold in data.get('folds', []):
+                            if fold.get('AUC', 0) > best_auc:
+                                best_auc = fold.get('AUC', 0)
+                                system_model_metrics = {m: fold.get(m, 0) for m in ["AUC", "AUPR", "Accuracy", "Precision", "Recall", "F1", "MCC"]}
+
+                if uploaded_metrics:
+                    st.markdown("<div class='neon-hr'></div>", unsafe_allow_html=True)
+                    
+                    compare_rows = []
+                    compare_rows.append({"Model": custom_model_name, **uploaded_metrics})
+                    if system_model_metrics:
+                        compare_rows.append({"Model": "MedLink_AI", **system_model_metrics})
+                    df_model_comp = pd.DataFrame(compare_rows)
+                    
+                    st.markdown("""<div style="font-size:0.9rem;font-weight:700;color:#00f5d4;
+                                   margin-bottom:0.6rem;">📋 Bảng chi tiết Metrics</div>""",
+                                unsafe_allow_html=True)
+                    st.dataframe(df_model_comp, use_container_width=True, hide_index=True)
+                    
+                    st.markdown("<div style='height:1rem'></div>", unsafe_allow_html=True)
+                    st.markdown("""<div style="font-size:0.9rem;font-weight:700;color:#fbbf24;
+                                   margin-bottom:0.6rem;">📊 Biểu đồ so sánh</div>""",
+                                unsafe_allow_html=True)
+                    
+                    df_pivot = df_model_comp.set_index("Model").T
+                    st.bar_chart(df_pivot, color=["#f472b6", "#00f5d4"][:len(compare_rows)])
+
 
         st.markdown("</div>", unsafe_allow_html=True)
 

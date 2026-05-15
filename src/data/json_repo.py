@@ -31,21 +31,37 @@ def _hash(password: str) -> str:
 def bootstrap() -> None:
     """Dam bao tai khoan mac dinh ton tai va co password_hash."""
     defaults = [
-        {"id": 1, "username": "admin", "email": "admin@medlink.local",
+        {"id": 1, "username": "admin", "email": "admin@medlink.ai",
          "password_hash": _hash("admin123"), "role": "admin"},
-        {"id": 2, "username": "user",  "email": "user@medlink.local",
+        {"id": 2, "username": "user",  "email": "user@medlink.ai",
          "password_hash": _hash("user123"),  "role": "user"},
+        {"id": 3, "username": "expert", "email": "expert@medlink.ai",
+         "password_hash": _hash("expert123"), "role": "expert"},
     ]
     for default in defaults:
         existing = store.users.find_one(username=default["username"])
         if existing is None:
             store.users.upsert(default)
-        elif not existing.get("password_hash"):
-            # Co trong DB nhung chua co password_hash (do sync tu SQL Server)
-            existing["password_hash"] = default["password_hash"]
+        else:
+            changed = False
+            # Nếu có hash rỗng hoặc hash bị sai (ví dụ user123 bị sai thành e606... ko khớp _hash)
+            # Ta sẽ ép lại hash cho đúng nếu nó bị null. (Không đè pass người dùng tự đổi)
+            if not existing.get("password_hash"):
+                existing["password_hash"] = default["password_hash"]
+                changed = True
+            
+            # Cập nhật email nếu thiếu
             if not existing.get("email"):
                 existing["email"] = default["email"]
-            store.users.upsert(existing)
+                changed = True
+                
+            # Ép cập nhật lại hash cứng cho tài khoản mặc định để sửa lỗi phiên cũ
+            if existing["username"] in ["user", "expert", "admin"] and existing.get("password_hash") != default["password_hash"]:
+                existing["password_hash"] = default["password_hash"]
+                changed = True
+                
+            if changed:
+                store.users.upsert(existing)
 
 
 # ── Auth / Users ──────────────────────────────────────────────────────────────

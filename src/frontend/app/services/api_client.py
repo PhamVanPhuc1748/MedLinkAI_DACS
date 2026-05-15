@@ -146,3 +146,38 @@ class ApiClient:
 
     def admin_save_link(self, drug_id: int, disease_id: int) -> dict[str, Any]:
         return self._request("POST", "/admin/links", payload={"drug_id": int(drug_id), "disease_id": int(disease_id)})
+
+    # ── Database Management ───────────────────────────────────────────────────
+    def db_status(self) -> dict[str, Any]:
+        """Kiểm tra trạng thái kết nối database."""
+        return self._request("GET", "/db/status")
+
+    def admin_db_setup(self) -> dict[str, Any]:
+        """Chạy setup_database.py để tự động kết nối SQL Server (Admin only)."""
+        return self._request("POST", "/admin/db/setup", timeout=130)
+
+    def evaluate_model(self, file_content: bytes, filename: str, dataset: str) -> dict[str, Any]:
+        """Upload và đánh giá model .pth tùy chọn."""
+        url = f"{self.base_url}/model/evaluate"
+        headers = {}
+        if self.token:
+            headers["Authorization"] = f"Bearer {self.token}"
+            
+        files = {"file": (filename, file_content, "application/octet-stream")}
+        data = {"dataset": dataset}
+        
+        try:
+            resp = requests.post(url, headers=headers, files=files, data=data, timeout=300)
+            resp.raise_for_status()
+            return resp.json()
+        except requests.exceptions.HTTPError as e:
+            err_detail = str(e)
+            try:
+                err_json = resp.json()
+                if "detail" in err_json:
+                    err_detail = str(err_json["detail"])
+            except ValueError:
+                pass
+            raise ApiError(resp.status_code, err_detail) from e
+        except requests.exceptions.RequestException as e:
+            raise ApiError(0, f"Loi ket noi den {url}: {e}") from e

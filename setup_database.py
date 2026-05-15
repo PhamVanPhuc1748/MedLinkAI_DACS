@@ -23,6 +23,12 @@ import sys
 import time
 from pathlib import Path
 
+# ── Fix encoding cho Windows console (tránh UnicodeEncodeError cp1252) ────────
+if sys.stdout and hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+if sys.stderr and hasattr(sys.stderr, "reconfigure"):
+    sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+
 # ── Thêm src vào path ─────────────────────────────────────────────────────────
 ROOT = Path(__file__).resolve().parent
 SRC  = ROOT / "src"

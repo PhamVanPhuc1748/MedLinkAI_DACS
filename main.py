@@ -37,7 +37,7 @@ DEFAULT_UI_PORT  = 8502          # ← đổi cổng Streamlit tại đây
 ROOT = Path(__file__).resolve().parent
 BACKEND_DIR = ROOT / "src" / "backend"
 FRONTEND_ENTRY         = ROOT / "src" / "frontend" / "app_modern.py"    # ← giao diện mặc định
-FRONTEND_CLASSIC_ENTRY = ROOT / "src" / "frontend" / "streamlit_app.py"  # ← UI cũ (--classic)
+FRONTEND_CLASSIC_ENTRY = ROOT / "src" / "frontend" / "app_modern.py"
 
 # Đảm bảo backend có thể import được
 if str(BACKEND_DIR) not in sys.path:
@@ -259,7 +259,7 @@ if __name__ == "__main__":
         start_streamlit(args.ui_host, args.ui_port, classic=False)
 
     else:
-        ui_label = "streamlit_app.py (Classic UI)" if use_classic else "app_modern.py (Modern UI)"
+        ui_label = "app_modern.py (Modern UI)"
         print("=" * 60)
         print("  MedLink AI — Khởi động ứng dụng")
         print(f"  Giao diện: {ui_label}")

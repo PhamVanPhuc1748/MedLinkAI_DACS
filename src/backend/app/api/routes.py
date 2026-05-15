@@ -10,7 +10,7 @@ from datetime import datetime, timedelta
 from email.mime.text import MIMEText
 from pathlib import Path
 from typing import Annotated, Dict, Optional
-from fastapi import APIRouter, Depends, Header, HTTPException, status
+from fastapi import APIRouter, Depends, Header, HTTPException, status, UploadFile, File, Form
 # Đảm bảo src/ trong sys.path để import json_repo
 _SRC = Path(__file__).resolve().parents[3]
 if str(_SRC) not in sys.path:
@@ -117,6 +117,106 @@ def health() -> dict:
         "[API] /health -- nguon du lieu: %s", data_source._short_summary()
     )
     return {"status": "ok", "data_source": data_source.current_source()}
+
+
+# ── Database Status & Setup ──────────────────────────────────────────────────
+import logging as _logging
+_db_log = _logging.getLogger("db_management")
+
+@router.get("/db/status")
+def db_status() -> dict:
+    """Trả về trạng thái kết nối database chi tiết."""
+    _db_log.info("[API] /db/status — đang kiểm tra kết nối...")
+    source = data_source.current_source()
+    is_connected = data_source.is_db_connected()
+
+    result = {
+        "source": source,
+        "is_db_connected": is_connected,
+        "db_server": data_source._db_server or "",
+        "db_name": data_source._db_name or "",
+        "db_url": data_source._db_url or "",
+        "json_synced": data_source.is_json_synced(),
+        "json_counts": data_source._json_counts or {},
+    }
+
+    if is_connected:
+        _db_log.info("[API] /db/status — ✅ DB đã kết nối: %s (%s/%s)",
+                     source, result["db_server"], result["db_name"])
+    else:
+        _db_log.warning("[API] /db/status — ❌ Chưa kết nối DB, đang dùng: %s", source)
+
+    return result
+
+
+@router.post("/admin/db/setup")
+def admin_db_setup(
+    user: Annotated[AuthUser, Depends(require_admin)],
+) -> dict:
+    """
+    Chạy setup_database.py để tự động bật SQL Server, tạo DB, tạo bảng.
+    Chỉ Admin mới được phép gọi. Trả về log kết quả.
+    """
+    import subprocess
+    import io
+
+    _db_log.info("[API] /admin/db/setup — Admin '%s' yêu cầu chạy setup database", user.username)
+    project_root = _routes_project_root()
+    setup_script = project_root / "setup_database.py"
+
+    if not setup_script.exists():
+        _db_log.error("[API] /admin/db/setup — Không tìm thấy setup_database.py")
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail=f"Không tìm thấy file setup_database.py tại {project_root}",
+        )
+
+    try:
+        _db_log.info("[API] /admin/db/setup — Đang chạy setup_database.py...")
+        result = subprocess.run(
+            [sys.executable, str(setup_script)],
+            capture_output=True,
+            text=True,
+            timeout=120,
+            cwd=str(project_root),
+        )
+        stdout = result.stdout or ""
+        stderr = result.stderr or ""
+        exit_code = result.returncode
+
+        # Log kết quả ra console backend
+        for line in stdout.splitlines():
+            clean = line.strip()
+            if clean:
+                _db_log.info("[DB-SETUP] %s", clean)
+        if stderr.strip():
+            _db_log.warning("[DB-SETUP STDERR] %s", stderr.strip()[:500])
+
+        if exit_code == 0:
+            _db_log.info("[API] /admin/db/setup — ✔ Hoàn tất thành công (exit=0)")
+        else:
+            _db_log.warning("[API] /admin/db/setup — ⚠ Hoàn tất với exit=%d", exit_code)
+
+        return {
+            "success": exit_code == 0,
+            "exit_code": exit_code,
+            "log": stdout,
+            "error": stderr if exit_code != 0 else "",
+        }
+    except subprocess.TimeoutExpired:
+        _db_log.error("[API] /admin/db/setup — Timeout (>120s)")
+        raise HTTPException(
+            status_code=status.HTTP_504_GATEWAY_TIMEOUT,
+            detail="Setup script chạy quá 120 giây. Hãy kiểm tra SQL Server thủ công.",
+        )
+    except Exception as e:
+        _db_log.exception("[API] /admin/db/setup — Lỗi: %s", e)
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Lỗi khi chạy setup: {e}",
+        )
+
+
 # ── Auth ──────────────────────────────────────────────────────────────────────
 @router.post("/auth/login", response_model=LoginResponse)
 def login(payload: LoginRequest) -> LoginResponse:
@@ -498,6 +598,47 @@ def model_metrics(
         except Exception:
             result["datasets"][ds] = {"error": "Khong doc duoc file"}
     return result
+
+import tempfile
+from ..ai.inference_service import evaluate_custom_model
+
+@router.post("/model/evaluate")
+async def evaluate_model(
+    file: UploadFile = File(...),
+    dataset: str = Form("B-dataset"),
+    user: AuthUser = Depends(require_researcher),
+) -> dict:
+    """Evaluate a custom .pth model on the chosen dataset."""
+    if not file.filename.endswith(".pth"):
+        raise HTTPException(status_code=400, detail="Chi ho tro file .pth")
+    if dataset not in _VALID_DATASETS:
+        raise HTTPException(status_code=400, detail="Dataset khong hop le")
+        
+    try:
+        # Save to temp file
+        with tempfile.NamedTemporaryFile(delete=False, suffix=".pth") as tmp:
+            content = await file.read()
+            tmp.write(content)
+            tmp_path = Path(tmp.name)
+            
+        # Evaluate
+        metrics = evaluate_custom_model(tmp_path, dataset)
+        
+        # Cleanup
+        try:
+            os.unlink(tmp_path)
+        except:
+            pass
+            
+        return {
+            "filename": file.filename,
+            "dataset": dataset,
+            "metrics": metrics
+        }
+    except Exception as e:
+        import traceback
+        traceback.print_exc()
+        raise HTTPException(status_code=500, detail=str(e))
 @router.post("/model/compare")
 def model_compare(payload: ModelCompareRequest, user: AuthUser = Depends(get_current_user)) -> dict:
     _ = user

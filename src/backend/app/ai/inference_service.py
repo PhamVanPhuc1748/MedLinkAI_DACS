@@ -190,3 +190,94 @@ def predict_drugs_by_disease_name(
         })
     rows.sort(key=lambda x: x["score"], reverse=True)
     return input_name, rows[:top_k]
+
+
+def evaluate_custom_model(
+    model_path: Path,
+    dataset: str = "B-dataset",
+) -> dict[str, float]:
+    """Đánh giá model .pth tùy chọn trên toàn bộ dataset."""
+    import torch
+    import numpy as np
+    from .huan_luyen import (
+        doc_ma_tran_optional,
+        doc_lien_ket,
+        chuan_hoa_dac_trung,
+        tao_do_thi,
+        tao_canh_am,
+        _tinh_logits,
+        tinh_chi_so,
+        tim_nguong_toi_uu_f1,
+    )
+    
+    dataset_dir = _dataset_dir(dataset)
+    
+    # 1. Load data
+    try:
+        # Load raw features first to see what we have
+        thuoc_base = pd.read_csv(dataset_dir / "DrugFingerprint.csv", index_col=0).to_numpy(dtype=np.float32)
+        benh_base = pd.read_csv(dataset_dir / "DiseaseFeature.csv", header=None).to_numpy(dtype=np.float32)
+        
+        # Determine actual input dimensions (some models might not use multi-feature)
+        # We will assume the model expects the concatenated features if they exist, or just base
+        # But wait, we can just infer the dimensions from the model weights!
+        state_dict = torch.load(str(model_path), map_location="cpu")
+        
+        # Check the shape of the first layer to infer input dimensions
+        # tich_chap_gcn.convs.0.lin.weight is shape [hidden_dim, in_channels]
+        # or embed_thuoc.weight is [num_drugs, hidden_dim] - wait, we don't have embeddings.
+        # Actually FuzzyGCN uses linear layers for input projection if not using generic embed.
+        # Let's just use the default logic from inference:
+        drug_dim, disease_dim = infer_feature_dims(dataset)
+        
+        # Wait, inference_service.get_model only uses DrugFingerprint and DiseaseFeature (infer_feature_dims).
+        # huan_luyen.py uses ghep_feature_thuoc. Let's stick to base features for compatibility with system model.
+        thuoc_chuan, benh_chuan = chuan_hoa_dac_trung(thuoc_base, benh_base)
+        canh_duong = doc_lien_ket(dataset_dir / "DrugDiseaseAssociationNumber.csv")
+        
+        data = tao_do_thi(thuoc_chuan, benh_chuan, canh_duong)
+        
+        so_thuoc = thuoc_base.shape[0]
+        so_benh = benh_base.shape[0]
+        
+        # Tạo tập nhãn (cạnh dương = 1, cạnh âm = 0)
+        tap_duong = set(tuple(x) for x in canh_duong)
+        canh_am = tao_canh_am(so_thuoc, so_benh, tap_duong, len(canh_duong))
+        
+        canh_toan_bo = np.vstack([canh_duong, canh_am])
+        nhan_toan_bo = np.hstack([np.ones(len(canh_duong)), np.zeros(len(canh_am))])
+        
+        # 2. Init model
+        # Thử lấy parameters từ state_dict nếu có thể, hoặc dùng mặc định
+        hidden_size = 256
+        out_size = 128
+        layers = 3
+        # Có thể quét state_dict để đoán params (Rất phức tạp, dùng default của system trước)
+        
+        model = FuzzyGCN(
+            so_chieu_thuoc=int(drug_dim),
+            so_chieu_benh=int(disease_dim),
+            so_chieu_an=hidden_size,
+            so_chieu_ra=out_size,
+            so_lop_gcn=layers,
+            duong_dan_trong_so=str(model_path),
+        )
+        model.tai_trong_so()
+        model.eval()
+        
+        # 3. Evaluate
+        with torch.no_grad():
+            emb = model(data)
+            cap_tensor = torch.from_numpy(canh_toan_bo.T).long()
+            logits = _tinh_logits(model, emb, cap_tensor, so_thuoc)
+            diem_du_doan = torch.sigmoid(logits).cpu().numpy()
+            
+        nguong_toi_uu = tim_nguong_toi_uu_f1(nhan_toan_bo, diem_du_doan)
+        chi_so = tinh_chi_so(nhan_toan_bo, diem_du_doan, nguong=nguong_toi_uu)
+        
+        return chi_so
+        
+    except Exception as e:
+        import traceback
+        traceback.print_exc()
+        raise RuntimeError(f"Lỗi khi đánh giá model: {e}")
