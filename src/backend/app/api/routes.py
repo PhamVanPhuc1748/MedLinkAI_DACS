@@ -261,12 +261,10 @@ def forgot_password(payload: ForgotPasswordRequest) -> dict:
     }
     try:
         _send_reset_email(payload.email, payload.username, otp)
+        return {"message": "Da gui ma OTP den email cua ban."}
     except Exception as exc:
-        raise HTTPException(
-            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
-            detail=f"Khong the gui email: {exc}",
-        ) from exc
-    return {"message": "Da gui ma OTP den email cua ban."}
+        print(f"[DEMO MODE] Bỏ qua lỗi gửi email. Mã OTP của {payload.username} là: {otp}")
+        return {"message": f"Hệ thống đang ở chế độ Demo (SMTP chưa cấu hình). Mã OTP của bạn là: {otp}"}
 @router.post("/auth/reset-password")
 def reset_password(payload: ResetPasswordRequest) -> dict:
     entry = _OTP_STORE.get(payload.username)

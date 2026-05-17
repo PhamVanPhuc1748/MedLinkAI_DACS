@@ -169,39 +169,26 @@ class FuzzyGCN(nn.Module):
 
     @torch.no_grad()
     def du_doan_top_k(self, drug_id: int, k: int = 5) -> List[Dict[str, float]]:
-        """Dự đoán top-K bệnh có khả năng liên kết với 1 thuốc cụ thể.
-
-        Lưu ý hiện tại: hàm này dùng random score giả lập (placeholder) vì
-        việc chạy inference đầy đủ cần toàn bộ đồ thị. Trong production,
-        cần truyền data_graph vào và gọi forward() + tinh_diem() thực sự.
-
-        Args:
-            drug_id: chỉ số thuốc (0-indexed)
-            k      : số bệnh trả về (top-K theo xác suất)
-        Returns:
-            Danh sách k dict, mỗi dict gồm:
-            {disease_id, disease_name, Probability, score}
-            Sắp xếp giảm dần theo xác suất.
+        """[LEGACY FALLBACK] Hàm này chỉ dùng khi inference_service không thể build đồ thị.
+        
+        Hàm inference thật sự được thực hiện ở inference_service._predict_all_diseases_for_drug()
+        thông qua pipeline: build_full_graph() → model.forward(data) → model.tinh_diem().
+        
+        Hàm này chỉ là placeholder an toàn trả về deterministic random score theo drug_id.
         """
-        self.tai_trong_so()
         k = max(1, int(k))
         torch.manual_seed(int(drug_id) + 2026)
-
         tong_benh = max(20, len(self.id_sang_ten_benh))
-        logits_class_1 = torch.randn(tong_benh)
-        logits_2_lop = torch.stack([-logits_class_1, logits_class_1], dim=1)
-        probs_2_lop = torch.softmax(logits_2_lop, dim=1)
-        xac_suat_class_1 = probs_2_lop[:, 1]
-
-        top_probs, top_indices = torch.topk(xac_suat_class_1, k=min(k, tong_benh))
-
-        ket_qua: List[Dict[str, float]] = []
-        for prob, idx in zip(top_probs.tolist(), top_indices.tolist()):
-            ten_benh = self.id_sang_ten_benh.get(idx, f"Benh_{idx}")
-            ket_qua.append({
-                "disease_id": idx,
-                "disease_name": ten_benh,
+        logits = torch.randn(tong_benh)
+        probs = torch.sigmoid(logits)
+        top_probs, top_indices = torch.topk(probs, k=min(k, tong_benh))
+        return [
+            {
+                "disease_id": int(idx),
+                "disease_name": self.id_sang_ten_benh.get(int(idx), f"Benh_{idx}"),
                 "Probability": float(prob),
                 "score": float(prob),
-            })
-        return ket_qua
+            }
+            for prob, idx in zip(top_probs.tolist(), top_indices.tolist())
+        ]
+

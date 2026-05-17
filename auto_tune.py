@@ -69,6 +69,13 @@ from app.ai.huan_luyen import (
 import numpy as np
 from sklearn.model_selection import StratifiedKFold
 
+# Import TrainLogger — log mọi trial vào train_logs/
+try:
+    from train_logger import TrainLogger
+    _LOGGER_AVAILABLE = True
+except ImportError:
+    _LOGGER_AVAILABLE = False
+
 # ── Thư mục lưu lịch sử ────────────────────────────────────────────────────
 LICH_SU_DIR = _PROJECT_ROOT / "lich_su_thong_so_train"
 LICH_SU_DIR.mkdir(parents=True, exist_ok=True)
@@ -591,6 +598,15 @@ def tu_dong_chinh_thong_so(
         la_tot_nhat = mean_auc > best_auc
         print(f"\n  → AUC={mean_auc:.6f} ± {std_auc:.4f}  (baseline={best_auc:.6f})"
               f"  {'✅ TỐT HƠN!' if la_tot_nhat else '— không cải thiện'}")
+
+        # ── Ghi log vào TrainLogger ─────────────────────────────────────────
+        if _LOGGER_AVAILABLE and chi_so_folds:
+            try:
+                _tl = TrainLogger(dataset=dataset, source="auto_tune_trial", trial_id=trial_id)
+                _tl.begin_from_params(params)
+                _tl.end(chi_so_folds, baseline_auc=baseline_auc)
+            except Exception as _le:
+                pass  # Không để lỗi logger phá vỡ luồng auto-tune
 
         # Lưu lịch sử
         tep_lich_su = _luu_lich_su(

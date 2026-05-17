@@ -1,7 +1,27 @@
 from __future__ import annotations
 
+import sys
+from pathlib import Path
+
 import pandas as pd
 import streamlit as st
+
+
+def _translate_omim(name: str) -> str:
+    """Dịch mã OMIM (D102100) sang tên Tiếng Việt để hiển thị trong bảng kết quả."""
+    n = str(name).strip()
+    if n.upper().startswith("D") and n[1:].isdigit() and 5 <= len(n) <= 8:
+        try:
+            _src_root = Path(__file__).resolve().parents[4]  # src/
+            if str(_src_root) not in sys.path:
+                sys.path.insert(0, str(_src_root))
+            from data.omim_viet_dict import get_viet_name
+            viet = get_viet_name(n.upper())
+            if viet != n:
+                return f"{viet} ({n})"
+        except Exception:
+            pass
+    return n
 
 
 def card_open(title: str, icon: str = "") -> None:
@@ -72,10 +92,11 @@ def show_result_table(results: list[dict], entity_label: str = "Tên") -> None:
             if is_known
             else '<span class="badge-pred">🔬 Dự đoán</span>'
         )
+        display_name = _translate_omim(r.get("name", ""))
         rows_html += f"""
         <tr>
           <td style="color:var(--muted);font-size:0.8rem">{i}</td>
-          <td><strong>{r.get("name", "")}</strong></td>
+          <td><strong>{display_name}</strong></td>
           <td>{badge}</td>
           <td>
             <div class="score-bar-wrap">
@@ -122,10 +143,11 @@ def _render_group_table(group: list[dict], entity_label: str) -> None:
             if is_known
             else '<span class="badge-pred">🔬 Dự đoán</span>'
         )
+        display_name = _translate_omim(r.get("name", ""))
         rows_html += f"""
         <tr>
           <td style="color:var(--muted);font-size:0.8rem">{i}</td>
-          <td><strong>{r.get("name", "")}</strong></td>
+          <td><strong>{display_name}</strong></td>
           <td>{badge}</td>
           <td>
             <div class="score-bar-wrap">

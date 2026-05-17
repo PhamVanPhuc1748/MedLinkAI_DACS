@@ -63,51 +63,50 @@ def _try_connect(eng) -> bool:
         return False
 
 
-# Thử kết nối SQL Server; nếu thất bại tự chuyển sang SQLite
+# Thử kết nối SQL Server; nếu thất bại tự chuyển sang chế độ JSON-only
 engine = _build_engine(SQLALCHEMY_DATABASE_URL)
 if not _try_connect(engine):
     if _is_mssql:
         logger.warning(
-            "⚠️ Không thể kết nối SQL Server (%s), chuyển sang SQLite: %s",
-            SQLALCHEMY_DATABASE_URL,
-            _SQLITE_FALLBACK_URL,
+            "⚠️ Không thể kết nối SQL Server (%s), chuyển sang chế độ JSON-only",
+            SQLALCHEMY_DATABASE_URL
         )
-        print(f"[DB] ⚠️ SQL Server không khả dụng — dùng SQLite ({_SQLITE_FALLBACK_URL})")
-        SQLALCHEMY_DATABASE_URL = _SQLITE_FALLBACK_URL
+        print("[DB] ⚠️ SQL Server không khả dụng — chuyển sang chế độ JSON-only (File-based)")
+        engine = None
         _is_mssql = False
-        engine = _build_engine(SQLALCHEMY_DATABASE_URL)
         ds = _get_data_source()
         if ds:
-            ds.set_db_connected(SQLALCHEMY_DATABASE_URL)
+            ds.set_db_connected(None)
 else:
     ds = _get_data_source()
     if ds:
         ds.set_db_connected(SQLALCHEMY_DATABASE_URL)
 
+if engine is not None:
+    @event.listens_for(engine, "connect")
+    def _on_connect(dbapi_conn, connection_record) -> None:
+        try:
+            cursor = dbapi_conn.cursor()
+            cursor.execute("SELECT @@SERVERNAME, DB_NAME()")
+            server, db = cursor.fetchone()
+            cursor.close()
+            logger.info("✅ Kết nối SQL Server thành công — server: %s | database: %s", server, db)
+            print(f"[DB] ✅ Kết nối thành công — server: {server} | database: {db}")
+            ds = _get_data_source()
+            if ds:
+                ds.set_db_connected(SQLALCHEMY_DATABASE_URL, server=str(server), db_name=str(db))
+        except Exception:
+            logger.info("✅ Kết nối database thành công")
 
-
-@event.listens_for(engine, "connect")
-def _on_connect(dbapi_conn, connection_record) -> None:
-    try:
-        cursor = dbapi_conn.cursor()
-        cursor.execute("SELECT @@SERVERNAME, DB_NAME()")
-        server, db = cursor.fetchone()
-        cursor.close()
-        logger.info("✅ Kết nối SQL Server thành công — server: %s | database: %s", server, db)
-        print(f"[DB] ✅ Kết nối thành công — server: {server} | database: {db}")
-        ds = _get_data_source()
-        if ds:
-            ds.set_db_connected(SQLALCHEMY_DATABASE_URL, server=str(server), db_name=str(db))
-    except Exception:
-        logger.info("✅ Kết nối database thành công")
-
-SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+    SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+else:
+    SessionLocal = None
 
 
 def migrate_add_missing_columns() -> None:
     """Add any columns that are in the ORM model but not yet in the DB table."""
-    if not _is_mssql:
-        return  # SQLite: skip SQL Server–specific DDL
+    if not _is_mssql or engine is None:
+        return  # SQLite / JSON-only: skip SQL Server–specific DDL
     with engine.connect() as conn:
         # nguoi_dung.email — hỗ trợ cả tên cũ (users) và tên mới (nguoi_dung)
         for tbl in ("nguoi_dung", "users"):
@@ -126,13 +125,15 @@ def migrate_add_missing_columns() -> None:
 
 def init_db() -> None:
     """Tạo toàn bộ bảng nếu chưa tồn tại, sau đó chạy migration cột mới."""
-    Base.metadata.create_all(bind=engine)
-    migrate_add_missing_columns()
+    if engine is not None:
+        Base.metadata.create_all(bind=engine)
+        migrate_add_missing_columns()
     # In log trạng thái nguồn dữ liệu trước khi sync
     ds = _get_data_source()
     if ds:
         ds.report()
-    _sync_json_store()
+    if engine is not None:
+        _sync_json_store()
 
 
 def _sync_json_store() -> None:

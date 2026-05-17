@@ -27,6 +27,17 @@ if str(_AI_DIR) not in sys.path:
 
 from mo_hinh_ai import FuzzyGCN  # Import mo hinh FuzzyGCN.
 
+# Import TrainLogger (nam cung cap voi huan_luyen.py 2 cap tren)
+try:
+    _ROOT_DIR = _Path(__file__).resolve().parents[2]
+    if str(_ROOT_DIR) not in sys.path:
+        sys.path.insert(0, str(_ROOT_DIR))
+    from train_logger import TrainLogger
+    _LOGGER_AVAILABLE = True
+except ImportError:
+    _LOGGER_AVAILABLE = False
+    print("[WARN] train_logger.py khong tim thay — se bo qua ghi log")
+
 
 # =========================
 # KHU VUC CAU HINH CHINH
@@ -911,6 +922,30 @@ def _huan_luyen_mot_dataset(args: argparse.Namespace, dataset: str) -> None:
     # Dat seed.
     dat_seed(cau_hinh.seed)
 
+    # ── Khởi tạo TrainLogger ─────────────────────────────────────────────────
+    logger = None
+    if _LOGGER_AVAILABLE:
+        try:
+            # Đọc AUC baseline hiện tại để so sánh sau khi train xong
+            _baseline_auc: float | None = None
+            _metrics_file = Path(cau_hinh.thu_muc_trong_so) / dataset / "kfold_metrics.json"
+            if _metrics_file.exists():
+                try:
+                    _m = json.loads(_metrics_file.read_text(encoding="utf-8"))
+                    _baseline_auc = float(
+                        _m.get("metrics", {}).get("AUC", {}).get("mean", 0)
+                        or _m.get("mean", {}).get("AUC", 0)
+                    )
+                except Exception:
+                    pass
+            logger = TrainLogger(dataset=dataset, source="manual")
+            logger.begin(cau_hinh)
+            # Lưu baseline để dùng lại khi kết thúc
+            logger._record.improved_from = _baseline_auc or 0.0
+        except Exception as _le:
+            print(f"[WARN] TrainLogger.begin() that bai: {_le}")
+            logger = None
+
     # Chuan bi duong dan.
     thu_muc_goc = Path(cau_hinh.thu_muc_goc)
     duong_dataset = thu_muc_goc / "dataset" / cau_hinh.ten_dataset
@@ -1008,6 +1043,13 @@ def _huan_luyen_mot_dataset(args: argparse.Namespace, dataset: str) -> None:
     tep_kq = thu_muc_trong_so / "kfold_metrics.json"
     tep_kq.write_text(json.dumps(ket_qua, indent=2, ensure_ascii=False), encoding="utf-8")
     print(f"Da luu ket qua: {tep_kq}")
+
+    # ── Ghi log huấn luyện vào train_logs/ ──────────────────────────────────
+    if _LOGGER_AVAILABLE:
+        try:
+            logger.end(danh_sach_chi_so)
+        except Exception as _log_err:
+            print(f"[WARN] TrainLogger.end() that bai: {_log_err}")
 
 
 def _chay_auto_tune(dataset: str, args: argparse.Namespace) -> None:

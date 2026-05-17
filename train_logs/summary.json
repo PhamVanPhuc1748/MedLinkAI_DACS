@@ -1,0 +1,21 @@
+{
+  "B-dataset": {
+    "run_id": "B-dataset_manual_20260517_195949_1212",
+    "auc_mean": 0.91785,
+    "auc_std": 0.004031,
+    "aupr_mean": 0.903,
+    "f1_mean": 0.825,
+    "mcc_mean": 0.645,
+    "so_lop_gcn": 4,
+    "kich_thuoc_an": 512,
+    "kich_thuoc_ra": 256,
+    "toc_do_hoc": 0.0003,
+    "weight_decay": 5e-05,
+    "ti_le_am": 1.0,
+    "dropout_decoder": 0.2,
+    "label_smoothing": 0.05,
+    "lambda_rank": 0.25,
+    "updated_at": "2026-05-17 19:59:51",
+    "source": "manual"
+  }
+}
