@@ -5,7 +5,7 @@ import argparse  # Thu vien doc tham so dong lenh.
 import json  # Thu vien luu thong tin checkpoint va ket qua.
 import random  # Thu vien tao so ngau nhien.
 import time  # Thu vien do thoi gian moi epoch.
-from dataclasses import dataclass  # Thu vien tao lop cau hinh don gian.
+from dataclasses import asdict, dataclass  # Dataclass & serialize to dict
 from pathlib import Path  # Thu vien xu ly duong dan file.
 from typing import Any, Dict, List, Set, Tuple  # Thu vien kieu du lieu.
 
@@ -29,7 +29,7 @@ from mo_hinh_ai import FuzzyGCN  # Import mo hinh FuzzyGCN.
 
 # Import TrainLogger (nam cung cap voi huan_luyen.py 2 cap tren)
 try:
-    _ROOT_DIR = _Path(__file__).resolve().parents[2]
+    _ROOT_DIR = _Path(__file__).resolve().parents[4]
     if str(_ROOT_DIR) not in sys.path:
         sys.path.insert(0, str(_ROOT_DIR))
     from train_logger import TrainLogger
@@ -44,99 +44,55 @@ except ImportError:
 # =========================
 @dataclass
 class CauHinh:
-    """Tất cả siêu tham số điều khiển quá trình huấn luyện FuzzyGCN.
-
-    Được thiết kế dưới dạng dataclass để dễ copy, serialize (JSON) và override
-    một phần từ command-line hoặc auto-tune.
-
-    Nhóm tham số chính:
-    - Đường dẫn: thu_muc_goc, ten_dataset, tep_thuoc, tep_benh, tep_lien_ket
-    - Kiến trúc GCN: so_lop_gcn, kich_thuoc_an, kich_thuoc_ra
-    - Optimizer: toc_do_hoc, weight_decay, grad_clip
-    - Scheduler: factor_lr, patience_lr, min_lr
-    - Loss: label_smoothing, lambda_rank, margin_rank, pos_weight_duong
-    - K-Fold: so_fold
-    - Negative sampling: ti_le_am (số mẫu âm / số mẫu dương)
-    - Early stopping: patience, min_delta
-    - Thiết bị: thiet_bi (auto|cuda|cpu), bat_amp
-    """
-    # Thu muc goc cua du an (2 cap tren src/Ai/ -> model_GNN_new/).
-    thu_muc_goc: str = str(Path(__file__).resolve().parents[2])
-    # Ten dataset se dung (vi du: B-dataset).
+    """Siêu tham số huấn luyện FuzzyGCN. Có thể override từ CLI hoặc auto-tune."""
+    # Thư mục gốc dự án (ĐACS folder)
+    thu_muc_goc: str = str(Path(__file__).resolve().parents[4])
     ten_dataset: str = "B-dataset"
-    # Duong dan cac file chinh.
     tep_thuoc: str = "DrugFingerprint.csv"
     tep_benh: str = "DiseaseFeature.csv"
     tep_lien_ket: str = "DrugDiseaseAssociationNumber.csv"
 
-    # Tham so huan luyen.
     so_epoch: int = 2000
     toc_do_hoc: float = 3e-4
     weight_decay: float = 5e-5
     so_lop_gcn: int = 4
     kich_thuoc_an: int = 512
     kich_thuoc_ra: int = 256
-    kiem_nhan_dung_som: int = 150
-    # Gradient clipping (0 = tat)
     grad_clip: float = 1.0
-    # Dropout trong MLP decoder
     dropout_decoder: float = 0.2
-    # Dung nhieu feature files: True = ghep DrugGIP, DiseaseGIP, DiseasePS, Drug_mol2vec
     ghep_nhieu_feature: bool = True
-    # Bat/tat chuan hoa dac trung (StandardScaler)
     bat_chuan_hoa: bool = True
 
-    # Tham so dung som (early stopping).
-    patience: int = 150                # So epoch khong cai thien AUC truoc khi dung
-    min_delta: float = 3e-4            # Nguong cai thien toi thieu de tinh la co tien bo
-
-    # Cau hinh scheduler ReduceLROnPlateau.
+    patience: int = 150
+    min_delta: float = 3e-4
     factor_lr: float = 0.65
     patience_lr: int = 10
     min_lr: float = 1e-6
 
-    # ── Ham mat mat ket hop ──────────────────────────────────────────────
-    # L = L_BCE_LS + lambda_rank * L_margin
-    # L_BCE_LS : BCE voi nhan lam min  y~ = (1-eps)*y + eps/2
-    # L_margin : max(0, gamma - score_pos + score_neg)  (pairwise margin)
-    label_smoothing: float = 0.05      # eps trong label smoothing
-    lambda_rank: float = 0.25          # Trong so cua margin loss
-    margin_rank: float = 0.3           # Bien phan tach trong margin loss
-    pos_weight_duong: float = 1.0      # pos_weight cho BCE
+    label_smoothing: float = 0.05
+    lambda_rank: float = 0.25
+    margin_rank: float = 0.3
+    pos_weight_duong: float = 1.0
 
-    # K-Fold.
     so_fold: int = 10
-
-    # Ti le negative sampling (so am / so duong).
     ti_le_am: float = 1.0
 
-    # Thiet bi.
-    thiet_bi: str = "auto"  # auto|cuda|cpu
+    thiet_bi: str = "auto"
     bat_amp: bool = False
 
-    # Thu muc luu trong so (project_root/weights/<dataset>).
-    thu_muc_trong_so: str = str(Path(__file__).resolve().parents[2] / "weights")
+    # Thư mục lưu trọng số: weights/<dataset>
+    thu_muc_trong_so: str = str(Path(__file__).resolve().parents[4] / "weights")
 
     # Seed.
     seed: int = 42
 
 
-# =========================
-# CAC HAM TAI VA CHUAN HOA DU LIEU
-# =========================
+# ========================
+# HAM TAI VA CHUAN HOA DU LIEU
+# ========================
 
 def dat_seed(seed: int) -> None:
-    """Đặt seed toàn cục để đảm bảo kết quả huấn luyện tái lập được (reproducibility).
-
-    Lý do cần đặt seed ở nhiều nơi:
-    - random: ảnh hưởng đến negative sampling
-    - numpy: ảnh hưởng đến chia K-Fold và khởi tạo dữ liệu
-    - torch: ảnh hưởng đến khởi tạo trọng số mô hình
-    - cuda: đảm bảo GPU cũng cho kết quả nhất quán
-
-    Args:
-        seed: giá trị seed nguyên dương bất kỳ (thường dùng 42)
-    """
+    """Đặt seed toàn cục để tái lập kết quả huấn luyện."""
     random.seed(seed)
     np.random.seed(seed)
     torch.manual_seed(seed)
@@ -145,20 +101,7 @@ def dat_seed(seed: int) -> None:
 
 
 def doc_ma_tran(csv_path: Path) -> np.ndarray:
-    """Đọc file CSV đặc trưng và trả về ma trận numpy float32.
-
-    Các file đặc trưng trong dataset có dạng:
-    - Hàng: mỗi thực thể (thuốc/bệnh)
-    - Cột: mỗi chiều đặc trưng
-    - Cột đầu tiên là index → được bỏ qua (index_col=0)
-
-    Args:
-        csv_path: đường dẫn tuyệt đối đến file CSV
-    Returns:
-        Ma trận shape [N_entities, N_features] kiểu float32
-    Raises:
-        ValueError: nếu dữ liệu không phải 2 chiều
-    """
+    """Đọc CSV đặc trưng thành ma trận numpy float32. Hàng=thực thể, cột=đặc trưng."""
     df = pd.read_csv(csv_path, index_col=0)
     matrix = df.to_numpy(dtype=np.float32)
     if matrix.ndim != 2:
@@ -231,22 +174,7 @@ def doc_lien_ket(csv_path: Path) -> np.ndarray:
 
 
 def can_chinh_hang(matrix: np.ndarray, muc_tieu: int | None, nhan: str) -> np.ndarray:
-    """Tự động căn chỉnh ma trận sao cho số hàng = số thực thể.
-
-    Một số file CSV trong dataset có thể lưu theo chiều ngược (thực thể là cột
-    thay vì hàng). Hàm này phát hiện và chuyển vị nếu cần.
-
-    Chiến lược:
-    1. Nếu biết mục tiêu (muc_tieu): so khớp trực tiếp, thử transpose nếu không khớp.
-    2. Nếu không biết: heuristic — số hàng >= số cột → hàng là thực thể (phổ biến hơn).
-
-    Args:
-        matrix  : ma trận đặc trưng cần căn chỉnh
-        muc_tieu: số thực thể mong đợi (None nếu không biết)
-        nhan    : tên dùng trong cảnh báo (ví dụ: 'Thuoc', 'Benh')
-    Returns:
-        Ma trận đã căn chỉnh với shape[0] = số thực thể
-    """
+    """Căn chỉnh ma trận: nhanh để thực thể nằm ở hàng. Transpose nếu cần."""
     if muc_tieu is not None:
         if matrix.shape[0] == muc_tieu:
             return matrix
@@ -262,23 +190,7 @@ def can_chinh_hang(matrix: np.ndarray, muc_tieu: int | None, nhan: str) -> np.nd
 
 
 def chuan_hoa_dac_trung(thuoc: np.ndarray, benh: np.ndarray) -> Tuple[np.ndarray, np.ndarray]:
-    """Chuẩn hóa đặc trưng thuốc và bệnh bằng StandardScaler.
-
-    Mục đích:
-    - Đưa các đặc trưng về phân phối zero-mean, unit-variance.
-    - Giảm ảnh hưởng của sự chênh lệch thang đo (fingerprint vs GIP có giá trị rất khác nhau).
-    - Tăng tốc hội tụ của gradient descent và giảm nguy cơ gradient explosion.
-
-    Lưu ý: Fit trên toàn bộ dữ liệu (không tách train/test riêng cho bước này)
-    vì đây là chuẩn hóa đặc trưng, không phải target. Thực tế không gây data leakage
-    vì scaler chỉ học mean/std, không học từ nhãn.
-
-    Args:
-        thuoc: ma trận đặc trưng thuốc [N_drug, D_drug]
-        benh : ma trận đặc trưng bệnh  [N_disease, D_disease]
-    Returns:
-        (thuoc_chuan, benh_chuan): hai ma trận đã chuẩn hóa, kiểu float32
-    """
+    """Chuẩn hóa đặc trưng bằng StandardScaler (mean=0, std=1)."""
     scaler_thuoc = StandardScaler()
     scaler_benh = StandardScaler()
     thuoc_chuan = scaler_thuoc.fit_transform(thuoc)
@@ -286,30 +198,12 @@ def chuan_hoa_dac_trung(thuoc: np.ndarray, benh: np.ndarray) -> Tuple[np.ndarray
     return thuoc_chuan.astype(np.float32), benh_chuan.astype(np.float32)
 
 
-# =========================
-# CAC HAM TAO DO THI
-# =========================
+# ========================
+# HAM TAO DO THI
+# ========================
 
 def tao_do_thi(thuoc: np.ndarray, benh: np.ndarray, canh_duong: np.ndarray) -> HeteroData:
-    """Tạo đồ thị HeteroData (dị đồng nhất) cho PyTorch Geometric.
-
-    Cấu trúc đồ thị:
-    - Nút loại 'drug'   : đặc trưng x ∈ ℝ^{N_drug × D_drug}
-    - Nút loại 'disease': đặc trưng x ∈ ℝ^{N_disease × D_disease}
-    - Cạnh 'drug → interacts → disease'    : cạnh dương xuôi chiều
-    - Cạnh 'disease → rev_interacts → drug': cạnh dương ngược chiều (để GCN truyền tin 2 chiều)
-
-    Chỉ dùng cạnh dương (liên kết đã xác nhận) để xây đồ thị — cạnh âm
-    được dùng riêng trong hàm mất mát, không đưa vào đồ thị để tránh
-    làm ô nhiễm cấu trúc thông tin.
-
-    Args:
-        thuoc     : đặc trưng thuốc [N_drug, D_drug]
-        benh      : đặc trưng bệnh  [N_disease, D_disease]
-        canh_duong: cạnh dương shape [N_edges, 2] (cột 0: drug_id, cột 1: disease_id)
-    Returns:
-        HeteroData sẵn sàng đưa vào mô hình GCN
-    """
+    """Tạo HeteroData: nút (drug, disease) và cạnh dương (cả chiều xuôi & ngược)."""
     data = HeteroData()
     data["drug"].x = torch.from_numpy(thuoc)
     data["disease"].x = torch.from_numpy(benh)
@@ -319,9 +213,9 @@ def tao_do_thi(thuoc: np.ndarray, benh: np.ndarray, canh_duong: np.ndarray) -> H
     return data
 
 
-# =========================
-# CAC HAM NEGATIVE SAMPLING
-# =========================
+# ========================
+# HAM NEGATIVE SAMPLING
+# ========================
 
 def tao_canh_am(
     so_thuoc: int,
@@ -329,29 +223,7 @@ def tao_canh_am(
     tap_duong: Set[Tuple[int, int]],
     so_luong: int,
 ) -> np.ndarray:
-    """Sinh cạnh âm (negative edges) bằng phương pháp random negative sampling.
-
-    Trong bài toán dự đoán liên kết thuốc-bệnh, dữ liệu âm (cặp không liên kết)
-    không tồn tại trong dataset mà phải được tạo giả. Chiến lược phổ biến nhất
-    là uniform random sampling: chọn ngẫu nhiên các cặp (drug, disease) không có
-    trong tập liên kết dương.
-
-    Tại sao cần negative sampling?
-    - Nếu chỉ train với cạnh dương → mô hình luôn predict positive → vô nghĩa.
-    - Tỉ lệ âm/dương (ti_le_am) ảnh hưởng lớn đến precision/recall.
-
-    Kỹ thuật tối ưu tốc độ:
-    - Lấy batch lớn (3× lượng cần) mỗi lần để giảm số vòng lặp.
-    - Kiểm tra membership bằng set O(1) thay vì list O(N).
-
-    Args:
-        so_thuoc: tổng số thuốc trong dataset
-        so_benh : tổng số bệnh trong dataset
-        tap_duong: set các cặp (drug_id, disease_id) đã có liên kết dương
-        so_luong: số cạnh âm cần sinh
-    Returns:
-        Ma trận [so_luong, 2] chứa các cặp âm, đảm bảo không trùng với tập dương
-    """
+    """Sinh cạnh âm random: chọn cặp (drug, disease) không có trong tap_duong."""
     canh_am: List[Tuple[int, int]] = []
     while len(canh_am) < so_luong:
         so_mau = max(2048, (so_luong - len(canh_am)) * 3)
@@ -365,12 +237,12 @@ def tao_canh_am(
     return np.array(canh_am, dtype=np.int64)
 
 
-# =========================
-# CAC HAM TINH DIEM VA CHI SO
-# =========================
+# ========================
+# HAM TINH DIEM VA CHI SO
+# ========================
 
 def giai_ma_diem(emb: torch.Tensor, cap: torch.Tensor, offset_benh: int, mo_hinh: "FuzzyGCN" = None) -> torch.Tensor:  # type: ignore[name-defined]
-    """Tinh logit. Neu truyen mo_hinh thi dung MLP decoder (tot hon), khong thi dung dot product."""
+    """Tính logit: dùng MLP decoder nếu có, nếu không dùng dot product."""
     if mo_hinh is not None:
         return mo_hinh.tinh_diem(emb, cap, offset_benh)
     # Fallback: dot product don gian
@@ -387,7 +259,7 @@ def _tinh_logits(
     cap: torch.Tensor,
     offset_benh: int,
 ) -> torch.Tensor:
-    """Dung bo_giai_ma (MLP) neu co, fallback ve dot-product."""
+    """Tính logit: MLP decoder nếu có, fallback dot-product."""
     if hasattr(mo_hinh, "tinh_diem"):
         return mo_hinh.tinh_diem(emb, cap, offset_benh)
     return giai_ma_diem(emb, cap, offset_benh)
@@ -480,27 +352,7 @@ def tinh_loss_ket_hop(
 
 
 def tim_nguong_toi_uu_f1(y_true: np.ndarray, y_score: np.ndarray) -> float:
-    """Tìm ngưỡng phân loại tối ưu theo F1-score trên tập train.
-
-    Mô hình GCN xuất ra xác suất liên tục [0, 1]. Để chuyển sang nhãn nhị phân
-    (liên kết / không liên kết), cần chọn ngưỡng phù hợp.
-
-    Vì sao không dùng 0.5 cố định?
-    - Dữ liệu bất cân bằng (âm >> dương): ngưỡng 0.5 thường thiên về predict âm.
-    - Tối ưu ngưỡng theo F1 giúp cân bằng Precision và Recall tốt hơn.
-
-    Chiến lược:
-    - Quét 61 ngưỡng trong [0.2, 0.8] (bước 0.01).
-    - Chọn ngưỡng cho F1 cao nhất trên tập TRAIN.
-    - Áp dụng ngưỡng đó để đánh giá trên tập TEST (không data leakage vì
-      chỉ tối ưu ngưỡng, không tối ưu trọng số mô hình).
-
-    Args:
-        y_true : nhãn thực [0/1], shape [N]
-        y_score: xác suất dự đoán [0..1], shape [N]
-    Returns:
-        Ngưỡng tối ưu trong [0.2, 0.8]
-    """
+    """Tìm ngưỡng phân loại có F1-score cao nhất trong [0.2, 0.8]."""
     from sklearn.metrics import f1_score
 
     nguong_tot_nhat = 0.5
@@ -515,27 +367,7 @@ def tim_nguong_toi_uu_f1(y_true: np.ndarray, y_score: np.ndarray) -> float:
 
 
 def tinh_chi_so(y_true: np.ndarray, y_score: np.ndarray, nguong: float = 0.5) -> Dict[str, float]:
-    """Tính đầy đủ các chỉ số đánh giá mô hình phân loại nhị phân.
-
-    Các chỉ số được tính:
-    - AUC  (Area Under ROC Curve): khả năng phân biệt positive/negative, [0,1].
-             AUC=0.5 → random, AUC=1.0 → hoàn hảo.
-    - AUPR (Average Precision / Area Under PR Curve): quan trọng khi dữ liệu
-             bất cân bằng (ít positive). Khắt khe hơn AUC.
-    - Accuracy: tỉ lệ dự đoán đúng, ít ý nghĩa khi mất cân bằng.
-    - Precision: trong các dự đoán positive, bao nhiêu đúng thực sự.
-    - Recall (Sensitivity): trong các positive thực, mô hình phát hiện được bao nhiêu.
-    - F1: trung bình điều hòa Precision và Recall.
-    - MCC (Matthews Correlation Coefficient): chỉ số cân bằng tốt nhất cho
-             dữ liệu bất cân bằng, [-1, 1] (1 = hoàn hảo, 0 = random).
-
-    Args:
-        y_true : nhãn thực [0/1]
-        y_score: xác suất dự đoán [0..1]
-        nguong : ngưỡng phân loại (từ tim_nguong_toi_uu_f1)
-    Returns:
-        Dict chứa 7 chỉ số đánh giá
-    """
+    """Tính 7 chỉ số: AUC, AUPR, Accuracy, Precision, Recall, F1, MCC."""
     from sklearn.metrics import (
         accuracy_score,
         average_precision_score,
@@ -570,9 +402,9 @@ def tinh_chi_so(y_true: np.ndarray, y_score: np.ndarray, nguong: float = 0.5) ->
     }
 
 
-# =========================
+# =======================
 # HAM HUAN LUYEN 1 FOLD
-# =========================
+# =======================
 
 def huan_luyen_1_fold(
     cau_hinh: CauHinh,
@@ -586,40 +418,7 @@ def huan_luyen_1_fold(
     thu_muc_trong_so: Path,
     fold_id: int,
 ) -> Dict[str, float]:
-    """Huấn luyện và đánh giá FuzzyGCN trên 1 fold của K-Fold cross-validation.
-
-    Quy trình:
-    1. Khởi tạo mô hình FuzzyGCN với cấu hình đã cho.
-    2. Optimizer: AdamW (weight decay tách biệt khỏi gradient, tốt hơn Adam).
-    3. Scheduler: ReduceLROnPlateau(mode='max') — giảm lr khi AUC không tăng.
-    4. Mỗi epoch:
-       a. Forward pass → tính loss kết hợp (BCE_LS + margin).
-       b. Backward + gradient clipping → optimizer step.
-       c. Đánh giá trên tập test, tìm ngưỡng tối ưu F1 trên train.
-       d. Nếu AUC cải thiện → lưu checkpoint (best_fold_N.pth).
-       e. Early stopping: dừng nếu không cải thiện sau patience epoch.
-    5. Load checkpoint tốt nhất → đánh giá lần cuối trên test → trả về chỉ số.
-
-    Kỹ thuật:
-    - AMP (Automatic Mixed Precision): tăng tốc 2-4x trên GPU hỗ trợ float16.
-    - Gradient clipping: tránh gradient explosion khi loss margin lớn.
-    - ReduceLROnPlateau: tự động giảm lr khi học đưa vào saddle point.
-
-    Args:
-        cau_hinh        : toàn bộ siêu tham số được đóng gói trong CauHinh
-        data_train      : đồ thị HeteroData cho tập train của fold này
-        canh_train      : tất cả cạnh (dương + âm) trong tập train [N_train, 2]
-        nhan_train      : nhãn tương ứng [0/1] cho canh_train [N_train]
-        canh_test       : tất cả cạnh trong tập test [N_test, 2]
-        nhan_test       : nhãn tương ứng [0/1] cho canh_test [N_test]
-        so_thuoc        : tổng số thuốc (cần để tính offset index trong embedding)
-        so_benh         : tổng số bệnh
-        thu_muc_trong_so: thư mục lưu checkpoint (best_fold_N.pth)
-        fold_id         : chỉ số fold (1-indexed, dùng để đặt tên file checkpoint)
-    Returns:
-        Dict chứa 7 chỉ số đánh giá trên tập test của fold này:
-        {AUC, AUPR, Accuracy, Precision, Recall, F1, MCC}
-    """
+    """Huấn luyện FuzzyGCN 1 fold: AdamW + ReduceLROnPlateau + Early Stop + AMP."""
     # Chon thiet bi.
     dung_cuda = torch.cuda.is_available() and cau_hinh.thiet_bi in {"auto", "cuda"}
     device = torch.device("cuda" if dung_cuda else "cpu")
@@ -653,8 +452,9 @@ def huan_luyen_1_fold(
         mode="max",
         factor=cau_hinh.factor_lr,
         patience=cau_hinh.patience_lr,
-        min_lr=cau_hinh.min_lr,
-        verbose=False,
+        min_lr=cau_hinh.min_lr
+        #verbose bị loại bỏ nên xóa bỏ tránh lỗi
+        #verbose=False,
     )
 
     # Tao scaler cho AMP.
@@ -790,15 +590,7 @@ ALL_DATASETS = ["B-dataset", "C-dataset", "F-dataset"]
 
 
 def parse_args() -> argparse.Namespace:
-    """Đọc tham số dòng lệnh cho huấn luyện FuzzyGCN.
-
-    Ngoài các tham số huấn luyện thông thường, còn có nhóm --auto-tune-*:
-    - --auto-tune        : Bật auto-tune tự động sau khi train xong
-    - --auto-tune-trials : Số trial tìm kiếm thông số (mặc định 20)
-    - --auto-tune-max-epochs: Số epoch tối đa mỗi trial (mặc định 500)
-    - --auto-tune-folds  : Số fold mỗi trial (mặc định 3, dùng fold đầu để nhanh)
-    - --auto-tune-target-auc: AUC mục tiêu dừng sớm (mặc định 0.99)
-    """
+    """Parse tham số dòng lệnh huấn luyện FuzzyGCN."""
     # Tao parser va nap tham so.
     parser = argparse.ArgumentParser(
         description="Huan luyen FuzzyGCN voi K-Fold.",
@@ -871,23 +663,7 @@ Vi du:
 
 
 def _huan_luyen_mot_dataset(args: argparse.Namespace, dataset: str) -> None:
-    """Huấn luyện đầy đủ K-Fold cho 1 dataset, lưu trọng số và kết quả vào thư mục weights/.
-
-    Quy trình tổng thể:
-    1. Đọc và chuẩn bị dữ liệu: đặc trưng + liên kết + negative sampling.
-    2. StratifiedKFold: chia train/test giữ nguyên tỉ lệ positive (10%).
-    3. Mỗi fold: gọi huan_luyen_1_fold() → trả về chi số.
-    4. Tính trung bình và độ lệch chuẩn các chỉ số qua tất cả fold.
-    5. Lưu kết quả vào weights/<dataset>/kfold_metrics.json.
-
-    Tại sao dùng Stratified K-Fold?
-    - Dữ liệu có tỉ lệ dương/âm không bằng nhau (thường ~10% positive).
-    - Stratified đảm bảo mỗi fold giữ cùng tỉ lệ → ước lượng AUC ổn định hơn.
-
-    Args:
-        args   : tham số dòng lệnh đã parse (epochs, lr, k_fold, etc.)
-        dataset: tên dataset (ví dụ: 'C-dataset')
-    """
+    """Huấn luyện K-Fold cho 1 dataset, lưu weights và kết quả vào weights/<dataset>/."""
     print(f"\n{'='*60}")
     print(f"  DATASET: {dataset}")
     print(f"{'='*60}")
@@ -1053,25 +829,7 @@ def _huan_luyen_mot_dataset(args: argparse.Namespace, dataset: str) -> None:
 
 
 def _chay_auto_tune(dataset: str, args: argparse.Namespace) -> None:
-    """Chạy auto-tune sau khi training bình thường hoàn tất.
-
-    Quy trình tích hợp:
-    1. Import auto_tune lazily (tránh circular import).
-    2. Gọi tu_dong_chinh_thong_so() — tìm thông số tốt hơn baseline AUC.
-    3. Nếu tìm được thông số tốt hơn → gọi _retrain_voi_thong_so_tot_nhat()
-       để retrain đầy đủ K-Fold với thông số đó và lưu trọng số mới.
-
-    Lưu ý về circular import:
-    - auto_tune.py import từ huan_luyen.py ở module level
-    - Ta import auto_tune lazily (bên trong hàm) để khi gọi hàm này,
-      huan_luyen đã nằm trong sys.modules → Python dùng lại, không tạo lại.
-    - Không có circular import thực sự vì lazy import chỉ chạy sau khi
-      huan_luyen đã được load đầy đủ.
-
-    Args:
-        dataset: tên dataset (B-dataset / C-dataset / F-dataset)
-        args   : Namespace từ parse_args(), dùng để lấy các tham số auto-tune
-    """
+    """Chạy auto-tune: tìm thông số tốt hơn & retrain nếu thành công."""
     import sys as _sys
 
     # Tìm project root: dùng CauHinh.thu_muc_goc làm tham chiếu (đây là gốc của dataset/ và weights/)
@@ -1127,7 +885,7 @@ def _chay_auto_tune(dataset: str, args: argparse.Namespace) -> None:
 
 
 def main() -> None:
-    """Điểm vào chính: parse args → train → (nếu --auto-tune) tự động tìm thông số tốt hơn."""
+    """Điểm vào chính: parse args → train → (nếu --auto-tune) auto-tune."""
     # Doc tham so.
     args = parse_args()
 

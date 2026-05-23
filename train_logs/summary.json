@@ -17,5 +17,43 @@
     "lambda_rank": 0.25,
     "updated_at": "2026-05-17 19:59:51",
     "source": "manual"
+  },
+  "F-dataset": {
+    "run_id": "F-dataset_manual_20260523_134923_2747",
+    "auc_mean": 0.928995,
+    "auc_std": 0.012773,
+    "aupr_mean": 0.942082,
+    "f1_mean": 0.855587,
+    "mcc_mean": 0.733362,
+    "so_lop_gcn": 4,
+    "kich_thuoc_an": 512,
+    "kich_thuoc_ra": 256,
+    "toc_do_hoc": 0.0003,
+    "weight_decay": 5e-05,
+    "ti_le_am": 1.0,
+    "dropout_decoder": 0.2,
+    "label_smoothing": 0.05,
+    "lambda_rank": 0.25,
+    "updated_at": "2026-05-23 13:59:33",
+    "source": "manual"
+  },
+  "C-dataset": {
+    "run_id": "C-dataset_manual_20260523_140109_7714",
+    "auc_mean": 0.943764,
+    "auc_std": 0.009306,
+    "aupr_mean": 0.953502,
+    "f1_mean": 0.872489,
+    "mcc_mean": 0.764804,
+    "so_lop_gcn": 4,
+    "kich_thuoc_an": 512,
+    "kich_thuoc_ra": 256,
+    "toc_do_hoc": 0.0003,
+    "weight_decay": 5e-05,
+    "ti_le_am": 1.0,
+    "dropout_decoder": 0.2,
+    "label_smoothing": 0.05,
+    "lambda_rank": 0.25,
+    "updated_at": "2026-05-23 14:12:32",
+    "source": "manual"
   }
 }

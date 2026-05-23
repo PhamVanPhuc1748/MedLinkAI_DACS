@@ -2,19 +2,22 @@
   {
     "id": 1,
     "username": "admin",
-    "email": null,
-    "role": "admin"
+    "email": "admin@medlink.ai",
+    "role": "admin",
+    "password_hash": "240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9"
   },
   {
     "id": 2,
     "username": "user",
-    "email": null,
-    "role": "user"
+    "email": "user@medlink.ai",
+    "role": "user",
+    "password_hash": "e606e38b0d8c19b24cf0ee3808183162ea7cd63ff7912dbb22b5e803286b4446"
   },
   {
     "id": 3,
     "username": "expert",
     "email": "expert@medlink.ai",
-    "role": "expert"
+    "role": "expert",
+    "password_hash": "34a6c1a9600377c8dc05ea00380f406fb52e8104e921dc6bd5869bfdf1516164"
   }
 ]
