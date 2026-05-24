@@ -2,6 +2,7 @@ from __future__ import annotations
 
 # Import cac thu vien can thiet de xu ly tham so, du lieu va huan luyen.
 import argparse  # Thu vien doc tham so dong lenh.
+from datetime import datetime  # Thu vien lay thoi gian hien tai.
 import json  # Thu vien luu thong tin checkpoint va ket qua.
 import random  # Thu vien tao so ngau nhien.
 import time  # Thu vien do thoi gian moi epoch.
@@ -417,8 +418,13 @@ def huan_luyen_1_fold(
     so_benh: int,
     thu_muc_trong_so: Path,
     fold_id: int,
-) -> Dict[str, float]:
-    """Huấn luyện FuzzyGCN 1 fold: AdamW + ReduceLROnPlateau + Early Stop + AMP."""
+) -> Tuple[Dict[str, float], List[Dict[str, Any]]]:
+    """Huấn luyện FuzzyGCN 1 fold: AdamW + ReduceLROnPlateau + Early Stop + AMP.
+    
+    Trả về: (best_chi_so, epoch_history)
+    - best_chi_so: dict chỉ số tốt nhất
+    - epoch_history: danh sách chi tiết từng epoch [{'epoch': ..., 'time': ..., 'auc': ..., 'aupr': ..., 'accuracy': ...}, ...]
+    """
     # Chon thiet bi.
     dung_cuda = torch.cuda.is_available() and cau_hinh.thiet_bi in {"auto", "cuda"}
     device = torch.device("cuda" if dung_cuda else "cpu")
@@ -464,6 +470,7 @@ def huan_luyen_1_fold(
     best_auc = -1.0
     best_chi_so: Dict[str, float] = {}
     dem_dung_som = 0
+    epoch_history: List[Dict[str, Any]] = []  # Luu chi tiet moi epoch
 
     # pos_weight cho BCE (ket hop voi label smoothing).
     pos_weight = torch.tensor([cau_hinh.pos_weight_duong], device=device)
@@ -546,6 +553,15 @@ def huan_luyen_1_fold(
             f"{chi_so['Accuracy']:.4f}                  {chi_so['Precision']:.4f}                 "
             f"{chi_so['Recall']:.4f}        {chi_so['F1']:.4f}                  {chi_so['MCC']:.4f}"
         )
+        
+        # Luu chi tiet epoch vao epoch_history
+        epoch_history.append({
+            'epoch': int(epoch),
+            'time': float(thoi_gian_epoch),
+            'auc': float(chi_so['AUC']),
+            'aupr': float(chi_so['AUPR']),
+            'accuracy': float(chi_so['Accuracy'])
+        })
 
         # Cap nhat scheduler theo AUC de hoc sau hon va on dinh hon.
         scheduler.step(chi_so["AUC"])
@@ -578,8 +594,8 @@ def huan_luyen_1_fold(
                 emb_best = mo_hinh(data_train)
                 diem_best = torch.sigmoid(_tinh_logits(mo_hinh, emb_best, cap_test, so_thuoc))
             best_chi_so = tinh_chi_so(nhan_test_t.cpu().numpy(), diem_best.cpu().numpy())
-        return best_chi_so
-    return chi_so
+        return best_chi_so, epoch_history
+    return chi_so, epoch_history
 
 
 # =========================
@@ -660,6 +676,75 @@ Vi du:
         help="AUC muc tieu de dung som (mac dinh: 0.99)",
     )
     return parser.parse_args()
+
+
+def luu_lich_su_train(
+    dataset: str,
+    cau_hinh: CauHinh,
+    best_fold_id: int,
+    best_epoch_history: List[Dict[str, Any]],
+    mean_metrics: Dict[str, float],
+) -> None:
+    """Lưu lịch sử huấn luyện tốt nhất vào thư mục lich_su_thong_so_train.
+    
+    Args:
+        dataset: tên dataset (VD: C-dataset)
+        cau_hinh: cấu hình huấn luyện
+        best_fold_id: fold có AUC cao nhất
+        best_epoch_history: danh sách epoch [{'epoch': ..., 'time': ..., 'auc': ..., 'aupr': ..., 'accuracy': ...}, ...]
+        mean_metrics: dict chứa mean AUC, AUPR, Accuracy từ K-Fold
+    """
+    thu_muc_lich_su = Path(cau_hinh.thu_muc_goc) / "lich_su_thong_so_train"
+    thu_muc_lich_su.mkdir(parents=True, exist_ok=True)
+    
+    # Tạo tên file theo ngày giờ hiện tại
+    now = datetime.now()
+    timestamp = now.strftime("%Y%m%d_%H%M%S")
+    ten_file = f"{dataset}_{timestamp}.json"
+    duong_dan_file = thu_muc_lich_su / ten_file
+    
+    # Chuẩn bị dữ liệu để lưu
+    record = {
+        "dataset": dataset,
+        "date": now.strftime("%Y-%m-%d"),
+        "time": now.strftime("%H:%M:%S"),
+        "timestamp": timestamp,
+        "config": {
+            "so_epoch": cau_hinh.so_epoch,
+            "toc_do_hoc": cau_hinh.toc_do_hoc,
+            "weight_decay": cau_hinh.weight_decay,
+            "so_lop_gcn": cau_hinh.so_lop_gcn,
+            "kich_thuoc_an": cau_hinh.kich_thuoc_an,
+            "kich_thuoc_ra": cau_hinh.kich_thuoc_ra,
+            "dropout_decoder": cau_hinh.dropout_decoder,
+            "grad_clip": cau_hinh.grad_clip,
+            "patience": cau_hinh.patience,
+            "min_delta": cau_hinh.min_delta,
+            "factor_lr": cau_hinh.factor_lr,
+            "patience_lr": cau_hinh.patience_lr,
+            "min_lr": cau_hinh.min_lr,
+            "label_smoothing": cau_hinh.label_smoothing,
+            "lambda_rank": cau_hinh.lambda_rank,
+            "margin_rank": cau_hinh.margin_rank,
+            "pos_weight_duong": cau_hinh.pos_weight_duong,
+            "so_fold": cau_hinh.so_fold,
+            "ti_le_am": cau_hinh.ti_le_am,
+            "bat_chuan_hoa": cau_hinh.bat_chuan_hoa,
+            "ghep_nhieu_feature": cau_hinh.ghep_nhieu_feature,
+            "thiet_bi": cau_hinh.thiet_bi,
+            "bat_amp": cau_hinh.bat_amp,
+        },
+        "best_fold": best_fold_id,
+        "mean_metrics": mean_metrics,
+        "best_epoch_history": best_epoch_history,
+    }
+    
+    # Ghi vào file JSON
+    duong_dan_file.write_text(
+        json.dumps(record, indent=2, ensure_ascii=False),
+        encoding="utf-8"
+    )
+    print(f"\n[+] Da luu lich su train: {duong_dan_file}")
 
 
 def _huan_luyen_mot_dataset(args: argparse.Namespace, dataset: str) -> None:
@@ -773,6 +858,11 @@ def _huan_luyen_mot_dataset(args: argparse.Namespace, dataset: str) -> None:
     skf = StratifiedKFold(n_splits=cau_hinh.so_fold, shuffle=True, random_state=cau_hinh.seed)
 
     danh_sach_chi_so: List[Dict[str, float]] = []
+    danh_sach_epoch_history: List[List[Dict[str, Any]]] = []  # Luu epoch_history cua moi fold
+    best_fold_id = 1
+    best_fold_auc = -1.0
+    best_epoch_history: List[Dict[str, Any]] = []
+    
     for fold_id, (train_idx, test_idx) in enumerate(skf.split(canh_tat_ca, nhan_tat_ca), start=1):
         print(f"\n=== [{dataset}] Fold {fold_id}/{cau_hinh.so_fold} ===")
         canh_train = canh_tat_ca[train_idx]
@@ -783,7 +873,7 @@ def _huan_luyen_mot_dataset(args: argparse.Namespace, dataset: str) -> None:
         # Tao do thi chi tu tap train duong (tranh ro ri thong tin).
         data_train = tao_do_thi(thuoc, benh, canh_train[nhan_train == 1])
 
-        chi_so = huan_luyen_1_fold(
+        chi_so, epoch_history = huan_luyen_1_fold(
             cau_hinh=cau_hinh,
             data_train=data_train,
             canh_train=canh_train,
@@ -796,6 +886,13 @@ def _huan_luyen_mot_dataset(args: argparse.Namespace, dataset: str) -> None:
             fold_id=fold_id,
         )
         danh_sach_chi_so.append(chi_so)
+        danh_sach_epoch_history.append(epoch_history)
+        
+        # Theo dõi fold nào có AUC cao nhất
+        if chi_so['AUC'] > best_fold_auc:
+            best_fold_auc = chi_so['AUC']
+            best_fold_id = fold_id
+            best_epoch_history = epoch_history
 
     # Tinh mean va std cho tung chi so.
     ket_qua: Dict[str, Any] = {"dataset": dataset, "so_fold": cau_hinh.so_fold, "metrics": {}}
@@ -819,6 +916,20 @@ def _huan_luyen_mot_dataset(args: argparse.Namespace, dataset: str) -> None:
     tep_kq = thu_muc_trong_so / "kfold_metrics.json"
     tep_kq.write_text(json.dumps(ket_qua, indent=2, ensure_ascii=False), encoding="utf-8")
     print(f"Da luu ket qua: {tep_kq}")
+    
+    # Luu lich su train toi uu vao thu muc lich_su_thong_so_train
+    mean_metrics = {
+        "AUC": ket_qua["metrics"]["AUC"]["mean"],
+        "AUPR": ket_qua["metrics"]["AUPR"]["mean"],
+        "Accuracy": ket_qua["metrics"]["Accuracy"]["mean"],
+    }
+    luu_lich_su_train(
+        dataset=dataset,
+        cau_hinh=cau_hinh,
+        best_fold_id=best_fold_id,
+        best_epoch_history=best_epoch_history,
+        mean_metrics=mean_metrics,
+    )
 
     # ── Ghi log huấn luyện vào train_logs/ ──────────────────────────────────
     if _LOGGER_AVAILABLE:
