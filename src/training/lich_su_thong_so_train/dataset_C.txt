@@ -1,0 +1,23 @@
+so_epoch: int = 1000
+    toc_do_hoc: float = 5e-4
+    weight_decay: float = 2e-4
+    so_lop_gcn: int = 3
+    kich_thuoc_an: int = 192
+    kich_thuoc_ra: int = 96
+    kiem_nhan_dung_som: int = 50
+
+    # K-Fold.
+    so_fold: int = 10
+
+    # Ti le negative sampling (so am / so duong).
+    ti_le_am: float = 1.2
+
+    # Thiet bi.
+    thiet_bi: str = "auto"  # auto|cuda|cpu
+    bat_amp: bool = False
+
+    # Thu muc luu trong so (project_root/weights/<dataset>).
+    thu_muc_trong_so: str = str(Path(__file__).resolve().parents[2] / "weights")
+
+    # Seed.
+    seed: int = 42

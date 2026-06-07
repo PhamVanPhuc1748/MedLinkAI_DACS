@@ -1,0 +1,51 @@
+# PyTorch và PyTorch Geometric
+torch>=2.0.0
+torch-geometric>=2.3.0
+
+# Data Processing
+pandas>=1.5.0
+numpy>=1.21.0
+scipy>=1.9.0
+
+# Machine Learning
+scikit-learn>=1.0.0
+
+# Web UI
+streamlit>=1.20.0
+streamlit-option-menu>=0.3.6
+
+# Đồ thị tương tác (trang Lưới Sinh Học)
+pyvis>=0.3.2
+
+# Render cấu trúc phân tử SMILES → SVG (server-side, không cần CDN)
+rdkit>=2022.9.0
+
+# API
+fastapi>=0.110.0
+uvicorn>=0.29.0
+requests>=2.31.0
+
+# Database
+sqlalchemy>=2.0.0
+pyodbc>=4.0.0
+
+# Utilities
+python-dotenv>=0.20.0
+tqdm>=4.60.0
+
+# 3D Molecule rendering
+py3Dmol>=2.0.3
+# ==========================================
+# CÁC LỆNH CÀI ĐẶT THƯ VIỆN RỜI (SAU KHI CÀI REQUIREMENTS.TXT)
+# ==========================================
+# 1. Các package đôi khi bị lỗi nếu cài gộp chung:
+# pip install streamlit-option-menu pyvis rdkit py3Dmol
+#
+# 2. Cài đặt PyTorch và PyTorch Geometric (Bắt buộc cài riêng theo cấu hình máy):
+# --- Phiên bản CPU ---
+# pip install torch torchvision torchaudio
+# pip install torch-scatter torch-sparse torch-cluster torch-geometric
+#
+# --- Phiên bản GPU (Ví dụ CUDA 11.8) ---
+# pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+# pip install torch-scatter torch-sparse torch-cluster torch-geometric -f https://data.pyg.org/whl/torch-2.0.0+cu118.html

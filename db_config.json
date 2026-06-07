@@ -1,0 +1,11 @@
+{
+  "db_type": "mssql",
+  "server": "LAPTOP-GNCAN9C4\\SQLEXPRESS",
+  "instance": "SQLEXPRESS",
+  "database": "He_Thong_Du_Doan_Thuoc",
+  "driver": "ODBC Driver 17 for SQL Server",
+  "trusted_connection": true,
+  "trust_server_certificate": true,
+  "sqlite_path": "./app_local.db",
+  "db_url": ""
+}

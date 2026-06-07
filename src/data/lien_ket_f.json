@@ -1,0 +1,9667 @@
+[
+  {
+    "id": 1,
+    "drug_local_id": 274,
+    "disease_local_id": 5
+  },
+  {
+    "id": 2,
+    "drug_local_id": 79,
+    "disease_local_id": 37
+  },
+  {
+    "id": 3,
+    "drug_local_id": 79,
+    "disease_local_id": 34
+  },
+  {
+    "id": 4,
+    "drug_local_id": 79,
+    "disease_local_id": 35
+  },
+  {
+    "id": 5,
+    "drug_local_id": 79,
+    "disease_local_id": 265
+  },
+  {
+    "id": 6,
+    "drug_local_id": 513,
+    "disease_local_id": 312
+  },
+  {
+    "id": 7,
+    "drug_local_id": 513,
+    "disease_local_id": 108
+  },
+  {
+    "id": 8,
+    "drug_local_id": 95,
+    "disease_local_id": 79
+  },
+  {
+    "id": 9,
+    "drug_local_id": 95,
+    "disease_local_id": 86
+  },
+  {
+    "id": 10,
+    "drug_local_id": 95,
+    "disease_local_id": 102
+  },
+  {
+    "id": 11,
+    "drug_local_id": 95,
+    "disease_local_id": 307
+  },
+  {
+    "id": 12,
+    "drug_local_id": 95,
+    "disease_local_id": 66
+  },
+  {
+    "id": 13,
+    "drug_local_id": 343,
+    "disease_local_id": 85
+  },
+  {
+    "id": 14,
+    "drug_local_id": 343,
+    "disease_local_id": 177
+  },
+  {
+    "id": 15,
+    "drug_local_id": 343,
+    "disease_local_id": 264
+  },
+  {
+    "id": 16,
+    "drug_local_id": 343,
+    "disease_local_id": 174
+  },
+  {
+    "id": 17,
+    "drug_local_id": 343,
+    "disease_local_id": 197
+  },
+  {
+    "id": 18,
+    "drug_local_id": 343,
+    "disease_local_id": 201
+  },
+  {
+    "id": 19,
+    "drug_local_id": 152,
+    "disease_local_id": 37
+  },
+  {
+    "id": 20,
+    "drug_local_id": 152,
+    "disease_local_id": 34
+  },
+  {
+    "id": 21,
+    "drug_local_id": 152,
+    "disease_local_id": 35
+  },
+  {
+    "id": 22,
+    "drug_local_id": 152,
+    "disease_local_id": 265
+  },
+  {
+    "id": 23,
+    "drug_local_id": 453,
+    "disease_local_id": 135
+  },
+  {
+    "id": 24,
+    "drug_local_id": 330,
+    "disease_local_id": 236
+  },
+  {
+    "id": 25,
+    "drug_local_id": 44,
+    "disease_local_id": 284
+  },
+  {
+    "id": 26,
+    "drug_local_id": 262,
+    "disease_local_id": 154
+  },
+  {
+    "id": 27,
+    "drug_local_id": 13,
+    "disease_local_id": 154
+  },
+  {
+    "id": 28,
+    "drug_local_id": 57,
+    "disease_local_id": 192
+  },
+  {
+    "id": 29,
+    "drug_local_id": 257,
+    "disease_local_id": 3
+  },
+  {
+    "id": 30,
+    "drug_local_id": 257,
+    "disease_local_id": 116
+  },
+  {
+    "id": 31,
+    "drug_local_id": 257,
+    "disease_local_id": 90
+  },
+  {
+    "id": 32,
+    "drug_local_id": 257,
+    "disease_local_id": 114
+  },
+  {
+    "id": 33,
+    "drug_local_id": 257,
+    "disease_local_id": 280
+  },
+  {
+    "id": 34,
+    "drug_local_id": 113,
+    "disease_local_id": 155
+  },
+  {
+    "id": 35,
+    "drug_local_id": 113,
+    "disease_local_id": 86
+  },
+  {
+    "id": 36,
+    "drug_local_id": 113,
+    "disease_local_id": 261
+  },
+  {
+    "id": 37,
+    "drug_local_id": 588,
+    "disease_local_id": 312
+  },
+  {
+    "id": 38,
+    "drug_local_id": 588,
+    "disease_local_id": 78
+  },
+  {
+    "id": 39,
+    "drug_local_id": 588,
+    "disease_local_id": 108
+  },
+  {
+    "id": 40,
+    "drug_local_id": 202,
+    "disease_local_id": 88
+  },
+  {
+    "id": 41,
+    "drug_local_id": 161,
+    "disease_local_id": 279
+  },
+  {
+    "id": 42,
+    "drug_local_id": 161,
+    "disease_local_id": 257
+  },
+  {
+    "id": 43,
+    "drug_local_id": 385,
+    "disease_local_id": 102
+  },
+  {
+    "id": 44,
+    "drug_local_id": 410,
+    "disease_local_id": 225
+  },
+  {
+    "id": 45,
+    "drug_local_id": 147,
+    "disease_local_id": 210
+  },
+  {
+    "id": 46,
+    "drug_local_id": 147,
+    "disease_local_id": 117
+  },
+  {
+    "id": 47,
+    "drug_local_id": 383,
+    "disease_local_id": 38
+  },
+  {
+    "id": 48,
+    "drug_local_id": 383,
+    "disease_local_id": 118
+  },
+  {
+    "id": 49,
+    "drug_local_id": 383,
+    "disease_local_id": 27
+  },
+  {
+    "id": 50,
+    "drug_local_id": 480,
+    "disease_local_id": 211
+  },
+  {
+    "id": 51,
+    "drug_local_id": 490,
+    "disease_local_id": 241
+  },
+  {
+    "id": 52,
+    "drug_local_id": 242,
+    "disease_local_id": 161
+  },
+  {
+    "id": 53,
+    "drug_local_id": 242,
+    "disease_local_id": 174
+  },
+  {
+    "id": 54,
+    "drug_local_id": 242,
+    "disease_local_id": 312
+  },
+  {
+    "id": 55,
+    "drug_local_id": 242,
+    "disease_local_id": 108
+  },
+  {
+    "id": 56,
+    "drug_local_id": 120,
+    "disease_local_id": 236
+  },
+  {
+    "id": 57,
+    "drug_local_id": 529,
+    "disease_local_id": 162
+  },
+  {
+    "id": 58,
+    "drug_local_id": 529,
+    "disease_local_id": 269
+  },
+  {
+    "id": 59,
+    "drug_local_id": 529,
+    "disease_local_id": 166
+  },
+  {
+    "id": 60,
+    "drug_local_id": 478,
+    "disease_local_id": 23
+  },
+  {
+    "id": 61,
+    "drug_local_id": 98,
+    "disease_local_id": 73
+  },
+  {
+    "id": 62,
+    "drug_local_id": 98,
+    "disease_local_id": 86
+  },
+  {
+    "id": 63,
+    "drug_local_id": 98,
+    "disease_local_id": 210
+  },
+  {
+    "id": 64,
+    "drug_local_id": 133,
+    "disease_local_id": 30
+  },
+  {
+    "id": 65,
+    "drug_local_id": 133,
+    "disease_local_id": 310
+  },
+  {
+    "id": 66,
+    "drug_local_id": 133,
+    "disease_local_id": 312
+  },
+  {
+    "id": 67,
+    "drug_local_id": 133,
+    "disease_local_id": 78
+  },
+  {
+    "id": 68,
+    "drug_local_id": 133,
+    "disease_local_id": 130
+  },
+  {
+    "id": 69,
+    "drug_local_id": 133,
+    "disease_local_id": 108
+  },
+  {
+    "id": 70,
+    "drug_local_id": 559,
+    "disease_local_id": 177
+  },
+  {
+    "id": 71,
+    "drug_local_id": 559,
+    "disease_local_id": 197
+  },
+  {
+    "id": 72,
+    "drug_local_id": 30,
+    "disease_local_id": 69
+  },
+  {
+    "id": 73,
+    "drug_local_id": 571,
+    "disease_local_id": 169
+  },
+  {
+    "id": 74,
+    "drug_local_id": 525,
+    "disease_local_id": 19
+  },
+  {
+    "id": 75,
+    "drug_local_id": 525,
+    "disease_local_id": 123
+  },
+  {
+    "id": 76,
+    "drug_local_id": 482,
+    "disease_local_id": 299
+  },
+  {
+    "id": 77,
+    "drug_local_id": 297,
+    "disease_local_id": 118
+  },
+  {
+    "id": 78,
+    "drug_local_id": 297,
+    "disease_local_id": 119
+  },
+  {
+    "id": 79,
+    "drug_local_id": 148,
+    "disease_local_id": 142
+  },
+  {
+    "id": 80,
+    "drug_local_id": 74,
+    "disease_local_id": 142
+  },
+  {
+    "id": 81,
+    "drug_local_id": 539,
+    "disease_local_id": 109
+  },
+  {
+    "id": 82,
+    "drug_local_id": 539,
+    "disease_local_id": 135
+  },
+  {
+    "id": 83,
+    "drug_local_id": 499,
+    "disease_local_id": 241
+  },
+  {
+    "id": 84,
+    "drug_local_id": 397,
+    "disease_local_id": 9
+  },
+  {
+    "id": 85,
+    "drug_local_id": 397,
+    "disease_local_id": 160
+  },
+  {
+    "id": 86,
+    "drug_local_id": 397,
+    "disease_local_id": 30
+  },
+  {
+    "id": 87,
+    "drug_local_id": 397,
+    "disease_local_id": 79
+  },
+  {
+    "id": 88,
+    "drug_local_id": 397,
+    "disease_local_id": 86
+  },
+  {
+    "id": 89,
+    "drug_local_id": 397,
+    "disease_local_id": 90
+  },
+  {
+    "id": 90,
+    "drug_local_id": 397,
+    "disease_local_id": 102
+  },
+  {
+    "id": 91,
+    "drug_local_id": 397,
+    "disease_local_id": 112
+  },
+  {
+    "id": 92,
+    "drug_local_id": 397,
+    "disease_local_id": 66
+  },
+  {
+    "id": 93,
+    "drug_local_id": 397,
+    "disease_local_id": 305
+  },
+  {
+    "id": 94,
+    "drug_local_id": 397,
+    "disease_local_id": 293
+  },
+  {
+    "id": 95,
+    "drug_local_id": 397,
+    "disease_local_id": 273
+  },
+  {
+    "id": 96,
+    "drug_local_id": 397,
+    "disease_local_id": 94
+  },
+  {
+    "id": 97,
+    "drug_local_id": 261,
+    "disease_local_id": 87
+  },
+  {
+    "id": 98,
+    "drug_local_id": 459,
+    "disease_local_id": 12
+  },
+  {
+    "id": 99,
+    "drug_local_id": 108,
+    "disease_local_id": 17
+  },
+  {
+    "id": 100,
+    "drug_local_id": 108,
+    "disease_local_id": 103
+  },
+  {
+    "id": 101,
+    "drug_local_id": 83,
+    "disease_local_id": 69
+  },
+  {
+    "id": 102,
+    "drug_local_id": 462,
+    "disease_local_id": 72
+  },
+  {
+    "id": 103,
+    "drug_local_id": 230,
+    "disease_local_id": 185
+  },
+  {
+    "id": 104,
+    "drug_local_id": 230,
+    "disease_local_id": 147
+  },
+  {
+    "id": 105,
+    "drug_local_id": 422,
+    "disease_local_id": 55
+  },
+  {
+    "id": 106,
+    "drug_local_id": 390,
+    "disease_local_id": 205
+  },
+  {
+    "id": 107,
+    "drug_local_id": 390,
+    "disease_local_id": 220
+  },
+  {
+    "id": 108,
+    "drug_local_id": 390,
+    "disease_local_id": 271
+  },
+  {
+    "id": 109,
+    "drug_local_id": 421,
+    "disease_local_id": 165
+  },
+  {
+    "id": 110,
+    "drug_local_id": 421,
+    "disease_local_id": 192
+  },
+  {
+    "id": 111,
+    "drug_local_id": 421,
+    "disease_local_id": 232
+  },
+  {
+    "id": 112,
+    "drug_local_id": 421,
+    "disease_local_id": 38
+  },
+  {
+    "id": 113,
+    "drug_local_id": 421,
+    "disease_local_id": 211
+  },
+  {
+    "id": 114,
+    "drug_local_id": 421,
+    "disease_local_id": 106
+  },
+  {
+    "id": 115,
+    "drug_local_id": 421,
+    "disease_local_id": 133
+  },
+  {
+    "id": 116,
+    "drug_local_id": 421,
+    "disease_local_id": 94
+  },
+  {
+    "id": 117,
+    "drug_local_id": 421,
+    "disease_local_id": 141
+  },
+  {
+    "id": 118,
+    "drug_local_id": 217,
+    "disease_local_id": 284
+  },
+  {
+    "id": 119,
+    "drug_local_id": 29,
+    "disease_local_id": 272
+  },
+  {
+    "id": 120,
+    "drug_local_id": 29,
+    "disease_local_id": 41
+  },
+  {
+    "id": 121,
+    "drug_local_id": 29,
+    "disease_local_id": 68
+  },
+  {
+    "id": 122,
+    "drug_local_id": 29,
+    "disease_local_id": 86
+  },
+  {
+    "id": 123,
+    "drug_local_id": 29,
+    "disease_local_id": 38
+  },
+  {
+    "id": 124,
+    "drug_local_id": 29,
+    "disease_local_id": 292
+  },
+  {
+    "id": 125,
+    "drug_local_id": 29,
+    "disease_local_id": 144
+  },
+  {
+    "id": 126,
+    "drug_local_id": 29,
+    "disease_local_id": 148
+  },
+  {
+    "id": 127,
+    "drug_local_id": 434,
+    "disease_local_id": 232
+  },
+  {
+    "id": 128,
+    "drug_local_id": 141,
+    "disease_local_id": 162
+  },
+  {
+    "id": 129,
+    "drug_local_id": 141,
+    "disease_local_id": 269
+  },
+  {
+    "id": 130,
+    "drug_local_id": 213,
+    "disease_local_id": 312
+  },
+  {
+    "id": 131,
+    "drug_local_id": 213,
+    "disease_local_id": 82
+  },
+  {
+    "id": 132,
+    "drug_local_id": 213,
+    "disease_local_id": 108
+  },
+  {
+    "id": 133,
+    "drug_local_id": 160,
+    "disease_local_id": 264
+  },
+  {
+    "id": 134,
+    "drug_local_id": 160,
+    "disease_local_id": 174
+  },
+  {
+    "id": 135,
+    "drug_local_id": 160,
+    "disease_local_id": 312
+  },
+  {
+    "id": 136,
+    "drug_local_id": 160,
+    "disease_local_id": 218
+  },
+  {
+    "id": 137,
+    "drug_local_id": 160,
+    "disease_local_id": 108
+  },
+  {
+    "id": 138,
+    "drug_local_id": 466,
+    "disease_local_id": 86
+  },
+  {
+    "id": 139,
+    "drug_local_id": 466,
+    "disease_local_id": 115
+  },
+  {
+    "id": 140,
+    "drug_local_id": 361,
+    "disease_local_id": 307
+  },
+  {
+    "id": 141,
+    "drug_local_id": 360,
+    "disease_local_id": 250
+  },
+  {
+    "id": 142,
+    "drug_local_id": 360,
+    "disease_local_id": 277
+  },
+  {
+    "id": 143,
+    "drug_local_id": 360,
+    "disease_local_id": 230
+  },
+  {
+    "id": 144,
+    "drug_local_id": 324,
+    "disease_local_id": 79
+  },
+  {
+    "id": 145,
+    "drug_local_id": 61,
+    "disease_local_id": 31
+  },
+  {
+    "id": 146,
+    "drug_local_id": 61,
+    "disease_local_id": 118
+  },
+  {
+    "id": 147,
+    "drug_local_id": 61,
+    "disease_local_id": 119
+  },
+  {
+    "id": 148,
+    "drug_local_id": 543,
+    "disease_local_id": 312
+  },
+  {
+    "id": 149,
+    "drug_local_id": 543,
+    "disease_local_id": 108
+  },
+  {
+    "id": 150,
+    "drug_local_id": 164,
+    "disease_local_id": 282
+  },
+  {
+    "id": 151,
+    "drug_local_id": 164,
+    "disease_local_id": 32
+  },
+  {
+    "id": 152,
+    "drug_local_id": 164,
+    "disease_local_id": 49
+  },
+  {
+    "id": 153,
+    "drug_local_id": 164,
+    "disease_local_id": 93
+  },
+  {
+    "id": 154,
+    "drug_local_id": 37,
+    "disease_local_id": 61
+  },
+  {
+    "id": 155,
+    "drug_local_id": 37,
+    "disease_local_id": 312
+  },
+  {
+    "id": 156,
+    "drug_local_id": 37,
+    "disease_local_id": 108
+  },
+  {
+    "id": 157,
+    "drug_local_id": 438,
+    "disease_local_id": 14
+  },
+  {
+    "id": 158,
+    "drug_local_id": 438,
+    "disease_local_id": 104
+  },
+  {
+    "id": 159,
+    "drug_local_id": 438,
+    "disease_local_id": 150
+  },
+  {
+    "id": 160,
+    "drug_local_id": 90,
+    "disease_local_id": 241
+  },
+  {
+    "id": 161,
+    "drug_local_id": 90,
+    "disease_local_id": 212
+  },
+  {
+    "id": 162,
+    "drug_local_id": 483,
+    "disease_local_id": 128
+  },
+  {
+    "id": 163,
+    "drug_local_id": 377,
+    "disease_local_id": 61
+  },
+  {
+    "id": 164,
+    "drug_local_id": 377,
+    "disease_local_id": 278
+  },
+  {
+    "id": 165,
+    "drug_local_id": 377,
+    "disease_local_id": 62
+  },
+  {
+    "id": 166,
+    "drug_local_id": 377,
+    "disease_local_id": 108
+  },
+  {
+    "id": 167,
+    "drug_local_id": 339,
+    "disease_local_id": 31
+  },
+  {
+    "id": 168,
+    "drug_local_id": 339,
+    "disease_local_id": 118
+  },
+  {
+    "id": 169,
+    "drug_local_id": 555,
+    "disease_local_id": 263
+  },
+  {
+    "id": 170,
+    "drug_local_id": 250,
+    "disease_local_id": 17
+  },
+  {
+    "id": 171,
+    "drug_local_id": 250,
+    "disease_local_id": 103
+  },
+  {
+    "id": 172,
+    "drug_local_id": 374,
+    "disease_local_id": 162
+  },
+  {
+    "id": 173,
+    "drug_local_id": 374,
+    "disease_local_id": 269
+  },
+  {
+    "id": 174,
+    "drug_local_id": 84,
+    "disease_local_id": 193
+  },
+  {
+    "id": 175,
+    "drug_local_id": 84,
+    "disease_local_id": 15
+  },
+  {
+    "id": 176,
+    "drug_local_id": 84,
+    "disease_local_id": 206
+  },
+  {
+    "id": 177,
+    "drug_local_id": 84,
+    "disease_local_id": 99
+  },
+  {
+    "id": 178,
+    "drug_local_id": 84,
+    "disease_local_id": 98
+  },
+  {
+    "id": 179,
+    "drug_local_id": 84,
+    "disease_local_id": 233
+  },
+  {
+    "id": 180,
+    "drug_local_id": 84,
+    "disease_local_id": 238
+  },
+  {
+    "id": 181,
+    "drug_local_id": 33,
+    "disease_local_id": 214
+  },
+  {
+    "id": 182,
+    "drug_local_id": 224,
+    "disease_local_id": 129
+  },
+  {
+    "id": 183,
+    "drug_local_id": 224,
+    "disease_local_id": 108
+  },
+  {
+    "id": 184,
+    "drug_local_id": 186,
+    "disease_local_id": 61
+  },
+  {
+    "id": 185,
+    "drug_local_id": 186,
+    "disease_local_id": 278
+  },
+  {
+    "id": 186,
+    "drug_local_id": 186,
+    "disease_local_id": 62
+  },
+  {
+    "id": 187,
+    "drug_local_id": 186,
+    "disease_local_id": 108
+  },
+  {
+    "id": 188,
+    "drug_local_id": 514,
+    "disease_local_id": 61
+  },
+  {
+    "id": 189,
+    "drug_local_id": 514,
+    "disease_local_id": 278
+  },
+  {
+    "id": 190,
+    "drug_local_id": 514,
+    "disease_local_id": 62
+  },
+  {
+    "id": 191,
+    "drug_local_id": 514,
+    "disease_local_id": 108
+  },
+  {
+    "id": 192,
+    "drug_local_id": 407,
+    "disease_local_id": 173
+  },
+  {
+    "id": 193,
+    "drug_local_id": 407,
+    "disease_local_id": 26
+  },
+  {
+    "id": 194,
+    "drug_local_id": 518,
+    "disease_local_id": 118
+  },
+  {
+    "id": 195,
+    "drug_local_id": 118,
+    "disease_local_id": 79
+  },
+  {
+    "id": 196,
+    "drug_local_id": 528,
+    "disease_local_id": 162
+  },
+  {
+    "id": 197,
+    "drug_local_id": 528,
+    "disease_local_id": 269
+  },
+  {
+    "id": 198,
+    "drug_local_id": 528,
+    "disease_local_id": 166
+  },
+  {
+    "id": 199,
+    "drug_local_id": 528,
+    "disease_local_id": 232
+  },
+  {
+    "id": 200,
+    "drug_local_id": 528,
+    "disease_local_id": 149
+  },
+  {
+    "id": 201,
+    "drug_local_id": 370,
+    "disease_local_id": 156
+  },
+  {
+    "id": 202,
+    "drug_local_id": 370,
+    "disease_local_id": 161
+  },
+  {
+    "id": 203,
+    "drug_local_id": 370,
+    "disease_local_id": 166
+  },
+  {
+    "id": 204,
+    "drug_local_id": 370,
+    "disease_local_id": 264
+  },
+  {
+    "id": 205,
+    "drug_local_id": 370,
+    "disease_local_id": 174
+  },
+  {
+    "id": 206,
+    "drug_local_id": 370,
+    "disease_local_id": 312
+  },
+  {
+    "id": 207,
+    "drug_local_id": 370,
+    "disease_local_id": 82
+  },
+  {
+    "id": 208,
+    "drug_local_id": 370,
+    "disease_local_id": 218
+  },
+  {
+    "id": 209,
+    "drug_local_id": 370,
+    "disease_local_id": 113
+  },
+  {
+    "id": 210,
+    "drug_local_id": 370,
+    "disease_local_id": 108
+  },
+  {
+    "id": 211,
+    "drug_local_id": 86,
+    "disease_local_id": 86
+  },
+  {
+    "id": 212,
+    "drug_local_id": 386,
+    "disease_local_id": 86
+  },
+  {
+    "id": 213,
+    "drug_local_id": 493,
+    "disease_local_id": 69
+  },
+  {
+    "id": 214,
+    "drug_local_id": 493,
+    "disease_local_id": 117
+  },
+  {
+    "id": 215,
+    "drug_local_id": 493,
+    "disease_local_id": 230
+  },
+  {
+    "id": 216,
+    "drug_local_id": 188,
+    "disease_local_id": 6
+  },
+  {
+    "id": 217,
+    "drug_local_id": 188,
+    "disease_local_id": 101
+  },
+  {
+    "id": 218,
+    "drug_local_id": 188,
+    "disease_local_id": 110
+  },
+  {
+    "id": 219,
+    "drug_local_id": 188,
+    "disease_local_id": 221
+  },
+  {
+    "id": 220,
+    "drug_local_id": 188,
+    "disease_local_id": 117
+  },
+  {
+    "id": 221,
+    "drug_local_id": 188,
+    "disease_local_id": 247
+  },
+  {
+    "id": 222,
+    "drug_local_id": 432,
+    "disease_local_id": 181
+  },
+  {
+    "id": 223,
+    "drug_local_id": 432,
+    "disease_local_id": 204
+  },
+  {
+    "id": 224,
+    "drug_local_id": 432,
+    "disease_local_id": 241
+  },
+  {
+    "id": 225,
+    "drug_local_id": 432,
+    "disease_local_id": 213
+  },
+  {
+    "id": 226,
+    "drug_local_id": 432,
+    "disease_local_id": 228
+  },
+  {
+    "id": 227,
+    "drug_local_id": 58,
+    "disease_local_id": 79
+  },
+  {
+    "id": 228,
+    "drug_local_id": 58,
+    "disease_local_id": 102
+  },
+  {
+    "id": 229,
+    "drug_local_id": 249,
+    "disease_local_id": 86
+  },
+  {
+    "id": 230,
+    "drug_local_id": 63,
+    "disease_local_id": 267
+  },
+  {
+    "id": 231,
+    "drug_local_id": 39,
+    "disease_local_id": 57
+  },
+  {
+    "id": 232,
+    "drug_local_id": 39,
+    "disease_local_id": 79
+  },
+  {
+    "id": 233,
+    "drug_local_id": 39,
+    "disease_local_id": 86
+  },
+  {
+    "id": 234,
+    "drug_local_id": 39,
+    "disease_local_id": 102
+  },
+  {
+    "id": 235,
+    "drug_local_id": 39,
+    "disease_local_id": 66
+  },
+  {
+    "id": 236,
+    "drug_local_id": 14,
+    "disease_local_id": 82
+  },
+  {
+    "id": 237,
+    "drug_local_id": 14,
+    "disease_local_id": 243
+  },
+  {
+    "id": 238,
+    "drug_local_id": 14,
+    "disease_local_id": 244
+  },
+  {
+    "id": 239,
+    "drug_local_id": 590,
+    "disease_local_id": 312
+  },
+  {
+    "id": 240,
+    "drug_local_id": 590,
+    "disease_local_id": 108
+  },
+  {
+    "id": 241,
+    "drug_local_id": 471,
+    "disease_local_id": 19
+  },
+  {
+    "id": 242,
+    "drug_local_id": 471,
+    "disease_local_id": 20
+  },
+  {
+    "id": 243,
+    "drug_local_id": 471,
+    "disease_local_id": 58
+  },
+  {
+    "id": 244,
+    "drug_local_id": 471,
+    "disease_local_id": 241
+  },
+  {
+    "id": 245,
+    "drug_local_id": 471,
+    "disease_local_id": 128
+  },
+  {
+    "id": 246,
+    "drug_local_id": 471,
+    "disease_local_id": 75
+  },
+  {
+    "id": 247,
+    "drug_local_id": 517,
+    "disease_local_id": 281
+  },
+  {
+    "id": 248,
+    "drug_local_id": 517,
+    "disease_local_id": 264
+  },
+  {
+    "id": 249,
+    "drug_local_id": 517,
+    "disease_local_id": 174
+  },
+  {
+    "id": 250,
+    "drug_local_id": 517,
+    "disease_local_id": 312
+  },
+  {
+    "id": 251,
+    "drug_local_id": 517,
+    "disease_local_id": 82
+  },
+  {
+    "id": 252,
+    "drug_local_id": 517,
+    "disease_local_id": 130
+  },
+  {
+    "id": 253,
+    "drug_local_id": 517,
+    "disease_local_id": 108
+  },
+  {
+    "id": 254,
+    "drug_local_id": 226,
+    "disease_local_id": 6
+  },
+  {
+    "id": 255,
+    "drug_local_id": 226,
+    "disease_local_id": 41
+  },
+  {
+    "id": 256,
+    "drug_local_id": 226,
+    "disease_local_id": 111
+  },
+  {
+    "id": 257,
+    "drug_local_id": 226,
+    "disease_local_id": 1
+  },
+  {
+    "id": 258,
+    "drug_local_id": 226,
+    "disease_local_id": 135
+  },
+  {
+    "id": 259,
+    "drug_local_id": 226,
+    "disease_local_id": 148
+  },
+  {
+    "id": 260,
+    "drug_local_id": 34,
+    "disease_local_id": 31
+  },
+  {
+    "id": 261,
+    "drug_local_id": 34,
+    "disease_local_id": 118
+  },
+  {
+    "id": 262,
+    "drug_local_id": 34,
+    "disease_local_id": 119
+  },
+  {
+    "id": 263,
+    "drug_local_id": 34,
+    "disease_local_id": 1
+  },
+  {
+    "id": 264,
+    "drug_local_id": 404,
+    "disease_local_id": 16
+  },
+  {
+    "id": 265,
+    "drug_local_id": 404,
+    "disease_local_id": 48
+  },
+  {
+    "id": 266,
+    "drug_local_id": 404,
+    "disease_local_id": 241
+  },
+  {
+    "id": 267,
+    "drug_local_id": 404,
+    "disease_local_id": 222
+  },
+  {
+    "id": 268,
+    "drug_local_id": 67,
+    "disease_local_id": 63
+  },
+  {
+    "id": 269,
+    "drug_local_id": 67,
+    "disease_local_id": 193
+  },
+  {
+    "id": 270,
+    "drug_local_id": 67,
+    "disease_local_id": 15
+  },
+  {
+    "id": 271,
+    "drug_local_id": 67,
+    "disease_local_id": 206
+  },
+  {
+    "id": 272,
+    "drug_local_id": 67,
+    "disease_local_id": 241
+  },
+  {
+    "id": 273,
+    "drug_local_id": 67,
+    "disease_local_id": 214
+  },
+  {
+    "id": 274,
+    "drug_local_id": 67,
+    "disease_local_id": 233
+  },
+  {
+    "id": 275,
+    "drug_local_id": 201,
+    "disease_local_id": 61
+  },
+  {
+    "id": 276,
+    "drug_local_id": 201,
+    "disease_local_id": 312
+  },
+  {
+    "id": 277,
+    "drug_local_id": 201,
+    "disease_local_id": 108
+  },
+  {
+    "id": 278,
+    "drug_local_id": 487,
+    "disease_local_id": 299
+  },
+  {
+    "id": 279,
+    "drug_local_id": 487,
+    "disease_local_id": 312
+  },
+  {
+    "id": 280,
+    "drug_local_id": 487,
+    "disease_local_id": 108
+  },
+  {
+    "id": 281,
+    "drug_local_id": 558,
+    "disease_local_id": 268
+  },
+  {
+    "id": 282,
+    "drug_local_id": 208,
+    "disease_local_id": 162
+  },
+  {
+    "id": 283,
+    "drug_local_id": 208,
+    "disease_local_id": 115
+  },
+  {
+    "id": 284,
+    "drug_local_id": 185,
+    "disease_local_id": 124
+  },
+  {
+    "id": 285,
+    "drug_local_id": 185,
+    "disease_local_id": 160
+  },
+  {
+    "id": 286,
+    "drug_local_id": 185,
+    "disease_local_id": 56
+  },
+  {
+    "id": 287,
+    "drug_local_id": 185,
+    "disease_local_id": 86
+  },
+  {
+    "id": 288,
+    "drug_local_id": 185,
+    "disease_local_id": 204
+  },
+  {
+    "id": 289,
+    "drug_local_id": 185,
+    "disease_local_id": 112
+  },
+  {
+    "id": 290,
+    "drug_local_id": 185,
+    "disease_local_id": 66
+  },
+  {
+    "id": 291,
+    "drug_local_id": 185,
+    "disease_local_id": 305
+  },
+  {
+    "id": 292,
+    "drug_local_id": 185,
+    "disease_local_id": 125
+  },
+  {
+    "id": 293,
+    "drug_local_id": 185,
+    "disease_local_id": 293
+  },
+  {
+    "id": 294,
+    "drug_local_id": 180,
+    "disease_local_id": 5
+  },
+  {
+    "id": 295,
+    "drug_local_id": 180,
+    "disease_local_id": 185
+  },
+  {
+    "id": 296,
+    "drug_local_id": 495,
+    "disease_local_id": 86
+  },
+  {
+    "id": 297,
+    "drug_local_id": 248,
+    "disease_local_id": 133
+  },
+  {
+    "id": 298,
+    "drug_local_id": 365,
+    "disease_local_id": 156
+  },
+  {
+    "id": 299,
+    "drug_local_id": 365,
+    "disease_local_id": 166
+  },
+  {
+    "id": 300,
+    "drug_local_id": 365,
+    "disease_local_id": 264
+  },
+  {
+    "id": 301,
+    "drug_local_id": 365,
+    "disease_local_id": 174
+  },
+  {
+    "id": 302,
+    "drug_local_id": 365,
+    "disease_local_id": 312
+  },
+  {
+    "id": 303,
+    "drug_local_id": 365,
+    "disease_local_id": 218
+  },
+  {
+    "id": 304,
+    "drug_local_id": 365,
+    "disease_local_id": 108
+  },
+  {
+    "id": 305,
+    "drug_local_id": 182,
+    "disease_local_id": 79
+  },
+  {
+    "id": 306,
+    "drug_local_id": 182,
+    "disease_local_id": 135
+  },
+  {
+    "id": 307,
+    "drug_local_id": 278,
+    "disease_local_id": 37
+  },
+  {
+    "id": 308,
+    "drug_local_id": 278,
+    "disease_local_id": 34
+  },
+  {
+    "id": 309,
+    "drug_local_id": 278,
+    "disease_local_id": 35
+  },
+  {
+    "id": 310,
+    "drug_local_id": 278,
+    "disease_local_id": 265
+  },
+  {
+    "id": 311,
+    "drug_local_id": 92,
+    "disease_local_id": 312
+  },
+  {
+    "id": 312,
+    "drug_local_id": 92,
+    "disease_local_id": 108
+  },
+  {
+    "id": 313,
+    "drug_local_id": 119,
+    "disease_local_id": 86
+  },
+  {
+    "id": 314,
+    "drug_local_id": 22,
+    "disease_local_id": 3
+  },
+  {
+    "id": 315,
+    "drug_local_id": 22,
+    "disease_local_id": 232
+  },
+  {
+    "id": 316,
+    "drug_local_id": 22,
+    "disease_local_id": 114
+  },
+  {
+    "id": 317,
+    "drug_local_id": 10,
+    "disease_local_id": 160
+  },
+  {
+    "id": 318,
+    "drug_local_id": 10,
+    "disease_local_id": 86
+  },
+  {
+    "id": 319,
+    "drug_local_id": 10,
+    "disease_local_id": 112
+  },
+  {
+    "id": 320,
+    "drug_local_id": 10,
+    "disease_local_id": 66
+  },
+  {
+    "id": 321,
+    "drug_local_id": 10,
+    "disease_local_id": 305
+  },
+  {
+    "id": 322,
+    "drug_local_id": 10,
+    "disease_local_id": 293
+  },
+  {
+    "id": 323,
+    "drug_local_id": 570,
+    "disease_local_id": 162
+  },
+  {
+    "id": 324,
+    "drug_local_id": 510,
+    "disease_local_id": 22
+  },
+  {
+    "id": 325,
+    "drug_local_id": 510,
+    "disease_local_id": 32
+  },
+  {
+    "id": 326,
+    "drug_local_id": 195,
+    "disease_local_id": 14
+  },
+  {
+    "id": 327,
+    "drug_local_id": 195,
+    "disease_local_id": 251
+  },
+  {
+    "id": 328,
+    "drug_local_id": 195,
+    "disease_local_id": 230
+  },
+  {
+    "id": 329,
+    "drug_local_id": 195,
+    "disease_local_id": 147
+  },
+  {
+    "id": 330,
+    "drug_local_id": 210,
+    "disease_local_id": 162
+  },
+  {
+    "id": 331,
+    "drug_local_id": 210,
+    "disease_local_id": 79
+  },
+  {
+    "id": 332,
+    "drug_local_id": 210,
+    "disease_local_id": 232
+  },
+  {
+    "id": 333,
+    "drug_local_id": 210,
+    "disease_local_id": 220
+  },
+  {
+    "id": 334,
+    "drug_local_id": 210,
+    "disease_local_id": 115
+  },
+  {
+    "id": 335,
+    "drug_local_id": 246,
+    "disease_local_id": 251
+  },
+  {
+    "id": 336,
+    "drug_local_id": 199,
+    "disease_local_id": 16
+  },
+  {
+    "id": 337,
+    "drug_local_id": 199,
+    "disease_local_id": 48
+  },
+  {
+    "id": 338,
+    "drug_local_id": 199,
+    "disease_local_id": 193
+  },
+  {
+    "id": 339,
+    "drug_local_id": 199,
+    "disease_local_id": 241
+  },
+  {
+    "id": 340,
+    "drug_local_id": 199,
+    "disease_local_id": 214
+  },
+  {
+    "id": 341,
+    "drug_local_id": 199,
+    "disease_local_id": 219
+  },
+  {
+    "id": 342,
+    "drug_local_id": 199,
+    "disease_local_id": 222
+  },
+  {
+    "id": 343,
+    "drug_local_id": 199,
+    "disease_local_id": 137
+  },
+  {
+    "id": 344,
+    "drug_local_id": 199,
+    "disease_local_id": 238
+  },
+  {
+    "id": 345,
+    "drug_local_id": 48,
+    "disease_local_id": 5
+  },
+  {
+    "id": 346,
+    "drug_local_id": 48,
+    "disease_local_id": 43
+  },
+  {
+    "id": 347,
+    "drug_local_id": 48,
+    "disease_local_id": 183
+  },
+  {
+    "id": 348,
+    "drug_local_id": 48,
+    "disease_local_id": 306
+  },
+  {
+    "id": 349,
+    "drug_local_id": 48,
+    "disease_local_id": 182
+  },
+  {
+    "id": 350,
+    "drug_local_id": 48,
+    "disease_local_id": 109
+  },
+  {
+    "id": 351,
+    "drug_local_id": 48,
+    "disease_local_id": 117
+  },
+  {
+    "id": 352,
+    "drug_local_id": 48,
+    "disease_local_id": 226
+  },
+  {
+    "id": 353,
+    "drug_local_id": 48,
+    "disease_local_id": 138
+  },
+  {
+    "id": 354,
+    "drug_local_id": 582,
+    "disease_local_id": 257
+  },
+  {
+    "id": 355,
+    "drug_local_id": 582,
+    "disease_local_id": 131
+  },
+  {
+    "id": 356,
+    "drug_local_id": 582,
+    "disease_local_id": 132
+  },
+  {
+    "id": 357,
+    "drug_local_id": 582,
+    "disease_local_id": 283
+  },
+  {
+    "id": 358,
+    "drug_local_id": 59,
+    "disease_local_id": 15
+  },
+  {
+    "id": 359,
+    "drug_local_id": 59,
+    "disease_local_id": 92
+  },
+  {
+    "id": 360,
+    "drug_local_id": 59,
+    "disease_local_id": 241
+  },
+  {
+    "id": 361,
+    "drug_local_id": 59,
+    "disease_local_id": 38
+  },
+  {
+    "id": 362,
+    "drug_local_id": 59,
+    "disease_local_id": 220
+  },
+  {
+    "id": 363,
+    "drug_local_id": 325,
+    "disease_local_id": 185
+  },
+  {
+    "id": 364,
+    "drug_local_id": 325,
+    "disease_local_id": 149
+  },
+  {
+    "id": 365,
+    "drug_local_id": 589,
+    "disease_local_id": 32
+  },
+  {
+    "id": 366,
+    "drug_local_id": 589,
+    "disease_local_id": 93
+  },
+  {
+    "id": 367,
+    "drug_local_id": 258,
+    "disease_local_id": 206
+  },
+  {
+    "id": 368,
+    "drug_local_id": 260,
+    "disease_local_id": 74
+  },
+  {
+    "id": 369,
+    "drug_local_id": 367,
+    "disease_local_id": 237
+  },
+  {
+    "id": 370,
+    "drug_local_id": 542,
+    "disease_local_id": 109
+  },
+  {
+    "id": 371,
+    "drug_local_id": 542,
+    "disease_local_id": 117
+  },
+  {
+    "id": 372,
+    "drug_local_id": 456,
+    "disease_local_id": 0
+  },
+  {
+    "id": 373,
+    "drug_local_id": 456,
+    "disease_local_id": 160
+  },
+  {
+    "id": 374,
+    "drug_local_id": 456,
+    "disease_local_id": 215
+  },
+  {
+    "id": 375,
+    "drug_local_id": 456,
+    "disease_local_id": 216
+  },
+  {
+    "id": 376,
+    "drug_local_id": 456,
+    "disease_local_id": 112
+  },
+  {
+    "id": 377,
+    "drug_local_id": 456,
+    "disease_local_id": 66
+  },
+  {
+    "id": 378,
+    "drug_local_id": 456,
+    "disease_local_id": 305
+  },
+  {
+    "id": 379,
+    "drug_local_id": 456,
+    "disease_local_id": 117
+  },
+  {
+    "id": 380,
+    "drug_local_id": 456,
+    "disease_local_id": 1
+  },
+  {
+    "id": 381,
+    "drug_local_id": 456,
+    "disease_local_id": 135
+  },
+  {
+    "id": 382,
+    "drug_local_id": 456,
+    "disease_local_id": 293
+  },
+  {
+    "id": 383,
+    "drug_local_id": 232,
+    "disease_local_id": 299
+  },
+  {
+    "id": 384,
+    "drug_local_id": 232,
+    "disease_local_id": 69
+  },
+  {
+    "id": 385,
+    "drug_local_id": 232,
+    "disease_local_id": 272
+  },
+  {
+    "id": 386,
+    "drug_local_id": 232,
+    "disease_local_id": 60
+  },
+  {
+    "id": 387,
+    "drug_local_id": 232,
+    "disease_local_id": 73
+  },
+  {
+    "id": 388,
+    "drug_local_id": 232,
+    "disease_local_id": 312
+  },
+  {
+    "id": 389,
+    "drug_local_id": 232,
+    "disease_local_id": 86
+  },
+  {
+    "id": 390,
+    "drug_local_id": 232,
+    "disease_local_id": 121
+  },
+  {
+    "id": 391,
+    "drug_local_id": 232,
+    "disease_local_id": 108
+  },
+  {
+    "id": 392,
+    "drug_local_id": 232,
+    "disease_local_id": 1
+  },
+  {
+    "id": 393,
+    "drug_local_id": 318,
+    "disease_local_id": 30
+  },
+  {
+    "id": 394,
+    "drug_local_id": 318,
+    "disease_local_id": 260
+  },
+  {
+    "id": 395,
+    "drug_local_id": 318,
+    "disease_local_id": 273
+  },
+  {
+    "id": 396,
+    "drug_local_id": 66,
+    "disease_local_id": 22
+  },
+  {
+    "id": 397,
+    "drug_local_id": 66,
+    "disease_local_id": 168
+  },
+  {
+    "id": 398,
+    "drug_local_id": 122,
+    "disease_local_id": 135
+  },
+  {
+    "id": 399,
+    "drug_local_id": 379,
+    "disease_local_id": 86
+  },
+  {
+    "id": 400,
+    "drug_local_id": 379,
+    "disease_local_id": 307
+  },
+  {
+    "id": 401,
+    "drug_local_id": 96,
+    "disease_local_id": 79
+  },
+  {
+    "id": 402,
+    "drug_local_id": 96,
+    "disease_local_id": 307
+  },
+  {
+    "id": 403,
+    "drug_local_id": 96,
+    "disease_local_id": 66
+  },
+  {
+    "id": 404,
+    "drug_local_id": 564,
+    "disease_local_id": 208
+  },
+  {
+    "id": 405,
+    "drug_local_id": 81,
+    "disease_local_id": 3
+  },
+  {
+    "id": 406,
+    "drug_local_id": 81,
+    "disease_local_id": 19
+  },
+  {
+    "id": 407,
+    "drug_local_id": 81,
+    "disease_local_id": 175
+  },
+  {
+    "id": 408,
+    "drug_local_id": 81,
+    "disease_local_id": 258
+  },
+  {
+    "id": 409,
+    "drug_local_id": 81,
+    "disease_local_id": 128
+  },
+  {
+    "id": 410,
+    "drug_local_id": 81,
+    "disease_local_id": 274
+  },
+  {
+    "id": 411,
+    "drug_local_id": 81,
+    "disease_local_id": 151
+  },
+  {
+    "id": 412,
+    "drug_local_id": 429,
+    "disease_local_id": 162
+  },
+  {
+    "id": 413,
+    "drug_local_id": 429,
+    "disease_local_id": 269
+  },
+  {
+    "id": 414,
+    "drug_local_id": 429,
+    "disease_local_id": 149
+  },
+  {
+    "id": 415,
+    "drug_local_id": 9,
+    "disease_local_id": 120
+  },
+  {
+    "id": 416,
+    "drug_local_id": 504,
+    "disease_local_id": 79
+  },
+  {
+    "id": 417,
+    "drug_local_id": 387,
+    "disease_local_id": 155
+  },
+  {
+    "id": 418,
+    "drug_local_id": 387,
+    "disease_local_id": 272
+  },
+  {
+    "id": 419,
+    "drug_local_id": 387,
+    "disease_local_id": 86
+  },
+  {
+    "id": 420,
+    "drug_local_id": 387,
+    "disease_local_id": 102
+  },
+  {
+    "id": 421,
+    "drug_local_id": 387,
+    "disease_local_id": 107
+  },
+  {
+    "id": 422,
+    "drug_local_id": 6,
+    "disease_local_id": 211
+  },
+  {
+    "id": 423,
+    "drug_local_id": 6,
+    "disease_local_id": 94
+  },
+  {
+    "id": 424,
+    "drug_local_id": 159,
+    "disease_local_id": 290
+  },
+  {
+    "id": 425,
+    "drug_local_id": 159,
+    "disease_local_id": 18
+  },
+  {
+    "id": 426,
+    "drug_local_id": 159,
+    "disease_local_id": 178
+  },
+  {
+    "id": 427,
+    "drug_local_id": 159,
+    "disease_local_id": 289
+  },
+  {
+    "id": 428,
+    "drug_local_id": 159,
+    "disease_local_id": 87
+  },
+  {
+    "id": 429,
+    "drug_local_id": 159,
+    "disease_local_id": 102
+  },
+  {
+    "id": 430,
+    "drug_local_id": 159,
+    "disease_local_id": 246
+  },
+  {
+    "id": 431,
+    "drug_local_id": 159,
+    "disease_local_id": 135
+  },
+  {
+    "id": 432,
+    "drug_local_id": 159,
+    "disease_local_id": 259
+  },
+  {
+    "id": 433,
+    "drug_local_id": 415,
+    "disease_local_id": 181
+  },
+  {
+    "id": 434,
+    "drug_local_id": 415,
+    "disease_local_id": 193
+  },
+  {
+    "id": 435,
+    "drug_local_id": 415,
+    "disease_local_id": 204
+  },
+  {
+    "id": 436,
+    "drug_local_id": 415,
+    "disease_local_id": 276
+  },
+  {
+    "id": 437,
+    "drug_local_id": 415,
+    "disease_local_id": 15
+  },
+  {
+    "id": 438,
+    "drug_local_id": 415,
+    "disease_local_id": 206
+  },
+  {
+    "id": 439,
+    "drug_local_id": 415,
+    "disease_local_id": 241
+  },
+  {
+    "id": 440,
+    "drug_local_id": 415,
+    "disease_local_id": 233
+  },
+  {
+    "id": 441,
+    "drug_local_id": 353,
+    "disease_local_id": 193
+  },
+  {
+    "id": 442,
+    "drug_local_id": 353,
+    "disease_local_id": 99
+  },
+  {
+    "id": 443,
+    "drug_local_id": 353,
+    "disease_local_id": 98
+  },
+  {
+    "id": 444,
+    "drug_local_id": 353,
+    "disease_local_id": 241
+  },
+  {
+    "id": 445,
+    "drug_local_id": 353,
+    "disease_local_id": 219
+  },
+  {
+    "id": 446,
+    "drug_local_id": 353,
+    "disease_local_id": 235
+  },
+  {
+    "id": 447,
+    "drug_local_id": 569,
+    "disease_local_id": 42
+  },
+  {
+    "id": 448,
+    "drug_local_id": 569,
+    "disease_local_id": 264
+  },
+  {
+    "id": 449,
+    "drug_local_id": 569,
+    "disease_local_id": 174
+  },
+  {
+    "id": 450,
+    "drug_local_id": 569,
+    "disease_local_id": 275
+  },
+  {
+    "id": 451,
+    "drug_local_id": 526,
+    "disease_local_id": 30
+  },
+  {
+    "id": 452,
+    "drug_local_id": 526,
+    "disease_local_id": 272
+  },
+  {
+    "id": 453,
+    "drug_local_id": 526,
+    "disease_local_id": 176
+  },
+  {
+    "id": 454,
+    "drug_local_id": 526,
+    "disease_local_id": 196
+  },
+  {
+    "id": 455,
+    "drug_local_id": 526,
+    "disease_local_id": 80
+  },
+  {
+    "id": 456,
+    "drug_local_id": 526,
+    "disease_local_id": 96
+  },
+  {
+    "id": 457,
+    "drug_local_id": 526,
+    "disease_local_id": 260
+  },
+  {
+    "id": 458,
+    "drug_local_id": 526,
+    "disease_local_id": 38
+  },
+  {
+    "id": 459,
+    "drug_local_id": 526,
+    "disease_local_id": 292
+  },
+  {
+    "id": 460,
+    "drug_local_id": 526,
+    "disease_local_id": 273
+  },
+  {
+    "id": 461,
+    "drug_local_id": 545,
+    "disease_local_id": 181
+  },
+  {
+    "id": 462,
+    "drug_local_id": 545,
+    "disease_local_id": 206
+  },
+  {
+    "id": 463,
+    "drug_local_id": 545,
+    "disease_local_id": 241
+  },
+  {
+    "id": 464,
+    "drug_local_id": 288,
+    "disease_local_id": 181
+  },
+  {
+    "id": 465,
+    "drug_local_id": 288,
+    "disease_local_id": 88
+  },
+  {
+    "id": 466,
+    "drug_local_id": 288,
+    "disease_local_id": 276
+  },
+  {
+    "id": 467,
+    "drug_local_id": 288,
+    "disease_local_id": 206
+  },
+  {
+    "id": 468,
+    "drug_local_id": 288,
+    "disease_local_id": 241
+  },
+  {
+    "id": 469,
+    "drug_local_id": 550,
+    "disease_local_id": 205
+  },
+  {
+    "id": 470,
+    "drug_local_id": 550,
+    "disease_local_id": 271
+  },
+  {
+    "id": 471,
+    "drug_local_id": 511,
+    "disease_local_id": 312
+  },
+  {
+    "id": 472,
+    "drug_local_id": 511,
+    "disease_local_id": 86
+  },
+  {
+    "id": 473,
+    "drug_local_id": 511,
+    "disease_local_id": 108
+  },
+  {
+    "id": 474,
+    "drug_local_id": 492,
+    "disease_local_id": 69
+  },
+  {
+    "id": 475,
+    "drug_local_id": 492,
+    "disease_local_id": 86
+  },
+  {
+    "id": 476,
+    "drug_local_id": 4,
+    "disease_local_id": 33
+  },
+  {
+    "id": 477,
+    "drug_local_id": 4,
+    "disease_local_id": 252
+  },
+  {
+    "id": 478,
+    "drug_local_id": 4,
+    "disease_local_id": 266
+  },
+  {
+    "id": 479,
+    "drug_local_id": 4,
+    "disease_local_id": 270
+  },
+  {
+    "id": 480,
+    "drug_local_id": 4,
+    "disease_local_id": 51
+  },
+  {
+    "id": 481,
+    "drug_local_id": 88,
+    "disease_local_id": 42
+  },
+  {
+    "id": 482,
+    "drug_local_id": 88,
+    "disease_local_id": 139
+  },
+  {
+    "id": 483,
+    "drug_local_id": 88,
+    "disease_local_id": 151
+  },
+  {
+    "id": 484,
+    "drug_local_id": 548,
+    "disease_local_id": 192
+  },
+  {
+    "id": 485,
+    "drug_local_id": 216,
+    "disease_local_id": 192
+  },
+  {
+    "id": 486,
+    "drug_local_id": 537,
+    "disease_local_id": 162
+  },
+  {
+    "id": 487,
+    "drug_local_id": 537,
+    "disease_local_id": 32
+  },
+  {
+    "id": 488,
+    "drug_local_id": 537,
+    "disease_local_id": 181
+  },
+  {
+    "id": 489,
+    "drug_local_id": 537,
+    "disease_local_id": 264
+  },
+  {
+    "id": 490,
+    "drug_local_id": 537,
+    "disease_local_id": 49
+  },
+  {
+    "id": 491,
+    "drug_local_id": 537,
+    "disease_local_id": 192
+  },
+  {
+    "id": 492,
+    "drug_local_id": 537,
+    "disease_local_id": 174
+  },
+  {
+    "id": 493,
+    "drug_local_id": 537,
+    "disease_local_id": 79
+  },
+  {
+    "id": 494,
+    "drug_local_id": 537,
+    "disease_local_id": 95
+  },
+  {
+    "id": 495,
+    "drug_local_id": 537,
+    "disease_local_id": 241
+  },
+  {
+    "id": 496,
+    "drug_local_id": 537,
+    "disease_local_id": 212
+  },
+  {
+    "id": 497,
+    "drug_local_id": 537,
+    "disease_local_id": 115
+  },
+  {
+    "id": 498,
+    "drug_local_id": 537,
+    "disease_local_id": 133
+  },
+  {
+    "id": 499,
+    "drug_local_id": 537,
+    "disease_local_id": 275
+  },
+  {
+    "id": 500,
+    "drug_local_id": 537,
+    "disease_local_id": 94
+  },
+  {
+    "id": 501,
+    "drug_local_id": 537,
+    "disease_local_id": 141
+  },
+  {
+    "id": 502,
+    "drug_local_id": 132,
+    "disease_local_id": 164
+  },
+  {
+    "id": 503,
+    "drug_local_id": 132,
+    "disease_local_id": 171
+  },
+  {
+    "id": 504,
+    "drug_local_id": 132,
+    "disease_local_id": 170
+  },
+  {
+    "id": 505,
+    "drug_local_id": 132,
+    "disease_local_id": 173
+  },
+  {
+    "id": 506,
+    "drug_local_id": 132,
+    "disease_local_id": 182
+  },
+  {
+    "id": 507,
+    "drug_local_id": 132,
+    "disease_local_id": 253
+  },
+  {
+    "id": 508,
+    "drug_local_id": 132,
+    "disease_local_id": 184
+  },
+  {
+    "id": 509,
+    "drug_local_id": 573,
+    "disease_local_id": 69
+  },
+  {
+    "id": 510,
+    "drug_local_id": 573,
+    "disease_local_id": 57
+  },
+  {
+    "id": 511,
+    "drug_local_id": 198,
+    "disease_local_id": 79
+  },
+  {
+    "id": 512,
+    "drug_local_id": 198,
+    "disease_local_id": 307
+  },
+  {
+    "id": 513,
+    "drug_local_id": 346,
+    "disease_local_id": 272
+  },
+  {
+    "id": 514,
+    "drug_local_id": 346,
+    "disease_local_id": 177
+  },
+  {
+    "id": 515,
+    "drug_local_id": 346,
+    "disease_local_id": 100
+  },
+  {
+    "id": 516,
+    "drug_local_id": 204,
+    "disease_local_id": 86
+  },
+  {
+    "id": 517,
+    "drug_local_id": 237,
+    "disease_local_id": 8
+  },
+  {
+    "id": 518,
+    "drug_local_id": 237,
+    "disease_local_id": 160
+  },
+  {
+    "id": 519,
+    "drug_local_id": 237,
+    "disease_local_id": 254
+  },
+  {
+    "id": 520,
+    "drug_local_id": 237,
+    "disease_local_id": 86
+  },
+  {
+    "id": 521,
+    "drug_local_id": 237,
+    "disease_local_id": 90
+  },
+  {
+    "id": 522,
+    "drug_local_id": 237,
+    "disease_local_id": 112
+  },
+  {
+    "id": 523,
+    "drug_local_id": 237,
+    "disease_local_id": 66
+  },
+  {
+    "id": 524,
+    "drug_local_id": 237,
+    "disease_local_id": 305
+  },
+  {
+    "id": 525,
+    "drug_local_id": 237,
+    "disease_local_id": 293
+  },
+  {
+    "id": 526,
+    "drug_local_id": 336,
+    "disease_local_id": 264
+  },
+  {
+    "id": 527,
+    "drug_local_id": 336,
+    "disease_local_id": 251
+  },
+  {
+    "id": 528,
+    "drug_local_id": 394,
+    "disease_local_id": 277
+  },
+  {
+    "id": 529,
+    "drug_local_id": 394,
+    "disease_local_id": 230
+  },
+  {
+    "id": 530,
+    "drug_local_id": 65,
+    "disease_local_id": 241
+  },
+  {
+    "id": 531,
+    "drug_local_id": 357,
+    "disease_local_id": 160
+  },
+  {
+    "id": 532,
+    "drug_local_id": 357,
+    "disease_local_id": 86
+  },
+  {
+    "id": 533,
+    "drug_local_id": 357,
+    "disease_local_id": 112
+  },
+  {
+    "id": 534,
+    "drug_local_id": 357,
+    "disease_local_id": 66
+  },
+  {
+    "id": 535,
+    "drug_local_id": 357,
+    "disease_local_id": 305
+  },
+  {
+    "id": 536,
+    "drug_local_id": 357,
+    "disease_local_id": 293
+  },
+  {
+    "id": 537,
+    "drug_local_id": 139,
+    "disease_local_id": 311
+  },
+  {
+    "id": 538,
+    "drug_local_id": 139,
+    "disease_local_id": 299
+  },
+  {
+    "id": 539,
+    "drug_local_id": 572,
+    "disease_local_id": 307
+  },
+  {
+    "id": 540,
+    "drug_local_id": 97,
+    "disease_local_id": 79
+  },
+  {
+    "id": 541,
+    "drug_local_id": 97,
+    "disease_local_id": 102
+  },
+  {
+    "id": 542,
+    "drug_local_id": 97,
+    "disease_local_id": 246
+  },
+  {
+    "id": 543,
+    "drug_local_id": 458,
+    "disease_local_id": 82
+  },
+  {
+    "id": 544,
+    "drug_local_id": 458,
+    "disease_local_id": 200
+  },
+  {
+    "id": 545,
+    "drug_local_id": 112,
+    "disease_local_id": 311
+  },
+  {
+    "id": 546,
+    "drug_local_id": 112,
+    "disease_local_id": 299
+  },
+  {
+    "id": 547,
+    "drug_local_id": 112,
+    "disease_local_id": 312
+  },
+  {
+    "id": 548,
+    "drug_local_id": 112,
+    "disease_local_id": 130
+  },
+  {
+    "id": 549,
+    "drug_local_id": 112,
+    "disease_local_id": 108
+  },
+  {
+    "id": 550,
+    "drug_local_id": 384,
+    "disease_local_id": 189
+  },
+  {
+    "id": 551,
+    "drug_local_id": 461,
+    "disease_local_id": 79
+  },
+  {
+    "id": 552,
+    "drug_local_id": 461,
+    "disease_local_id": 87
+  },
+  {
+    "id": 553,
+    "drug_local_id": 461,
+    "disease_local_id": 105
+  },
+  {
+    "id": 554,
+    "drug_local_id": 461,
+    "disease_local_id": 307
+  },
+  {
+    "id": 555,
+    "drug_local_id": 534,
+    "disease_local_id": 79
+  },
+  {
+    "id": 556,
+    "drug_local_id": 534,
+    "disease_local_id": 100
+  },
+  {
+    "id": 557,
+    "drug_local_id": 168,
+    "disease_local_id": 61
+  },
+  {
+    "id": 558,
+    "drug_local_id": 168,
+    "disease_local_id": 278
+  },
+  {
+    "id": 559,
+    "drug_local_id": 168,
+    "disease_local_id": 62
+  },
+  {
+    "id": 560,
+    "drug_local_id": 168,
+    "disease_local_id": 108
+  },
+  {
+    "id": 561,
+    "drug_local_id": 411,
+    "disease_local_id": 273
+  },
+  {
+    "id": 562,
+    "drug_local_id": 76,
+    "disease_local_id": 23
+  },
+  {
+    "id": 563,
+    "drug_local_id": 345,
+    "disease_local_id": 5
+  },
+  {
+    "id": 564,
+    "drug_local_id": 93,
+    "disease_local_id": 102
+  },
+  {
+    "id": 565,
+    "drug_local_id": 93,
+    "disease_local_id": 246
+  },
+  {
+    "id": 566,
+    "drug_local_id": 544,
+    "disease_local_id": 19
+  },
+  {
+    "id": 567,
+    "drug_local_id": 544,
+    "disease_local_id": 58
+  },
+  {
+    "id": 568,
+    "drug_local_id": 544,
+    "disease_local_id": 99
+  },
+  {
+    "id": 569,
+    "drug_local_id": 544,
+    "disease_local_id": 98
+  },
+  {
+    "id": 570,
+    "drug_local_id": 544,
+    "disease_local_id": 241
+  },
+  {
+    "id": 571,
+    "drug_local_id": 544,
+    "disease_local_id": 128
+  },
+  {
+    "id": 572,
+    "drug_local_id": 41,
+    "disease_local_id": 311
+  },
+  {
+    "id": 573,
+    "drug_local_id": 41,
+    "disease_local_id": 299
+  },
+  {
+    "id": 574,
+    "drug_local_id": 41,
+    "disease_local_id": 23
+  },
+  {
+    "id": 575,
+    "drug_local_id": 317,
+    "disease_local_id": 79
+  },
+  {
+    "id": 576,
+    "drug_local_id": 349,
+    "disease_local_id": 287
+  },
+  {
+    "id": 577,
+    "drug_local_id": 349,
+    "disease_local_id": 7
+  },
+  {
+    "id": 578,
+    "drug_local_id": 349,
+    "disease_local_id": 31
+  },
+  {
+    "id": 579,
+    "drug_local_id": 416,
+    "disease_local_id": 82
+  },
+  {
+    "id": 580,
+    "drug_local_id": 416,
+    "disease_local_id": 257
+  },
+  {
+    "id": 581,
+    "drug_local_id": 416,
+    "disease_local_id": 113
+  },
+  {
+    "id": 582,
+    "drug_local_id": 416,
+    "disease_local_id": 108
+  },
+  {
+    "id": 583,
+    "drug_local_id": 362,
+    "disease_local_id": 61
+  },
+  {
+    "id": 584,
+    "drug_local_id": 362,
+    "disease_local_id": 278
+  },
+  {
+    "id": 585,
+    "drug_local_id": 362,
+    "disease_local_id": 62
+  },
+  {
+    "id": 586,
+    "drug_local_id": 362,
+    "disease_local_id": 108
+  },
+  {
+    "id": 587,
+    "drug_local_id": 239,
+    "disease_local_id": 155
+  },
+  {
+    "id": 588,
+    "drug_local_id": 239,
+    "disease_local_id": 312
+  },
+  {
+    "id": 589,
+    "drug_local_id": 239,
+    "disease_local_id": 86
+  },
+  {
+    "id": 590,
+    "drug_local_id": 239,
+    "disease_local_id": 261
+  },
+  {
+    "id": 591,
+    "drug_local_id": 239,
+    "disease_local_id": 130
+  },
+  {
+    "id": 592,
+    "drug_local_id": 239,
+    "disease_local_id": 108
+  },
+  {
+    "id": 593,
+    "drug_local_id": 489,
+    "disease_local_id": 282
+  },
+  {
+    "id": 594,
+    "drug_local_id": 489,
+    "disease_local_id": 86
+  },
+  {
+    "id": 595,
+    "drug_local_id": 424,
+    "disease_local_id": 16
+  },
+  {
+    "id": 596,
+    "drug_local_id": 424,
+    "disease_local_id": 19
+  },
+  {
+    "id": 597,
+    "drug_local_id": 424,
+    "disease_local_id": 58
+  },
+  {
+    "id": 598,
+    "drug_local_id": 424,
+    "disease_local_id": 193
+  },
+  {
+    "id": 599,
+    "drug_local_id": 424,
+    "disease_local_id": 276
+  },
+  {
+    "id": 600,
+    "drug_local_id": 424,
+    "disease_local_id": 167
+  },
+  {
+    "id": 601,
+    "drug_local_id": 424,
+    "disease_local_id": 206
+  },
+  {
+    "id": 602,
+    "drug_local_id": 424,
+    "disease_local_id": 241
+  },
+  {
+    "id": 603,
+    "drug_local_id": 424,
+    "disease_local_id": 214
+  },
+  {
+    "id": 604,
+    "drug_local_id": 424,
+    "disease_local_id": 219
+  },
+  {
+    "id": 605,
+    "drug_local_id": 424,
+    "disease_local_id": 222
+  },
+  {
+    "id": 606,
+    "drug_local_id": 424,
+    "disease_local_id": 235
+  },
+  {
+    "id": 607,
+    "drug_local_id": 424,
+    "disease_local_id": 143
+  },
+  {
+    "id": 608,
+    "drug_local_id": 424,
+    "disease_local_id": 153
+  },
+  {
+    "id": 609,
+    "drug_local_id": 124,
+    "disease_local_id": 79
+  },
+  {
+    "id": 610,
+    "drug_local_id": 124,
+    "disease_local_id": 87
+  },
+  {
+    "id": 611,
+    "drug_local_id": 565,
+    "disease_local_id": 139
+  },
+  {
+    "id": 612,
+    "drug_local_id": 565,
+    "disease_local_id": 284
+  },
+  {
+    "id": 613,
+    "drug_local_id": 181,
+    "disease_local_id": 86
+  },
+  {
+    "id": 614,
+    "drug_local_id": 181,
+    "disease_local_id": 111
+  },
+  {
+    "id": 615,
+    "drug_local_id": 268,
+    "disease_local_id": 162
+  },
+  {
+    "id": 616,
+    "drug_local_id": 268,
+    "disease_local_id": 269
+  },
+  {
+    "id": 617,
+    "drug_local_id": 268,
+    "disease_local_id": 166
+  },
+  {
+    "id": 618,
+    "drug_local_id": 49,
+    "disease_local_id": 102
+  },
+  {
+    "id": 619,
+    "drug_local_id": 49,
+    "disease_local_id": 294
+  },
+  {
+    "id": 620,
+    "drug_local_id": 49,
+    "disease_local_id": 297
+  },
+  {
+    "id": 621,
+    "drug_local_id": 49,
+    "disease_local_id": 298
+  },
+  {
+    "id": 622,
+    "drug_local_id": 49,
+    "disease_local_id": 296
+  },
+  {
+    "id": 623,
+    "drug_local_id": 49,
+    "disease_local_id": 246
+  },
+  {
+    "id": 624,
+    "drug_local_id": 235,
+    "disease_local_id": 312
+  },
+  {
+    "id": 625,
+    "drug_local_id": 235,
+    "disease_local_id": 82
+  },
+  {
+    "id": 626,
+    "drug_local_id": 532,
+    "disease_local_id": 23
+  },
+  {
+    "id": 627,
+    "drug_local_id": 531,
+    "disease_local_id": 190
+  },
+  {
+    "id": 628,
+    "drug_local_id": 531,
+    "disease_local_id": 97
+  },
+  {
+    "id": 629,
+    "drug_local_id": 531,
+    "disease_local_id": 239
+  },
+  {
+    "id": 630,
+    "drug_local_id": 531,
+    "disease_local_id": 142
+  },
+  {
+    "id": 631,
+    "drug_local_id": 191,
+    "disease_local_id": 118
+  },
+  {
+    "id": 632,
+    "drug_local_id": 191,
+    "disease_local_id": 119
+  },
+  {
+    "id": 633,
+    "drug_local_id": 562,
+    "disease_local_id": 162
+  },
+  {
+    "id": 634,
+    "drug_local_id": 562,
+    "disease_local_id": 269
+  },
+  {
+    "id": 635,
+    "drug_local_id": 276,
+    "disease_local_id": 162
+  },
+  {
+    "id": 636,
+    "drug_local_id": 276,
+    "disease_local_id": 269
+  },
+  {
+    "id": 637,
+    "drug_local_id": 276,
+    "disease_local_id": 61
+  },
+  {
+    "id": 638,
+    "drug_local_id": 276,
+    "disease_local_id": 278
+  },
+  {
+    "id": 639,
+    "drug_local_id": 276,
+    "disease_local_id": 62
+  },
+  {
+    "id": 640,
+    "drug_local_id": 276,
+    "disease_local_id": 87
+  },
+  {
+    "id": 641,
+    "drug_local_id": 166,
+    "disease_local_id": 19
+  },
+  {
+    "id": 642,
+    "drug_local_id": 166,
+    "disease_local_id": 241
+  },
+  {
+    "id": 643,
+    "drug_local_id": 540,
+    "disease_local_id": 129
+  },
+  {
+    "id": 644,
+    "drug_local_id": 540,
+    "disease_local_id": 108
+  },
+  {
+    "id": 645,
+    "drug_local_id": 540,
+    "disease_local_id": 141
+  },
+  {
+    "id": 646,
+    "drug_local_id": 364,
+    "disease_local_id": 312
+  },
+  {
+    "id": 647,
+    "drug_local_id": 364,
+    "disease_local_id": 108
+  },
+  {
+    "id": 648,
+    "drug_local_id": 16,
+    "disease_local_id": 82
+  },
+  {
+    "id": 649,
+    "drug_local_id": 16,
+    "disease_local_id": 200
+  },
+  {
+    "id": 650,
+    "drug_local_id": 16,
+    "disease_local_id": 223
+  },
+  {
+    "id": 651,
+    "drug_local_id": 16,
+    "disease_local_id": 243
+  },
+  {
+    "id": 652,
+    "drug_local_id": 290,
+    "disease_local_id": 102
+  },
+  {
+    "id": 653,
+    "drug_local_id": 290,
+    "disease_local_id": 246
+  },
+  {
+    "id": 654,
+    "drug_local_id": 205,
+    "disease_local_id": 75
+  },
+  {
+    "id": 655,
+    "drug_local_id": 38,
+    "disease_local_id": 284
+  },
+  {
+    "id": 656,
+    "drug_local_id": 503,
+    "disease_local_id": 109
+  },
+  {
+    "id": 657,
+    "drug_local_id": 32,
+    "disease_local_id": 312
+  },
+  {
+    "id": 658,
+    "drug_local_id": 32,
+    "disease_local_id": 108
+  },
+  {
+    "id": 659,
+    "drug_local_id": 308,
+    "disease_local_id": 14
+  },
+  {
+    "id": 660,
+    "drug_local_id": 308,
+    "disease_local_id": 263
+  },
+  {
+    "id": 661,
+    "drug_local_id": 308,
+    "disease_local_id": 147
+  },
+  {
+    "id": 662,
+    "drug_local_id": 329,
+    "disease_local_id": 3
+  },
+  {
+    "id": 663,
+    "drug_local_id": 329,
+    "disease_local_id": 19
+  },
+  {
+    "id": 664,
+    "drug_local_id": 329,
+    "disease_local_id": 175
+  },
+  {
+    "id": 665,
+    "drug_local_id": 329,
+    "disease_local_id": 258
+  },
+  {
+    "id": 666,
+    "drug_local_id": 329,
+    "disease_local_id": 128
+  },
+  {
+    "id": 667,
+    "drug_local_id": 516,
+    "disease_local_id": 128
+  },
+  {
+    "id": 668,
+    "drug_local_id": 516,
+    "disease_local_id": 274
+  },
+  {
+    "id": 669,
+    "drug_local_id": 272,
+    "disease_local_id": 175
+  },
+  {
+    "id": 670,
+    "drug_local_id": 272,
+    "disease_local_id": 258
+  },
+  {
+    "id": 671,
+    "drug_local_id": 375,
+    "disease_local_id": 156
+  },
+  {
+    "id": 672,
+    "drug_local_id": 375,
+    "disease_local_id": 161
+  },
+  {
+    "id": 673,
+    "drug_local_id": 375,
+    "disease_local_id": 166
+  },
+  {
+    "id": 674,
+    "drug_local_id": 375,
+    "disease_local_id": 264
+  },
+  {
+    "id": 675,
+    "drug_local_id": 375,
+    "disease_local_id": 174
+  },
+  {
+    "id": 676,
+    "drug_local_id": 375,
+    "disease_local_id": 312
+  },
+  {
+    "id": 677,
+    "drug_local_id": 375,
+    "disease_local_id": 218
+  },
+  {
+    "id": 678,
+    "drug_local_id": 375,
+    "disease_local_id": 108
+  },
+  {
+    "id": 679,
+    "drug_local_id": 372,
+    "disease_local_id": 86
+  },
+  {
+    "id": 680,
+    "drug_local_id": 412,
+    "disease_local_id": 3
+  },
+  {
+    "id": 681,
+    "drug_local_id": 412,
+    "disease_local_id": 175
+  },
+  {
+    "id": 682,
+    "drug_local_id": 412,
+    "disease_local_id": 42
+  },
+  {
+    "id": 683,
+    "drug_local_id": 412,
+    "disease_local_id": 139
+  },
+  {
+    "id": 684,
+    "drug_local_id": 412,
+    "disease_local_id": 258
+  },
+  {
+    "id": 685,
+    "drug_local_id": 412,
+    "disease_local_id": 284
+  },
+  {
+    "id": 686,
+    "drug_local_id": 412,
+    "disease_local_id": 151
+  },
+  {
+    "id": 687,
+    "drug_local_id": 241,
+    "disease_local_id": 177
+  },
+  {
+    "id": 688,
+    "drug_local_id": 315,
+    "disease_local_id": 177
+  },
+  {
+    "id": 689,
+    "drug_local_id": 315,
+    "disease_local_id": 197
+  },
+  {
+    "id": 690,
+    "drug_local_id": 313,
+    "disease_local_id": 160
+  },
+  {
+    "id": 691,
+    "drug_local_id": 313,
+    "disease_local_id": 86
+  },
+  {
+    "id": 692,
+    "drug_local_id": 313,
+    "disease_local_id": 112
+  },
+  {
+    "id": 693,
+    "drug_local_id": 313,
+    "disease_local_id": 66
+  },
+  {
+    "id": 694,
+    "drug_local_id": 313,
+    "disease_local_id": 305
+  },
+  {
+    "id": 695,
+    "drug_local_id": 313,
+    "disease_local_id": 293
+  },
+  {
+    "id": 696,
+    "drug_local_id": 326,
+    "disease_local_id": 193
+  },
+  {
+    "id": 697,
+    "drug_local_id": 326,
+    "disease_local_id": 241
+  },
+  {
+    "id": 698,
+    "drug_local_id": 326,
+    "disease_local_id": 137
+  },
+  {
+    "id": 699,
+    "drug_local_id": 326,
+    "disease_local_id": 238
+  },
+  {
+    "id": 700,
+    "drug_local_id": 576,
+    "disease_local_id": 288
+  },
+  {
+    "id": 701,
+    "drug_local_id": 576,
+    "disease_local_id": 75
+  },
+  {
+    "id": 702,
+    "drug_local_id": 418,
+    "disease_local_id": 19
+  },
+  {
+    "id": 703,
+    "drug_local_id": 389,
+    "disease_local_id": 14
+  },
+  {
+    "id": 704,
+    "drug_local_id": 389,
+    "disease_local_id": 263
+  },
+  {
+    "id": 705,
+    "drug_local_id": 389,
+    "disease_local_id": 251
+  },
+  {
+    "id": 706,
+    "drug_local_id": 389,
+    "disease_local_id": 147
+  },
+  {
+    "id": 707,
+    "drug_local_id": 399,
+    "disease_local_id": 0
+  },
+  {
+    "id": 708,
+    "drug_local_id": 440,
+    "disease_local_id": 312
+  },
+  {
+    "id": 709,
+    "drug_local_id": 440,
+    "disease_local_id": 130
+  },
+  {
+    "id": 710,
+    "drug_local_id": 440,
+    "disease_local_id": 108
+  },
+  {
+    "id": 711,
+    "drug_local_id": 445,
+    "disease_local_id": 72
+  },
+  {
+    "id": 712,
+    "drug_local_id": 445,
+    "disease_local_id": 74
+  },
+  {
+    "id": 713,
+    "drug_local_id": 335,
+    "disease_local_id": 312
+  },
+  {
+    "id": 714,
+    "drug_local_id": 335,
+    "disease_local_id": 108
+  },
+  {
+    "id": 715,
+    "drug_local_id": 231,
+    "disease_local_id": 160
+  },
+  {
+    "id": 716,
+    "drug_local_id": 231,
+    "disease_local_id": 86
+  },
+  {
+    "id": 717,
+    "drug_local_id": 231,
+    "disease_local_id": 112
+  },
+  {
+    "id": 718,
+    "drug_local_id": 231,
+    "disease_local_id": 66
+  },
+  {
+    "id": 719,
+    "drug_local_id": 231,
+    "disease_local_id": 305
+  },
+  {
+    "id": 720,
+    "drug_local_id": 231,
+    "disease_local_id": 293
+  },
+  {
+    "id": 721,
+    "drug_local_id": 340,
+    "disease_local_id": 86
+  },
+  {
+    "id": 722,
+    "drug_local_id": 524,
+    "disease_local_id": 155
+  },
+  {
+    "id": 723,
+    "drug_local_id": 524,
+    "disease_local_id": 13
+  },
+  {
+    "id": 724,
+    "drug_local_id": 524,
+    "disease_local_id": 6
+  },
+  {
+    "id": 725,
+    "drug_local_id": 524,
+    "disease_local_id": 86
+  },
+  {
+    "id": 726,
+    "drug_local_id": 524,
+    "disease_local_id": 261
+  },
+  {
+    "id": 727,
+    "drug_local_id": 491,
+    "disease_local_id": 190
+  },
+  {
+    "id": 728,
+    "drug_local_id": 491,
+    "disease_local_id": 97
+  },
+  {
+    "id": 729,
+    "drug_local_id": 491,
+    "disease_local_id": 239
+  },
+  {
+    "id": 730,
+    "drug_local_id": 515,
+    "disease_local_id": 299
+  },
+  {
+    "id": 731,
+    "drug_local_id": 470,
+    "disease_local_id": 22
+  },
+  {
+    "id": 732,
+    "drug_local_id": 470,
+    "disease_local_id": 168
+  },
+  {
+    "id": 733,
+    "drug_local_id": 460,
+    "disease_local_id": 181
+  },
+  {
+    "id": 734,
+    "drug_local_id": 460,
+    "disease_local_id": 193
+  },
+  {
+    "id": 735,
+    "drug_local_id": 460,
+    "disease_local_id": 15
+  },
+  {
+    "id": 736,
+    "drug_local_id": 460,
+    "disease_local_id": 92
+  },
+  {
+    "id": 737,
+    "drug_local_id": 460,
+    "disease_local_id": 206
+  },
+  {
+    "id": 738,
+    "drug_local_id": 460,
+    "disease_local_id": 241
+  },
+  {
+    "id": 739,
+    "drug_local_id": 460,
+    "disease_local_id": 233
+  },
+  {
+    "id": 740,
+    "drug_local_id": 285,
+    "disease_local_id": 103
+  },
+  {
+    "id": 741,
+    "drug_local_id": 285,
+    "disease_local_id": 210
+  },
+  {
+    "id": 742,
+    "drug_local_id": 28,
+    "disease_local_id": 162
+  },
+  {
+    "id": 743,
+    "drug_local_id": 28,
+    "disease_local_id": 269
+  },
+  {
+    "id": 744,
+    "drug_local_id": 240,
+    "disease_local_id": 282
+  },
+  {
+    "id": 745,
+    "drug_local_id": 100,
+    "disease_local_id": 245
+  },
+  {
+    "id": 746,
+    "drug_local_id": 214,
+    "disease_local_id": 8
+  },
+  {
+    "id": 747,
+    "drug_local_id": 214,
+    "disease_local_id": 19
+  },
+  {
+    "id": 748,
+    "drug_local_id": 214,
+    "disease_local_id": 20
+  },
+  {
+    "id": 749,
+    "drug_local_id": 214,
+    "disease_local_id": 58
+  },
+  {
+    "id": 750,
+    "drug_local_id": 214,
+    "disease_local_id": 241
+  },
+  {
+    "id": 751,
+    "drug_local_id": 179,
+    "disease_local_id": 295
+  },
+  {
+    "id": 752,
+    "drug_local_id": 179,
+    "disease_local_id": 43
+  },
+  {
+    "id": 753,
+    "drug_local_id": 179,
+    "disease_local_id": 210
+  },
+  {
+    "id": 754,
+    "drug_local_id": 179,
+    "disease_local_id": 109
+  },
+  {
+    "id": 755,
+    "drug_local_id": 179,
+    "disease_local_id": 117
+  },
+  {
+    "id": 756,
+    "drug_local_id": 179,
+    "disease_local_id": 135
+  },
+  {
+    "id": 757,
+    "drug_local_id": 508,
+    "disease_local_id": 19
+  },
+  {
+    "id": 758,
+    "drug_local_id": 508,
+    "disease_local_id": 175
+  },
+  {
+    "id": 759,
+    "drug_local_id": 508,
+    "disease_local_id": 199
+  },
+  {
+    "id": 760,
+    "drug_local_id": 254,
+    "disease_local_id": 135
+  },
+  {
+    "id": 761,
+    "drug_local_id": 351,
+    "disease_local_id": 192
+  },
+  {
+    "id": 762,
+    "drug_local_id": 296,
+    "disease_local_id": 4
+  },
+  {
+    "id": 763,
+    "drug_local_id": 296,
+    "disease_local_id": 160
+  },
+  {
+    "id": 764,
+    "drug_local_id": 296,
+    "disease_local_id": 95
+  },
+  {
+    "id": 765,
+    "drug_local_id": 296,
+    "disease_local_id": 112
+  },
+  {
+    "id": 766,
+    "drug_local_id": 296,
+    "disease_local_id": 66
+  },
+  {
+    "id": 767,
+    "drug_local_id": 296,
+    "disease_local_id": 305
+  },
+  {
+    "id": 768,
+    "drug_local_id": 296,
+    "disease_local_id": 293
+  },
+  {
+    "id": 769,
+    "drug_local_id": 193,
+    "disease_local_id": 128
+  },
+  {
+    "id": 770,
+    "drug_local_id": 238,
+    "disease_local_id": 162
+  },
+  {
+    "id": 771,
+    "drug_local_id": 238,
+    "disease_local_id": 269
+  },
+  {
+    "id": 772,
+    "drug_local_id": 468,
+    "disease_local_id": 72
+  },
+  {
+    "id": 773,
+    "drug_local_id": 24,
+    "disease_local_id": 109
+  },
+  {
+    "id": 774,
+    "drug_local_id": 24,
+    "disease_local_id": 117
+  },
+  {
+    "id": 775,
+    "drug_local_id": 227,
+    "disease_local_id": 142
+  },
+  {
+    "id": 776,
+    "drug_local_id": 414,
+    "disease_local_id": 162
+  },
+  {
+    "id": 777,
+    "drug_local_id": 414,
+    "disease_local_id": 269
+  },
+  {
+    "id": 778,
+    "drug_local_id": 414,
+    "disease_local_id": 166
+  },
+  {
+    "id": 779,
+    "drug_local_id": 190,
+    "disease_local_id": 312
+  },
+  {
+    "id": 780,
+    "drug_local_id": 190,
+    "disease_local_id": 82
+  },
+  {
+    "id": 781,
+    "drug_local_id": 190,
+    "disease_local_id": 108
+  },
+  {
+    "id": 782,
+    "drug_local_id": 557,
+    "disease_local_id": 177
+  },
+  {
+    "id": 783,
+    "drug_local_id": 557,
+    "disease_local_id": 197
+  },
+  {
+    "id": 784,
+    "drug_local_id": 425,
+    "disease_local_id": 102
+  },
+  {
+    "id": 785,
+    "drug_local_id": 398,
+    "disease_local_id": 19
+  },
+  {
+    "id": 786,
+    "drug_local_id": 578,
+    "disease_local_id": 158
+  },
+  {
+    "id": 787,
+    "drug_local_id": 289,
+    "disease_local_id": 156
+  },
+  {
+    "id": 788,
+    "drug_local_id": 289,
+    "disease_local_id": 161
+  },
+  {
+    "id": 789,
+    "drug_local_id": 289,
+    "disease_local_id": 166
+  },
+  {
+    "id": 790,
+    "drug_local_id": 289,
+    "disease_local_id": 264
+  },
+  {
+    "id": 791,
+    "drug_local_id": 289,
+    "disease_local_id": 174
+  },
+  {
+    "id": 792,
+    "drug_local_id": 289,
+    "disease_local_id": 71
+  },
+  {
+    "id": 793,
+    "drug_local_id": 289,
+    "disease_local_id": 312
+  },
+  {
+    "id": 794,
+    "drug_local_id": 289,
+    "disease_local_id": 82
+  },
+  {
+    "id": 795,
+    "drug_local_id": 289,
+    "disease_local_id": 218
+  },
+  {
+    "id": 796,
+    "drug_local_id": 289,
+    "disease_local_id": 113
+  },
+  {
+    "id": 797,
+    "drug_local_id": 289,
+    "disease_local_id": 108
+  },
+  {
+    "id": 798,
+    "drug_local_id": 423,
+    "disease_local_id": 163
+  },
+  {
+    "id": 799,
+    "drug_local_id": 423,
+    "disease_local_id": 262
+  },
+  {
+    "id": 800,
+    "drug_local_id": 423,
+    "disease_local_id": 302
+  },
+  {
+    "id": 801,
+    "drug_local_id": 423,
+    "disease_local_id": 300
+  },
+  {
+    "id": 802,
+    "drug_local_id": 423,
+    "disease_local_id": 285
+  },
+  {
+    "id": 803,
+    "drug_local_id": 423,
+    "disease_local_id": 303
+  },
+  {
+    "id": 804,
+    "drug_local_id": 423,
+    "disease_local_id": 301
+  },
+  {
+    "id": 805,
+    "drug_local_id": 423,
+    "disease_local_id": 308
+  },
+  {
+    "id": 806,
+    "drug_local_id": 423,
+    "disease_local_id": 248
+  },
+  {
+    "id": 807,
+    "drug_local_id": 423,
+    "disease_local_id": 73
+  },
+  {
+    "id": 808,
+    "drug_local_id": 423,
+    "disease_local_id": 86
+  },
+  {
+    "id": 809,
+    "drug_local_id": 423,
+    "disease_local_id": 102
+  },
+  {
+    "id": 810,
+    "drug_local_id": 423,
+    "disease_local_id": 111
+  },
+  {
+    "id": 811,
+    "drug_local_id": 423,
+    "disease_local_id": 1
+  },
+  {
+    "id": 812,
+    "drug_local_id": 423,
+    "disease_local_id": 234
+  },
+  {
+    "id": 813,
+    "drug_local_id": 423,
+    "disease_local_id": 146
+  },
+  {
+    "id": 814,
+    "drug_local_id": 279,
+    "disease_local_id": 287
+  },
+  {
+    "id": 815,
+    "drug_local_id": 279,
+    "disease_local_id": 7
+  },
+  {
+    "id": 816,
+    "drug_local_id": 279,
+    "disease_local_id": 31
+  },
+  {
+    "id": 817,
+    "drug_local_id": 163,
+    "disease_local_id": 19
+  },
+  {
+    "id": 818,
+    "drug_local_id": 163,
+    "disease_local_id": 288
+  },
+  {
+    "id": 819,
+    "drug_local_id": 163,
+    "disease_local_id": 75
+  },
+  {
+    "id": 820,
+    "drug_local_id": 541,
+    "disease_local_id": 72
+  },
+  {
+    "id": 821,
+    "drug_local_id": 541,
+    "disease_local_id": 74
+  },
+  {
+    "id": 822,
+    "drug_local_id": 541,
+    "disease_local_id": 224
+  },
+  {
+    "id": 823,
+    "drug_local_id": 585,
+    "disease_local_id": 38
+  },
+  {
+    "id": 824,
+    "drug_local_id": 435,
+    "disease_local_id": 37
+  },
+  {
+    "id": 825,
+    "drug_local_id": 435,
+    "disease_local_id": 34
+  },
+  {
+    "id": 826,
+    "drug_local_id": 435,
+    "disease_local_id": 35
+  },
+  {
+    "id": 827,
+    "drug_local_id": 435,
+    "disease_local_id": 265
+  },
+  {
+    "id": 828,
+    "drug_local_id": 479,
+    "disease_local_id": 37
+  },
+  {
+    "id": 829,
+    "drug_local_id": 52,
+    "disease_local_id": 37
+  },
+  {
+    "id": 830,
+    "drug_local_id": 52,
+    "disease_local_id": 34
+  },
+  {
+    "id": 831,
+    "drug_local_id": 52,
+    "disease_local_id": 35
+  },
+  {
+    "id": 832,
+    "drug_local_id": 52,
+    "disease_local_id": 265
+  },
+  {
+    "id": 833,
+    "drug_local_id": 455,
+    "disease_local_id": 37
+  },
+  {
+    "id": 834,
+    "drug_local_id": 455,
+    "disease_local_id": 34
+  },
+  {
+    "id": 835,
+    "drug_local_id": 455,
+    "disease_local_id": 35
+  },
+  {
+    "id": 836,
+    "drug_local_id": 455,
+    "disease_local_id": 265
+  },
+  {
+    "id": 837,
+    "drug_local_id": 556,
+    "disease_local_id": 160
+  },
+  {
+    "id": 838,
+    "drug_local_id": 556,
+    "disease_local_id": 112
+  },
+  {
+    "id": 839,
+    "drug_local_id": 556,
+    "disease_local_id": 66
+  },
+  {
+    "id": 840,
+    "drug_local_id": 556,
+    "disease_local_id": 305
+  },
+  {
+    "id": 841,
+    "drug_local_id": 556,
+    "disease_local_id": 293
+  },
+  {
+    "id": 842,
+    "drug_local_id": 265,
+    "disease_local_id": 81
+  },
+  {
+    "id": 843,
+    "drug_local_id": 2,
+    "disease_local_id": 19
+  },
+  {
+    "id": 844,
+    "drug_local_id": 2,
+    "disease_local_id": 42
+  },
+  {
+    "id": 845,
+    "drug_local_id": 2,
+    "disease_local_id": 128
+  },
+  {
+    "id": 846,
+    "drug_local_id": 2,
+    "disease_local_id": 274
+  },
+  {
+    "id": 847,
+    "drug_local_id": 371,
+    "disease_local_id": 79
+  },
+  {
+    "id": 848,
+    "drug_local_id": 53,
+    "disease_local_id": 312
+  },
+  {
+    "id": 849,
+    "drug_local_id": 53,
+    "disease_local_id": 108
+  },
+  {
+    "id": 850,
+    "drug_local_id": 500,
+    "disease_local_id": 312
+  },
+  {
+    "id": 851,
+    "drug_local_id": 500,
+    "disease_local_id": 108
+  },
+  {
+    "id": 852,
+    "drug_local_id": 437,
+    "disease_local_id": 69
+  },
+  {
+    "id": 853,
+    "drug_local_id": 437,
+    "disease_local_id": 312
+  },
+  {
+    "id": 854,
+    "drug_local_id": 437,
+    "disease_local_id": 108
+  },
+  {
+    "id": 855,
+    "drug_local_id": 209,
+    "disease_local_id": 18
+  },
+  {
+    "id": 856,
+    "drug_local_id": 209,
+    "disease_local_id": 178
+  },
+  {
+    "id": 857,
+    "drug_local_id": 209,
+    "disease_local_id": 259
+  },
+  {
+    "id": 858,
+    "drug_local_id": 243,
+    "disease_local_id": 192
+  },
+  {
+    "id": 859,
+    "drug_local_id": 196,
+    "disease_local_id": 40
+  },
+  {
+    "id": 860,
+    "drug_local_id": 196,
+    "disease_local_id": 60
+  },
+  {
+    "id": 861,
+    "drug_local_id": 196,
+    "disease_local_id": 135
+  },
+  {
+    "id": 862,
+    "drug_local_id": 196,
+    "disease_local_id": 138
+  },
+  {
+    "id": 863,
+    "drug_local_id": 474,
+    "disease_local_id": 30
+  },
+  {
+    "id": 864,
+    "drug_local_id": 474,
+    "disease_local_id": 260
+  },
+  {
+    "id": 865,
+    "drug_local_id": 474,
+    "disease_local_id": 273
+  },
+  {
+    "id": 866,
+    "drug_local_id": 553,
+    "disease_local_id": 312
+  },
+  {
+    "id": 867,
+    "drug_local_id": 553,
+    "disease_local_id": 78
+  },
+  {
+    "id": 868,
+    "drug_local_id": 553,
+    "disease_local_id": 108
+  },
+  {
+    "id": 869,
+    "drug_local_id": 426,
+    "disease_local_id": 3
+  },
+  {
+    "id": 870,
+    "drug_local_id": 426,
+    "disease_local_id": 161
+  },
+  {
+    "id": 871,
+    "drug_local_id": 426,
+    "disease_local_id": 33
+  },
+  {
+    "id": 872,
+    "drug_local_id": 426,
+    "disease_local_id": 264
+  },
+  {
+    "id": 873,
+    "drug_local_id": 426,
+    "disease_local_id": 174
+  },
+  {
+    "id": 874,
+    "drug_local_id": 426,
+    "disease_local_id": 312
+  },
+  {
+    "id": 875,
+    "drug_local_id": 426,
+    "disease_local_id": 108
+  },
+  {
+    "id": 876,
+    "drug_local_id": 402,
+    "disease_local_id": 86
+  },
+  {
+    "id": 877,
+    "drug_local_id": 402,
+    "disease_local_id": 307
+  },
+  {
+    "id": 878,
+    "drug_local_id": 309,
+    "disease_local_id": 32
+  },
+  {
+    "id": 879,
+    "drug_local_id": 309,
+    "disease_local_id": 192
+  },
+  {
+    "id": 880,
+    "drug_local_id": 309,
+    "disease_local_id": 115
+  },
+  {
+    "id": 881,
+    "drug_local_id": 102,
+    "disease_local_id": 86
+  },
+  {
+    "id": 882,
+    "drug_local_id": 102,
+    "disease_local_id": 307
+  },
+  {
+    "id": 883,
+    "drug_local_id": 430,
+    "disease_local_id": 288
+  },
+  {
+    "id": 884,
+    "drug_local_id": 430,
+    "disease_local_id": 99
+  },
+  {
+    "id": 885,
+    "drug_local_id": 430,
+    "disease_local_id": 98
+  },
+  {
+    "id": 886,
+    "drug_local_id": 430,
+    "disease_local_id": 241
+  },
+  {
+    "id": 887,
+    "drug_local_id": 430,
+    "disease_local_id": 228
+  },
+  {
+    "id": 888,
+    "drug_local_id": 430,
+    "disease_local_id": 75
+  },
+  {
+    "id": 889,
+    "drug_local_id": 430,
+    "disease_local_id": 140
+  },
+  {
+    "id": 890,
+    "drug_local_id": 223,
+    "disease_local_id": 79
+  },
+  {
+    "id": 891,
+    "drug_local_id": 223,
+    "disease_local_id": 86
+  },
+  {
+    "id": 892,
+    "drug_local_id": 156,
+    "disease_local_id": 155
+  },
+  {
+    "id": 893,
+    "drug_local_id": 156,
+    "disease_local_id": 185
+  },
+  {
+    "id": 894,
+    "drug_local_id": 156,
+    "disease_local_id": 73
+  },
+  {
+    "id": 895,
+    "drug_local_id": 156,
+    "disease_local_id": 225
+  },
+  {
+    "id": 896,
+    "drug_local_id": 156,
+    "disease_local_id": 147
+  },
+  {
+    "id": 897,
+    "drug_local_id": 295,
+    "disease_local_id": 3
+  },
+  {
+    "id": 898,
+    "drug_local_id": 295,
+    "disease_local_id": 114
+  },
+  {
+    "id": 899,
+    "drug_local_id": 450,
+    "disease_local_id": 160
+  },
+  {
+    "id": 900,
+    "drug_local_id": 450,
+    "disease_local_id": 79
+  },
+  {
+    "id": 901,
+    "drug_local_id": 450,
+    "disease_local_id": 86
+  },
+  {
+    "id": 902,
+    "drug_local_id": 450,
+    "disease_local_id": 90
+  },
+  {
+    "id": 903,
+    "drug_local_id": 450,
+    "disease_local_id": 210
+  },
+  {
+    "id": 904,
+    "drug_local_id": 450,
+    "disease_local_id": 112
+  },
+  {
+    "id": 905,
+    "drug_local_id": 450,
+    "disease_local_id": 66
+  },
+  {
+    "id": 906,
+    "drug_local_id": 450,
+    "disease_local_id": 305
+  },
+  {
+    "id": 907,
+    "drug_local_id": 450,
+    "disease_local_id": 293
+  },
+  {
+    "id": 908,
+    "drug_local_id": 91,
+    "disease_local_id": 311
+  },
+  {
+    "id": 909,
+    "drug_local_id": 91,
+    "disease_local_id": 299
+  },
+  {
+    "id": 910,
+    "drug_local_id": 505,
+    "disease_local_id": 181
+  },
+  {
+    "id": 911,
+    "drug_local_id": 505,
+    "disease_local_id": 276
+  },
+  {
+    "id": 912,
+    "drug_local_id": 505,
+    "disease_local_id": 206
+  },
+  {
+    "id": 913,
+    "drug_local_id": 506,
+    "disease_local_id": 193
+  },
+  {
+    "id": 914,
+    "drug_local_id": 506,
+    "disease_local_id": 15
+  },
+  {
+    "id": 915,
+    "drug_local_id": 506,
+    "disease_local_id": 92
+  },
+  {
+    "id": 916,
+    "drug_local_id": 506,
+    "disease_local_id": 206
+  },
+  {
+    "id": 917,
+    "drug_local_id": 506,
+    "disease_local_id": 241
+  },
+  {
+    "id": 918,
+    "drug_local_id": 506,
+    "disease_local_id": 238
+  },
+  {
+    "id": 919,
+    "drug_local_id": 467,
+    "disease_local_id": 312
+  },
+  {
+    "id": 920,
+    "drug_local_id": 467,
+    "disease_local_id": 78
+  },
+  {
+    "id": 921,
+    "drug_local_id": 467,
+    "disease_local_id": 129
+  },
+  {
+    "id": 922,
+    "drug_local_id": 467,
+    "disease_local_id": 108
+  },
+  {
+    "id": 923,
+    "drug_local_id": 251,
+    "disease_local_id": 304
+  },
+  {
+    "id": 924,
+    "drug_local_id": 251,
+    "disease_local_id": 206
+  },
+  {
+    "id": 925,
+    "drug_local_id": 251,
+    "disease_local_id": 241
+  },
+  {
+    "id": 926,
+    "drug_local_id": 251,
+    "disease_local_id": 44
+  },
+  {
+    "id": 927,
+    "drug_local_id": 172,
+    "disease_local_id": 69
+  },
+  {
+    "id": 928,
+    "drug_local_id": 172,
+    "disease_local_id": 266
+  },
+  {
+    "id": 929,
+    "drug_local_id": 172,
+    "disease_local_id": 270
+  },
+  {
+    "id": 930,
+    "drug_local_id": 172,
+    "disease_local_id": 86
+  },
+  {
+    "id": 931,
+    "drug_local_id": 172,
+    "disease_local_id": 117
+  },
+  {
+    "id": 932,
+    "drug_local_id": 303,
+    "disease_local_id": 8
+  },
+  {
+    "id": 933,
+    "drug_local_id": 338,
+    "disease_local_id": 264
+  },
+  {
+    "id": 934,
+    "drug_local_id": 338,
+    "disease_local_id": 174
+  },
+  {
+    "id": 935,
+    "drug_local_id": 338,
+    "disease_local_id": 312
+  },
+  {
+    "id": 936,
+    "drug_local_id": 338,
+    "disease_local_id": 218
+  },
+  {
+    "id": 937,
+    "drug_local_id": 338,
+    "disease_local_id": 108
+  },
+  {
+    "id": 938,
+    "drug_local_id": 103,
+    "disease_local_id": 160
+  },
+  {
+    "id": 939,
+    "drug_local_id": 103,
+    "disease_local_id": 281
+  },
+  {
+    "id": 940,
+    "drug_local_id": 103,
+    "disease_local_id": 49
+  },
+  {
+    "id": 941,
+    "drug_local_id": 103,
+    "disease_local_id": 50
+  },
+  {
+    "id": 942,
+    "drug_local_id": 103,
+    "disease_local_id": 229
+  },
+  {
+    "id": 943,
+    "drug_local_id": 103,
+    "disease_local_id": 86
+  },
+  {
+    "id": 944,
+    "drug_local_id": 103,
+    "disease_local_id": 203
+  },
+  {
+    "id": 945,
+    "drug_local_id": 103,
+    "disease_local_id": 102
+  },
+  {
+    "id": 946,
+    "drug_local_id": 103,
+    "disease_local_id": 112
+  },
+  {
+    "id": 947,
+    "drug_local_id": 103,
+    "disease_local_id": 66
+  },
+  {
+    "id": 948,
+    "drug_local_id": 103,
+    "disease_local_id": 305
+  },
+  {
+    "id": 949,
+    "drug_local_id": 103,
+    "disease_local_id": 293
+  },
+  {
+    "id": 950,
+    "drug_local_id": 105,
+    "disease_local_id": 162
+  },
+  {
+    "id": 951,
+    "drug_local_id": 105,
+    "disease_local_id": 269
+  },
+  {
+    "id": 952,
+    "drug_local_id": 105,
+    "disease_local_id": 166
+  },
+  {
+    "id": 953,
+    "drug_local_id": 441,
+    "disease_local_id": 37
+  },
+  {
+    "id": 954,
+    "drug_local_id": 441,
+    "disease_local_id": 312
+  },
+  {
+    "id": 955,
+    "drug_local_id": 441,
+    "disease_local_id": 82
+  },
+  {
+    "id": 956,
+    "drug_local_id": 441,
+    "disease_local_id": 34
+  },
+  {
+    "id": 957,
+    "drug_local_id": 441,
+    "disease_local_id": 35
+  },
+  {
+    "id": 958,
+    "drug_local_id": 441,
+    "disease_local_id": 265
+  },
+  {
+    "id": 959,
+    "drug_local_id": 441,
+    "disease_local_id": 108
+  },
+  {
+    "id": 960,
+    "drug_local_id": 320,
+    "disease_local_id": 20
+  },
+  {
+    "id": 961,
+    "drug_local_id": 320,
+    "disease_local_id": 181
+  },
+  {
+    "id": 962,
+    "drug_local_id": 320,
+    "disease_local_id": 204
+  },
+  {
+    "id": 963,
+    "drug_local_id": 320,
+    "disease_local_id": 241
+  },
+  {
+    "id": 964,
+    "drug_local_id": 51,
+    "disease_local_id": 162
+  },
+  {
+    "id": 965,
+    "drug_local_id": 51,
+    "disease_local_id": 269
+  },
+  {
+    "id": 966,
+    "drug_local_id": 51,
+    "disease_local_id": 166
+  },
+  {
+    "id": 967,
+    "drug_local_id": 454,
+    "disease_local_id": 162
+  },
+  {
+    "id": 968,
+    "drug_local_id": 454,
+    "disease_local_id": 269
+  },
+  {
+    "id": 969,
+    "drug_local_id": 454,
+    "disease_local_id": 23
+  },
+  {
+    "id": 970,
+    "drug_local_id": 368,
+    "disease_local_id": 310
+  },
+  {
+    "id": 971,
+    "drug_local_id": 368,
+    "disease_local_id": 14
+  },
+  {
+    "id": 972,
+    "drug_local_id": 368,
+    "disease_local_id": 129
+  },
+  {
+    "id": 973,
+    "drug_local_id": 368,
+    "disease_local_id": 108
+  },
+  {
+    "id": 974,
+    "drug_local_id": 439,
+    "disease_local_id": 310
+  },
+  {
+    "id": 975,
+    "drug_local_id": 439,
+    "disease_local_id": 14
+  },
+  {
+    "id": 976,
+    "drug_local_id": 413,
+    "disease_local_id": 276
+  },
+  {
+    "id": 977,
+    "drug_local_id": 413,
+    "disease_local_id": 284
+  },
+  {
+    "id": 978,
+    "drug_local_id": 70,
+    "disease_local_id": 312
+  },
+  {
+    "id": 979,
+    "drug_local_id": 70,
+    "disease_local_id": 130
+  },
+  {
+    "id": 980,
+    "drug_local_id": 70,
+    "disease_local_id": 108
+  },
+  {
+    "id": 981,
+    "drug_local_id": 498,
+    "disease_local_id": 22
+  },
+  {
+    "id": 982,
+    "drug_local_id": 498,
+    "disease_local_id": 168
+  },
+  {
+    "id": 983,
+    "drug_local_id": 498,
+    "disease_local_id": 279
+  },
+  {
+    "id": 984,
+    "drug_local_id": 498,
+    "disease_local_id": 220
+  },
+  {
+    "id": 985,
+    "drug_local_id": 527,
+    "disease_local_id": 86
+  },
+  {
+    "id": 986,
+    "drug_local_id": 433,
+    "disease_local_id": 160
+  },
+  {
+    "id": 987,
+    "drug_local_id": 433,
+    "disease_local_id": 79
+  },
+  {
+    "id": 988,
+    "drug_local_id": 433,
+    "disease_local_id": 112
+  },
+  {
+    "id": 989,
+    "drug_local_id": 433,
+    "disease_local_id": 66
+  },
+  {
+    "id": 990,
+    "drug_local_id": 433,
+    "disease_local_id": 305
+  },
+  {
+    "id": 991,
+    "drug_local_id": 433,
+    "disease_local_id": 293
+  },
+  {
+    "id": 992,
+    "drug_local_id": 175,
+    "disease_local_id": 254
+  },
+  {
+    "id": 993,
+    "drug_local_id": 175,
+    "disease_local_id": 86
+  },
+  {
+    "id": 994,
+    "drug_local_id": 244,
+    "disease_local_id": 17
+  },
+  {
+    "id": 995,
+    "drug_local_id": 244,
+    "disease_local_id": 312
+  },
+  {
+    "id": 996,
+    "drug_local_id": 244,
+    "disease_local_id": 103
+  },
+  {
+    "id": 997,
+    "drug_local_id": 244,
+    "disease_local_id": 121
+  },
+  {
+    "id": 998,
+    "drug_local_id": 244,
+    "disease_local_id": 108
+  },
+  {
+    "id": 999,
+    "drug_local_id": 17,
+    "disease_local_id": 227
+  },
+  {
+    "id": 1000,
+    "drug_local_id": 222,
+    "disease_local_id": 0
+  },
+  {
+    "id": 1001,
+    "drug_local_id": 222,
+    "disease_local_id": 177
+  },
+  {
+    "id": 1002,
+    "drug_local_id": 222,
+    "disease_local_id": 197
+  },
+  {
+    "id": 1003,
+    "drug_local_id": 222,
+    "disease_local_id": 135
+  },
+  {
+    "id": 1004,
+    "drug_local_id": 167,
+    "disease_local_id": 14
+  },
+  {
+    "id": 1005,
+    "drug_local_id": 167,
+    "disease_local_id": 263
+  },
+  {
+    "id": 1006,
+    "drug_local_id": 167,
+    "disease_local_id": 147
+  },
+  {
+    "id": 1007,
+    "drug_local_id": 547,
+    "disease_local_id": 19
+  },
+  {
+    "id": 1008,
+    "drug_local_id": 547,
+    "disease_local_id": 241
+  },
+  {
+    "id": 1009,
+    "drug_local_id": 11,
+    "disease_local_id": 180
+  },
+  {
+    "id": 1010,
+    "drug_local_id": 271,
+    "disease_local_id": 61
+  },
+  {
+    "id": 1011,
+    "drug_local_id": 271,
+    "disease_local_id": 278
+  },
+  {
+    "id": 1012,
+    "drug_local_id": 271,
+    "disease_local_id": 62
+  },
+  {
+    "id": 1013,
+    "drug_local_id": 271,
+    "disease_local_id": 108
+  },
+  {
+    "id": 1014,
+    "drug_local_id": 234,
+    "disease_local_id": 172
+  },
+  {
+    "id": 1015,
+    "drug_local_id": 183,
+    "disease_local_id": 214
+  },
+  {
+    "id": 1016,
+    "drug_local_id": 431,
+    "disease_local_id": 19
+  },
+  {
+    "id": 1017,
+    "drug_local_id": 267,
+    "disease_local_id": 20
+  },
+  {
+    "id": 1018,
+    "drug_local_id": 267,
+    "disease_local_id": 222
+  },
+  {
+    "id": 1019,
+    "drug_local_id": 267,
+    "disease_local_id": 127
+  },
+  {
+    "id": 1020,
+    "drug_local_id": 0,
+    "disease_local_id": 42
+  },
+  {
+    "id": 1021,
+    "drug_local_id": 0,
+    "disease_local_id": 91
+  },
+  {
+    "id": 1022,
+    "drug_local_id": 0,
+    "disease_local_id": 126
+  },
+  {
+    "id": 1023,
+    "drug_local_id": 0,
+    "disease_local_id": 128
+  },
+  {
+    "id": 1024,
+    "drug_local_id": 0,
+    "disease_local_id": 274
+  },
+  {
+    "id": 1025,
+    "drug_local_id": 0,
+    "disease_local_id": 261
+  },
+  {
+    "id": 1026,
+    "drug_local_id": 0,
+    "disease_local_id": 284
+  },
+  {
+    "id": 1027,
+    "drug_local_id": 352,
+    "disease_local_id": 241
+  },
+  {
+    "id": 1028,
+    "drug_local_id": 519,
+    "disease_local_id": 177
+  },
+  {
+    "id": 1029,
+    "drug_local_id": 519,
+    "disease_local_id": 262
+  },
+  {
+    "id": 1030,
+    "drug_local_id": 519,
+    "disease_local_id": 302
+  },
+  {
+    "id": 1031,
+    "drug_local_id": 519,
+    "disease_local_id": 300
+  },
+  {
+    "id": 1032,
+    "drug_local_id": 519,
+    "disease_local_id": 285
+  },
+  {
+    "id": 1033,
+    "drug_local_id": 519,
+    "disease_local_id": 303
+  },
+  {
+    "id": 1034,
+    "drug_local_id": 519,
+    "disease_local_id": 301
+  },
+  {
+    "id": 1035,
+    "drug_local_id": 519,
+    "disease_local_id": 308
+  },
+  {
+    "id": 1036,
+    "drug_local_id": 519,
+    "disease_local_id": 248
+  },
+  {
+    "id": 1037,
+    "drug_local_id": 519,
+    "disease_local_id": 197
+  },
+  {
+    "id": 1038,
+    "drug_local_id": 522,
+    "disease_local_id": 190
+  },
+  {
+    "id": 1039,
+    "drug_local_id": 522,
+    "disease_local_id": 61
+  },
+  {
+    "id": 1040,
+    "drug_local_id": 522,
+    "disease_local_id": 97
+  },
+  {
+    "id": 1041,
+    "drug_local_id": 522,
+    "disease_local_id": 108
+  },
+  {
+    "id": 1042,
+    "drug_local_id": 522,
+    "disease_local_id": 239
+  },
+  {
+    "id": 1043,
+    "drug_local_id": 428,
+    "disease_local_id": 86
+  },
+  {
+    "id": 1044,
+    "drug_local_id": 538,
+    "disease_local_id": 118
+  },
+  {
+    "id": 1045,
+    "drug_local_id": 538,
+    "disease_local_id": 1
+  },
+  {
+    "id": 1046,
+    "drug_local_id": 488,
+    "disease_local_id": 162
+  },
+  {
+    "id": 1047,
+    "drug_local_id": 488,
+    "disease_local_id": 115
+  },
+  {
+    "id": 1048,
+    "drug_local_id": 125,
+    "disease_local_id": 42
+  },
+  {
+    "id": 1049,
+    "drug_local_id": 125,
+    "disease_local_id": 139
+  },
+  {
+    "id": 1050,
+    "drug_local_id": 125,
+    "disease_local_id": 151
+  },
+  {
+    "id": 1051,
+    "drug_local_id": 169,
+    "disease_local_id": 64
+  },
+  {
+    "id": 1052,
+    "drug_local_id": 169,
+    "disease_local_id": 240
+  },
+  {
+    "id": 1053,
+    "drug_local_id": 169,
+    "disease_local_id": 65
+  },
+  {
+    "id": 1054,
+    "drug_local_id": 169,
+    "disease_local_id": 217
+  },
+  {
+    "id": 1055,
+    "drug_local_id": 77,
+    "disease_local_id": 86
+  },
+  {
+    "id": 1056,
+    "drug_local_id": 75,
+    "disease_local_id": 64
+  },
+  {
+    "id": 1057,
+    "drug_local_id": 75,
+    "disease_local_id": 240
+  },
+  {
+    "id": 1058,
+    "drug_local_id": 75,
+    "disease_local_id": 65
+  },
+  {
+    "id": 1059,
+    "drug_local_id": 75,
+    "disease_local_id": 217
+  },
+  {
+    "id": 1060,
+    "drug_local_id": 546,
+    "disease_local_id": 249
+  },
+  {
+    "id": 1061,
+    "drug_local_id": 546,
+    "disease_local_id": 69
+  },
+  {
+    "id": 1062,
+    "drug_local_id": 302,
+    "disease_local_id": 30
+  },
+  {
+    "id": 1063,
+    "drug_local_id": 302,
+    "disease_local_id": 310
+  },
+  {
+    "id": 1064,
+    "drug_local_id": 302,
+    "disease_local_id": 312
+  },
+  {
+    "id": 1065,
+    "drug_local_id": 302,
+    "disease_local_id": 82
+  },
+  {
+    "id": 1066,
+    "drug_local_id": 302,
+    "disease_local_id": 108
+  },
+  {
+    "id": 1067,
+    "drug_local_id": 21,
+    "disease_local_id": 183
+  },
+  {
+    "id": 1068,
+    "drug_local_id": 21,
+    "disease_local_id": 306
+  },
+  {
+    "id": 1069,
+    "drug_local_id": 21,
+    "disease_local_id": 182
+  },
+  {
+    "id": 1070,
+    "drug_local_id": 21,
+    "disease_local_id": 226
+  },
+  {
+    "id": 1071,
+    "drug_local_id": 560,
+    "disease_local_id": 135
+  },
+  {
+    "id": 1072,
+    "drug_local_id": 31,
+    "disease_local_id": 210
+  },
+  {
+    "id": 1073,
+    "drug_local_id": 31,
+    "disease_local_id": 117
+  },
+  {
+    "id": 1074,
+    "drug_local_id": 31,
+    "disease_local_id": 144
+  },
+  {
+    "id": 1075,
+    "drug_local_id": 281,
+    "disease_local_id": 312
+  },
+  {
+    "id": 1076,
+    "drug_local_id": 281,
+    "disease_local_id": 78
+  },
+  {
+    "id": 1077,
+    "drug_local_id": 281,
+    "disease_local_id": 82
+  },
+  {
+    "id": 1078,
+    "drug_local_id": 281,
+    "disease_local_id": 108
+  },
+  {
+    "id": 1079,
+    "drug_local_id": 54,
+    "disease_local_id": 310
+  },
+  {
+    "id": 1080,
+    "drug_local_id": 54,
+    "disease_local_id": 72
+  },
+  {
+    "id": 1081,
+    "drug_local_id": 149,
+    "disease_local_id": 135
+  },
+  {
+    "id": 1082,
+    "drug_local_id": 591,
+    "disease_local_id": 14
+  },
+  {
+    "id": 1083,
+    "drug_local_id": 591,
+    "disease_local_id": 147
+  },
+  {
+    "id": 1084,
+    "drug_local_id": 270,
+    "disease_local_id": 177
+  },
+  {
+    "id": 1085,
+    "drug_local_id": 270,
+    "disease_local_id": 39
+  },
+  {
+    "id": 1086,
+    "drug_local_id": 270,
+    "disease_local_id": 197
+  },
+  {
+    "id": 1087,
+    "drug_local_id": 270,
+    "disease_local_id": 207
+  },
+  {
+    "id": 1088,
+    "drug_local_id": 270,
+    "disease_local_id": 145
+  },
+  {
+    "id": 1089,
+    "drug_local_id": 177,
+    "disease_local_id": 12
+  },
+  {
+    "id": 1090,
+    "drug_local_id": 27,
+    "disease_local_id": 8
+  },
+  {
+    "id": 1091,
+    "drug_local_id": 273,
+    "disease_local_id": 60
+  },
+  {
+    "id": 1092,
+    "drug_local_id": 273,
+    "disease_local_id": 312
+  },
+  {
+    "id": 1093,
+    "drug_local_id": 273,
+    "disease_local_id": 78
+  },
+  {
+    "id": 1094,
+    "drug_local_id": 273,
+    "disease_local_id": 108
+  },
+  {
+    "id": 1095,
+    "drug_local_id": 396,
+    "disease_local_id": 86
+  },
+  {
+    "id": 1096,
+    "drug_local_id": 245,
+    "disease_local_id": 3
+  },
+  {
+    "id": 1097,
+    "drug_local_id": 245,
+    "disease_local_id": 42
+  },
+  {
+    "id": 1098,
+    "drug_local_id": 245,
+    "disease_local_id": 288
+  },
+  {
+    "id": 1099,
+    "drug_local_id": 245,
+    "disease_local_id": 75
+  },
+  {
+    "id": 1100,
+    "drug_local_id": 245,
+    "disease_local_id": 151
+  },
+  {
+    "id": 1101,
+    "drug_local_id": 115,
+    "disease_local_id": 12
+  },
+  {
+    "id": 1102,
+    "drug_local_id": 115,
+    "disease_local_id": 19
+  },
+  {
+    "id": 1103,
+    "drug_local_id": 115,
+    "disease_local_id": 151
+  },
+  {
+    "id": 1104,
+    "drug_local_id": 341,
+    "disease_local_id": 160
+  },
+  {
+    "id": 1105,
+    "drug_local_id": 341,
+    "disease_local_id": 50
+  },
+  {
+    "id": 1106,
+    "drug_local_id": 341,
+    "disease_local_id": 112
+  },
+  {
+    "id": 1107,
+    "drug_local_id": 341,
+    "disease_local_id": 66
+  },
+  {
+    "id": 1108,
+    "drug_local_id": 341,
+    "disease_local_id": 305
+  },
+  {
+    "id": 1109,
+    "drug_local_id": 341,
+    "disease_local_id": 293
+  },
+  {
+    "id": 1110,
+    "drug_local_id": 447,
+    "disease_local_id": 214
+  },
+  {
+    "id": 1111,
+    "drug_local_id": 447,
+    "disease_local_id": 219
+  },
+  {
+    "id": 1112,
+    "drug_local_id": 447,
+    "disease_local_id": 235
+  },
+  {
+    "id": 1113,
+    "drug_local_id": 448,
+    "disease_local_id": 287
+  },
+  {
+    "id": 1114,
+    "drug_local_id": 448,
+    "disease_local_id": 7
+  },
+  {
+    "id": 1115,
+    "drug_local_id": 448,
+    "disease_local_id": 31
+  },
+  {
+    "id": 1116,
+    "drug_local_id": 170,
+    "disease_local_id": 86
+  },
+  {
+    "id": 1117,
+    "drug_local_id": 206,
+    "disease_local_id": 6
+  },
+  {
+    "id": 1118,
+    "drug_local_id": 127,
+    "disease_local_id": 155
+  },
+  {
+    "id": 1119,
+    "drug_local_id": 127,
+    "disease_local_id": 272
+  },
+  {
+    "id": 1120,
+    "drug_local_id": 127,
+    "disease_local_id": 79
+  },
+  {
+    "id": 1121,
+    "drug_local_id": 443,
+    "disease_local_id": 232
+  },
+  {
+    "id": 1122,
+    "drug_local_id": 443,
+    "disease_local_id": 149
+  },
+  {
+    "id": 1123,
+    "drug_local_id": 443,
+    "disease_local_id": 15
+  },
+  {
+    "id": 1124,
+    "drug_local_id": 443,
+    "disease_local_id": 92
+  },
+  {
+    "id": 1125,
+    "drug_local_id": 443,
+    "disease_local_id": 206
+  },
+  {
+    "id": 1126,
+    "drug_local_id": 60,
+    "disease_local_id": 232
+  },
+  {
+    "id": 1127,
+    "drug_local_id": 392,
+    "disease_local_id": 135
+  },
+  {
+    "id": 1128,
+    "drug_local_id": 104,
+    "disease_local_id": 37
+  },
+  {
+    "id": 1129,
+    "drug_local_id": 104,
+    "disease_local_id": 34
+  },
+  {
+    "id": 1130,
+    "drug_local_id": 104,
+    "disease_local_id": 35
+  },
+  {
+    "id": 1131,
+    "drug_local_id": 104,
+    "disease_local_id": 265
+  },
+  {
+    "id": 1132,
+    "drug_local_id": 104,
+    "disease_local_id": 139
+  },
+  {
+    "id": 1133,
+    "drug_local_id": 104,
+    "disease_local_id": 127
+  },
+  {
+    "id": 1134,
+    "drug_local_id": 106,
+    "disease_local_id": 86
+  },
+  {
+    "id": 1135,
+    "drug_local_id": 574,
+    "disease_local_id": 69
+  },
+  {
+    "id": 1136,
+    "drug_local_id": 574,
+    "disease_local_id": 250
+  },
+  {
+    "id": 1137,
+    "drug_local_id": 574,
+    "disease_local_id": 277
+  },
+  {
+    "id": 1138,
+    "drug_local_id": 574,
+    "disease_local_id": 230
+  },
+  {
+    "id": 1139,
+    "drug_local_id": 321,
+    "disease_local_id": 240
+  },
+  {
+    "id": 1140,
+    "drug_local_id": 225,
+    "disease_local_id": 165
+  },
+  {
+    "id": 1141,
+    "drug_local_id": 225,
+    "disease_local_id": 16
+  },
+  {
+    "id": 1142,
+    "drug_local_id": 225,
+    "disease_local_id": 19
+  },
+  {
+    "id": 1143,
+    "drug_local_id": 225,
+    "disease_local_id": 20
+  },
+  {
+    "id": 1144,
+    "drug_local_id": 225,
+    "disease_local_id": 181
+  },
+  {
+    "id": 1145,
+    "drug_local_id": 225,
+    "disease_local_id": 48
+  },
+  {
+    "id": 1146,
+    "drug_local_id": 225,
+    "disease_local_id": 58
+  },
+  {
+    "id": 1147,
+    "drug_local_id": 225,
+    "disease_local_id": 192
+  },
+  {
+    "id": 1148,
+    "drug_local_id": 225,
+    "disease_local_id": 193
+  },
+  {
+    "id": 1149,
+    "drug_local_id": 225,
+    "disease_local_id": 189
+  },
+  {
+    "id": 1150,
+    "drug_local_id": 225,
+    "disease_local_id": 204
+  },
+  {
+    "id": 1151,
+    "drug_local_id": 225,
+    "disease_local_id": 276
+  },
+  {
+    "id": 1152,
+    "drug_local_id": 225,
+    "disease_local_id": 15
+  },
+  {
+    "id": 1153,
+    "drug_local_id": 225,
+    "disease_local_id": 93
+  },
+  {
+    "id": 1154,
+    "drug_local_id": 225,
+    "disease_local_id": 206
+  },
+  {
+    "id": 1155,
+    "drug_local_id": 225,
+    "disease_local_id": 241
+  },
+  {
+    "id": 1156,
+    "drug_local_id": 225,
+    "disease_local_id": 212
+  },
+  {
+    "id": 1157,
+    "drug_local_id": 225,
+    "disease_local_id": 222
+  },
+  {
+    "id": 1158,
+    "drug_local_id": 225,
+    "disease_local_id": 233
+  },
+  {
+    "id": 1159,
+    "drug_local_id": 225,
+    "disease_local_id": 235
+  },
+  {
+    "id": 1160,
+    "drug_local_id": 225,
+    "disease_local_id": 137
+  },
+  {
+    "id": 1161,
+    "drug_local_id": 225,
+    "disease_local_id": 238
+  },
+  {
+    "id": 1162,
+    "drug_local_id": 568,
+    "disease_local_id": 86
+  },
+  {
+    "id": 1163,
+    "drug_local_id": 56,
+    "disease_local_id": 174
+  },
+  {
+    "id": 1164,
+    "drug_local_id": 420,
+    "disease_local_id": 8
+  },
+  {
+    "id": 1165,
+    "drug_local_id": 409,
+    "disease_local_id": 312
+  },
+  {
+    "id": 1166,
+    "drug_local_id": 409,
+    "disease_local_id": 108
+  },
+  {
+    "id": 1167,
+    "drug_local_id": 117,
+    "disease_local_id": 102
+  },
+  {
+    "id": 1168,
+    "drug_local_id": 155,
+    "disease_local_id": 69
+  },
+  {
+    "id": 1169,
+    "drug_local_id": 405,
+    "disease_local_id": 162
+  },
+  {
+    "id": 1170,
+    "drug_local_id": 405,
+    "disease_local_id": 12
+  },
+  {
+    "id": 1171,
+    "drug_local_id": 405,
+    "disease_local_id": 84
+  },
+  {
+    "id": 1172,
+    "drug_local_id": 405,
+    "disease_local_id": 87
+  },
+  {
+    "id": 1173,
+    "drug_local_id": 405,
+    "disease_local_id": 241
+  },
+  {
+    "id": 1174,
+    "drug_local_id": 405,
+    "disease_local_id": 66
+  },
+  {
+    "id": 1175,
+    "drug_local_id": 523,
+    "disease_local_id": 61
+  },
+  {
+    "id": 1176,
+    "drug_local_id": 523,
+    "disease_local_id": 278
+  },
+  {
+    "id": 1177,
+    "drug_local_id": 523,
+    "disease_local_id": 62
+  },
+  {
+    "id": 1178,
+    "drug_local_id": 536,
+    "disease_local_id": 14
+  },
+  {
+    "id": 1179,
+    "drug_local_id": 536,
+    "disease_local_id": 102
+  },
+  {
+    "id": 1180,
+    "drug_local_id": 203,
+    "disease_local_id": 174
+  },
+  {
+    "id": 1181,
+    "drug_local_id": 203,
+    "disease_local_id": 312
+  },
+  {
+    "id": 1182,
+    "drug_local_id": 203,
+    "disease_local_id": 108
+  },
+  {
+    "id": 1183,
+    "drug_local_id": 68,
+    "disease_local_id": 311
+  },
+  {
+    "id": 1184,
+    "drug_local_id": 68,
+    "disease_local_id": 299
+  },
+  {
+    "id": 1185,
+    "drug_local_id": 68,
+    "disease_local_id": 17
+  },
+  {
+    "id": 1186,
+    "drug_local_id": 68,
+    "disease_local_id": 312
+  },
+  {
+    "id": 1187,
+    "drug_local_id": 68,
+    "disease_local_id": 103
+  },
+  {
+    "id": 1188,
+    "drug_local_id": 68,
+    "disease_local_id": 108
+  },
+  {
+    "id": 1189,
+    "drug_local_id": 68,
+    "disease_local_id": 146
+  },
+  {
+    "id": 1190,
+    "drug_local_id": 323,
+    "disease_local_id": 121
+  },
+  {
+    "id": 1191,
+    "drug_local_id": 131,
+    "disease_local_id": 23
+  },
+  {
+    "id": 1192,
+    "drug_local_id": 475,
+    "disease_local_id": 22
+  },
+  {
+    "id": 1193,
+    "drug_local_id": 475,
+    "disease_local_id": 168
+  },
+  {
+    "id": 1194,
+    "drug_local_id": 45,
+    "disease_local_id": 103
+  },
+  {
+    "id": 1195,
+    "drug_local_id": 45,
+    "disease_local_id": 210
+  },
+  {
+    "id": 1196,
+    "drug_local_id": 45,
+    "disease_local_id": 83
+  },
+  {
+    "id": 1197,
+    "drug_local_id": 189,
+    "disease_local_id": 37
+  },
+  {
+    "id": 1198,
+    "drug_local_id": 189,
+    "disease_local_id": 34
+  },
+  {
+    "id": 1199,
+    "drug_local_id": 189,
+    "disease_local_id": 35
+  },
+  {
+    "id": 1200,
+    "drug_local_id": 189,
+    "disease_local_id": 265
+  },
+  {
+    "id": 1201,
+    "drug_local_id": 153,
+    "disease_local_id": 188
+  },
+  {
+    "id": 1202,
+    "drug_local_id": 436,
+    "disease_local_id": 284
+  },
+  {
+    "id": 1203,
+    "drug_local_id": 114,
+    "disease_local_id": 6
+  },
+  {
+    "id": 1204,
+    "drug_local_id": 114,
+    "disease_local_id": 312
+  },
+  {
+    "id": 1205,
+    "drug_local_id": 114,
+    "disease_local_id": 108
+  },
+  {
+    "id": 1206,
+    "drug_local_id": 391,
+    "disease_local_id": 66
+  },
+  {
+    "id": 1207,
+    "drug_local_id": 391,
+    "disease_local_id": 147
+  },
+  {
+    "id": 1208,
+    "drug_local_id": 89,
+    "disease_local_id": 16
+  },
+  {
+    "id": 1209,
+    "drug_local_id": 89,
+    "disease_local_id": 58
+  },
+  {
+    "id": 1210,
+    "drug_local_id": 521,
+    "disease_local_id": 193
+  },
+  {
+    "id": 1211,
+    "drug_local_id": 521,
+    "disease_local_id": 86
+  },
+  {
+    "id": 1212,
+    "drug_local_id": 521,
+    "disease_local_id": 276
+  },
+  {
+    "id": 1213,
+    "drug_local_id": 521,
+    "disease_local_id": 15
+  },
+  {
+    "id": 1214,
+    "drug_local_id": 521,
+    "disease_local_id": 206
+  },
+  {
+    "id": 1215,
+    "drug_local_id": 521,
+    "disease_local_id": 38
+  },
+  {
+    "id": 1216,
+    "drug_local_id": 521,
+    "disease_local_id": 128
+  },
+  {
+    "id": 1217,
+    "drug_local_id": 521,
+    "disease_local_id": 233
+  },
+  {
+    "id": 1218,
+    "drug_local_id": 311,
+    "disease_local_id": 11
+  },
+  {
+    "id": 1219,
+    "drug_local_id": 311,
+    "disease_local_id": 69
+  },
+  {
+    "id": 1220,
+    "drug_local_id": 311,
+    "disease_local_id": 57
+  },
+  {
+    "id": 1221,
+    "drug_local_id": 311,
+    "disease_local_id": 38
+  },
+  {
+    "id": 1222,
+    "drug_local_id": 286,
+    "disease_local_id": 312
+  },
+  {
+    "id": 1223,
+    "drug_local_id": 286,
+    "disease_local_id": 82
+  },
+  {
+    "id": 1224,
+    "drug_local_id": 286,
+    "disease_local_id": 108
+  },
+  {
+    "id": 1225,
+    "drug_local_id": 322,
+    "disease_local_id": 162
+  },
+  {
+    "id": 1226,
+    "drug_local_id": 322,
+    "disease_local_id": 269
+  },
+  {
+    "id": 1227,
+    "drug_local_id": 322,
+    "disease_local_id": 192
+  },
+  {
+    "id": 1228,
+    "drug_local_id": 178,
+    "disease_local_id": 162
+  },
+  {
+    "id": 1229,
+    "drug_local_id": 178,
+    "disease_local_id": 269
+  },
+  {
+    "id": 1230,
+    "drug_local_id": 178,
+    "disease_local_id": 166
+  },
+  {
+    "id": 1231,
+    "drug_local_id": 85,
+    "disease_local_id": 86
+  },
+  {
+    "id": 1232,
+    "drug_local_id": 50,
+    "disease_local_id": 162
+  },
+  {
+    "id": 1233,
+    "drug_local_id": 173,
+    "disease_local_id": 86
+  },
+  {
+    "id": 1234,
+    "drug_local_id": 173,
+    "disease_local_id": 66
+  },
+  {
+    "id": 1235,
+    "drug_local_id": 520,
+    "disease_local_id": 17
+  },
+  {
+    "id": 1236,
+    "drug_local_id": 520,
+    "disease_local_id": 312
+  },
+  {
+    "id": 1237,
+    "drug_local_id": 520,
+    "disease_local_id": 103
+  },
+  {
+    "id": 1238,
+    "drug_local_id": 520,
+    "disease_local_id": 108
+  },
+  {
+    "id": 1239,
+    "drug_local_id": 520,
+    "disease_local_id": 146
+  },
+  {
+    "id": 1240,
+    "drug_local_id": 520,
+    "disease_local_id": 147
+  },
+  {
+    "id": 1241,
+    "drug_local_id": 350,
+    "disease_local_id": 86
+  },
+  {
+    "id": 1242,
+    "drug_local_id": 292,
+    "disease_local_id": 5
+  },
+  {
+    "id": 1243,
+    "drug_local_id": 331,
+    "disease_local_id": 160
+  },
+  {
+    "id": 1244,
+    "drug_local_id": 331,
+    "disease_local_id": 49
+  },
+  {
+    "id": 1245,
+    "drug_local_id": 331,
+    "disease_local_id": 50
+  },
+  {
+    "id": 1246,
+    "drug_local_id": 331,
+    "disease_local_id": 79
+  },
+  {
+    "id": 1247,
+    "drug_local_id": 331,
+    "disease_local_id": 86
+  },
+  {
+    "id": 1248,
+    "drug_local_id": 331,
+    "disease_local_id": 90
+  },
+  {
+    "id": 1249,
+    "drug_local_id": 331,
+    "disease_local_id": 102
+  },
+  {
+    "id": 1250,
+    "drug_local_id": 331,
+    "disease_local_id": 210
+  },
+  {
+    "id": 1251,
+    "drug_local_id": 331,
+    "disease_local_id": 112
+  },
+  {
+    "id": 1252,
+    "drug_local_id": 331,
+    "disease_local_id": 66
+  },
+  {
+    "id": 1253,
+    "drug_local_id": 331,
+    "disease_local_id": 305
+  },
+  {
+    "id": 1254,
+    "drug_local_id": 331,
+    "disease_local_id": 293
+  },
+  {
+    "id": 1255,
+    "drug_local_id": 400,
+    "disease_local_id": 102
+  },
+  {
+    "id": 1256,
+    "drug_local_id": 305,
+    "disease_local_id": 37
+  },
+  {
+    "id": 1257,
+    "drug_local_id": 305,
+    "disease_local_id": 34
+  },
+  {
+    "id": 1258,
+    "drug_local_id": 305,
+    "disease_local_id": 35
+  },
+  {
+    "id": 1259,
+    "drug_local_id": 305,
+    "disease_local_id": 265
+  },
+  {
+    "id": 1260,
+    "drug_local_id": 584,
+    "disease_local_id": 17
+  },
+  {
+    "id": 1261,
+    "drug_local_id": 584,
+    "disease_local_id": 312
+  },
+  {
+    "id": 1262,
+    "drug_local_id": 584,
+    "disease_local_id": 103
+  },
+  {
+    "id": 1263,
+    "drug_local_id": 584,
+    "disease_local_id": 108
+  },
+  {
+    "id": 1264,
+    "drug_local_id": 299,
+    "disease_local_id": 162
+  },
+  {
+    "id": 1265,
+    "drug_local_id": 299,
+    "disease_local_id": 269
+  },
+  {
+    "id": 1266,
+    "drug_local_id": 567,
+    "disease_local_id": 211
+  },
+  {
+    "id": 1267,
+    "drug_local_id": 567,
+    "disease_local_id": 104
+  },
+  {
+    "id": 1268,
+    "drug_local_id": 256,
+    "disease_local_id": 72
+  },
+  {
+    "id": 1269,
+    "drug_local_id": 256,
+    "disease_local_id": 74
+  },
+  {
+    "id": 1270,
+    "drug_local_id": 253,
+    "disease_local_id": 312
+  },
+  {
+    "id": 1271,
+    "drug_local_id": 253,
+    "disease_local_id": 108
+  },
+  {
+    "id": 1272,
+    "drug_local_id": 477,
+    "disease_local_id": 312
+  },
+  {
+    "id": 1273,
+    "drug_local_id": 477,
+    "disease_local_id": 130
+  },
+  {
+    "id": 1274,
+    "drug_local_id": 477,
+    "disease_local_id": 108
+  },
+  {
+    "id": 1275,
+    "drug_local_id": 140,
+    "disease_local_id": 30
+  },
+  {
+    "id": 1276,
+    "drug_local_id": 140,
+    "disease_local_id": 273
+  },
+  {
+    "id": 1277,
+    "drug_local_id": 146,
+    "disease_local_id": 312
+  },
+  {
+    "id": 1278,
+    "drug_local_id": 146,
+    "disease_local_id": 130
+  },
+  {
+    "id": 1279,
+    "drug_local_id": 146,
+    "disease_local_id": 108
+  },
+  {
+    "id": 1280,
+    "drug_local_id": 304,
+    "disease_local_id": 145
+  },
+  {
+    "id": 1281,
+    "drug_local_id": 304,
+    "disease_local_id": 130
+  },
+  {
+    "id": 1282,
+    "drug_local_id": 101,
+    "disease_local_id": 312
+  },
+  {
+    "id": 1283,
+    "drug_local_id": 101,
+    "disease_local_id": 108
+  },
+  {
+    "id": 1284,
+    "drug_local_id": 236,
+    "disease_local_id": 14
+  },
+  {
+    "id": 1285,
+    "drug_local_id": 236,
+    "disease_local_id": 263
+  },
+  {
+    "id": 1286,
+    "drug_local_id": 236,
+    "disease_local_id": 251
+  },
+  {
+    "id": 1287,
+    "drug_local_id": 236,
+    "disease_local_id": 147
+  },
+  {
+    "id": 1288,
+    "drug_local_id": 126,
+    "disease_local_id": 83
+  },
+  {
+    "id": 1289,
+    "drug_local_id": 300,
+    "disease_local_id": 3
+  },
+  {
+    "id": 1290,
+    "drug_local_id": 300,
+    "disease_local_id": 175
+  },
+  {
+    "id": 1291,
+    "drug_local_id": 300,
+    "disease_local_id": 42
+  },
+  {
+    "id": 1292,
+    "drug_local_id": 300,
+    "disease_local_id": 139
+  },
+  {
+    "id": 1293,
+    "drug_local_id": 300,
+    "disease_local_id": 284
+  },
+  {
+    "id": 1294,
+    "drug_local_id": 300,
+    "disease_local_id": 151
+  },
+  {
+    "id": 1295,
+    "drug_local_id": 403,
+    "disease_local_id": 42
+  },
+  {
+    "id": 1296,
+    "drug_local_id": 403,
+    "disease_local_id": 284
+  },
+  {
+    "id": 1297,
+    "drug_local_id": 403,
+    "disease_local_id": 151
+  },
+  {
+    "id": 1298,
+    "drug_local_id": 211,
+    "disease_local_id": 69
+  },
+  {
+    "id": 1299,
+    "drug_local_id": 211,
+    "disease_local_id": 266
+  },
+  {
+    "id": 1300,
+    "drug_local_id": 211,
+    "disease_local_id": 270
+  },
+  {
+    "id": 1301,
+    "drug_local_id": 211,
+    "disease_local_id": 86
+  },
+  {
+    "id": 1302,
+    "drug_local_id": 211,
+    "disease_local_id": 210
+  },
+  {
+    "id": 1303,
+    "drug_local_id": 211,
+    "disease_local_id": 117
+  },
+  {
+    "id": 1304,
+    "drug_local_id": 7,
+    "disease_local_id": 36
+  },
+  {
+    "id": 1305,
+    "drug_local_id": 497,
+    "disease_local_id": 263
+  },
+  {
+    "id": 1306,
+    "drug_local_id": 497,
+    "disease_local_id": 115
+  },
+  {
+    "id": 1307,
+    "drug_local_id": 107,
+    "disease_local_id": 249
+  },
+  {
+    "id": 1308,
+    "drug_local_id": 107,
+    "disease_local_id": 109
+  },
+  {
+    "id": 1309,
+    "drug_local_id": 107,
+    "disease_local_id": 135
+  },
+  {
+    "id": 1310,
+    "drug_local_id": 72,
+    "disease_local_id": 312
+  },
+  {
+    "id": 1311,
+    "drug_local_id": 72,
+    "disease_local_id": 108
+  },
+  {
+    "id": 1312,
+    "drug_local_id": 110,
+    "disease_local_id": 14
+  },
+  {
+    "id": 1313,
+    "drug_local_id": 110,
+    "disease_local_id": 263
+  },
+  {
+    "id": 1314,
+    "drug_local_id": 110,
+    "disease_local_id": 251
+  },
+  {
+    "id": 1315,
+    "drug_local_id": 110,
+    "disease_local_id": 147
+  },
+  {
+    "id": 1316,
+    "drug_local_id": 376,
+    "disease_local_id": 5
+  },
+  {
+    "id": 1317,
+    "drug_local_id": 376,
+    "disease_local_id": 79
+  },
+  {
+    "id": 1318,
+    "drug_local_id": 376,
+    "disease_local_id": 109
+  },
+  {
+    "id": 1319,
+    "drug_local_id": 342,
+    "disease_local_id": 162
+  },
+  {
+    "id": 1320,
+    "drug_local_id": 342,
+    "disease_local_id": 269
+  },
+  {
+    "id": 1321,
+    "drug_local_id": 342,
+    "disease_local_id": 166
+  },
+  {
+    "id": 1322,
+    "drug_local_id": 464,
+    "disease_local_id": 250
+  },
+  {
+    "id": 1323,
+    "drug_local_id": 464,
+    "disease_local_id": 277
+  },
+  {
+    "id": 1324,
+    "drug_local_id": 464,
+    "disease_local_id": 230
+  },
+  {
+    "id": 1325,
+    "drug_local_id": 501,
+    "disease_local_id": 155
+  },
+  {
+    "id": 1326,
+    "drug_local_id": 501,
+    "disease_local_id": 86
+  },
+  {
+    "id": 1327,
+    "drug_local_id": 501,
+    "disease_local_id": 102
+  },
+  {
+    "id": 1328,
+    "drug_local_id": 501,
+    "disease_local_id": 107
+  },
+  {
+    "id": 1329,
+    "drug_local_id": 419,
+    "disease_local_id": 160
+  },
+  {
+    "id": 1330,
+    "drug_local_id": 419,
+    "disease_local_id": 112
+  },
+  {
+    "id": 1331,
+    "drug_local_id": 419,
+    "disease_local_id": 66
+  },
+  {
+    "id": 1332,
+    "drug_local_id": 419,
+    "disease_local_id": 305
+  },
+  {
+    "id": 1333,
+    "drug_local_id": 419,
+    "disease_local_id": 293
+  },
+  {
+    "id": 1334,
+    "drug_local_id": 328,
+    "disease_local_id": 163
+  },
+  {
+    "id": 1335,
+    "drug_local_id": 328,
+    "disease_local_id": 177
+  },
+  {
+    "id": 1336,
+    "drug_local_id": 328,
+    "disease_local_id": 262
+  },
+  {
+    "id": 1337,
+    "drug_local_id": 328,
+    "disease_local_id": 302
+  },
+  {
+    "id": 1338,
+    "drug_local_id": 328,
+    "disease_local_id": 300
+  },
+  {
+    "id": 1339,
+    "drug_local_id": 328,
+    "disease_local_id": 285
+  },
+  {
+    "id": 1340,
+    "drug_local_id": 328,
+    "disease_local_id": 303
+  },
+  {
+    "id": 1341,
+    "drug_local_id": 328,
+    "disease_local_id": 301
+  },
+  {
+    "id": 1342,
+    "drug_local_id": 328,
+    "disease_local_id": 308
+  },
+  {
+    "id": 1343,
+    "drug_local_id": 328,
+    "disease_local_id": 248
+  },
+  {
+    "id": 1344,
+    "drug_local_id": 328,
+    "disease_local_id": 234
+  },
+  {
+    "id": 1345,
+    "drug_local_id": 452,
+    "disease_local_id": 73
+  },
+  {
+    "id": 1346,
+    "drug_local_id": 192,
+    "disease_local_id": 86
+  },
+  {
+    "id": 1347,
+    "drug_local_id": 512,
+    "disease_local_id": 86
+  },
+  {
+    "id": 1348,
+    "drug_local_id": 533,
+    "disease_local_id": 19
+  },
+  {
+    "id": 1349,
+    "drug_local_id": 533,
+    "disease_local_id": 88
+  },
+  {
+    "id": 1350,
+    "drug_local_id": 533,
+    "disease_local_id": 153
+  },
+  {
+    "id": 1351,
+    "drug_local_id": 551,
+    "disease_local_id": 135
+  },
+  {
+    "id": 1352,
+    "drug_local_id": 580,
+    "disease_local_id": 25
+  },
+  {
+    "id": 1353,
+    "drug_local_id": 580,
+    "disease_local_id": 242
+  },
+  {
+    "id": 1354,
+    "drug_local_id": 78,
+    "disease_local_id": 2
+  },
+  {
+    "id": 1355,
+    "drug_local_id": 78,
+    "disease_local_id": 3
+  },
+  {
+    "id": 1356,
+    "drug_local_id": 78,
+    "disease_local_id": 19
+  },
+  {
+    "id": 1357,
+    "drug_local_id": 78,
+    "disease_local_id": 71
+  },
+  {
+    "id": 1358,
+    "drug_local_id": 78,
+    "disease_local_id": 116
+  },
+  {
+    "id": 1359,
+    "drug_local_id": 78,
+    "disease_local_id": 241
+  },
+  {
+    "id": 1360,
+    "drug_local_id": 78,
+    "disease_local_id": 214
+  },
+  {
+    "id": 1361,
+    "drug_local_id": 78,
+    "disease_local_id": 113
+  },
+  {
+    "id": 1362,
+    "drug_local_id": 78,
+    "disease_local_id": 114
+  },
+  {
+    "id": 1363,
+    "drug_local_id": 46,
+    "disease_local_id": 14
+  },
+  {
+    "id": 1364,
+    "drug_local_id": 46,
+    "disease_local_id": 263
+  },
+  {
+    "id": 1365,
+    "drug_local_id": 46,
+    "disease_local_id": 147
+  },
+  {
+    "id": 1366,
+    "drug_local_id": 476,
+    "disease_local_id": 23
+  },
+  {
+    "id": 1367,
+    "drug_local_id": 476,
+    "disease_local_id": 225
+  },
+  {
+    "id": 1368,
+    "drug_local_id": 476,
+    "disease_local_id": 130
+  },
+  {
+    "id": 1369,
+    "drug_local_id": 298,
+    "disease_local_id": 43
+  },
+  {
+    "id": 1370,
+    "drug_local_id": 298,
+    "disease_local_id": 210
+  },
+  {
+    "id": 1371,
+    "drug_local_id": 298,
+    "disease_local_id": 109
+  },
+  {
+    "id": 1372,
+    "drug_local_id": 298,
+    "disease_local_id": 117
+  },
+  {
+    "id": 1373,
+    "drug_local_id": 264,
+    "disease_local_id": 241
+  },
+  {
+    "id": 1374,
+    "drug_local_id": 561,
+    "disease_local_id": 312
+  },
+  {
+    "id": 1375,
+    "drug_local_id": 561,
+    "disease_local_id": 108
+  },
+  {
+    "id": 1376,
+    "drug_local_id": 269,
+    "disease_local_id": 86
+  },
+  {
+    "id": 1377,
+    "drug_local_id": 284,
+    "disease_local_id": 86
+  },
+  {
+    "id": 1378,
+    "drug_local_id": 220,
+    "disease_local_id": 241
+  },
+  {
+    "id": 1379,
+    "drug_local_id": 337,
+    "disease_local_id": 30
+  },
+  {
+    "id": 1380,
+    "drug_local_id": 337,
+    "disease_local_id": 260
+  },
+  {
+    "id": 1381,
+    "drug_local_id": 337,
+    "disease_local_id": 273
+  },
+  {
+    "id": 1382,
+    "drug_local_id": 337,
+    "disease_local_id": 142
+  },
+  {
+    "id": 1383,
+    "drug_local_id": 509,
+    "disease_local_id": 118
+  },
+  {
+    "id": 1384,
+    "drug_local_id": 509,
+    "disease_local_id": 119
+  },
+  {
+    "id": 1385,
+    "drug_local_id": 332,
+    "disease_local_id": 30
+  },
+  {
+    "id": 1386,
+    "drug_local_id": 332,
+    "disease_local_id": 310
+  },
+  {
+    "id": 1387,
+    "drug_local_id": 332,
+    "disease_local_id": 82
+  },
+  {
+    "id": 1388,
+    "drug_local_id": 575,
+    "disease_local_id": 250
+  },
+  {
+    "id": 1389,
+    "drug_local_id": 575,
+    "disease_local_id": 277
+  },
+  {
+    "id": 1390,
+    "drug_local_id": 575,
+    "disease_local_id": 230
+  },
+  {
+    "id": 1391,
+    "drug_local_id": 502,
+    "disease_local_id": 159
+  },
+  {
+    "id": 1392,
+    "drug_local_id": 502,
+    "disease_local_id": 177
+  },
+  {
+    "id": 1393,
+    "drug_local_id": 502,
+    "disease_local_id": 179
+  },
+  {
+    "id": 1394,
+    "drug_local_id": 502,
+    "disease_local_id": 195
+  },
+  {
+    "id": 1395,
+    "drug_local_id": 502,
+    "disease_local_id": 185
+  },
+  {
+    "id": 1396,
+    "drug_local_id": 502,
+    "disease_local_id": 28
+  },
+  {
+    "id": 1397,
+    "drug_local_id": 502,
+    "disease_local_id": 29
+  },
+  {
+    "id": 1398,
+    "drug_local_id": 502,
+    "disease_local_id": 309
+  },
+  {
+    "id": 1399,
+    "drug_local_id": 502,
+    "disease_local_id": 70
+  },
+  {
+    "id": 1400,
+    "drug_local_id": 502,
+    "disease_local_id": 194
+  },
+  {
+    "id": 1401,
+    "drug_local_id": 502,
+    "disease_local_id": 256
+  },
+  {
+    "id": 1402,
+    "drug_local_id": 502,
+    "disease_local_id": 147
+  },
+  {
+    "id": 1403,
+    "drug_local_id": 388,
+    "disease_local_id": 121
+  },
+  {
+    "id": 1404,
+    "drug_local_id": 35,
+    "disease_local_id": 250
+  },
+  {
+    "id": 1405,
+    "drug_local_id": 35,
+    "disease_local_id": 277
+  },
+  {
+    "id": 1406,
+    "drug_local_id": 35,
+    "disease_local_id": 230
+  },
+  {
+    "id": 1407,
+    "drug_local_id": 287,
+    "disease_local_id": 190
+  },
+  {
+    "id": 1408,
+    "drug_local_id": 287,
+    "disease_local_id": 312
+  },
+  {
+    "id": 1409,
+    "drug_local_id": 287,
+    "disease_local_id": 97
+  },
+  {
+    "id": 1410,
+    "drug_local_id": 287,
+    "disease_local_id": 121
+  },
+  {
+    "id": 1411,
+    "drug_local_id": 287,
+    "disease_local_id": 108
+  },
+  {
+    "id": 1412,
+    "drug_local_id": 287,
+    "disease_local_id": 239
+  },
+  {
+    "id": 1413,
+    "drug_local_id": 138,
+    "disease_local_id": 61
+  },
+  {
+    "id": 1414,
+    "drug_local_id": 138,
+    "disease_local_id": 278
+  },
+  {
+    "id": 1415,
+    "drug_local_id": 138,
+    "disease_local_id": 62
+  },
+  {
+    "id": 1416,
+    "drug_local_id": 138,
+    "disease_local_id": 79
+  },
+  {
+    "id": 1417,
+    "drug_local_id": 138,
+    "disease_local_id": 87
+  },
+  {
+    "id": 1418,
+    "drug_local_id": 138,
+    "disease_local_id": 83
+  },
+  {
+    "id": 1419,
+    "drug_local_id": 138,
+    "disease_local_id": 307
+  },
+  {
+    "id": 1420,
+    "drug_local_id": 143,
+    "disease_local_id": 250
+  },
+  {
+    "id": 1421,
+    "drug_local_id": 143,
+    "disease_local_id": 87
+  },
+  {
+    "id": 1422,
+    "drug_local_id": 143,
+    "disease_local_id": 307
+  },
+  {
+    "id": 1423,
+    "drug_local_id": 143,
+    "disease_local_id": 277
+  },
+  {
+    "id": 1424,
+    "drug_local_id": 143,
+    "disease_local_id": 230
+  },
+  {
+    "id": 1425,
+    "drug_local_id": 64,
+    "disease_local_id": 6
+  },
+  {
+    "id": 1426,
+    "drug_local_id": 64,
+    "disease_local_id": 23
+  },
+  {
+    "id": 1427,
+    "drug_local_id": 64,
+    "disease_local_id": 177
+  },
+  {
+    "id": 1428,
+    "drug_local_id": 64,
+    "disease_local_id": 111
+  },
+  {
+    "id": 1429,
+    "drug_local_id": 465,
+    "disease_local_id": 108
+  },
+  {
+    "id": 1430,
+    "drug_local_id": 109,
+    "disease_local_id": 282
+  },
+  {
+    "id": 1431,
+    "drug_local_id": 109,
+    "disease_local_id": 192
+  },
+  {
+    "id": 1432,
+    "drug_local_id": 406,
+    "disease_local_id": 312
+  },
+  {
+    "id": 1433,
+    "drug_local_id": 406,
+    "disease_local_id": 108
+  },
+  {
+    "id": 1434,
+    "drug_local_id": 485,
+    "disease_local_id": 37
+  },
+  {
+    "id": 1435,
+    "drug_local_id": 485,
+    "disease_local_id": 34
+  },
+  {
+    "id": 1436,
+    "drug_local_id": 485,
+    "disease_local_id": 35
+  },
+  {
+    "id": 1437,
+    "drug_local_id": 485,
+    "disease_local_id": 265
+  },
+  {
+    "id": 1438,
+    "drug_local_id": 554,
+    "disease_local_id": 162
+  },
+  {
+    "id": 1439,
+    "drug_local_id": 554,
+    "disease_local_id": 269
+  },
+  {
+    "id": 1440,
+    "drug_local_id": 221,
+    "disease_local_id": 160
+  },
+  {
+    "id": 1441,
+    "drug_local_id": 221,
+    "disease_local_id": 112
+  },
+  {
+    "id": 1442,
+    "drug_local_id": 221,
+    "disease_local_id": 66
+  },
+  {
+    "id": 1443,
+    "drug_local_id": 221,
+    "disease_local_id": 305
+  },
+  {
+    "id": 1444,
+    "drug_local_id": 221,
+    "disease_local_id": 293
+  },
+  {
+    "id": 1445,
+    "drug_local_id": 294,
+    "disease_local_id": 48
+  },
+  {
+    "id": 1446,
+    "drug_local_id": 306,
+    "disease_local_id": 211
+  },
+  {
+    "id": 1447,
+    "drug_local_id": 151,
+    "disease_local_id": 31
+  },
+  {
+    "id": 1448,
+    "drug_local_id": 151,
+    "disease_local_id": 118
+  },
+  {
+    "id": 1449,
+    "drug_local_id": 151,
+    "disease_local_id": 119
+  },
+  {
+    "id": 1450,
+    "drug_local_id": 151,
+    "disease_local_id": 1
+  },
+  {
+    "id": 1451,
+    "drug_local_id": 23,
+    "disease_local_id": 72
+  },
+  {
+    "id": 1452,
+    "drug_local_id": 23,
+    "disease_local_id": 273
+  },
+  {
+    "id": 1453,
+    "drug_local_id": 451,
+    "disease_local_id": 134
+  },
+  {
+    "id": 1454,
+    "drug_local_id": 171,
+    "disease_local_id": 155
+  },
+  {
+    "id": 1455,
+    "drug_local_id": 171,
+    "disease_local_id": 312
+  },
+  {
+    "id": 1456,
+    "drug_local_id": 171,
+    "disease_local_id": 86
+  },
+  {
+    "id": 1457,
+    "drug_local_id": 171,
+    "disease_local_id": 104
+  },
+  {
+    "id": 1458,
+    "drug_local_id": 171,
+    "disease_local_id": 261
+  },
+  {
+    "id": 1459,
+    "drug_local_id": 171,
+    "disease_local_id": 130
+  },
+  {
+    "id": 1460,
+    "drug_local_id": 171,
+    "disease_local_id": 108
+  },
+  {
+    "id": 1461,
+    "drug_local_id": 356,
+    "disease_local_id": 264
+  },
+  {
+    "id": 1462,
+    "drug_local_id": 356,
+    "disease_local_id": 174
+  },
+  {
+    "id": 1463,
+    "drug_local_id": 356,
+    "disease_local_id": 84
+  },
+  {
+    "id": 1464,
+    "drug_local_id": 356,
+    "disease_local_id": 251
+  },
+  {
+    "id": 1465,
+    "drug_local_id": 356,
+    "disease_local_id": 87
+  },
+  {
+    "id": 1466,
+    "drug_local_id": 356,
+    "disease_local_id": 241
+  },
+  {
+    "id": 1467,
+    "drug_local_id": 356,
+    "disease_local_id": 38
+  },
+  {
+    "id": 1468,
+    "drug_local_id": 259,
+    "disease_local_id": 157
+  },
+  {
+    "id": 1469,
+    "drug_local_id": 259,
+    "disease_local_id": 162
+  },
+  {
+    "id": 1470,
+    "drug_local_id": 259,
+    "disease_local_id": 165
+  },
+  {
+    "id": 1471,
+    "drug_local_id": 259,
+    "disease_local_id": 12
+  },
+  {
+    "id": 1472,
+    "drug_local_id": 259,
+    "disease_local_id": 32
+  },
+  {
+    "id": 1473,
+    "drug_local_id": 259,
+    "disease_local_id": 181
+  },
+  {
+    "id": 1474,
+    "drug_local_id": 259,
+    "disease_local_id": 264
+  },
+  {
+    "id": 1475,
+    "drug_local_id": 259,
+    "disease_local_id": 49
+  },
+  {
+    "id": 1476,
+    "drug_local_id": 259,
+    "disease_local_id": 192
+  },
+  {
+    "id": 1477,
+    "drug_local_id": 259,
+    "disease_local_id": 71
+  },
+  {
+    "id": 1478,
+    "drug_local_id": 259,
+    "disease_local_id": 84
+  },
+  {
+    "id": 1479,
+    "drug_local_id": 259,
+    "disease_local_id": 251
+  },
+  {
+    "id": 1480,
+    "drug_local_id": 259,
+    "disease_local_id": 87
+  },
+  {
+    "id": 1481,
+    "drug_local_id": 259,
+    "disease_local_id": 93
+  },
+  {
+    "id": 1482,
+    "drug_local_id": 259,
+    "disease_local_id": 206
+  },
+  {
+    "id": 1483,
+    "drug_local_id": 259,
+    "disease_local_id": 102
+  },
+  {
+    "id": 1484,
+    "drug_local_id": 259,
+    "disease_local_id": 241
+  },
+  {
+    "id": 1485,
+    "drug_local_id": 259,
+    "disease_local_id": 38
+  },
+  {
+    "id": 1486,
+    "drug_local_id": 259,
+    "disease_local_id": 212
+  },
+  {
+    "id": 1487,
+    "drug_local_id": 259,
+    "disease_local_id": 133
+  },
+  {
+    "id": 1488,
+    "drug_local_id": 259,
+    "disease_local_id": 94
+  },
+  {
+    "id": 1489,
+    "drug_local_id": 259,
+    "disease_local_id": 141
+  },
+  {
+    "id": 1490,
+    "drug_local_id": 55,
+    "disease_local_id": 86
+  },
+  {
+    "id": 1491,
+    "drug_local_id": 55,
+    "disease_local_id": 111
+  },
+  {
+    "id": 1492,
+    "drug_local_id": 55,
+    "disease_local_id": 1
+  },
+  {
+    "id": 1493,
+    "drug_local_id": 314,
+    "disease_local_id": 86
+  },
+  {
+    "id": 1494,
+    "drug_local_id": 333,
+    "disease_local_id": 163
+  },
+  {
+    "id": 1495,
+    "drug_local_id": 333,
+    "disease_local_id": 177
+  },
+  {
+    "id": 1496,
+    "drug_local_id": 333,
+    "disease_local_id": 29
+  },
+  {
+    "id": 1497,
+    "drug_local_id": 333,
+    "disease_local_id": 45
+  },
+  {
+    "id": 1498,
+    "drug_local_id": 333,
+    "disease_local_id": 262
+  },
+  {
+    "id": 1499,
+    "drug_local_id": 333,
+    "disease_local_id": 302
+  },
+  {
+    "id": 1500,
+    "drug_local_id": 333,
+    "disease_local_id": 300
+  },
+  {
+    "id": 1501,
+    "drug_local_id": 333,
+    "disease_local_id": 285
+  },
+  {
+    "id": 1502,
+    "drug_local_id": 333,
+    "disease_local_id": 303
+  },
+  {
+    "id": 1503,
+    "drug_local_id": 333,
+    "disease_local_id": 301
+  },
+  {
+    "id": 1504,
+    "drug_local_id": 333,
+    "disease_local_id": 46
+  },
+  {
+    "id": 1505,
+    "drug_local_id": 333,
+    "disease_local_id": 47
+  },
+  {
+    "id": 1506,
+    "drug_local_id": 333,
+    "disease_local_id": 308
+  },
+  {
+    "id": 1507,
+    "drug_local_id": 333,
+    "disease_local_id": 248
+  },
+  {
+    "id": 1508,
+    "drug_local_id": 333,
+    "disease_local_id": 234
+  },
+  {
+    "id": 1509,
+    "drug_local_id": 333,
+    "disease_local_id": 146
+  },
+  {
+    "id": 1510,
+    "drug_local_id": 333,
+    "disease_local_id": 147
+  },
+  {
+    "id": 1511,
+    "drug_local_id": 444,
+    "disease_local_id": 311
+  },
+  {
+    "id": 1512,
+    "drug_local_id": 444,
+    "disease_local_id": 299
+  },
+  {
+    "id": 1513,
+    "drug_local_id": 444,
+    "disease_local_id": 23
+  },
+  {
+    "id": 1514,
+    "drug_local_id": 301,
+    "disease_local_id": 86
+  },
+  {
+    "id": 1515,
+    "drug_local_id": 158,
+    "disease_local_id": 183
+  },
+  {
+    "id": 1516,
+    "drug_local_id": 158,
+    "disease_local_id": 306
+  },
+  {
+    "id": 1517,
+    "drug_local_id": 158,
+    "disease_local_id": 182
+  },
+  {
+    "id": 1518,
+    "drug_local_id": 158,
+    "disease_local_id": 79
+  },
+  {
+    "id": 1519,
+    "drug_local_id": 158,
+    "disease_local_id": 226
+  },
+  {
+    "id": 1520,
+    "drug_local_id": 158,
+    "disease_local_id": 138
+  },
+  {
+    "id": 1521,
+    "drug_local_id": 137,
+    "disease_local_id": 31
+  },
+  {
+    "id": 1522,
+    "drug_local_id": 137,
+    "disease_local_id": 118
+  },
+  {
+    "id": 1523,
+    "drug_local_id": 137,
+    "disease_local_id": 119
+  },
+  {
+    "id": 1524,
+    "drug_local_id": 142,
+    "disease_local_id": 177
+  },
+  {
+    "id": 1525,
+    "drug_local_id": 457,
+    "disease_local_id": 87
+  },
+  {
+    "id": 1526,
+    "drug_local_id": 457,
+    "disease_local_id": 105
+  },
+  {
+    "id": 1527,
+    "drug_local_id": 457,
+    "disease_local_id": 307
+  },
+  {
+    "id": 1528,
+    "drug_local_id": 507,
+    "disease_local_id": 299
+  },
+  {
+    "id": 1529,
+    "drug_local_id": 266,
+    "disease_local_id": 86
+  },
+  {
+    "id": 1530,
+    "drug_local_id": 229,
+    "disease_local_id": 17
+  },
+  {
+    "id": 1531,
+    "drug_local_id": 229,
+    "disease_local_id": 23
+  },
+  {
+    "id": 1532,
+    "drug_local_id": 229,
+    "disease_local_id": 67
+  },
+  {
+    "id": 1533,
+    "drug_local_id": 229,
+    "disease_local_id": 312
+  },
+  {
+    "id": 1534,
+    "drug_local_id": 229,
+    "disease_local_id": 102
+  },
+  {
+    "id": 1535,
+    "drug_local_id": 229,
+    "disease_local_id": 246
+  },
+  {
+    "id": 1536,
+    "drug_local_id": 229,
+    "disease_local_id": 103
+  },
+  {
+    "id": 1537,
+    "drug_local_id": 229,
+    "disease_local_id": 121
+  },
+  {
+    "id": 1538,
+    "drug_local_id": 229,
+    "disease_local_id": 108
+  },
+  {
+    "id": 1539,
+    "drug_local_id": 229,
+    "disease_local_id": 146
+  },
+  {
+    "id": 1540,
+    "drug_local_id": 219,
+    "disease_local_id": 240
+  },
+  {
+    "id": 1541,
+    "drug_local_id": 354,
+    "disease_local_id": 162
+  },
+  {
+    "id": 1542,
+    "drug_local_id": 354,
+    "disease_local_id": 269
+  },
+  {
+    "id": 1543,
+    "drug_local_id": 354,
+    "disease_local_id": 79
+  },
+  {
+    "id": 1544,
+    "drug_local_id": 354,
+    "disease_local_id": 307
+  },
+  {
+    "id": 1545,
+    "drug_local_id": 215,
+    "disease_local_id": 210
+  },
+  {
+    "id": 1546,
+    "drug_local_id": 215,
+    "disease_local_id": 211
+  },
+  {
+    "id": 1547,
+    "drug_local_id": 8,
+    "disease_local_id": 177
+  },
+  {
+    "id": 1548,
+    "drug_local_id": 8,
+    "disease_local_id": 197
+  },
+  {
+    "id": 1549,
+    "drug_local_id": 20,
+    "disease_local_id": 177
+  },
+  {
+    "id": 1550,
+    "drug_local_id": 20,
+    "disease_local_id": 197
+  },
+  {
+    "id": 1551,
+    "drug_local_id": 530,
+    "disease_local_id": 109
+  },
+  {
+    "id": 1552,
+    "drug_local_id": 530,
+    "disease_local_id": 135
+  },
+  {
+    "id": 1553,
+    "drug_local_id": 366,
+    "disease_local_id": 312
+  },
+  {
+    "id": 1554,
+    "drug_local_id": 366,
+    "disease_local_id": 82
+  },
+  {
+    "id": 1555,
+    "drug_local_id": 366,
+    "disease_local_id": 108
+  },
+  {
+    "id": 1556,
+    "drug_local_id": 380,
+    "disease_local_id": 311
+  },
+  {
+    "id": 1557,
+    "drug_local_id": 380,
+    "disease_local_id": 299
+  },
+  {
+    "id": 1558,
+    "drug_local_id": 380,
+    "disease_local_id": 23
+  },
+  {
+    "id": 1559,
+    "drug_local_id": 176,
+    "disease_local_id": 155
+  },
+  {
+    "id": 1560,
+    "drug_local_id": 484,
+    "disease_local_id": 14
+  },
+  {
+    "id": 1561,
+    "drug_local_id": 484,
+    "disease_local_id": 263
+  },
+  {
+    "id": 1562,
+    "drug_local_id": 484,
+    "disease_local_id": 147
+  },
+  {
+    "id": 1563,
+    "drug_local_id": 184,
+    "disease_local_id": 3
+  },
+  {
+    "id": 1564,
+    "drug_local_id": 184,
+    "disease_local_id": 19
+  },
+  {
+    "id": 1565,
+    "drug_local_id": 184,
+    "disease_local_id": 114
+  },
+  {
+    "id": 1566,
+    "drug_local_id": 26,
+    "disease_local_id": 312
+  },
+  {
+    "id": 1567,
+    "drug_local_id": 26,
+    "disease_local_id": 82
+  },
+  {
+    "id": 1568,
+    "drug_local_id": 26,
+    "disease_local_id": 108
+  },
+  {
+    "id": 1569,
+    "drug_local_id": 358,
+    "disease_local_id": 14
+  },
+  {
+    "id": 1570,
+    "drug_local_id": 358,
+    "disease_local_id": 251
+  },
+  {
+    "id": 1571,
+    "drug_local_id": 358,
+    "disease_local_id": 147
+  },
+  {
+    "id": 1572,
+    "drug_local_id": 563,
+    "disease_local_id": 118
+  },
+  {
+    "id": 1573,
+    "drug_local_id": 563,
+    "disease_local_id": 119
+  },
+  {
+    "id": 1574,
+    "drug_local_id": 373,
+    "disease_local_id": 86
+  },
+  {
+    "id": 1575,
+    "drug_local_id": 382,
+    "disease_local_id": 37
+  },
+  {
+    "id": 1576,
+    "drug_local_id": 382,
+    "disease_local_id": 34
+  },
+  {
+    "id": 1577,
+    "drug_local_id": 382,
+    "disease_local_id": 35
+  },
+  {
+    "id": 1578,
+    "drug_local_id": 382,
+    "disease_local_id": 265
+  },
+  {
+    "id": 1579,
+    "drug_local_id": 42,
+    "disease_local_id": 312
+  },
+  {
+    "id": 1580,
+    "drug_local_id": 42,
+    "disease_local_id": 108
+  },
+  {
+    "id": 1581,
+    "drug_local_id": 15,
+    "disease_local_id": 79
+  },
+  {
+    "id": 1582,
+    "drug_local_id": 449,
+    "disease_local_id": 202
+  },
+  {
+    "id": 1583,
+    "drug_local_id": 369,
+    "disease_local_id": 3
+  },
+  {
+    "id": 1584,
+    "drug_local_id": 369,
+    "disease_local_id": 116
+  },
+  {
+    "id": 1585,
+    "drug_local_id": 369,
+    "disease_local_id": 114
+  },
+  {
+    "id": 1586,
+    "drug_local_id": 369,
+    "disease_local_id": 280
+  },
+  {
+    "id": 1587,
+    "drug_local_id": 307,
+    "disease_local_id": 249
+  },
+  {
+    "id": 1588,
+    "drug_local_id": 307,
+    "disease_local_id": 183
+  },
+  {
+    "id": 1589,
+    "drug_local_id": 307,
+    "disease_local_id": 306
+  },
+  {
+    "id": 1590,
+    "drug_local_id": 307,
+    "disease_local_id": 182
+  },
+  {
+    "id": 1591,
+    "drug_local_id": 307,
+    "disease_local_id": 60
+  },
+  {
+    "id": 1592,
+    "drug_local_id": 307,
+    "disease_local_id": 226
+  },
+  {
+    "id": 1593,
+    "drug_local_id": 307,
+    "disease_local_id": 135
+  },
+  {
+    "id": 1594,
+    "drug_local_id": 307,
+    "disease_local_id": 138
+  },
+  {
+    "id": 1595,
+    "drug_local_id": 417,
+    "disease_local_id": 287
+  },
+  {
+    "id": 1596,
+    "drug_local_id": 417,
+    "disease_local_id": 7
+  },
+  {
+    "id": 1597,
+    "drug_local_id": 417,
+    "disease_local_id": 31
+  },
+  {
+    "id": 1598,
+    "drug_local_id": 417,
+    "disease_local_id": 118
+  },
+  {
+    "id": 1599,
+    "drug_local_id": 401,
+    "disease_local_id": 102
+  },
+  {
+    "id": 1600,
+    "drug_local_id": 207,
+    "disease_local_id": 102
+  },
+  {
+    "id": 1601,
+    "drug_local_id": 69,
+    "disease_local_id": 31
+  },
+  {
+    "id": 1602,
+    "drug_local_id": 69,
+    "disease_local_id": 118
+  },
+  {
+    "id": 1603,
+    "drug_local_id": 69,
+    "disease_local_id": 119
+  },
+  {
+    "id": 1604,
+    "drug_local_id": 69,
+    "disease_local_id": 1
+  },
+  {
+    "id": 1605,
+    "drug_local_id": 150,
+    "disease_local_id": 37
+  },
+  {
+    "id": 1606,
+    "drug_local_id": 150,
+    "disease_local_id": 34
+  },
+  {
+    "id": 1607,
+    "drug_local_id": 150,
+    "disease_local_id": 35
+  },
+  {
+    "id": 1608,
+    "drug_local_id": 150,
+    "disease_local_id": 265
+  },
+  {
+    "id": 1609,
+    "drug_local_id": 469,
+    "disease_local_id": 72
+  },
+  {
+    "id": 1610,
+    "drug_local_id": 427,
+    "disease_local_id": 162
+  },
+  {
+    "id": 1611,
+    "drug_local_id": 427,
+    "disease_local_id": 269
+  },
+  {
+    "id": 1612,
+    "drug_local_id": 393,
+    "disease_local_id": 8
+  },
+  {
+    "id": 1613,
+    "drug_local_id": 393,
+    "disease_local_id": 32
+  },
+  {
+    "id": 1614,
+    "drug_local_id": 393,
+    "disease_local_id": 86
+  },
+  {
+    "id": 1615,
+    "drug_local_id": 393,
+    "disease_local_id": 284
+  },
+  {
+    "id": 1616,
+    "drug_local_id": 395,
+    "disease_local_id": 162
+  },
+  {
+    "id": 1617,
+    "drug_local_id": 395,
+    "disease_local_id": 269
+  },
+  {
+    "id": 1618,
+    "drug_local_id": 3,
+    "disease_local_id": 71
+  },
+  {
+    "id": 1619,
+    "drug_local_id": 3,
+    "disease_local_id": 116
+  },
+  {
+    "id": 1620,
+    "drug_local_id": 3,
+    "disease_local_id": 114
+  },
+  {
+    "id": 1621,
+    "drug_local_id": 3,
+    "disease_local_id": 280
+  },
+  {
+    "id": 1622,
+    "drug_local_id": 566,
+    "disease_local_id": 79
+  },
+  {
+    "id": 1623,
+    "drug_local_id": 566,
+    "disease_local_id": 86
+  },
+  {
+    "id": 1624,
+    "drug_local_id": 535,
+    "disease_local_id": 12
+  },
+  {
+    "id": 1625,
+    "drug_local_id": 312,
+    "disease_local_id": 10
+  },
+  {
+    "id": 1626,
+    "drug_local_id": 312,
+    "disease_local_id": 31
+  },
+  {
+    "id": 1627,
+    "drug_local_id": 312,
+    "disease_local_id": 185
+  },
+  {
+    "id": 1628,
+    "drug_local_id": 312,
+    "disease_local_id": 105
+  },
+  {
+    "id": 1629,
+    "drug_local_id": 312,
+    "disease_local_id": 118
+  },
+  {
+    "id": 1630,
+    "drug_local_id": 312,
+    "disease_local_id": 119
+  },
+  {
+    "id": 1631,
+    "drug_local_id": 312,
+    "disease_local_id": 147
+  },
+  {
+    "id": 1632,
+    "drug_local_id": 1,
+    "disease_local_id": 284
+  },
+  {
+    "id": 1633,
+    "drug_local_id": 472,
+    "disease_local_id": 43
+  },
+  {
+    "id": 1634,
+    "drug_local_id": 472,
+    "disease_local_id": 210
+  },
+  {
+    "id": 1635,
+    "drug_local_id": 472,
+    "disease_local_id": 109
+  },
+  {
+    "id": 1636,
+    "drug_local_id": 472,
+    "disease_local_id": 117
+  },
+  {
+    "id": 1637,
+    "drug_local_id": 473,
+    "disease_local_id": 250
+  },
+  {
+    "id": 1638,
+    "drug_local_id": 473,
+    "disease_local_id": 277
+  },
+  {
+    "id": 1639,
+    "drug_local_id": 473,
+    "disease_local_id": 230
+  },
+  {
+    "id": 1640,
+    "drug_local_id": 40,
+    "disease_local_id": 129
+  },
+  {
+    "id": 1641,
+    "drug_local_id": 40,
+    "disease_local_id": 108
+  },
+  {
+    "id": 1642,
+    "drug_local_id": 263,
+    "disease_local_id": 72
+  },
+  {
+    "id": 1643,
+    "drug_local_id": 549,
+    "disease_local_id": 37
+  },
+  {
+    "id": 1644,
+    "drug_local_id": 549,
+    "disease_local_id": 34
+  },
+  {
+    "id": 1645,
+    "drug_local_id": 549,
+    "disease_local_id": 35
+  },
+  {
+    "id": 1646,
+    "drug_local_id": 549,
+    "disease_local_id": 265
+  },
+  {
+    "id": 1647,
+    "drug_local_id": 174,
+    "disease_local_id": 152
+  },
+  {
+    "id": 1648,
+    "drug_local_id": 144,
+    "disease_local_id": 21
+  },
+  {
+    "id": 1649,
+    "drug_local_id": 144,
+    "disease_local_id": 288
+  },
+  {
+    "id": 1650,
+    "drug_local_id": 144,
+    "disease_local_id": 75
+  },
+  {
+    "id": 1651,
+    "drug_local_id": 144,
+    "disease_local_id": 143
+  },
+  {
+    "id": 1652,
+    "drug_local_id": 187,
+    "disease_local_id": 311
+  },
+  {
+    "id": 1653,
+    "drug_local_id": 187,
+    "disease_local_id": 299
+  },
+  {
+    "id": 1654,
+    "drug_local_id": 154,
+    "disease_local_id": 6
+  },
+  {
+    "id": 1655,
+    "drug_local_id": 154,
+    "disease_local_id": 161
+  },
+  {
+    "id": 1656,
+    "drug_local_id": 154,
+    "disease_local_id": 264
+  },
+  {
+    "id": 1657,
+    "drug_local_id": 154,
+    "disease_local_id": 174
+  },
+  {
+    "id": 1658,
+    "drug_local_id": 154,
+    "disease_local_id": 312
+  },
+  {
+    "id": 1659,
+    "drug_local_id": 154,
+    "disease_local_id": 284
+  },
+  {
+    "id": 1660,
+    "drug_local_id": 154,
+    "disease_local_id": 108
+  },
+  {
+    "id": 1661,
+    "drug_local_id": 157,
+    "disease_local_id": 193
+  },
+  {
+    "id": 1662,
+    "drug_local_id": 123,
+    "disease_local_id": 14
+  },
+  {
+    "id": 1663,
+    "drug_local_id": 123,
+    "disease_local_id": 108
+  },
+  {
+    "id": 1664,
+    "drug_local_id": 123,
+    "disease_local_id": 147
+  },
+  {
+    "id": 1665,
+    "drug_local_id": 334,
+    "disease_local_id": 6
+  },
+  {
+    "id": 1666,
+    "drug_local_id": 334,
+    "disease_local_id": 232
+  },
+  {
+    "id": 1667,
+    "drug_local_id": 247,
+    "disease_local_id": 124
+  },
+  {
+    "id": 1668,
+    "drug_local_id": 247,
+    "disease_local_id": 160
+  },
+  {
+    "id": 1669,
+    "drug_local_id": 247,
+    "disease_local_id": 50
+  },
+  {
+    "id": 1670,
+    "drug_local_id": 247,
+    "disease_local_id": 86
+  },
+  {
+    "id": 1671,
+    "drug_local_id": 247,
+    "disease_local_id": 112
+  },
+  {
+    "id": 1672,
+    "drug_local_id": 247,
+    "disease_local_id": 66
+  },
+  {
+    "id": 1673,
+    "drug_local_id": 247,
+    "disease_local_id": 305
+  },
+  {
+    "id": 1674,
+    "drug_local_id": 247,
+    "disease_local_id": 293
+  },
+  {
+    "id": 1675,
+    "drug_local_id": 277,
+    "disease_local_id": 102
+  },
+  {
+    "id": 1676,
+    "drug_local_id": 277,
+    "disease_local_id": 246
+  },
+  {
+    "id": 1677,
+    "drug_local_id": 552,
+    "disease_local_id": 288
+  },
+  {
+    "id": 1678,
+    "drug_local_id": 552,
+    "disease_local_id": 75
+  },
+  {
+    "id": 1679,
+    "drug_local_id": 134,
+    "disease_local_id": 287
+  },
+  {
+    "id": 1680,
+    "drug_local_id": 134,
+    "disease_local_id": 7
+  },
+  {
+    "id": 1681,
+    "drug_local_id": 134,
+    "disease_local_id": 31
+  },
+  {
+    "id": 1682,
+    "drug_local_id": 359,
+    "disease_local_id": 282
+  },
+  {
+    "id": 1683,
+    "drug_local_id": 344,
+    "disease_local_id": 129
+  },
+  {
+    "id": 1684,
+    "drug_local_id": 344,
+    "disease_local_id": 108
+  },
+  {
+    "id": 1685,
+    "drug_local_id": 280,
+    "disease_local_id": 19
+  },
+  {
+    "id": 1686,
+    "drug_local_id": 280,
+    "disease_local_id": 123
+  },
+  {
+    "id": 1687,
+    "drug_local_id": 293,
+    "disease_local_id": 155
+  },
+  {
+    "id": 1688,
+    "drug_local_id": 293,
+    "disease_local_id": 86
+  },
+  {
+    "id": 1689,
+    "drug_local_id": 293,
+    "disease_local_id": 257
+  },
+  {
+    "id": 1690,
+    "drug_local_id": 293,
+    "disease_local_id": 261
+  },
+  {
+    "id": 1691,
+    "drug_local_id": 408,
+    "disease_local_id": 312
+  },
+  {
+    "id": 1692,
+    "drug_local_id": 408,
+    "disease_local_id": 78
+  },
+  {
+    "id": 1693,
+    "drug_local_id": 408,
+    "disease_local_id": 108
+  },
+  {
+    "id": 1694,
+    "drug_local_id": 355,
+    "disease_local_id": 99
+  },
+  {
+    "id": 1695,
+    "drug_local_id": 355,
+    "disease_local_id": 98
+  },
+  {
+    "id": 1696,
+    "drug_local_id": 355,
+    "disease_local_id": 241
+  },
+  {
+    "id": 1697,
+    "drug_local_id": 587,
+    "disease_local_id": 288
+  },
+  {
+    "id": 1698,
+    "drug_local_id": 587,
+    "disease_local_id": 75
+  },
+  {
+    "id": 1699,
+    "drug_local_id": 165,
+    "disease_local_id": 181
+  },
+  {
+    "id": 1700,
+    "drug_local_id": 165,
+    "disease_local_id": 193
+  },
+  {
+    "id": 1701,
+    "drug_local_id": 165,
+    "disease_local_id": 15
+  },
+  {
+    "id": 1702,
+    "drug_local_id": 165,
+    "disease_local_id": 206
+  },
+  {
+    "id": 1703,
+    "drug_local_id": 165,
+    "disease_local_id": 233
+  },
+  {
+    "id": 1704,
+    "drug_local_id": 165,
+    "disease_local_id": 137
+  },
+  {
+    "id": 1705,
+    "drug_local_id": 496,
+    "disease_local_id": 155
+  },
+  {
+    "id": 1706,
+    "drug_local_id": 496,
+    "disease_local_id": 73
+  },
+  {
+    "id": 1707,
+    "drug_local_id": 496,
+    "disease_local_id": 312
+  },
+  {
+    "id": 1708,
+    "drug_local_id": 496,
+    "disease_local_id": 86
+  },
+  {
+    "id": 1709,
+    "drug_local_id": 496,
+    "disease_local_id": 104
+  },
+  {
+    "id": 1710,
+    "drug_local_id": 496,
+    "disease_local_id": 261
+  },
+  {
+    "id": 1711,
+    "drug_local_id": 496,
+    "disease_local_id": 108
+  },
+  {
+    "id": 1712,
+    "drug_local_id": 363,
+    "disease_local_id": 162
+  },
+  {
+    "id": 1713,
+    "drug_local_id": 363,
+    "disease_local_id": 269
+  },
+  {
+    "id": 1714,
+    "drug_local_id": 363,
+    "disease_local_id": 166
+  },
+  {
+    "id": 1715,
+    "drug_local_id": 111,
+    "disease_local_id": 87
+  },
+  {
+    "id": 1716,
+    "drug_local_id": 586,
+    "disease_local_id": 3
+  },
+  {
+    "id": 1717,
+    "drug_local_id": 586,
+    "disease_local_id": 291
+  },
+  {
+    "id": 1718,
+    "drug_local_id": 586,
+    "disease_local_id": 114
+  },
+  {
+    "id": 1719,
+    "drug_local_id": 255,
+    "disease_local_id": 19
+  },
+  {
+    "id": 1720,
+    "drug_local_id": 255,
+    "disease_local_id": 175
+  },
+  {
+    "id": 1721,
+    "drug_local_id": 255,
+    "disease_local_id": 199
+  },
+  {
+    "id": 1722,
+    "drug_local_id": 583,
+    "disease_local_id": 68
+  },
+  {
+    "id": 1723,
+    "drug_local_id": 319,
+    "disease_local_id": 59
+  },
+  {
+    "id": 1724,
+    "drug_local_id": 319,
+    "disease_local_id": 263
+  },
+  {
+    "id": 1725,
+    "drug_local_id": 319,
+    "disease_local_id": 284
+  },
+  {
+    "id": 1726,
+    "drug_local_id": 446,
+    "disease_local_id": 202
+  },
+  {
+    "id": 1727,
+    "drug_local_id": 446,
+    "disease_local_id": 214
+  },
+  {
+    "id": 1728,
+    "drug_local_id": 73,
+    "disease_local_id": 162
+  },
+  {
+    "id": 1729,
+    "drug_local_id": 73,
+    "disease_local_id": 269
+  },
+  {
+    "id": 1730,
+    "drug_local_id": 73,
+    "disease_local_id": 166
+  },
+  {
+    "id": 1731,
+    "drug_local_id": 116,
+    "disease_local_id": 276
+  },
+  {
+    "id": 1732,
+    "drug_local_id": 282,
+    "disease_local_id": 135
+  },
+  {
+    "id": 1733,
+    "drug_local_id": 577,
+    "disease_local_id": 135
+  },
+  {
+    "id": 1734,
+    "drug_local_id": 378,
+    "disease_local_id": 177
+  },
+  {
+    "id": 1735,
+    "drug_local_id": 43,
+    "disease_local_id": 142
+  },
+  {
+    "id": 1736,
+    "drug_local_id": 486,
+    "disease_local_id": 116
+  },
+  {
+    "id": 1737,
+    "drug_local_id": 486,
+    "disease_local_id": 280
+  },
+  {
+    "id": 1738,
+    "drug_local_id": 128,
+    "disease_local_id": 61
+  },
+  {
+    "id": 1739,
+    "drug_local_id": 128,
+    "disease_local_id": 278
+  },
+  {
+    "id": 1740,
+    "drug_local_id": 128,
+    "disease_local_id": 62
+  },
+  {
+    "id": 1741,
+    "drug_local_id": 128,
+    "disease_local_id": 312
+  },
+  {
+    "id": 1742,
+    "drug_local_id": 128,
+    "disease_local_id": 102
+  },
+  {
+    "id": 1743,
+    "drug_local_id": 128,
+    "disease_local_id": 246
+  },
+  {
+    "id": 1744,
+    "drug_local_id": 128,
+    "disease_local_id": 108
+  },
+  {
+    "id": 1745,
+    "drug_local_id": 327,
+    "disease_local_id": 310
+  },
+  {
+    "id": 1746,
+    "drug_local_id": 291,
+    "disease_local_id": 155
+  },
+  {
+    "id": 1747,
+    "drug_local_id": 291,
+    "disease_local_id": 272
+  },
+  {
+    "id": 1748,
+    "drug_local_id": 291,
+    "disease_local_id": 102
+  },
+  {
+    "id": 1749,
+    "drug_local_id": 291,
+    "disease_local_id": 107
+  },
+  {
+    "id": 1750,
+    "drug_local_id": 291,
+    "disease_local_id": 148
+  },
+  {
+    "id": 1751,
+    "drug_local_id": 348,
+    "disease_local_id": 37
+  },
+  {
+    "id": 1752,
+    "drug_local_id": 348,
+    "disease_local_id": 34
+  },
+  {
+    "id": 1753,
+    "drug_local_id": 348,
+    "disease_local_id": 35
+  },
+  {
+    "id": 1754,
+    "drug_local_id": 348,
+    "disease_local_id": 265
+  },
+  {
+    "id": 1755,
+    "drug_local_id": 481,
+    "disease_local_id": 37
+  },
+  {
+    "id": 1756,
+    "drug_local_id": 481,
+    "disease_local_id": 34
+  },
+  {
+    "id": 1757,
+    "drug_local_id": 481,
+    "disease_local_id": 35
+  },
+  {
+    "id": 1758,
+    "drug_local_id": 481,
+    "disease_local_id": 265
+  },
+  {
+    "id": 1759,
+    "drug_local_id": 99,
+    "disease_local_id": 118
+  },
+  {
+    "id": 1760,
+    "drug_local_id": 99,
+    "disease_local_id": 119
+  },
+  {
+    "id": 1761,
+    "drug_local_id": 194,
+    "disease_local_id": 160
+  },
+  {
+    "id": 1762,
+    "drug_local_id": 194,
+    "disease_local_id": 112
+  },
+  {
+    "id": 1763,
+    "drug_local_id": 194,
+    "disease_local_id": 66
+  },
+  {
+    "id": 1764,
+    "drug_local_id": 194,
+    "disease_local_id": 305
+  },
+  {
+    "id": 1765,
+    "drug_local_id": 194,
+    "disease_local_id": 293
+  },
+  {
+    "id": 1766,
+    "drug_local_id": 71,
+    "disease_local_id": 295
+  },
+  {
+    "id": 1767,
+    "drug_local_id": 71,
+    "disease_local_id": 255
+  },
+  {
+    "id": 1768,
+    "drug_local_id": 71,
+    "disease_local_id": 86
+  },
+  {
+    "id": 1769,
+    "drug_local_id": 71,
+    "disease_local_id": 102
+  },
+  {
+    "id": 1770,
+    "drug_local_id": 71,
+    "disease_local_id": 246
+  },
+  {
+    "id": 1771,
+    "drug_local_id": 71,
+    "disease_local_id": 286
+  },
+  {
+    "id": 1772,
+    "drug_local_id": 71,
+    "disease_local_id": 230
+  },
+  {
+    "id": 1773,
+    "drug_local_id": 442,
+    "disease_local_id": 241
+  },
+  {
+    "id": 1774,
+    "drug_local_id": 442,
+    "disease_local_id": 137
+  },
+  {
+    "id": 1775,
+    "drug_local_id": 47,
+    "disease_local_id": 161
+  },
+  {
+    "id": 1776,
+    "drug_local_id": 47,
+    "disease_local_id": 264
+  },
+  {
+    "id": 1777,
+    "drug_local_id": 47,
+    "disease_local_id": 174
+  },
+  {
+    "id": 1778,
+    "drug_local_id": 47,
+    "disease_local_id": 312
+  },
+  {
+    "id": 1779,
+    "drug_local_id": 47,
+    "disease_local_id": 82
+  },
+  {
+    "id": 1780,
+    "drug_local_id": 47,
+    "disease_local_id": 113
+  },
+  {
+    "id": 1781,
+    "drug_local_id": 47,
+    "disease_local_id": 108
+  },
+  {
+    "id": 1782,
+    "drug_local_id": 36,
+    "disease_local_id": 86
+  },
+  {
+    "id": 1783,
+    "drug_local_id": 36,
+    "disease_local_id": 1
+  },
+  {
+    "id": 1784,
+    "drug_local_id": 200,
+    "disease_local_id": 312
+  },
+  {
+    "id": 1785,
+    "drug_local_id": 200,
+    "disease_local_id": 82
+  },
+  {
+    "id": 1786,
+    "drug_local_id": 200,
+    "disease_local_id": 108
+  },
+  {
+    "id": 1787,
+    "drug_local_id": 87,
+    "disease_local_id": 186
+  },
+  {
+    "id": 1788,
+    "drug_local_id": 87,
+    "disease_local_id": 51
+  },
+  {
+    "id": 1789,
+    "drug_local_id": 87,
+    "disease_local_id": 53
+  },
+  {
+    "id": 1790,
+    "drug_local_id": 87,
+    "disease_local_id": 52
+  },
+  {
+    "id": 1791,
+    "drug_local_id": 87,
+    "disease_local_id": 54
+  },
+  {
+    "id": 1792,
+    "drug_local_id": 82,
+    "disease_local_id": 61
+  },
+  {
+    "id": 1793,
+    "drug_local_id": 82,
+    "disease_local_id": 278
+  },
+  {
+    "id": 1794,
+    "drug_local_id": 82,
+    "disease_local_id": 62
+  },
+  {
+    "id": 1795,
+    "drug_local_id": 82,
+    "disease_local_id": 108
+  },
+  {
+    "id": 1796,
+    "drug_local_id": 129,
+    "disease_local_id": 129
+  },
+  {
+    "id": 1797,
+    "drug_local_id": 129,
+    "disease_local_id": 108
+  },
+  {
+    "id": 1798,
+    "drug_local_id": 316,
+    "disease_local_id": 76
+  },
+  {
+    "id": 1799,
+    "drug_local_id": 316,
+    "disease_local_id": 77
+  },
+  {
+    "id": 1800,
+    "drug_local_id": 316,
+    "disease_local_id": 136
+  },
+  {
+    "id": 1801,
+    "drug_local_id": 316,
+    "disease_local_id": 93
+  },
+  {
+    "id": 1802,
+    "drug_local_id": 316,
+    "disease_local_id": 241
+  },
+  {
+    "id": 1803,
+    "drug_local_id": 316,
+    "disease_local_id": 284
+  },
+  {
+    "id": 1804,
+    "drug_local_id": 252,
+    "disease_local_id": 6
+  },
+  {
+    "id": 1805,
+    "drug_local_id": 252,
+    "disease_local_id": 162
+  },
+  {
+    "id": 1806,
+    "drug_local_id": 252,
+    "disease_local_id": 22
+  },
+  {
+    "id": 1807,
+    "drug_local_id": 252,
+    "disease_local_id": 181
+  },
+  {
+    "id": 1808,
+    "drug_local_id": 252,
+    "disease_local_id": 49
+  },
+  {
+    "id": 1809,
+    "drug_local_id": 252,
+    "disease_local_id": 87
+  },
+  {
+    "id": 1810,
+    "drug_local_id": 252,
+    "disease_local_id": 89
+  },
+  {
+    "id": 1811,
+    "drug_local_id": 252,
+    "disease_local_id": 93
+  },
+  {
+    "id": 1812,
+    "drug_local_id": 252,
+    "disease_local_id": 111
+  },
+  {
+    "id": 1813,
+    "drug_local_id": 252,
+    "disease_local_id": 122
+  },
+  {
+    "id": 1814,
+    "drug_local_id": 252,
+    "disease_local_id": 133
+  },
+  {
+    "id": 1815,
+    "drug_local_id": 252,
+    "disease_local_id": 94
+  },
+  {
+    "id": 1816,
+    "drug_local_id": 252,
+    "disease_local_id": 141
+  },
+  {
+    "id": 1817,
+    "drug_local_id": 135,
+    "disease_local_id": 156
+  },
+  {
+    "id": 1818,
+    "drug_local_id": 135,
+    "disease_local_id": 161
+  },
+  {
+    "id": 1819,
+    "drug_local_id": 135,
+    "disease_local_id": 166
+  },
+  {
+    "id": 1820,
+    "drug_local_id": 135,
+    "disease_local_id": 264
+  },
+  {
+    "id": 1821,
+    "drug_local_id": 135,
+    "disease_local_id": 174
+  },
+  {
+    "id": 1822,
+    "drug_local_id": 347,
+    "disease_local_id": 135
+  },
+  {
+    "id": 1823,
+    "drug_local_id": 197,
+    "disease_local_id": 79
+  },
+  {
+    "id": 1824,
+    "drug_local_id": 197,
+    "disease_local_id": 86
+  },
+  {
+    "id": 1825,
+    "drug_local_id": 130,
+    "disease_local_id": 118
+  },
+  {
+    "id": 1826,
+    "drug_local_id": 162,
+    "disease_local_id": 162
+  },
+  {
+    "id": 1827,
+    "drug_local_id": 162,
+    "disease_local_id": 115
+  },
+  {
+    "id": 1828,
+    "drug_local_id": 162,
+    "disease_local_id": 284
+  },
+  {
+    "id": 1829,
+    "drug_local_id": 494,
+    "disease_local_id": 12
+  },
+  {
+    "id": 1830,
+    "drug_local_id": 581,
+    "disease_local_id": 122
+  },
+  {
+    "id": 1831,
+    "drug_local_id": 233,
+    "disease_local_id": 160
+  },
+  {
+    "id": 1832,
+    "drug_local_id": 233,
+    "disease_local_id": 112
+  },
+  {
+    "id": 1833,
+    "drug_local_id": 233,
+    "disease_local_id": 66
+  },
+  {
+    "id": 1834,
+    "drug_local_id": 233,
+    "disease_local_id": 305
+  },
+  {
+    "id": 1835,
+    "drug_local_id": 233,
+    "disease_local_id": 293
+  },
+  {
+    "id": 1836,
+    "drug_local_id": 93,
+    "disease_local_id": 6
+  },
+  {
+    "id": 1837,
+    "drug_local_id": 93,
+    "disease_local_id": 287
+  },
+  {
+    "id": 1838,
+    "drug_local_id": 93,
+    "disease_local_id": 7
+  },
+  {
+    "id": 1839,
+    "drug_local_id": 93,
+    "disease_local_id": 177
+  },
+  {
+    "id": 1840,
+    "drug_local_id": 93,
+    "disease_local_id": 31
+  },
+  {
+    "id": 1841,
+    "drug_local_id": 93,
+    "disease_local_id": 197
+  },
+  {
+    "id": 1842,
+    "drug_local_id": 93,
+    "disease_local_id": 135
+  },
+  {
+    "id": 1843,
+    "drug_local_id": 136,
+    "disease_local_id": 16
+  },
+  {
+    "id": 1844,
+    "drug_local_id": 25,
+    "disease_local_id": 312
+  },
+  {
+    "id": 1845,
+    "drug_local_id": 25,
+    "disease_local_id": 108
+  },
+  {
+    "id": 1846,
+    "drug_local_id": 5,
+    "disease_local_id": 33
+  },
+  {
+    "id": 1847,
+    "drug_local_id": 5,
+    "disease_local_id": 252
+  },
+  {
+    "id": 1848,
+    "drug_local_id": 80,
+    "disease_local_id": 69
+  },
+  {
+    "id": 1849,
+    "drug_local_id": 80,
+    "disease_local_id": 295
+  },
+  {
+    "id": 1850,
+    "drug_local_id": 80,
+    "disease_local_id": 43
+  },
+  {
+    "id": 1851,
+    "drug_local_id": 80,
+    "disease_local_id": 86
+  },
+  {
+    "id": 1852,
+    "drug_local_id": 80,
+    "disease_local_id": 109
+  },
+  {
+    "id": 1853,
+    "drug_local_id": 80,
+    "disease_local_id": 117
+  },
+  {
+    "id": 1854,
+    "drug_local_id": 275,
+    "disease_local_id": 155
+  },
+  {
+    "id": 1855,
+    "drug_local_id": 275,
+    "disease_local_id": 311
+  },
+  {
+    "id": 1856,
+    "drug_local_id": 275,
+    "disease_local_id": 299
+  },
+  {
+    "id": 1857,
+    "drug_local_id": 275,
+    "disease_local_id": 23
+  },
+  {
+    "id": 1858,
+    "drug_local_id": 275,
+    "disease_local_id": 24
+  },
+  {
+    "id": 1859,
+    "drug_local_id": 275,
+    "disease_local_id": 312
+  },
+  {
+    "id": 1860,
+    "drug_local_id": 275,
+    "disease_local_id": 102
+  },
+  {
+    "id": 1861,
+    "drug_local_id": 275,
+    "disease_local_id": 108
+  },
+  {
+    "id": 1862,
+    "drug_local_id": 463,
+    "disease_local_id": 177
+  },
+  {
+    "id": 1863,
+    "drug_local_id": 463,
+    "disease_local_id": 255
+  },
+  {
+    "id": 1864,
+    "drug_local_id": 463,
+    "disease_local_id": 286
+  },
+  {
+    "id": 1865,
+    "drug_local_id": 228,
+    "disease_local_id": 19
+  },
+  {
+    "id": 1866,
+    "drug_local_id": 228,
+    "disease_local_id": 193
+  },
+  {
+    "id": 1867,
+    "drug_local_id": 228,
+    "disease_local_id": 88
+  },
+  {
+    "id": 1868,
+    "drug_local_id": 228,
+    "disease_local_id": 241
+  },
+  {
+    "id": 1869,
+    "drug_local_id": 228,
+    "disease_local_id": 212
+  },
+  {
+    "id": 1870,
+    "drug_local_id": 228,
+    "disease_local_id": 238
+  },
+  {
+    "id": 1871,
+    "drug_local_id": 228,
+    "disease_local_id": 141
+  },
+  {
+    "id": 1872,
+    "drug_local_id": 212,
+    "disease_local_id": 181
+  },
+  {
+    "id": 1873,
+    "drug_local_id": 212,
+    "disease_local_id": 193
+  },
+  {
+    "id": 1874,
+    "drug_local_id": 212,
+    "disease_local_id": 204
+  },
+  {
+    "id": 1875,
+    "drug_local_id": 212,
+    "disease_local_id": 276
+  },
+  {
+    "id": 1876,
+    "drug_local_id": 212,
+    "disease_local_id": 15
+  },
+  {
+    "id": 1877,
+    "drug_local_id": 212,
+    "disease_local_id": 206
+  },
+  {
+    "id": 1878,
+    "drug_local_id": 212,
+    "disease_local_id": 241
+  },
+  {
+    "id": 1879,
+    "drug_local_id": 212,
+    "disease_local_id": 214
+  },
+  {
+    "id": 1880,
+    "drug_local_id": 212,
+    "disease_local_id": 219
+  },
+  {
+    "id": 1881,
+    "drug_local_id": 212,
+    "disease_local_id": 233
+  },
+  {
+    "id": 1882,
+    "drug_local_id": 212,
+    "disease_local_id": 235
+  },
+  {
+    "id": 1883,
+    "drug_local_id": 212,
+    "disease_local_id": 275
+  },
+  {
+    "id": 1884,
+    "drug_local_id": 212,
+    "disease_local_id": 153
+  },
+  {
+    "id": 1885,
+    "drug_local_id": 121,
+    "disease_local_id": 193
+  },
+  {
+    "id": 1886,
+    "drug_local_id": 18,
+    "disease_local_id": 25
+  },
+  {
+    "id": 1887,
+    "drug_local_id": 18,
+    "disease_local_id": 242
+  },
+  {
+    "id": 1888,
+    "drug_local_id": 12,
+    "disease_local_id": 198
+  },
+  {
+    "id": 1889,
+    "drug_local_id": 12,
+    "disease_local_id": 158
+  },
+  {
+    "id": 1890,
+    "drug_local_id": 12,
+    "disease_local_id": 209
+  },
+  {
+    "id": 1891,
+    "drug_local_id": 19,
+    "disease_local_id": 155
+  },
+  {
+    "id": 1892,
+    "drug_local_id": 19,
+    "disease_local_id": 287
+  },
+  {
+    "id": 1893,
+    "drug_local_id": 19,
+    "disease_local_id": 7
+  },
+  {
+    "id": 1894,
+    "drug_local_id": 19,
+    "disease_local_id": 31
+  },
+  {
+    "id": 1895,
+    "drug_local_id": 19,
+    "disease_local_id": 289
+  },
+  {
+    "id": 1896,
+    "drug_local_id": 19,
+    "disease_local_id": 187
+  },
+  {
+    "id": 1897,
+    "drug_local_id": 19,
+    "disease_local_id": 191
+  },
+  {
+    "id": 1898,
+    "drug_local_id": 19,
+    "disease_local_id": 231
+  },
+  {
+    "id": 1899,
+    "drug_local_id": 19,
+    "disease_local_id": 244
+  },
+  {
+    "id": 1900,
+    "drug_local_id": 579,
+    "disease_local_id": 241
+  },
+  {
+    "id": 1901,
+    "drug_local_id": 579,
+    "disease_local_id": 212
+  },
+  {
+    "id": 1902,
+    "drug_local_id": 283,
+    "disease_local_id": 9
+  },
+  {
+    "id": 1903,
+    "drug_local_id": 283,
+    "disease_local_id": 311
+  },
+  {
+    "id": 1904,
+    "drug_local_id": 283,
+    "disease_local_id": 299
+  },
+  {
+    "id": 1905,
+    "drug_local_id": 283,
+    "disease_local_id": 30
+  },
+  {
+    "id": 1906,
+    "drug_local_id": 283,
+    "disease_local_id": 260
+  },
+  {
+    "id": 1907,
+    "drug_local_id": 283,
+    "disease_local_id": 273
+  },
+  {
+    "id": 1908,
+    "drug_local_id": 218,
+    "disease_local_id": 162
+  },
+  {
+    "id": 1909,
+    "drug_local_id": 310,
+    "disease_local_id": 162
+  },
+  {
+    "id": 1910,
+    "drug_local_id": 310,
+    "disease_local_id": 269
+  },
+  {
+    "id": 1911,
+    "drug_local_id": 62,
+    "disease_local_id": 60
+  },
+  {
+    "id": 1912,
+    "drug_local_id": 62,
+    "disease_local_id": 135
+  },
+  {
+    "id": 1913,
+    "drug_local_id": 145,
+    "disease_local_id": 3
+  },
+  {
+    "id": 1914,
+    "drug_local_id": 145,
+    "disease_local_id": 71
+  },
+  {
+    "id": 1915,
+    "drug_local_id": 145,
+    "disease_local_id": 116
+  },
+  {
+    "id": 1916,
+    "drug_local_id": 145,
+    "disease_local_id": 288
+  },
+  {
+    "id": 1917,
+    "drug_local_id": 145,
+    "disease_local_id": 241
+  },
+  {
+    "id": 1918,
+    "drug_local_id": 145,
+    "disease_local_id": 214
+  },
+  {
+    "id": 1919,
+    "drug_local_id": 145,
+    "disease_local_id": 280
+  },
+  {
+    "id": 1920,
+    "drug_local_id": 94,
+    "disease_local_id": 102
+  },
+  {
+    "id": 1921,
+    "drug_local_id": 381,
+    "disease_local_id": 163
+  },
+  {
+    "id": 1922,
+    "drug_local_id": 381,
+    "disease_local_id": 177
+  },
+  {
+    "id": 1923,
+    "drug_local_id": 381,
+    "disease_local_id": 262
+  },
+  {
+    "id": 1924,
+    "drug_local_id": 381,
+    "disease_local_id": 302
+  },
+  {
+    "id": 1925,
+    "drug_local_id": 381,
+    "disease_local_id": 300
+  },
+  {
+    "id": 1926,
+    "drug_local_id": 381,
+    "disease_local_id": 285
+  },
+  {
+    "id": 1927,
+    "drug_local_id": 381,
+    "disease_local_id": 303
+  },
+  {
+    "id": 1928,
+    "drug_local_id": 381,
+    "disease_local_id": 301
+  },
+  {
+    "id": 1929,
+    "drug_local_id": 381,
+    "disease_local_id": 308
+  },
+  {
+    "id": 1930,
+    "drug_local_id": 381,
+    "disease_local_id": 248
+  },
+  {
+    "id": 1931,
+    "drug_local_id": 381,
+    "disease_local_id": 197
+  },
+  {
+    "id": 1932,
+    "drug_local_id": 381,
+    "disease_local_id": 234
+  },
+  {
+    "id": 1933,
+    "drug_local_id": 381,
+    "disease_local_id": 146
+  }
+]

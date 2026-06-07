@@ -1,0 +1,904 @@
+from __future__ import annotations
+import json
+import math
+import os
+import secrets
+import smtplib
+import sys
+from collections import defaultdict
+from datetime import datetime, timedelta
+from email.mime.text import MIMEText
+from pathlib import Path
+from typing import Annotated, Dict, Optional
+from fastapi import APIRouter, Depends, Header, HTTPException, status, UploadFile, File, Form
+# Đảm bảo src/ trong sys.path để import json_repo
+_SRC = Path(__file__).resolve().parents[3]
+if str(_SRC) not in sys.path:
+    sys.path.insert(0, str(_SRC))
+import data.json_repo as repo
+from data.data_source_status import data_source
+from ..ai.inference_service import (
+    predict_diseases_by_drug_name,
+    predict_drugs_by_disease_name,
+)
+from ..database import SessionLocal
+from ..models import User
+from ..schemas import (
+    AdminRecalcRequest,
+    DiseaseIn,
+    DrugIn,
+    ForgotPasswordRequest,
+    HistoryItem,
+    LinkIn,
+    LoginRequest,
+    LoginResponse,
+    ModelCompareRequest,
+    PredictRequest,
+    PredictResponse,
+    PredictionItem,
+    RegisterRequest,
+    ResetPasswordRequest,
+    SeedDatasetRequest,
+    StatsResponse,
+    UserItem,
+    UserRoleUpdate,
+)
+from ..security import AuthUser, create_token, hash_password, verify_password
+router = APIRouter(prefix="/api", tags=["api"])
+
+# TOKENS: token -> (AuthUser, expiry_datetime)
+# Token hết hạn sau 24h kể từ lúc login
+_TOKEN_TTL_HOURS = 24
+TOKENS: dict[str, tuple[AuthUser, datetime]] = {}
+
+_OTP_STORE: dict[str, dict] = {}
+def _routes_project_root() -> Path:
+    return Path(__file__).resolve().parents[4]
+def _send_reset_email(to_email: str, username: str, otp: str) -> None:
+    smtp_host = os.environ.get("SMTP_HOST", "smtp.gmail.com")
+    smtp_port = int(os.environ.get("SMTP_PORT", "587"))
+    smtp_user = os.environ.get("SMTP_USER", "")
+    smtp_pass = os.environ.get("SMTP_PASSWORD", "")
+    if not smtp_user or not smtp_pass:
+        raise RuntimeError(
+            "SMTP chưa được cấu hình. Vui lòng đặt biến môi trường SMTP_USER và SMTP_PASSWORD."
+        )
+    body = (
+        f"Xin chao {username},\n\n"
+        f"Mã OTP đặt lại mật khẩu của bạn là: {otp}\n"
+        f"Mã có hiệu lực trong 10 phút.\n\n"
+        f"Nếu bạn không yêu cầu đặt lại mật khẩu, vui lòng bỏ qua email này.\n\n"
+        f"-- MedLink AI Team"
+    )
+    msg = MIMEText(body, "plain", "utf-8")
+    msg["Subject"] = "Mã OTP đặt lại mật khẩu MedLink AI"
+    msg["From"]    = smtp_user
+    msg["To"]      = to_email
+    with smtplib.SMTP(smtp_host, smtp_port) as server:
+        server.ehlo()
+        server.starttls()
+        server.login(smtp_user, smtp_pass)
+        server.send_message(msg)
+def _auth_from_header(authorization: str | None) -> AuthUser:
+    if not authorization or not authorization.lower().startswith("bearer "):
+        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Thieu token")
+    token = authorization.split(" ", 1)[1].strip()
+    entry = TOKENS.get(token)
+    if not entry:
+        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Token khong hop le")
+    user, expiry = entry
+    if datetime.utcnow() > expiry:
+        TOKENS.pop(token, None)
+        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Token đã hết hạn, vui lòng đăng nhập lại")
+    return user
+
+def get_current_user(
+    authorization: Annotated[str | None, Header(alias="Authorization")] = None,
+) -> AuthUser:
+    return _auth_from_header(authorization)
+
+def require_admin(user: Annotated[AuthUser, Depends(get_current_user)]) -> AuthUser:
+    if user.role != "admin":
+        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Chi admin duoc phep")
+    return user
+
+def require_researcher(user: Annotated[AuthUser, Depends(get_current_user)]) -> AuthUser:
+    """Cho phép researcher và admin; từ chối guest và user thường."""
+    if user.role not in ("researcher", "admin"):
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Can quyen Researcher hoac Admin",
+        )
+    return user
+
+
+def _db_auth_enabled() -> bool:
+    return SessionLocal is not None and data_source.is_db_connected()
+
+
+def _user_to_dict(user: User) -> dict:
+    return {
+        "id": user.id,
+        "username": user.username,
+        "email": user.email,
+        "password_hash": user.password_hash,
+        "role": user.role,
+    }
+
+
+def _get_auth_user_by_username(username: str) -> dict | None:
+    if _db_auth_enabled():
+        with SessionLocal() as db:
+            row = db.query(User).filter(User.username == username).first()
+            if row:
+                return _user_to_dict(row)
+    return repo.get_user_by_username(username)
+
+
+def _get_auth_user_by_username_and_email(username: str, email: str) -> dict | None:
+    if _db_auth_enabled():
+        with SessionLocal() as db:
+            row = db.query(User).filter(User.username == username, User.email == email).first()
+            if row:
+                return _user_to_dict(row)
+    return repo.get_user_by_username_and_email(username, email)
+
+
+def _auth_user_exists(username: str) -> bool:
+    if _db_auth_enabled():
+        with SessionLocal() as db:
+            if db.query(User).filter(User.username == username).first():
+                return True
+    return repo.user_exists(username)
+
+
+def _auth_email_exists(email: str) -> bool:
+    if _db_auth_enabled():
+        with SessionLocal() as db:
+            if db.query(User).filter(User.email == email).first():
+                return True
+    return repo.email_exists(email)
+
+
+def _auth_create_user(username: str, email: str, password_hash: str, role: str = "user") -> dict:
+    created: dict | None = None
+    if _db_auth_enabled():
+        with SessionLocal() as db:
+            row = User(
+                username=username,
+                email=email,
+                password_hash=password_hash,
+                role=role,
+            )
+            db.add(row)
+            db.commit()
+            db.refresh(row)
+            created = _user_to_dict(row)
+
+    # Dual-write to JSON so current frontend/admin screens stay in sync.
+    repo.create_user(username=username, email=email, password_hash=password_hash, role=role)
+    return created or repo.get_user_by_username(username) or {}
+
+
+def _auth_update_password(username: str, new_hash: str) -> bool:
+    updated = False
+    if _db_auth_enabled():
+        with SessionLocal() as db:
+            row = db.query(User).filter(User.username == username).first()
+            if row:
+                row.password_hash = new_hash
+                db.commit()
+                updated = True
+    if repo.update_user_password(username, new_hash):
+        updated = True
+    return updated
+# ── Health ────────────────────────────────────────────────────────────────────
+@router.get("/health")
+def health() -> dict:
+    """
+    API kiểm tra trạng thái Backend (Health Check).
+    Frontend thường gọi API này đầu tiên để đảm bảo Backend đang chạy.
+    """
+    repo.bootstrap()
+    import logging
+    logging.getLogger(__name__).info(
+        "[API] /health -- nguon du lieu: %s", data_source._short_summary()
+    )
+    return {"status": "ok", "data_source": data_source.current_source()}
+
+
+# ── Database Status & Setup ──────────────────────────────────────────────────
+import logging as _logging
+_db_log = _logging.getLogger("db_management")
+
+@router.get("/db/status")
+def db_status() -> dict:
+    """Trả về trạng thái kết nối database chi tiết."""
+    _db_log.info("[API] /db/status — đang kiểm tra kết nối...")
+    source = data_source.current_source()
+    is_connected = data_source.is_db_connected()
+
+    result = {
+        "source": source,
+        "is_db_connected": is_connected,
+        "db_server": data_source._db_server or "",
+        "db_name": data_source._db_name or "",
+        "db_url": data_source._db_url or "",
+        "json_synced": data_source.is_json_synced(),
+        "json_counts": data_source._json_counts or {},
+    }
+
+    if is_connected:
+        _db_log.info("[API] /db/status — ✅ DB đã kết nối: %s (%s/%s)",
+                     source, result["db_server"], result["db_name"])
+    else:
+        _db_log.warning("[API] /db/status — ❌ Chưa kết nối DB, đang dùng: %s", source)
+
+    return result
+
+
+@router.post("/admin/db/setup")
+def admin_db_setup(
+    user: Annotated[AuthUser, Depends(require_admin)],
+) -> dict:
+    """
+    Chạy setup_database.py để tự động bật SQL Server, tạo DB, tạo bảng.
+    Chỉ Admin mới được phép gọi. Trả về log kết quả.
+    """
+    import subprocess
+    import io
+
+    _db_log.info("[API] /admin/db/setup — Admin '%s' yêu cầu chạy setup database", user.username)
+    project_root = _routes_project_root()
+    setup_script = project_root / "setup_database.py"
+
+    if not setup_script.exists():
+        _db_log.error("[API] /admin/db/setup — Không tìm thấy setup_database.py")
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail=f"Không tìm thấy file setup_database.py tại {project_root}",
+        )
+
+    try:
+        _db_log.info("[API] /admin/db/setup — Đang chạy setup_database.py...")
+        result = subprocess.run(
+            [sys.executable, str(setup_script)],
+            capture_output=True,
+            text=True,
+            timeout=120,
+            cwd=str(project_root),
+        )
+        stdout = result.stdout or ""
+        stderr = result.stderr or ""
+        exit_code = result.returncode
+
+        # Log kết quả ra console backend
+        for line in stdout.splitlines():
+            clean = line.strip()
+            if clean:
+                _db_log.info("[DB-SETUP] %s", clean)
+        if stderr.strip():
+            _db_log.warning("[DB-SETUP STDERR] %s", stderr.strip()[:500])
+
+        if exit_code == 0:
+            _db_log.info("[API] /admin/db/setup — ✔ Hoàn tất thành công (exit=0)")
+        else:
+            _db_log.warning("[API] /admin/db/setup — ⚠ Hoàn tất với exit=%d", exit_code)
+
+        return {
+            "success": exit_code == 0,
+            "exit_code": exit_code,
+            "log": stdout,
+            "error": stderr if exit_code != 0 else "",
+        }
+    except subprocess.TimeoutExpired:
+        _db_log.error("[API] /admin/db/setup — Timeout (>120s)")
+        raise HTTPException(
+            status_code=status.HTTP_504_GATEWAY_TIMEOUT,
+            detail="Setup script chạy quá 120 giây. Hãy kiểm tra SQL Server thủ công.",
+        )
+    except Exception as e:
+        _db_log.exception("[API] /admin/db/setup — Lỗi: %s", e)
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Lỗi khi chạy setup: {e}",
+        )
+
+
+# ── Auth ──────────────────────────────────────────────────────────────────────
+@router.post("/auth/login", response_model=LoginResponse)
+def login(payload: LoginRequest) -> LoginResponse:
+    repo.bootstrap()
+    user = _get_auth_user_by_username(payload.username)
+    if not user or not user.get("password_hash"):
+        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Sai tài khoản / mật khẩu")
+    if not verify_password(payload.password, user["password_hash"]):
+        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Sai tài khoản / mật khẩu")
+    token = create_token()
+    expiry = datetime.utcnow() + timedelta(hours=_TOKEN_TTL_HOURS)
+    TOKENS[token] = (AuthUser(id=user["id"], username=user["username"], role=user["role"]), expiry)
+    return LoginResponse(token=token, username=user["username"], role=user["role"])
+@router.post("/auth/register")
+def register(payload: RegisterRequest) -> dict:
+    repo.bootstrap()
+    if _auth_user_exists(payload.username):
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Tên đăng nhập đã tồn tại")
+    if _auth_email_exists(payload.email):
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Email da duoc su dung")
+    _auth_create_user(
+        username=payload.username,
+        email=payload.email,
+        password_hash=hash_password(payload.password),
+        role="user",
+    )
+    return {"message": "Dang ky thanh cong"}
+@router.post("/auth/forgot-password")
+def forgot_password(payload: ForgotPasswordRequest) -> dict:
+    repo.bootstrap()
+    user = _get_auth_user_by_username_and_email(payload.username, payload.email)
+    if not user:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Không tìm thấy tài khoản với tên đăng nhập và email này",
+        )
+    otp = f"{secrets.randbelow(1_000_000):06d}"
+    _OTP_STORE[payload.username] = {
+        "otp": otp,
+        "email": payload.email,
+        "expires": datetime.utcnow() + timedelta(minutes=10),
+    }
+    try:
+        _send_reset_email(payload.email, payload.username, otp)
+        return {"message": "Da gui ma OTP den email cua ban."}
+    except Exception as exc:
+        print(f"[DEMO MODE] Bỏ qua lỗi gửi email. Mã OTP của {payload.username} là: {otp}")
+        return {"message": f"Hệ thống đang ở chế độ Demo (SMTP chưa cấu hình). Mã OTP của bạn là: {otp}"}
+@router.post("/auth/reset-password")
+def reset_password(payload: ResetPasswordRequest) -> dict:
+    entry = _OTP_STORE.get(payload.username)
+    if not entry:
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Không có yêu cầu đặt lại mật khẩu")
+    if entry["otp"] != payload.otp:
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Ma OTP khong chinh xac")
+    if datetime.utcnow() > entry["expires"]:
+        _OTP_STORE.pop(payload.username, None)
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Ma OTP da het han")
+    if not _auth_update_password(payload.username, hash_password(payload.new_password)):
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Nguoi dung khong ton tai")
+    _OTP_STORE.pop(payload.username, None)
+    return {"message": "Đặt lại mật khẩu thành công"}
+# ── Predict ───────────────────────────────────────────────────────────────────
+@router.post("/predict/drug-to-disease", response_model=PredictResponse)
+def predict_drug_to_disease(
+    payload: PredictRequest,
+    user: Annotated[AuthUser, Depends(get_current_user)],
+) -> PredictResponse:
+    """
+    API cốt lõi: Dự đoán các loại Bệnh mà 1 loại Thuốc có thể chữa trị.
+    - Gọi logic AI (predict_diseases_by_drug_name).
+    - Lưu lại lịch sử dự đoán vào Database (repo.add_prediction).
+    """
+    input_name, preds = predict_diseases_by_drug_name(
+        drug_name=payload.name,
+        dataset=payload.dataset,
+        top_k=payload.top_k,
+        threshold=payload.threshold,
+    )
+    for item in preds[:50]:
+        repo.add_prediction(
+            user_id=user.id, direction="drug_to_disease",
+            input_name=input_name, target_id=item["id"], target_name=item["name"],
+            score=float(item["score"]), known=bool(item.get("known", False)),
+        )
+    return PredictResponse(
+        direction="drug_to_disease",
+        input_name=input_name,
+        results=[PredictionItem(**x) for x in preds],
+    )
+@router.post("/predict/disease-to-drug", response_model=PredictResponse)
+def predict_disease_to_drug(
+    payload: PredictRequest,
+    user: Annotated[AuthUser, Depends(get_current_user)],
+) -> PredictResponse:
+    """
+    API cốt lõi: Dự đoán các loại Thuốc có khả năng chữa trị 1 loại Bệnh.
+    Sử dụng AI logic (predict_drugs_by_disease_name) và ghi lại lịch sử.
+    """
+    input_name, preds = predict_drugs_by_disease_name(
+        disease_name=payload.name,
+        dataset=payload.dataset,
+        top_k=payload.top_k,
+        threshold=payload.threshold,
+    )
+    for item in preds[:50]:
+        repo.add_prediction(
+            user_id=user.id, direction="disease_to_drug",
+            input_name=input_name, target_id=item["id"], target_name=item["name"],
+            score=float(item["score"]), known=bool(item.get("known", False)),
+        )
+    return PredictResponse(
+        direction="disease_to_drug",
+        input_name=input_name,
+        results=[PredictionItem(**x) for x in preds],
+    )
+# ── History ───────────────────────────────────────────────────────────────────
+@router.get("/history", response_model=list[HistoryItem])
+def history(user: Annotated[AuthUser, Depends(get_current_user)]) -> list[HistoryItem]:
+    rows = repo.list_predictions_by_user(user.id, limit=200)
+    result = []
+    for r in rows:
+        try:
+            ts = datetime.fromisoformat(r["timestamp"]) if r.get("timestamp") else datetime.utcnow()
+        except (ValueError, TypeError):
+            ts = datetime.utcnow()
+        result.append(HistoryItem(
+            id=r.get("id", 0), direction=r["direction"], input_name=r["input_name"],
+            target_id=r["target_id"], target_name=r["target_name"],
+            score=r["score"], known=bool(r.get("known", False)), timestamp=ts,
+        ))
+    return result
+# ── Data lists ────────────────────────────────────────────────────────────────
+_VALID_DATASETS = {"B-dataset", "C-dataset", "F-dataset"}
+@router.get("/drugs")
+def list_drugs(
+    user: AuthUser = Depends(get_current_user),
+    limit: int = 200,
+    offset: int = 0,
+    dataset: Optional[str] = None,
+) -> list[dict]:
+    _ = user
+    if dataset and dataset not in _VALID_DATASETS:
+        raise HTTPException(status_code=400, detail="Dataset khong hop le")
+    try:
+        return repo.list_drugs(limit=limit, offset=offset, dataset=dataset)
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e)) from e
+@router.get("/diseases")
+def list_diseases(
+    user: AuthUser = Depends(get_current_user),
+    limit: int = 200,
+    offset: int = 0,
+    dataset: Optional[str] = None,
+) -> list[dict]:
+    _ = user
+    if dataset and dataset not in _VALID_DATASETS:
+        raise HTTPException(status_code=400, detail="Dataset khong hop le")
+    try:
+        return repo.list_diseases(limit=limit, offset=offset, dataset=dataset)
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e)) from e
+@router.get("/proteins")
+def list_proteins(
+    user: AuthUser = Depends(get_current_user),
+    limit: int = 200,
+    offset: int = 0,
+) -> list[dict]:
+    _ = user
+    return repo.list_proteins(limit=limit, offset=offset)
+@router.get("/proteins/{protein_id}/links")
+def get_protein_links(
+    protein_id: int,
+    user: AuthUser = Depends(get_current_user),
+) -> dict:
+    _ = user
+    result = repo.get_protein_links(protein_id)
+    if result is None:
+        raise HTTPException(status_code=404, detail="Protein khong ton tai")
+    return result
+@router.get("/links")
+def list_links(
+    user: AuthUser = Depends(get_current_user),
+    limit: int = 500,
+    offset: int = 0,
+) -> list[dict]:
+    _ = user
+    return repo.list_links(limit=limit, offset=offset)
+# ── User stats ────────────────────────────────────────────────────────────────
+@router.get("/stats")
+def user_stats(user: AuthUser = Depends(get_current_user)) -> dict:
+    _ = user
+    return repo.user_stats()
+
+# ── Admin: Quản lý người dùng ─────────────────────────────────────────────────
+@router.get("/admin/users", response_model=list[UserItem])
+def admin_list_users(
+    _: Annotated[AuthUser, Depends(require_admin)],
+    limit: int = 200,
+    offset: int = 0,
+) -> list[UserItem]:
+    """Lấy danh sách tất cả user (chỉ Admin)."""
+    rows = repo.list_users(limit=limit, offset=offset)
+    return [
+        UserItem(
+            id=r["id"],
+            username=r["username"],
+            email=r.get("email"),
+            role=r.get("role", "user"),
+        )
+        for r in rows
+    ]
+
+
+@router.patch("/admin/users/{user_id}/role")
+def admin_update_user_role(
+    user_id: int,
+    payload: UserRoleUpdate,
+    _: Annotated[AuthUser, Depends(require_admin)],
+) -> dict:
+    """Cập nhật role cho một user (chỉ Admin). Không thể gán role 'guest'."""
+    success = repo.update_user_role(user_id=user_id, new_role=payload.role)
+    if not success:
+        raise HTTPException(status_code=404, detail=f"Khong tim thay user id={user_id}")
+    return {"ok": True, "user_id": user_id, "new_role": payload.role}
+
+# ── Admin stats ───────────────────────────────────────────────────────────────
+@router.get("/admin/stats", response_model=StatsResponse)
+def admin_stats(_: Annotated[AuthUser, Depends(require_admin)]) -> StatsResponse:
+    s = repo.admin_stats()
+    return StatsResponse(**s)
+
+@router.get("/admin/stats/predictions-by-direction")
+def admin_prediction_direction_stats(
+    _: Annotated[AuthUser, Depends(require_admin)],
+) -> list[dict]:
+    return repo.prediction_direction_stats()
+@router.get("/admin/predictions")
+def admin_list_predictions(
+    _: Annotated[AuthUser, Depends(require_admin)],
+    limit: int = 200,
+    offset: int = 0,
+) -> list[dict]:
+    rows = repo.list_all_predictions(limit=limit, offset=offset)
+    result = []
+    for r in rows:
+        ts = r.get("timestamp", "")
+        result.append({
+            "id":          r.get("id", 0),
+            "user_id":     r.get("user_id"),
+            "direction":   r.get("direction"),
+            "input_name":  r.get("input_name"),
+            "target_id":   r.get("target_id"),
+            "target_name": r.get("target_name"),
+            "score":       r.get("score"),
+            "timestamp":   ts,
+        })
+    return result
+# ── Admin CRUD ────────────────────────────────────────────────────────────────
+@router.post("/admin/drugs")
+def admin_create_drug(payload: DrugIn, _: Annotated[AuthUser, Depends(require_admin)]) -> dict:
+    repo.upsert_drug(payload.id, payload.name, payload.external_id, payload.smiles)
+    return {"ok": True}
+@router.post("/admin/diseases")
+def admin_create_disease(payload: DiseaseIn, _: Annotated[AuthUser, Depends(require_admin)]) -> dict:
+    repo.upsert_disease(payload.id, payload.name)
+    return {"ok": True}
+@router.delete("/admin/drugs/{drug_id}")
+def admin_delete_drug(drug_id: int, _: Annotated[AuthUser, Depends(require_admin)]) -> dict:
+    repo.delete_drug(drug_id)
+    return {"ok": True}
+@router.delete("/admin/diseases/{disease_id}")
+def admin_delete_disease(disease_id: int, _: Annotated[AuthUser, Depends(require_admin)]) -> dict:
+    repo.delete_disease(disease_id)
+    return {"ok": True}
+@router.post("/admin/links")
+def admin_create_link(payload: LinkIn, _: Annotated[AuthUser, Depends(require_admin)]) -> dict:
+    repo.create_link(payload.drug_id, payload.disease_id)
+    return {"ok": True}
+@router.delete("/admin/links/{drug_id}/{disease_id}")
+def admin_delete_link(
+    drug_id: int,
+    disease_id: int,
+    _: Annotated[AuthUser, Depends(require_admin)],
+) -> dict:
+    repo.delete_link(drug_id, disease_id)
+    return {"ok": True}
+# ── Admin dataset seed ────────────────────────────────────────────────────────
+@router.post("/admin/dataset/seed")
+def admin_seed_dataset(
+    payload: SeedDatasetRequest,
+    _: Annotated[AuthUser, Depends(require_admin)],
+) -> dict:
+    """Tai dataset tu CSV goc -> ghi vao JSON store."""
+    import pandas as _pd
+    from ..ai.inference_service import (
+        load_disease_table, load_drug_table, load_links, load_protein_table,
+    )
+    from data.json_store import store as _store
+    dataset = payload.dataset
+    if dataset not in _VALID_DATASETS:
+        raise HTTPException(status_code=400, detail="Dataset khong hop le")
+    _DS_DRUG  = {"B-dataset": _store.thuoc_b, "C-dataset": _store.thuoc_c, "F-dataset": _store.thuoc_f}
+    _DS_DIS   = {"B-dataset": _store.benh_b,  "C-dataset": _store.benh_c,  "F-dataset": _store.benh_f}
+    _DS_PROT  = {"B-dataset": _store.protein_b, "C-dataset": _store.protein_c, "F-dataset": _store.protein_f}
+    _DS_LINK  = {"B-dataset": _store.lien_ket_b, "C-dataset": _store.lien_ket_c, "F-dataset": _store.lien_ket_f}
+    drugs_df    = load_drug_table(dataset)
+    diseases_df = load_disease_table(dataset)
+    proteins_df = load_protein_table(dataset)
+    links_df    = load_links(dataset)
+    drug_records = []
+    for _, row in drugs_df.iterrows():
+        smiles = str(row["smiles"]) if "smiles" in drugs_df.columns and _pd.notna(row.get("smiles")) else None
+        ext_id = str(row["id"]) if "id" in drugs_df.columns else None
+        drug_records.append({"local_id": int(row["drug_id"]), "name": str(row["name"]),
+                              "external_id": ext_id, "smiles": smiles})
+    _DS_DRUG[dataset].replace_all(drug_records)
+    dis_records = [{"local_id": int(r["disease_id"]), "name": str(r["name"])}
+                   for _, r in diseases_df.iterrows()]
+    _DS_DIS[dataset].replace_all(dis_records)
+    prot_records = [{"local_id": int(r["protein_id"]), "accession": str(r["accession"])}
+                    for _, r in proteins_df.iterrows()]
+    _DS_PROT[dataset].replace_all(prot_records)
+    link_records = [{"drug_local_id": int(r["drug"]), "disease_local_id": int(r["disease"])}
+                    for _, r in links_df.iterrows()]
+    _DS_LINK[dataset].replace_all(link_records)
+    return {
+        "message":  f"Da cap nhat dataset {dataset} vao JSON thanh cong",
+        "dataset":  dataset,
+        "drugs":    len(drug_records),
+        "diseases": len(dis_records),
+        "proteins": len(prot_records),
+        "links":    len(link_records),
+    }
+@router.get("/admin/dataset/{dataset}/preview")
+def admin_dataset_preview(
+    dataset: str,
+    _: Annotated[AuthUser, Depends(require_admin)],
+) -> dict:
+    if dataset not in _VALID_DATASETS:
+        raise HTTPException(status_code=400, detail="Dataset khong hop le")
+    try:
+        return repo.dataset_preview(dataset)
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e)) from e
+# ── Model metrics ─────────────────────────────────────────────────────────────
+_METRICS_FILENAME = "kfold_metrics.json"
+_DATASET_NAMES = ["B-dataset", "C-dataset", "F-dataset"]
+def _find_metrics_files(weights_root: Path) -> Dict[str, Path]:
+    found: Dict[str, Path] = {}
+    for ds in _DATASET_NAMES:
+        p = weights_root / ds / _METRICS_FILENAME
+        if p.exists():
+            found[ds] = p
+    flat = weights_root / _METRICS_FILENAME
+    if flat.exists() and not found:
+        found["default"] = flat
+    return found
+def _extract_metrics(data: dict) -> dict:
+    if "metrics" in data and isinstance(data["metrics"], dict):
+        first_val = next(iter(data["metrics"].values()), None)
+        if isinstance(first_val, dict) and "mean" in first_val:
+            return data["metrics"]
+    flat: dict = data.get("mean", data)
+    return {k: {"mean": v, "std": None} for k, v in flat.items() if isinstance(v, float)}
+@router.get("/model/metrics")
+def model_metrics(
+    dataset: Optional[str] = None,
+    user: AuthUser = Depends(get_current_user),
+) -> dict:
+    _ = user
+    weights_root = _routes_project_root() / "weights"
+    available = _find_metrics_files(weights_root)
+    if not available:
+        raise HTTPException(status_code=404, detail=f"Khong tim thay '{_METRICS_FILENAME}'")
+    if dataset:
+        if dataset not in available:
+            raise HTTPException(status_code=404, detail=f"Khong tim thay metrics cho '{dataset}'")
+        data = json.loads(available[dataset].read_text(encoding="utf-8"))
+        return {"dataset": dataset, "path": str(available[dataset]), "metrics": _extract_metrics(data)}
+    result: dict = {"datasets": {}}
+    for ds, path in available.items():
+        try:
+            data = json.loads(path.read_text(encoding="utf-8"))
+            result["datasets"][ds] = {"path": str(path), "metrics": _extract_metrics(data)}
+        except Exception:
+            result["datasets"][ds] = {"error": "Khong doc duoc file"}
+    return result
+
+import tempfile
+from ..ai.inference_service import evaluate_custom_model, inspect_model_pth
+
+@router.post("/model/inspect")
+async def inspect_model(
+    file: UploadFile = File(...),
+    user: AuthUser = Depends(require_researcher),
+) -> dict:
+    if not file.filename.endswith(".pth"):
+        raise HTTPException(status_code=400, detail="Chi ho tro file .pth")
+    try:
+        with tempfile.NamedTemporaryFile(delete=False, suffix=".pth") as tmp:
+            content = await file.read()
+            tmp.write(content)
+            tmp_path = Path(tmp.name)
+            
+        info = inspect_model_pth(tmp_path)
+        
+        try:
+            os.unlink(tmp_path)
+        except:
+            pass
+            
+        return info
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+@router.post("/model/evaluate")
+async def evaluate_model(
+    file: UploadFile = File(...),
+    dataset: str = Form("B-dataset"),
+    user: AuthUser = Depends(require_researcher),
+) -> dict:
+    """Evaluate a custom .pth model on the chosen dataset."""
+    if not file.filename.endswith(".pth"):
+        raise HTTPException(status_code=400, detail="Chi ho tro file .pth")
+    if dataset not in _VALID_DATASETS:
+        raise HTTPException(status_code=400, detail="Dataset khong hop le")
+        
+    try:
+        # Save to temp file
+        with tempfile.NamedTemporaryFile(delete=False, suffix=".pth") as tmp:
+            content = await file.read()
+            tmp.write(content)
+            tmp_path = Path(tmp.name)
+            
+        # Evaluate
+        metrics = evaluate_custom_model(tmp_path, dataset)
+        
+        # Cleanup
+        try:
+            os.unlink(tmp_path)
+        except:
+            pass
+            
+        return {
+            "filename": file.filename,
+            "dataset": dataset,
+            "metrics": metrics
+        }
+    except Exception as e:
+        import traceback
+        traceback.print_exc()
+        raise HTTPException(status_code=500, detail=str(e))
+@router.post("/model/compare")
+def model_compare(payload: ModelCompareRequest, user: AuthUser = Depends(get_current_user)) -> dict:
+    _ = user
+    given = Path(payload.folder_path)
+    if given.is_file() and given.suffix.lower() == ".json":
+        metrics_file: Path | None = given
+    else:
+        candidates = [given / _METRICS_FILENAME, given / "weights" / _METRICS_FILENAME]
+        for ds in _DATASET_NAMES:
+            candidates += [given / ds / _METRICS_FILENAME, given / "weights" / ds / _METRICS_FILENAME]
+        metrics_file = next((p for p in candidates if p.exists()), None)
+    if metrics_file is None:
+        raise HTTPException(status_code=404, detail=f"Khong tim thay '{_METRICS_FILENAME}' trong '{given}'")
+    try:
+        data = json.loads(metrics_file.read_text(encoding="utf-8"))
+        return {"path": str(metrics_file), "metrics": _extract_metrics(data)}
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=f"Loi doc file: {exc}") from exc
+# ── Admin recalculate metrics ─────────────────────────────────────────────────
+@router.post("/admin/model/recalculate")
+def admin_recalculate_metrics(
+    payload: AdminRecalcRequest,
+    user: AuthUser = Depends(get_current_user),
+) -> dict:
+    _ = user
+    dataset = payload.dataset
+    if dataset not in _DATASET_NAMES:
+        raise HTTPException(status_code=400, detail=f"Dataset khong hop le. Chon: {_DATASET_NAMES}")
+    weights_root = _routes_project_root() / "weights"
+    metrics_path = weights_root / dataset / _METRICS_FILENAME
+    if not metrics_path.exists():
+        raise HTTPException(status_code=404, detail=f"Khong tim thay '{metrics_path}'")
+    try:
+        data = json.loads(metrics_path.read_text(encoding="utf-8"))
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=f"Loi doc file: {exc}") from exc
+    folds: list = data.get("folds", [])
+    metric_keys = ["AUC", "AUPR", "Accuracy", "Precision", "Recall", "F1", "MCC"]
+    def _aggregate(fold_list: list) -> Dict[str, dict]:
+        result: Dict[str, dict] = {}
+        for k in metric_keys:
+            vals = [float(f[k]) for f in fold_list if k in f]
+            if not vals:
+                continue
+            mean_val = sum(vals) / len(vals)
+            variance = sum((x - mean_val) ** 2 for x in vals) / max(len(vals) - 1, 1)
+            result[k] = {"mean": round(mean_val, 6), "std": round(math.sqrt(variance), 6)}
+        return result
+    if folds:
+        new_metrics = _aggregate(folds)
+        data["metrics"] = new_metrics
+        data["mean"] = {k: v["mean"] for k, v in new_metrics.items()}
+        data["std"]  = {k: v["std"]  for k, v in new_metrics.items()}
+        metrics_path.write_text(json.dumps(data, indent=2, ensure_ascii=False), encoding="utf-8")
+        return {
+            "message": f"Tinh lai thanh cong tu {len(folds)} folds (dataset: {dataset}).",
+            "dataset": dataset, "metrics": new_metrics, "source": "folds",
+        }
+    pth_dir   = weights_root / dataset
+    pth_files = sorted(pth_dir.glob("best_fold_*.pth"))
+    if not pth_files:
+        raise HTTPException(
+            status_code=404,
+            detail=(
+                f"Khong tim thay .pth trong '{pth_dir}' va 'folds' trong JSON rong. "
+                "Vui long train lai de tao du lieu folds."
+            ),
+        )
+    try:
+        import numpy as np
+        import torch
+        from sklearn.model_selection import StratifiedKFold
+        from ..ai.huan_luyen import (
+            CauHinh, can_chinh_hang, dat_seed, doc_lien_ket, doc_ma_tran,
+            giai_ma_diem, tao_canh_am, tao_do_thi, tinh_chi_so,
+        )
+        from ..ai.mo_hinh_ai import FuzzyGCN
+        cau_hinh = CauHinh(ten_dataset=dataset)
+        dat_seed(cau_hinh.seed)
+        project_root  = _routes_project_root()
+        duong_dataset = project_root / "dataset" / dataset
+        canh_duong = doc_lien_ket(duong_dataset / cau_hinh.tep_lien_ket)
+        max_thuoc  = int(canh_duong[:, 0].max()) + 1
+        max_benh   = int(canh_duong[:, 1].max()) + 1
+        thuoc = can_chinh_hang(doc_ma_tran(duong_dataset / cau_hinh.tep_thuoc), max_thuoc, "Thuoc")
+        benh  = can_chinh_hang(doc_ma_tran(duong_dataset / cau_hinh.tep_benh),  max_benh,  "Benh")
+        so_thuoc, so_benh = thuoc.shape[0], benh.shape[0]
+        hop_le     = ((canh_duong[:, 0] >= 0) & (canh_duong[:, 0] < so_thuoc)
+                      & (canh_duong[:, 1] >= 0) & (canh_duong[:, 1] < so_benh))
+        canh_duong = canh_duong[hop_le]
+        tap_duong  = set(zip(canh_duong[:, 0].tolist(), canh_duong[:, 1].tolist()))
+        so_am      = max(1, int(len(canh_duong) * cau_hinh.ti_le_am))
+        canh_am    = tao_canh_am(so_thuoc, so_benh, tap_duong, so_am)
+        canh_tat_ca = np.vstack([canh_duong, canh_am])
+        nhan_tat_ca = np.hstack([np.ones(len(canh_duong), dtype=np.int64),
+                                  np.zeros(len(canh_am), dtype=np.int64)])
+        graph_data  = tao_do_thi(thuoc, benh, canh_duong)
+        skf    = StratifiedKFold(n_splits=len(pth_files), shuffle=True, random_state=cau_hinh.seed)
+        device = torch.device("cpu")
+        fold_metrics: list = []
+        for fold_id, (_, test_idx) in enumerate(skf.split(canh_tat_ca, nhan_tat_ca), start=1):
+            pth_path = pth_dir / f"best_fold_{fold_id}.pth"
+            if not pth_path.exists():
+                continue
+            state = torch.load(pth_path, map_location=device, weights_only=True)
+            _kich_an = int(state["ma_hoa_thuoc.weight"].shape[0])
+            _last_bias = sorted(
+                [k for k in state if k.startswith("cac_lop_gcn.") and k.endswith(".bias")],
+                key=lambda k: int(k.split(".")[1]),
+            )[-1]
+            _kich_ra = int(state[_last_bias].shape[0])
+            _so_lop  = len({k.split(".")[1] for k in state if k.startswith("cac_lop_gcn.")})
+            mo_hinh = FuzzyGCN(
+                so_chieu_thuoc=thuoc.shape[1], so_chieu_benh=benh.shape[1],
+                so_chieu_an=_kich_an, so_chieu_ra=_kich_ra, so_lop_gcn=_so_lop,
+                duong_dan_trong_so=str(pth_path),
+            ).to(device)
+            mo_hinh.load_state_dict(state)
+            mo_hinh.eval()
+            g = graph_data.to(device)
+            with torch.no_grad():
+                cap_test = torch.from_numpy(canh_tat_ca[test_idx].T).long().to(device)
+                emb  = mo_hinh(g)
+                diem = torch.sigmoid(giai_ma_diem(emb, cap_test, so_thuoc)).cpu().numpy()
+            fold_metrics.append(tinh_chi_so(nhan_tat_ca[test_idx], diem))
+        if not fold_metrics:
+            raise HTTPException(status_code=500, detail="Khong eval duoc fold nao.")
+        new_metrics = _aggregate(fold_metrics)
+        data.update({"metrics": new_metrics,
+                     "mean":   {k: v["mean"] for k, v in new_metrics.items()},
+                     "std":    {k: v["std"]  for k, v in new_metrics.items()},
+                     "folds":  fold_metrics})
+        metrics_path.write_text(json.dumps(data, indent=2, ensure_ascii=False), encoding="utf-8")
+        return {
+            "message": f"Tinh lai thanh cong tu {len(fold_metrics)} .pth files (dataset: {dataset}).",
+            "dataset": dataset, "metrics": new_metrics, "source": "pth_eval",
+        }
+    except HTTPException:
+        raise
+    except Exception as exc:
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Loi tinh lai metrics: {exc}",
+        ) from exc
